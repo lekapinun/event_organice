@@ -149,6 +149,29 @@ app.get('/AllEvent',function(req,res)
 	// }
 });
 
+app.get('/event/:id',function(req,res)
+{
+        pool.getConnection(function(err,connection)
+        {
+        // if (err) {
+        //   res.json({"code" : 100, "status" : "Error in connection database"});
+        //   return;
+        // }   
+     	var event_id = req.params.id;
+        connection.query("select * from event where event_id =" + event_id,function(err,rows)
+        {
+            connection.release();
+            if(!err) 
+            {
+                res.json(rows);
+            }           
+        });
 
+        // connection.on('error', function(err) {      
+        //       res.json({"code" : 100, "status" : "Error in connection database"});
+        //       return;     
+        // });
+  });
+});
 
 app.listen(5555);
