@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">	
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+			        $.get("http://localhost:5555/member",{},function(data){  
+	            
+			            $("#member_id").html(data[0].MEMBER_ID);
+			            $("#national_id").html(data[0].NATIONAL_ID);
+			            $("#username").html(data[0].USERNAME);
+			            $("#password").html(data[0].PASSWORD);
+			            $("#fname").html(data[0].FNAME);
+			            $("#lname").html(data[0].LNAME);
+			            $("#sex").html(data[0].SEX);
+			            $("#birthday").html(data[0].BIRTH_DAY);
+			            $("#address").html(data[0].ADDRESS);
+			            $("#e_mail").html(data[0].E_MAIL);
+			            $("#phone").html(data[0].PHONE);
+			            $("#credit_card").html(data[0].CREDIT_CARD);
+			            $("#url_img").html(data[0].URL_IMG);
+			        });
+		});
+		</script>		
+</head>
+<body>
+	<div id="member_id"></div>
+	<div id="national_id"></div>
+	<div id="username"></div>
+	<div id="password"></div>
+	<div id="fname"></div>
+	<div id="lname"></div>
+	<div id="sex"></div>
+	<div id="birthday"></div>
+	<div id="address"></div>
+	<div id="e_mail"></div>
+	<div id="phone"></div>
+	<div id="credit_card"></div>
+	<div id="url_img"></div>
+</body>
+</html>
