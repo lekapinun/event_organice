@@ -129,11 +129,11 @@ app.get('/AllEvent',function(req,res)
 {
 	sess = req.session;
 	//console.log(sess);
-	if(sess.member_id) 
-	{
+	// if(sess.member_id) 
+	// {
 	    pool.getConnection(function(err,connection)
         {
-	        connection.query("select * from event " ,function(err,rows)
+	        connection.query("select * from `event` where `TIME_START_E` > NOW() ORDER BY `TIME_START_E`" ,function(err,rows)
 	        {
 	            connection.release();
 	            if(!err) 
@@ -142,11 +142,13 @@ app.get('/AllEvent',function(req,res)
 	            }           
 	        });
   		});
-	}
-	else 
-	{
-	    res.render('login.html');
-	}
+	// }
+	// else 
+	// {
+	//     res.render('login.html');
+	// }
 });
+
+
 
 app.listen(5555);
