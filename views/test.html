@@ -7,24 +7,23 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
-			        $.get("http://localhost:5555/member",{},function(data){  
-			        	console.log(data[0].ADDRESS);
+			        $.get("http://localhost:5555/AllEvent",{},function(data){  
+			        	console.log(data);
 			        	//$("#box").html(data);   
 			            // var test = data;
 			            // // foreach(var item in test){
 			            // 	$("#box").html(data[0].address);
 			            // // }
-			            for (var i = data.length - 1; i >= 0; i--) {
+			            // for (var i = data.length - 1; i >= 0; i--) {
 			            	
-			            	$("#box").html(data[i].ADDRESS);
-			            }
+			            // 	$("#box").html(data[i].ADDRESS);
+			            // }
 			        });
 
 		});
 		</script>
 </head>
 <body>
-<div id="box"></div>
 	TESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST
 	TESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST
 	TESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST

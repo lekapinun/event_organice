@@ -43,18 +43,11 @@ app.post('/login',function(req,res)
 	{ 
         connection.query("SELECT * FROM `MEMBER` WHERE `E-MAIL` = '" + form.email + "' AND `PASSWORD` = '" + form.pass + "'",function(err,rows){
             connection.release();
-            // console.log(form.email);
-            // console.log(form.pass);
-            // console.log(req.body);
-            //console.log(rows);
-            //console.log(rows.length);
             if(rows.length != 0) 
             {
                 sess = req.session;
   				sess.email=req.body.email;
   				sess.member_id = rows[0].MEMBER_ID;
-  				//console.log(rows[0].MEMBER_ID);
-  				//console.log(sess);
   				res.end('done');
             }
             else
@@ -110,13 +103,37 @@ app.get('/logout',function(req,res)
 app.get('/member',function(req,res)
 {
 	sess = req.session;
-	//console.log(sess);
+	//console.log(sess.member_id);
 	if(sess.member_id) 
 	{
 	    pool.getConnection(function(err,connection)
         {
 	     	var mem_id = req.params.id;
 	        connection.query("select * from `member` where `member_id` = '" + sess.member_id + "'",function(err,rows)
+	        {
+	            connection.release();
+	            if(!err) 
+	            {
+	                res.json(rows);
+	            }           
+	        });
+  		});
+	}
+	else 
+	{
+	    res.render('login.html');
+	}
+});
+
+app.get('/AllEvent',function(req,res)
+{
+	sess = req.session;
+	//console.log(sess);
+	if(sess.member_id) 
+	{
+	    pool.getConnection(function(err,connection)
+        {
+	        connection.query("select * from event " ,function(err,rows)
 	        {
 	            connection.release();
 	            if(!err) 
