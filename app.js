@@ -42,7 +42,7 @@ app.post('/login',function(req,res)
 	pool.getConnection(function(err,connection)
 	{ 
         connection.query("SELECT * FROM `MEMBER` WHERE `E-MAIL` = '" + form.email + "' AND `PASSWORD` = '" + form.pass + "'",function(err,rows){
-            connection.release();
+            //connection.release();
             if(rows.length != 0) 
             {
                 sess = req.session;
@@ -135,7 +135,7 @@ app.get('/AllEvent',function(req,res)
         {
 	        connection.query("select * from `event` where `TIME_START_E` > NOW() ORDER BY `TIME_START_E`" ,function(err,rows)
 	        {
-	            connection.release();
+	            //connection.release();
 	            if(!err) 
 	            {
 	                res.json(rows);
@@ -160,7 +160,7 @@ app.get('/event/:id',function(req,res)
      	var event_id = req.params.id;
         connection.query("select * from event where event_id =" + event_id,function(err,rows)
         {
-            connection.release();
+            //connection.release();
             if(!err) 
             {
                 res.json(rows);
@@ -172,6 +172,82 @@ app.get('/event/:id',function(req,res)
         //       return;     
         // });
   });
+});
+
+app.post('/create_event',function(req,res)
+{
+    sess = req.session;
+    var form = req.body;
+    console.log(form);
+	//if(sess.member_id) 
+	//{
+	pool.getConnection(function(err,connection)
+	{
+		if(form.event_name == '')
+	    {
+	    	res.end('error : en');
+	        return
+	    }  		
+	    connection.query("select * from `event` where `event_name` = '" + form.event_name + "'",function(err,rows)
+	    {
+	        //connection.release();
+	        if(!err) 
+	        {
+	            if(rows.length > 0)
+	            {
+	            	res.end('error : sn');
+	            	return
+	            }
+	        }           
+	    });
+	    if(form.start_date == '' || form.start_time == '' || form.end_time == '' || form.end_date == '')
+	    {
+	    	res.end('error : t');
+	        return
+	    }
+	    var datetime = form.start_date.toString() + "T" + form.start_time.toString() + ":00.000Z";
+ 		var start_time = new Date(datetime).getTime();
+ 		datetime = form.end_date.toString() + "T" + form.end_time.toString() + ":00.000Z";
+ 		var end_time = new Date(datetime).getTime();
+ 		var today = new Date().getTime();
+	    if(today > start_time)
+	    {
+	        res.end('error : t>');
+	        return;
+	    }
+	    else if(end_time <= start_time)
+	    {
+	        res.end('error : t<');
+	        return;
+	    }
+	    if(form.min_age < 0 || form.max_age < 0  || form.min_age > 120 || form.max_age > 120 || form.ticket_price < 0 || form.max_seat < 0)
+	    {
+	    	res.end('error : xxxx');
+	        return;
+	    }
+	    console.log('<3');
+
+	    connection.query("INSERT INTO `event` (`OWNER_ID`, `EVENT_NAME`, `CATEGORY`, `DETAIL`, `PICTURE`, `VIDEO`, `TIME_START_E`, `TIME_END_E`, `CONDITION_MIN_AGE`, `CONDITION_MAX_AGE`, `CONDITION_SEX`, `SOLD_OUT_SEAT`, `MAX_SEAT`, `PRICE`, `LOCATION_lat`, `LOCATION_lng`) VALUES" + "('" + sess.member_id + "','" + form.event_name + "','" +  form.category + "','" + form.detail + "','" + form.pic + "','" + form.video + "','" + start_time + "','" + end_time +  "','" + form.min_age + "','" + form.max_age + "','" + form.gender + "','" + '0' +  "','" + form.max_seat + "','" + form.ticket_price + "','" + form.location_lat + "','" + form.location_lng + "')",function(err)
+	    {
+	        //connection.release();
+	        if(!err) 
+	        {
+	        	console.log('dsfagrr');
+	            var temp = [form.event_name,'done'];
+	            res.json('temp');
+	        }
+	        else
+	        {
+	        	console.log('insert error');
+	        	res.end('error');
+	        }           
+	    });
+    }); 
+    // }
+	// else 
+	// {
+	//     res.render('login.html');
+	// }  
 });
 
 app.listen(5555);
