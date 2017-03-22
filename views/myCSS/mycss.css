@@ -517,18 +517,18 @@ textarea {
 	.detail-1{
 		font-family: Quicksand-Regular;
 		font-size: 2.5rem;
-		text-align-last: left;
+		text-align-last: center;
 
 		position: relative;
 		top: 50px;
 	}
 	.detail-2{
 		font-family: Quicksand-Regular;
-		font-size: 2.3rem;
+		font-size: 1.5rem;
 		text-align-last: left;
 
 		position: relative;
-		top: -20px;
+		top: -60px;
 		left: 100px;
 	}
 	.img-share-white{
@@ -544,6 +544,11 @@ textarea {
 		right: 0px;
 
 		width: 70%;
+	}
+	.img-ourteam{
+		position: relative;
+		top: -10px;
+		left: 120px;
 	}
 
 }
