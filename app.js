@@ -31,7 +31,7 @@ app.get('/',function(req,res)
 	}
 	else 
 	{
-	    res.render('login.html');
+	    res.render('./home/home.html');
 	}
 });
 
