@@ -8,7 +8,7 @@
 		<script type="text/javascript">
 			$(document).ready(function(){
 			        $.get("http://localhost:5555/member",{},function(data){  
-	            
+	            		//console.log(Session['member_id']);
 			            $("#member_id").html(data[0].MEMBER_ID);
 			            $("#national_id").html(data[0].NATIONAL_ID);
 			            $("#username").html(data[0].USERNAME);

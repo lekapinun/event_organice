@@ -31,12 +31,13 @@ app.get('/',function(req,res)
 	}
 	else 
 	{
-	    res.render('login.html');
+	    res.render('./home/home.html');
 	}
 });
 
 app.post('/login',function(req,res)
 {
+	console.log('login');
 	var form = req.body;
 	// console.log("SELECT * FROM `MEMBER` WHERE `E-MAIL` = '" + form.email + "' AND `PASSWORD` = '" + form.pass + "'");
 	pool.getConnection(function(err,connection)
@@ -92,7 +93,6 @@ app.get('/logout',function(req,res)
 //                 res.json(rows);
 //             }           
 //         });
-
 //         // connection.on('error', function(err) {      
 //         //       res.json({"code" : 100, "status" : "Error in connection database"});
 //         //       return;     
@@ -125,15 +125,57 @@ app.get('/member',function(req,res)
 	}
 });
 
+// app.get('/AllEvent/:test',function(req,res)
+// {
+// 	sess = req.session;
+// 	// console.log(sess);
+// 	// if(sess.member_id) 
+// 	// {
+// 	    pool.getConnection(function(err,connection)
+//         {
+//         	if(req.params.test == 1)
+//         	{
+// 				var datetime  = new Date().getTime();
+// 		        connection.query("select * from `event` where `TIME_START_E` > "  + datetime + " ORDER BY `TIME_START_E`" ,function(err,rows)
+// 		        {
+// 		            //connection.release();
+// 		            if(!err) 
+// 		            {
+// 		                res.json(rows);
+// 		            }           
+// 		        });
+//         	}
+//         	else
+//         	{
+//         		var datetime  = new Date().getTime();
+// 		        connection.query("select * from `event` where `TIME_START_E` < "  + datetime + " ORDER BY `TIME_START_E`" ,function(err,rows)
+// 		        {
+// 		            //connection.release();
+// 		            if(!err) 
+// 		            {
+// 		                res.json(rows);
+// 		            }           
+// 		        });
+//         	}
+        	
+//   		});
+// 	// }
+// 	// else 
+// 	// {
+// 	//     res.render('login.html');
+// 	// }
+// });
+
 app.get('/AllEvent',function(req,res)
 {
 	sess = req.session;
-	//console.log(sess);
+	// console.log(sess);
 	// if(sess.member_id) 
 	// {
 	    pool.getConnection(function(err,connection)
         {
-	        connection.query("select * from `event` where `TIME_START_E` > NOW() ORDER BY `TIME_START_E`" ,function(err,rows)
+        	var datetime  = new Date().getTime();
+	        connection.query("select * from `event` where `TIME_START_E` > "  + datetime + " ORDER BY `TIME_START_E`" ,function(err,rows)
 	        {
 	            //connection.release();
 	            if(!err) 
@@ -172,6 +214,30 @@ app.get('/event/:id',function(req,res)
         //       return;     
         // });
   });
+});
+
+app.post('/check_event',function(req,res)
+{
+	sess = req.session;
+    var form = req.body;
+    pool.getConnection(function(err,connection)
+	{
+		connection.query("select * from `event` where `event_name` = '" + form.event_name + "'",function(err,rows)
+	    {
+	        //connection.release();
+	        if(!err) 
+	        {
+	            if(rows.length > 0)
+	            {
+	            	res.end('error');
+	            }
+	            else
+	            {
+	            	res.end('done');
+	            }
+	        }           
+	    });
+    }); 
 });
 
 app.post('/create_event',function(req,res)
@@ -249,5 +315,56 @@ app.post('/create_event',function(req,res)
 	//     res.render('login.html');
 	// }  
 });
+
+app.get('/DeleteEvent/:id_event/:pass',function(req,res)
+{
+	sess = req.session;
+	//var form = req.body;
+	// if(sess.member_id) 
+	// {
+	    pool.getConnection(function(err,connection)
+        {
+        	var datetime  = new Date().getTime();
+	        connection.query("select * from `member` where `member_id` = '" + sess.member_id + "'",function(err,rows)
+	        {
+	        	console.log(rows);
+	        	console.log(rows.length);
+	            if( rows.length > 0) 
+	            {
+	            	console.log(rows[0].PASSWORD);
+	        		console.log(req.params.pass);
+	                if( rows[0].PASSWORD != req.params.pass)
+	                {
+	                	res.end('error');
+	                }
+	                else
+	                {
+	                	connection.query("DELETE FROM `event` WHERE `EVENT_ID` = " + req.params.id_event,function(err,rows)
+				        {
+				            if(rows.affectedRows != 0) 
+				            {
+				                res.end('done');
+				            }   
+				            else
+				            {
+				            	res.end('error');
+				            }        
+				        });
+	                }
+	            }   
+	            else
+	            {
+	            	res.end('error');
+	            }        
+	        });
+  		});
+	// }
+	// else 
+	// {
+	//     res.render('login.html');
+	// }
+});
+
+
 
 app.listen(5555);

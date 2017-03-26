@@ -1,0 +1,572 @@
+.eventorganice{
+
+	height: 700px;
+	background-color:#F5F6FA;
+	
+}
+.ourteammember{
+
+	height: 700px;
+	background-color:#F5F6FA;
+	
+}
+.registerwithus{
+	height: 750px;
+	background-color:  #B5EBF7; 
+	color: #48515A;
+	
+}
+.contact{
+	height: 650px ;
+	background-color:  #48515A;
+	
+}
+.event{
+	font-family: Londrina_outline ;
+	text-align:center; 
+	font-size: 8rem; 
+	font-style: italic;
+
+	position: relative;
+	top:5rem;
+	right: 2rem;
+
+	}
+.organice{
+	font-family: Londrina_outline ;
+	text-align:center; 
+	font-size: 11rem; 
+	font-style: italic;
+
+	position: relative;
+	top: -3rem;
+
+}
+.poem{
+	font-family: Quicksand-Regular; 
+	text-align:center; 
+	font-size: 2rem; 
+
+	position: relative;
+	top: -4rem;
+}
+
+.btn-warning-signup {
+	font-family: Quicksand-Regular;  
+ 	color: #48515A;
+ 	background-color: #FBD451;
+ 	border-color: #FBD451;
+ 
+}
+
+.btn-warning-signup:focus, .btn-warning-signup.focus {
+  -webkit-box-shadow: 0 0 0 2px rgba(251, 212, 81, 0.5);
+          box-shadow: 0 0 0 2px rgba(251, 212, 81, 0.5);
+}
+.btn-warning-signin {
+	font-family: Quicksand-Regular;  
+ 	color: #fff;
+ 	background-color: #48515A;
+ 	border-color: #48515A;
+
+ 	margin-left: 1rem;
+ 	
+}
+.btn-warning-signin-modal {
+	font-family: Quicksand-Regular;  
+ 	color: #fff;
+ 	background-color: #48515A;
+ 	border-color: #48515A;
+ 	padding-left: 10%;
+ 	padding-right: 10%;
+
+ 	margin-left: 1rem;
+ 	
+}
+.btn-warning-signin:focus, .btn-warning-signin.focus {
+  -webkit-box-shadow: 0 0 0 2px rgba(72, 81,90, 0.5);
+          box-shadow: 0 0 0 2px rgba(72, 81,90, 0.5);
+}
+
+.block-btn-mind{
+	text-align:center;
+	position: relative;
+	top: -2rem;
+}
+.register{
+	font-family: Quicksand-bold; 
+	text-align:center;
+	font-size: 3rem;
+	color: #48515A; 
+
+	position: relative;
+	top: 2.5rem; 
+	margin-bottom:  1rem;
+	
+}
+.sillyline-register{
+	 position:relative;
+	 top:1rem;
+	 margin-left: 42%;
+	 border-bottom: 0.5rem solid #FC575E ; 
+	 border-radius: 0.8rem;
+}
+.sillyline-ourteam{
+	 position:relative;
+	 top:1rem;
+	 margin-left: 35%;
+	 border-bottom: 0.5rem solid #FBD451 ; 
+	 border-radius: 0.8rem;
+}
+.build-join-1{
+	
+	font-family: Quicksand-Regular;
+	font-size: 2rem;
+	text-align-last: center;
+
+	position: relative;
+	top: 100px;
+}
+.detail-1{
+	font-family: Quicksand-bold;
+	font-size: 2rem;
+	text-align-last: left;
+
+	position: relative;
+	top: 30px;
+}
+
+.build-join-2{
+	
+	font-family: Quicksand-Regular;
+	font-size: 1.5rem;
+	text-align-last: center;
+
+	position: relative;
+	top: 200px;
+}
+
+.detail-2{
+	font-family: Quicksand-Regular;
+	font-size: 1.3rem;
+	text-align-last: left;
+
+	position: relative;
+	top: -70px;
+	left: 100px;
+}
+
+.img-share-white{
+	position: relative;
+	top: -100px;
+	left: 100px;
+	width: 80%;
+}
+.img-share-red{
+	position: relative;
+	top: -350px;
+	left: 100px;
+	right: 50px;
+
+	width: 80%;
+}
+
+
+textarea {
+  resize: none !important;
+}
+
+.btn-warning-submit {
+	font-family: Quicksand-Regular;  
+ 	color: #fff;
+ 	background-color:  #FC575E;
+ 	border-color:  #FC575E;
+ 
+}
+
+.btn-warning-submit:focus, .btn-warning-submit.focus {
+  -webkit-box-shadow: 0 0 0 2px rgba(252,87,94, 0.5);
+          box-shadow: 0 0 0 2px rgba(252,87,94, 0.5);
+}
+
+.text-contact{
+	font-family: Quicksand-bold;
+	font-size: 3rem;
+	text-align-last: center;
+
+	color: #F5F6FA;
+
+	position:relative;top:70px;
+	margin-bottom: 60px ;
+}
+.contact-center{
+	margin-left: 27%;
+}
+.contact-form{
+	position: relative;
+	top: 30px;
+}
+.ourteam{
+	font-family: Londrina_outline ;
+	text-align:center; 
+	font-size: 8rem;
+
+	position: relative;
+	margin-top:30px;
+
+}
+.text-nickname{
+	font-family:Quicksand-bold ;
+	font-size: 2rem;
+	text-align-last: center;
+}
+.text-name{
+	font-family:Quicksand-bold ;
+	font-size: 0.6rem;
+	text-align-last: center;
+}
+.text-nickname-1{
+	font-family:Quicksand-bold ;
+	font-size: 2rem;
+	text-align-last: center;
+}
+.text-name-1{
+	font-family:Quicksand-bold ;
+	font-size: 0.6rem;
+	text-align-last: center;
+}
+.img-ourteam{
+	position: relative;
+	top: -50px;
+	left: 120px;
+}
+
+/*modal css*/
+.modal-title {
+  text-align: center;
+  font-family: Quicksand-bold;
+  font-size: 2rem;
+  color: #48515A; 
+
+  position: relative;
+  top: 1px;
+}
+
+
+.modal-content{
+	background-color: #FBD451 !important;
+}
+
+.close{
+		padding-left: 100px;
+		font-size: 3rem !important;
+		color: #FC575E !important;
+		text-shadow: 0 1px 0 #FC575E !important;
+		opacity: 1 !important;
+
+		position: relative;
+		right: 10px;
+}
+
+.form-group-signin {
+	margin-bottom: 1rem;
+  font-family: Quicksand-Regular;
+  font-size: 2rem;
+}
+
+.form-control {
+
+  border: 0px solid rgba(0, 0, 0, 0) !important;
+  border-radius: 0.4rem !important;
+  
+}
+
+
+
+
+
+@media (max-width: 700px) { 
+	.eventorganice{
+
+		height: 600px;
+	}
+	.registerwithus{
+		height: 400px;
+		
+	}
+	.registerwithus{
+	height: 400px;
+	}
+	.ourteammember{
+
+		height: 1800px;
+		background-color:#F5F6FA;
+	}
+	.event{
+		font-size: 4rem; 
+		right: 1rem;
+	}
+	.organice{
+		font-size: 5rem; 
+		top: 1rem;
+	} 
+	.poem{
+		font-size: 0.8rem; 
+		top: 0.8rem;
+	}
+
+	.btn-warning-signup {
+		position: relative;
+		top: 1rem;
+	 	
+	}
+	.btn-warning-signin {
+	 	position: relative;
+	 	margin-left: 0rem;
+		top: 1rem;
+	}
+	.block-btn-mind{
+		top: 1rem;
+	}
+	.register{
+		
+		font-family: Quicksand-bold; 
+		text-align:center;
+		font-size: 1.5rem; 
+
+		position: relative;
+		top: 2rem; 
+	}
+	.sillyline-register{
+		 position:relative;
+		 top:1rem;
+		 width: 50%;
+		 margin-left: 25%;
+		 border-bottom: 0.3rem solid #FC575E ; 
+		 border-radius: 0.8rem;
+	}
+	.sillyline-ourteam{
+		 position:relative;
+		 top:1rem;
+		 width: 50%;
+		 margin-left: 25%;
+		 border-bottom: 0.3rem solid #FBD451 ; 
+		 border-radius: 0.8rem;
+	}
+	.text-build-1{
+		font-family: Quicksand-Regular;
+		font-size: 0.7rem;
+		text-align-last: center;
+
+		position: relative;
+		top: 10px;
+		left: 24vw;
+
+	}
+	.detail-1{
+		font-family: Quicksand-Regular;
+		font-size: 0.8rem;
+		text-align-last: center;
+
+		position: relative;
+		top: 20px;
+	}
+	
+	.detail-2{
+		font-family: Quicksand-Regular;
+		font-size: 0.7rem;
+		text-align-last: center;
+		left: 0px;
+		position: relative;
+		top: -60px;
+	}
+	.img-share-white{
+		position: relative;
+		top: -40px;
+		left: 0px;
+		width: 100%;
+	}
+	.img-share-red{
+		position: relative;
+		top: -110px;
+		right: 0px;
+		left: 0px;
+
+		width: 100%;
+	}
+	.img-moblie{
+
+		position: absolute;
+		text-align-last: center;
+		top: -55px;
+		left: 25vw;
+		bottom: 10px;
+
+		width: 100%;
+	}
+	.contact-center{
+		margin-left: 0%;
+	}
+	.contact-form-surname{
+		position: relative;
+		top: 5px;
+	}
+	.ourteam{
+		font-size: 3rem; 
+	}
+	.text-nickname{
+		font-family:Quicksand-bold ;
+		font-size: 1rem;
+		text-align-last: center;
+
+		position: relative;
+		top: -10px;
+	}
+	.text-nickname-1{
+		font-family:Quicksand-bold ;
+		font-size: 1rem;
+		text-align-last: center;
+
+		position: relative;
+		top: -50px;
+	}
+	.text-name{
+		font-family:Quicksand-bold ;
+		font-size: 0.6rem;
+		text-align-last: center;
+
+		position: relative;
+		top: -10px;
+	}
+	.text-name-1{
+		font-family:Quicksand-bold ;
+		font-size: 0.6rem;
+		text-align-last: center;
+
+		position: relative;
+		top: -50px;
+	}
+	.img-ourteam{
+		position: relative;
+		left: -90px;
+	
+	}
+	.img-ourteam-each-1{
+		position: relative;
+		
+		left: 180px;
+		width: 50%;
+	}
+	.img-ourteam-each{
+		position: relative;
+		top: -10px;
+		left: 180px;
+		width: 50%;
+	}
+
+}
+
+
+
+@media (min-width: 1400px) {
+	.eventorganice{
+
+		height: 1000px;
+	}
+	.registerwithus{
+		height: 850px;
+	}
+	.event{
+		font-size: 10rem; 
+		top:10rem;
+		right: 2rem;
+
+	}
+	.organice{
+		font-size: 13rem; 
+		top: -1rem;
+
+
+	}
+	.poem{
+		font-size: 2.8rem;
+		top: -2rem;
+	}
+
+	.btn-warning-signup {
+		position: relative;
+		top: 1rem;
+	 
+	}
+	.btn-warning-signin {
+		margin-left: 3rem;
+		position: relative;
+		top: 1rem;
+		right: 1rem;
+ 	
+	}
+	.block-btn-mind{
+		top: 1rem;
+
+	}
+	.btn-lg, .btn-group-lg > .btn {
+	  padding: 0.75rem 2.5rem;
+	  font-size: 2.25rem;
+	  border-radius: 0.3rem;
+	}
+	.detail-1{
+		font-family: Quicksand-Regular;
+		font-size: 2.5rem;
+		text-align-last: left;
+
+		position: relative;
+		top: 50px;
+	}
+	.detail-2{
+		font-family: Quicksand-Regular;
+		font-size: 2.3rem;
+		text-align-last: left;
+
+		position: relative;
+		top: -20px;
+		left: 100px;
+	}
+	.img-share-white{
+		position: relative;
+		top: -200px;
+		left: 200px;
+		width: 70%;
+	}
+		.img-share-red{
+		position: relative;
+		top: -530px;
+		left: 110px;
+		right: 0px;
+
+		width: 70%;
+	}
+
+}
+
+
+
+@font-face{
+	font-family: 'Londrina_outline';
+	src:url('../font/Londrina_outline/LondrinaOutline-Regular.ttf') format('truetype');
+
+}
+@font-face{
+	font-family: 'Nunito';
+	src:url('../font/Nunito/Nunito-Regular.ttf') format('truetype');
+}
+
+@font-face{
+	font-family: 'Quicksand-Regular';
+	src:url('../font/Quicksand/Quicksand-Regular.ttf') format('truetype');
+}
+
+@font-face{
+	font-family: 'Quicksand-Bold';
+	src:url('../font/Quicksand/Quicksand-Bold.ttf') format('truetype');
+}
+
