@@ -252,6 +252,7 @@ app.post('/create_event',function(req,res)
 		if(form.event_name == '')
 	    {
 	    	res.end('error : en');
+	    	console.log('error : en')
 	        return
 	    }  		
 	    connection.query("select * from `event` where `event_name` = '" + form.event_name + "'",function(err,rows)
@@ -262,6 +263,7 @@ app.post('/create_event',function(req,res)
 	            if(rows.length > 0)
 	            {
 	            	res.end('error : sn');
+	            	console.log('error : sn');
 	            	return
 	            }
 	        }           
@@ -269,6 +271,7 @@ app.post('/create_event',function(req,res)
 	    if(form.start_date == '' || form.start_time == '' || form.end_time == '' || form.end_date == '')
 	    {
 	    	res.end('error : t');
+	    	console.log('error : t');
 	        return
 	    }
 	    var datetime = form.start_date.toString() + "T" + form.start_time.toString() + ":00.000Z";
@@ -279,16 +282,19 @@ app.post('/create_event',function(req,res)
 	    if(today > start_time)
 	    {
 	        res.end('error : t>');
+	        console.log('error : t>');
 	        return;
 	    }
 	    else if(end_time <= start_time)
 	    {
 	        res.end('error : t<');
+	        console.log('error : t<');
 	        return;
 	    }
 	    if(form.min_age < 0 || form.max_age < 0  || form.min_age > 120 || form.max_age > 120 || form.ticket_price < 0 || form.max_seat < 0)
 	    {
 	    	res.end('error : xxxx');
+	    	console.log('error : xxxx');
 	        return;
 	    }
 	    console.log('<3');
@@ -296,6 +302,7 @@ app.post('/create_event',function(req,res)
 	    connection.query("INSERT INTO `event` (`OWNER_ID`, `EVENT_NAME`, `CATEGORY`, `DETAIL`, `PICTURE`, `VIDEO`, `TIME_START_E`, `TIME_END_E`, `CONDITION_MIN_AGE`, `CONDITION_MAX_AGE`, `CONDITION_SEX`, `SOLD_OUT_SEAT`, `MAX_SEAT`, `PRICE`, `LOCATION_lat`, `LOCATION_lng`) VALUES" + "('" + sess.member_id + "','" + form.event_name + "','" +  form.category + "','" + form.detail + "','" + form.pic + "','" + form.video + "','" + start_time + "','" + end_time +  "','" + form.min_age + "','" + form.max_age + "','" + form.gender + "','" + '0' +  "','" + form.max_seat + "','" + form.ticket_price + "','" + form.location_lat + "','" + form.location_lng + "')",function(err)
 	    {
 	        //connection.release();
+	        console.log(err);
 	        if(!err) 
 	        {
 	        	console.log('dsfagrr');
