@@ -175,7 +175,7 @@ app.get('/AllEvent',function(req,res)
 	    pool.getConnection(function(err,connection)
         {
         	var datetime  = new Date().getTime();
-	        connection.query("select * from `event` where `TIME_START_E` > "  + datetime + " ORDER BY `TIME_START_E`" ,function(err,rows)
+	        connection.query("select * from `event` where `TIME_END_E` > "  + datetime + " ORDER BY `TIME_START_E`" ,function(err,rows)
 	        {
 	            //connection.release();
 	            if(!err) 
@@ -201,7 +201,7 @@ app.get('/AllEvent/:category',function(req,res)
         {
         	var datetime  = new Date().getTime();
         	var category = req.params.category;
-	        connection.query("select * from `event` where `TIME_START_E` > "  + datetime + " and `CATEGORY` = '" + category + " '" +" ORDER BY `TIME_START_E`" ,function(err,rows)
+	        connection.query("select * from `event` where `TIME_END_E` > "  + datetime + " and `CATEGORY` = '" + category + " '" +" ORDER BY `TIME_START_E`" ,function(err,rows)
 	        {
 	            //connection.release();
 	            if(!err) 
