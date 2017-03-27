@@ -14,7 +14,13 @@ html, body {
     background-color: white;
     height: 100%;
     padding: 0px;
-    text-align: right;
+    text-align: center;
+}
+
+.main-list-menu li a:hover{
+    background-color: #FC575E;
+    color: white;
+    border-radius: 20px;
 }
 
 .main-pic-head{
@@ -52,6 +58,7 @@ html, body {
 .main-pic-name {
     text-align: center;
     margin-top: 15%;
+    font-size: 160%;padding-bottom: 15px;
 }
 
 .maincontent {
