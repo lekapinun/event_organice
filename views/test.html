@@ -7,28 +7,27 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
-			        $("#submit").click(function(){
-				        $.post("http://localhost:5555/AllEvent/1",{},function(data){  
-				        	$("#box").html(data); 
-				        });
-				    });
-			        $("#submit2").click(function(){
-				        $.post("http://localhost:5555/AllEvent/2",{},function(data){  
-				        	$("#box").html(data); 
-				        });
-				    });
-			    });
+			        $.get("http://localhost:5555/member",{},function(data){  
+			        	console.log(data[0].ADDRESS);
+			        	//$("#box").html(data);   
+			            // var test = data;
+			            // // foreach(var item in test){
+			            // 	$("#box").html(data[0].address);
+			            // // }
+			            for (var i = data.length - 1; i >= 0; i--) {
+			            	
+			            	$("#box").html(data[i].ADDRESS);
+			            }
+			        });
+
+		});
 		</script>
 </head>
 <body>
-<input type="button" value="submit" id="submit">
-<input type="button" value="submit2" id="submit2">
+<div id="box"></div>
 	TESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST
 	TESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST
 	TESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST
 	TESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST
-	<div id="box">
-		
-	</div>
 </body>
 </html>

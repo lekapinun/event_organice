@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Event Organize</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    
+  <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/tether.min.js"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <!--  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script type="text/javascript">
+      // Hacked by Ponlawat Weerapanpisit
+			$(document).ready(function(){
+			    var event_name,category,start_date,start_time,end_date,end_time,min_age, max_age,gender,max_seat,location_lat,location_lng,ticket_price,detail,pic,video;
+			    $("#submit").click(function(){
+			        event_name=$("#event_name").val();
+			        category=$("#category").val();
+			        start_date=$("#start_date").val();
+			        start_time=$("#start_time").val();
+			        end_date=$("#end_date").val();
+			        end_time=$("#end_time").val();
+			        min_age=$("#min_age").val();
+			        max_age=$("#max_age").val();
+
+              // gender = $("#gender-female").is(':checked');
+              if($("#gender-male").is(':checked') && !$("#gender-female").is(':checked'))
+              {
+                gender = 'Male';
+              }
+              else if($("#gender-female").is(':checked') && !$("#gender-male").is(':checked'))
+              {
+                gender = 'Female';
+              }
+              else if($("#gender-female").is(':checked') && $("#gender-male").is(':checked'))
+              {
+                gender = 'None';
+              }
+              else
+              {
+                gender = 'false';
+              }
+
+			        max_seat=$("#max_seat").val();
+			        location_lat=$("#location_lat").val();
+			        location_lng=$("#location_lng").val();
+			        detail=$("#detail").val();
+			        ticket_price=$("#ticket_price").val();
+			        pic=$("#pic").val();
+			        video=$("#video").val();
+			        $.post("http://localhost:5555/create_event",{event_name:event_name,category:category,start_date:start_date,start_time:start_time,end_date:end_date,end_time:end_time,min_age:min_age,max_age:max_age,gender:gender,max_seat:max_seat,location_lat:location_lat,location_lng:location_lng,ticket_price:ticket_price,detail:detail,pic:pic,video:video},function(data){  
+			        	console.log(data);
+			        	//$("#box").html(gender); 
+			        	//console.log(data);
+			        });
+			    });
+		});
+		</script>
+
+
+        <!--  Add Font-->
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        
+</head>
+    <body style="font-family: 'Nunito', sans-serif;">
+        <nav class=" navbar-inverse visible-xs">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
+              </button>
+              <a class="navbar-brand" href="#">Event Organize</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Friends</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+  
+        <div class="container">
+            <div class="row maincontent">
+                <div class="col-md-2 col-sm-3 hidden-xs main">
+                    <div class="main-pic">
+                        <div style="width:80%;margin:auto auto;"><div class="main-pic-head"></div></div>
+                        <div class="main-pic-name">Kim Tae-yeon</div>
+                    </div>
+                    <div class="main-list">
+                        <ul class="nav nav-pills nav-stacked main-list-menu">
+                            <li><a href="#section2">Home</a></li>
+                            <li><a href="#section3">Events</a></li>
+                            <li><a href="#section3">Friends</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-10 col-sm-9 detail" style="overflow:scroll;">
+                    <div>
+                        <div class="detail-signout">sign out</div>
+                        <br>
+                        <div class="container Create-main panel">
+                            <div class="Create-head">Create Event</div>
+                            <hr class="mt-3 mb-2">
+                            <form class="Create-detail">
+                              <div class="form-group">
+                                <label for="event_name">Event's name</label>
+                                <input type="text" class="form-control text-w" id="event_name" name="event_name" aria-describedby="emailHelp" placeholder="Enter evant name">
+                              </div>
+                                <div class="form-group">
+                                <label for="category">Category</label>
+                                <select class="form-control text-w" id="category" name="category">
+                                  <option class="text-b">Art</option>
+                                    <option class="text-b">Business</option>
+                                    <option class="text-b">Charity & Causes</option>
+                                    <option class="text-b">Community</option>
+                                    <option class="text-b">Education</option>
+                                    <option class="text-b">Fashion</option>
+                                    <option class="text-b">Film & Media</option>
+                                    <option class="text-b">Food & Drink</option>
+                                    <option class="text-b">LifeStyle</option>
+                                    <option class="text-b">Music</option>
+                                    <option class="text-b">Science & Technology</option>
+                                    <option class="text-b">Sport & Fitness</option>
+                                </select>
+                              </div>
+                                <div class="form-group">
+                                     <label for="exampleSelect1">Start Date</label>
+                                      <input type="date" class="form-control" id="start_date" name="start_date" style="color:white;">
+                                    <label for="exampleSelect1">Start Time</label>
+                                      <input type="time" class="form-control"  style="color:white;" id="start_time" name="start_time">
+                                    <label for="exampleSelect1">End Date</label>
+                                      <input type="date" class="form-control" id="end_date" name="end_date" style="color:white;">
+                                        <label for="exampleSelect1">End Time</label>
+                                      <input type="time" class="form-control"  style="color:white;" id="end_time" name="end_time">
+                                </div>
+
+                               
+                                <div class="form-group">
+                                <label>Ticket price</label>
+                                <input type="number" class="form-control text-w" id="ticket_price" name="ticket_price" placeholder="Enter price">
+                              </div>
+                                <div class="form-group">
+                                <label>Max Seat</label>
+                                <input type="number" class="form-control text-w" id="max_seat" name="max_seat" placeholder="Enter number of seat (max)">
+                              </div>
+                                <div class="form-group">
+                                <label>Add picture</label>
+                                <input type="url" class="form-control text-w" id="pic" name="pic" placeholder="Enter picture ( url )">
+                              </div>
+                                <div class="form-group">
+                                <label>Add video</label>
+                                <input type="url" class="form-control text-w" id="video" name="video" placeholder="Enter video ( url )">
+                              </div>
+                                <div class="form-group">
+                                <label>Detail</label>
+                                <input type="text" class="form-control text-w" id="detail" name="detail" placeholder="Enter details)">
+                              </div>
+                                <div class="form-group">
+                                <label>Location</label>
+                                    <div style="display:inline;"><button class="btnmap" type="button" id="btnmap" style="background-color:transparent;border-coloe:transparent;"><!-- <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> --></button></div>
+                                
+                                <!-- <input type="text" class="form-control text-w" id="location_lat" name="location_lat" placeholder="Enter Latitude">
+                                <input type="text" class="form-control text-w" id="location_lng" name="location_lag" placeholder="Enter Longtitude"> -->
+                                    
+                                <!-- Google map -->
+                                <!-- <div id="myGoogle" class="mapshow"> -->
+
+                                  <!-- Modal content -->
+                                  <div class="mapshow-content">
+                                      <!-- <div class="text-r">
+                                        <span class="map-close" id="btnclose"><i class="fa fa-times fa-2x" aria-hidden="true"></i></span>
+                                      </div> -->
+                                    
+                                      <div>
+                                            
+                                          <div>
+                                            <input id="pac-input" type="text" placeholder="Search Box" class="form-control input-sm" style="display:block;">
+                                          </div>
+                                      </div>
+                                        <div id="map"></div>
+                                        <div id="marker"></div>  
+                                    
+                                      
+                                      <!-- <div class="text-r">
+                                        <span class="map-close" id="btncloses"><button type="button" class="btn btn-danger">SUBMIT</button></span>
+                                      </div> -->
+                                  </div>
+
+                                <!-- </div> -->
+                              </div>
+                                <h2>Conditions</h2>
+                                <div class="form-group">
+                                <label>Min Age</label>
+                                <input type="number" class="form-control text-w" id="min_age" name="min_age" max="99" placeholder="Enter min age ( 1 - 99 )">
+                                <label>Max Age</label>
+                                <input type="number" class="form-control text-w" id="max_age" name="max_age" max="99" placeholder="Enter max age ( 1 - 99 )">
+                              </div>
+                                <fieldset class="form-group">
+                                    <label for="gender">Gender</label><br>
+                                         <div class="form-check" style="display : inline-block;margin-right : 20px;">
+                                            <label class="form-check-label">
+                                              <input type="checkbox" class="form-check-input" id="gender-male" name="gender-male">
+                                              Male
+                                            </label>
+                                          </div>
+                                        <div class="form-check" style="display: inline-block;">
+                                            <label class="form-check-label">
+                                              <input type="checkbox" class="form-check-input" id="gender-female" name="gender-female"> 
+                                              Female
+                                            </label>
+                                        </div>
+                                    
+                                 </fieldset>
+                                
+                              <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        
+        
+        
+        <script>
+            ////////////////////// pop google map//////////////////////////////////////
+            // Get the modal
+            var modal = document.getElementById('myGoogle');
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("btnmap");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("map-close")[0];
+
+            // When the user clicks on the button, open the modal 
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+            
+            $('#btncloses').click(function(){
+                modal.style.display = "none";
+            });
+                
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+                
+            }
+
+            ////////////////////// google map//////////////////////////////////////
+            
+      // This example adds a search box to a map, using the Google Place Autocomplete
+      // feature. People can enter geographical searches. The search box will return a
+      // pick list containing a mix of places and predicted search terms.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 18.78775, lng:98.99313},
+          zoom: 15,
+          mapTypeId: 'roadmap'
+        });
+
+        //var infoWindow = new google.maps.InfoWindow({map: map});
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            //var mar_pos = document.getElementById('pos')
+            //infoWindow.setPosition(pos);
+            //infoWindow.setContent('Location found.');
+            map.setCenter(pos);
+          }//, function() {
+            //handleLocationError(true, infoWindow, map.getCenter());
+          //}
+          );
+        } 
+        // else {
+        //   // Browser doesn't support Geolocation
+        //   handleLocationError(false, infoWindow, map.getCenter());
+        // }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        //infoWindow.setPosition(pos);
+        // infoWindow.setContent(browserHasGeolocation ?
+        //                       'Error: The Geolocation service failed.' :
+        //                       'Error: Your browser doesn\'t support geolocation.');
+      }
+
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('pac-input');
+        var searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener('bounds_changed', function() {
+          searchBox.setBounds(map.getBounds());
+        });
+
+        var markers = [];
+
+       
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+       searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces();
+
+          if (places.length == 0) {
+            return;
+          }
+
+          // Clear out the old markers.
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+
+          // For each place, get the icon, name and location.
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach(function(place) {
+            if (!place.geometry) {
+              console.log("Returned place contains no geometry");
+              return;
+            }
+            var icon = {
+              //url: place.icon,
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+            };
+
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+              map: map,
+              icon: icon,
+              title: place.name,
+              position: place.geometry.location
+            }));
+
+            document.getElementById("location_lat").value = place.geometry.location.lat();
+            document.getElementById("location_lng").value = place.geometry.location.lng();
+              
+
+            if (place.geometry.viewport) {
+              // Only geocodes have viewport.
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+          map.fitBounds(bounds);
+        });
+
+       map.addListener('click', function(event) {
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+          addMarker(event.latLng);
+        });
+
+       function addMarker(location) {
+       	//console.log(location.lat());
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map
+        });
+        markers.push(marker);
+        $('#location_lat').val(location.lat());
+		    $('#location_lng').val(location.lng());
+        // document.getElementById("mar_pos_lat").innerHTML = location.lat();
+        // document.getElementById("mar_pos_lng").innerHTML = location.lng();
+
+      }
+
+      }
+
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuyEycAxVaRvLY5CuQ84d3eFXU0PSf1Jg&libraries=places&callback=initMap"></script>
+            
+        </script>
+    </body>
+</html>
