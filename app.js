@@ -191,6 +191,32 @@ app.get('/AllEvent',function(req,res)
 	// }
 });
 
+app.get('/AllEvent/:category',function(req,res)
+{
+	sess = req.session;
+	// console.log(sess);
+	// if(sess.member_id) 
+	// {
+	    pool.getConnection(function(err,connection)
+        {
+        	var datetime  = new Date().getTime();
+        	var category = req.params.category;
+	        connection.query("select * from `event` where `TIME_START_E` > "  + datetime + " and `CATEGORY` = '" + category + " '" +" ORDER BY `TIME_START_E`" ,function(err,rows)
+	        {
+	            //connection.release();
+	            if(!err) 
+	            {
+	                res.json(rows);
+	            }           
+	        });
+  		});
+	// }
+	// else 
+	// {
+	//     res.render('login.html');
+	// }
+});
+
 app.get('/event/:id',function(req,res)
 {
         pool.getConnection(function(err,connection)

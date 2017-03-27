@@ -23,4 +23,24 @@ $(document).ready(function(){
             }
         });
     });
+    // new Vue({
+    //   el: '#app',
+    //   data: {
+    //     message: 'Hello Vue.js!'
+    //   },
+    //   computed: {
+    //     now: function () {
+    //       return Date.now()
+    //     }
+    //   },
+    // })
 });
+function changepage(page){
+  $.ajax({
+    url:page,
+    method:'GET',
+    success: function(data){
+      $("#center").html(data);
+    }
+  });
+}
