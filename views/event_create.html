@@ -28,6 +28,7 @@
     
     <!-- Custom JS -->
     <script type="text/javascript">
+      // Hacked by Ponlawat Weerapanpisit
 			$(document).ready(function(){
 			    var event_name,category,start_date,start_time,end_date,end_time,min_age, max_age,gender,max_seat,location_lat,location_lng,ticket_price,detail,pic,video;
 			    $("#submit").click(function(){
@@ -39,7 +40,25 @@
 			        end_time=$("#end_time").val();
 			        min_age=$("#min_age").val();
 			        max_age=$("#max_age").val();
-			        gender='test';//$("#gender").val();
+
+              // gender = $("#gender-female").is(':checked');
+              if($("#gender-male").is(':checked') && !$("#gender-female").is(':checked'))
+              {
+                gender = 'Male';
+              }
+              else if($("#gender-female").is(':checked') && !$("#gender-male").is(':checked'))
+              {
+                gender = 'Female';
+              }
+              else if($("#gender-female").is(':checked') && $("#gender-male").is(':checked'))
+              {
+                gender = 'None';
+              }
+              else
+              {
+                gender = 'false';
+              }
+
 			        max_seat=$("#max_seat").val();
 			        location_lat=$("#location_lat").val();
 			        location_lng=$("#location_lng").val();
@@ -49,16 +68,17 @@
 			        video=$("#video").val();
 			        $.post("http://localhost:5555/create_event",{event_name:event_name,category:category,start_date:start_date,start_time:start_time,end_date:end_date,end_time:end_time,min_age:min_age,max_age:max_age,gender:gender,max_seat:max_seat,location_lat:location_lat,location_lng:location_lng,ticket_price:ticket_price,detail:detail,pic:pic,video:video},function(data){  
 			        	console.log(data);
-			        	$("#box").html(gender); 
+			        	//$("#box").html(gender); 
 			        	//console.log(data);
 			        });
 			    });
 		});
 		</script>
 
-    
+
         <!--  Add Font-->
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        
 </head>
     <body style="font-family: 'Nunito', sans-serif;">
         <nav class=" navbar-inverse visible-xs">
