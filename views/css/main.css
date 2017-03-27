@@ -23,6 +23,7 @@ html, body {
     border-radius: 20px;
 }
 
+
 .main-pic-head{
 
     background-image: url("profile.jpg");
@@ -199,3 +200,18 @@ html, body {
 #pac-input:focus {
 		        border-color: #4d90fe;
 		      }
+
+
+.main-list-menu1 {
+    margin-top: 250px;
+    background-color: #FC575E;
+    height: 100%;
+    padding: 0px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.main-list-menu1:hover{
+    background-color: white;
+    color: black;
+}
