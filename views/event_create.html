@@ -156,13 +156,7 @@
                                       <input type="time" class="form-control"  style="color:white;" id="end_time" name="end_time">
                                 </div>
 
-                                <div class="form-group">
-                                <label>Min Age</label>
-                                <input type="number" class="form-control text-w" id="min_age" name="min_age" max="99" placeholder="Enter min age ( 1 - 99 )">
-                                <div class="form-group">
-                                <label>Max Age</label>
-                                <input type="number" class="form-control text-w" id="max_age" name="max_age" max="99" placeholder="Enter max age ( 1 - 99 )">
-                              </div>
+                               
                                 <div class="form-group">
                                 <label>Ticket price</label>
                                 <input type="number" class="form-control text-w" id="ticket_price" name="ticket_price" placeholder="Enter price">
@@ -185,19 +179,19 @@
                               </div>
                                 <div class="form-group">
                                 <label>Location</label>
-                                    <div style="display:inline;"><button class="btnmap" type="button" id="btnmap" style="background-color:transparent;border-coloe:transparent;"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i></button></div>
+                                    <div style="display:inline;"><button class="btnmap" type="button" id="btnmap" style="background-color:transparent;border-coloe:transparent;"><!-- <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> --></button></div>
                                 
-                                <input type="text" class="form-control text-w" id="location_lat" name="location_lat" placeholder="Enter Latitude">
-                                <input type="text" class="form-control text-w" id="location_lng" name="location_lag" placeholder="Enter Longtitude">
+                                <!-- <input type="text" class="form-control text-w" id="location_lat" name="location_lat" placeholder="Enter Latitude">
+                                <input type="text" class="form-control text-w" id="location_lng" name="location_lag" placeholder="Enter Longtitude"> -->
                                     
                                 <!-- Google map -->
-                                <div id="myGoogle" class="mapshow">
+                                <!-- <div id="myGoogle" class="mapshow"> -->
 
                                   <!-- Modal content -->
                                   <div class="mapshow-content">
-                                      <div class="text-r">
+                                      <!-- <div class="text-r">
                                         <span class="map-close" id="btnclose"><i class="fa fa-times fa-2x" aria-hidden="true"></i></span>
-                                      </div>
+                                      </div> -->
                                     
                                       <div>
                                             
@@ -209,17 +203,19 @@
                                         <div id="marker"></div>  
                                     
                                       
-                                      <div class="text-r">
+                                      <!-- <div class="text-r">
                                         <span class="map-close" id="btncloses"><button type="button" class="btn btn-danger">SUBMIT</button></span>
-                                      </div>
+                                      </div> -->
                                   </div>
 
-                                </div>
+                                <!-- </div> -->
                               </div>
                                 <h2>Conditions</h2>
                                 <div class="form-group">
                                 <label>Min Age</label>
                                 <input type="number" class="form-control text-w" id="min_age" name="min_age" max="99" placeholder="Enter min age ( 1 - 99 )">
+                                <label>Max Age</label>
+                                <input type="number" class="form-control text-w" id="max_age" name="max_age" max="99" placeholder="Enter max age ( 1 - 99 )">
                               </div>
                                 <fieldset class="form-group">
                                     <label for="gender">Gender</label><br>
