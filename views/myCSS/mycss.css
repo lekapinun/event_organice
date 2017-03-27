@@ -56,7 +56,16 @@
  	color: #48515A;
  	background-color: #FBD451;
  	border-color: #FBD451;
+ 	
  
+}
+
+.btn-warning-signup:hover {
+  	color: #48515A;
+ 	background-color: #fbc91e;
+ 	border-color: #fbc91e;
+ 	
+
 }
 
 .btn-warning-signup:focus, .btn-warning-signup.focus {
@@ -71,6 +80,13 @@
 
  	margin-left: 1rem;
  	
+}
+.btn-warning-signin:hover {
+  	color: #fff;
+ 	background-color: #2c3136;
+ 	border-color: #2c3136;
+ 	
+
 }
 .btn-warning-signin-modal {
 	font-family: Quicksand-Regular;  
@@ -281,6 +297,15 @@ textarea {
   
 }
 
+.nunito{
+	font-family: Nunito; 
+}
+.quicksand{
+	font-family: Quicksand-Regular;
+}
+.quicksand-bold{
+	font-family: Quicksand-bold;
+}
 
 
 
@@ -547,9 +572,9 @@ textarea {
 	}
 	.img-ourteam{
 		position: relative;
-		top: -10px;
+		top: -50px;
 		left: 120px;
-	}
+}
 
 }
 
