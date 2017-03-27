@@ -80,7 +80,7 @@
         
         <div class="container">
             <div class="row maincontent">
-                <div class="col-sm-3 hidden-xs main">
+                <div class="col-md-2 col-sm-3 hidden-xs main">
                     <div class="main-pic">
                         <div style="width:80%;margin:auto auto;"><div class="main-pic-head"></div></div>
                         <div class="main-pic-name">Kim Tae-yeon</div>
@@ -93,7 +93,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-sm-9 detail" style="overflow:scroll;">
+                <div class="col-md-10 col-sm-9 detail" style="overflow:scroll;">
                     <div>
                         <div class="detail-signout">sign out</div>
                         <br>
@@ -122,31 +122,14 @@
                                     <option class="text-b">Sport & Fitness</option>
                                 </select>
                               </div>
-                                <fieldset class="form-group">
-                                    <label for="gender">Gender</label><br>
-                                         <div class="form-check" style="display : inline-block;margin-right : 20px;">
-                                            <label class="form-check-label">
-                                              <input type="checkbox" class="form-check-input" id="gender-male" name="gender-male">
-                                              Male
-                                            </label>
-                                          </div>
-                                        <div class="form-check" style="display: inline-block;">
-                                            <label class="form-check-label">
-                                              <input type="checkbox" class="form-check-input" id="gender-female" name="gender-female"> 
-                                              Female
-                                            </label>
-                                        </div>
-                                    
-                                 </fieldset>  
+                                  
                                 <div class="form-group">
                                      <label for="exampleSelect1">Start Date</label>
                                       <input type="date" class="form-control" id="start_date" name="start_date" style="color:white;">
-                                        <label for="exampleSelect1">End Date</label>
-                                      <input type="date" class="form-control" id="end_date" name="end_date" style="color:white;">
-                                </div>
-                                <div class="form-group">
-                                     <label for="exampleSelect1">Start Time</label>
+                                    <label for="exampleSelect1">Start Time</label>
                                       <input type="time" class="form-control"  style="color:white;" id="start_time" name="start_time">
+                                    <label for="exampleSelect1">End Date</label>
+                                      <input type="date" class="form-control" id="end_date" name="end_date" style="color:white;">
                                         <label for="exampleSelect1">End Time</label>
                                       <input type="time" class="form-control"  style="color:white;" id="end_time" name="end_time">
                                 </div>
@@ -208,6 +191,27 @@
 
                                 </div>
                               </div>
+                                <h2>Conditions</h2>
+                                <div class="form-group">
+                                <label>Min Age</label>
+                                <input type="number" class="form-control text-w" id="min_age" name="min_age" max="99" placeholder="Enter min age ( 1 - 99 )">
+                              </div>
+                                <fieldset class="form-group">
+                                    <label for="gender">Gender</label><br>
+                                         <div class="form-check" style="display : inline-block;margin-right : 20px;">
+                                            <label class="form-check-label">
+                                              <input type="checkbox" class="form-check-input" id="gender-male" name="gender-male">
+                                              Male
+                                            </label>
+                                          </div>
+                                        <div class="form-check" style="display: inline-block;">
+                                            <label class="form-check-label">
+                                              <input type="checkbox" class="form-check-input" id="gender-female" name="gender-female"> 
+                                              Female
+                                            </label>
+                                        </div>
+                                    
+                                 </fieldset>
                                 
                               <button type="submit" class="btn btn-primary" id="submit">Submit</button>
                             </form>
