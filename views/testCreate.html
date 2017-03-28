@@ -188,9 +188,8 @@
 	</div>
 	<div>
 		<label for="video">Add video</label>
-  		<input type="text" id="video" name="video" value="">
+  		<input type="text" id="video" name="video">
 	</div>
-    <div id="mar_pos"></div>
 	<div>
 	<input type="button" value="Submit" id="submit">
 	</div>
@@ -293,9 +292,7 @@
               position: place.geometry.location
             }));
 
-            document.getElementById("location_lat").value = place.geometry.location.lat();
-            document.getElementById("location_lng").value = place.geometry.location.lng();
-              
+            document.getElementById("mar_pos").innerHTML = place.geometry.location;
 
             if (place.geometry.viewport) {
               // Only geocodes have viewport.

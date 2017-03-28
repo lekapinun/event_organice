@@ -22,16 +22,16 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 var sess;
 
-app.get('/',function(req,res)
+app.get('/check',function(req,res)
 {
 	sess = req.session;
 	if(sess.email) 
 	{
-	    res.render('Hello.html');
+	    res.end('done');
 	}
 	else 
 	{
-	    res.render('./home/home.html');
+	    res.end('error');
 	}
 });
 
@@ -72,6 +72,7 @@ app.get('/logout',function(req,res)
 	  else 
 	  {
 	    res.redirect('/');
+	    //$window.location.href = '#!/index';
 	  }
 	});
 });

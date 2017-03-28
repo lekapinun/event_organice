@@ -21,37 +21,25 @@
 	<div class="col-sm-11 col-md-10 col-lg-10 offset-lg-1 offset-md-1 textarea-detail-event">
 		<div class="card-deck">
 			<div class="row">
-				<div class="col-sm-11 col-md-4 col-lg-4 eventList-card-box">
-					<div class="card eventList-card">
-					    <img class="card-img-top" src="pic/dog.jpg" alt="Card image cap">
-					    <div class="card-block">
-					      <h4 class="card-title">Card title</h4>
-					      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-					      <p class="card-text"><small class="text-muted">23/04/2017 - 24/04/2017</small></p>
-					    </div>
-					</div>
-				</div>
-				<div class="col-sm-11 col-md-4 col-lg-4 eventList-card-box">
-					<div class="card eventList-card">
-					    <img class="card-img-top" src="pic/dog.jpg" alt="Card image cap">
-					    <div class="card-block">
-					      <h4 class="card-title">Card title</h4>
-					      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-					      <p class="card-text"><small class="text-muted">23/04/2017 - 24/04/2017</small></p>
-					    </div>
-					</div>
-				</div>
-				<div class="col-sm-11 col-md-4 col-lg-4 eventList-card-box">
-					<div class="card eventList-card">
-					    <img class="card-img-top" src="pic/dog.jpg" alt="Card image cap">
-					    <div class="card-block">
-					      <h4 class="card-title">Card title</h4>
-					      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-					      <p class="card-text"><small class="text-muted">23/04/2017 - 24/04/2017</small></p>
-					    </div>
-					</div>
+				<div class="col-sm-11 col-md-4 col-lg-4 eventList-card-box" ng-repeat="event in events">
+					<a href="#!/detail/{{event.EVENT_ID}}">
+						<div class="card eventList-card">
+					    	<img class="card-img-top" src={{event.PICTURE}} alt="Card image cap">
+					    	<div class="card-block">
+					      		<h4 class="card-title"> {{event.EVENT_NAME}}</h4>
+					      		<p class="card-text"> {{event.DETAIL}}</p>
+					      		<p class="card-text"><small class="text-muted">{{event.TIME_START_E | date:'medium'}} - {{event.TIME_END_E | date:'medium'}} </small></p>
+					    	</div>
+						</div>
+					</a>
 				</div>
 			</div>	
 		</div>
 	</div>
+</div>
+<div class="row detailEvent-row-card" ng-show="errorMgs">
+	<div class="text-center">
+		{{errorMgs}}
+	</div>
+	
 </div>
