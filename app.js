@@ -22,16 +22,16 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 var sess;
 
-app.get('/',function(req,res)
+app.get('/check',function(req,res)
 {
 	sess = req.session;
 	if(sess.email) 
 	{
-	    res.render('Hello.html');
+	    res.end('done');
 	}
 	else 
 	{
-	    res.render('./home/home.html');
+	    res.end('error');
 	}
 });
 
@@ -72,6 +72,7 @@ app.get('/logout',function(req,res)
 	  else 
 	  {
 	    res.redirect('/');
+	    //$window.location.href = '#!/index';
 	  }
 	});
 });
@@ -175,7 +176,7 @@ app.get('/AllEvent',function(req,res)
 	    pool.getConnection(function(err,connection)
         {
         	var datetime  = new Date().getTime();
-	        connection.query("select * from `event` where `TIME_START_E` > "  + datetime + " ORDER BY `TIME_START_E`" ,function(err,rows)
+	        connection.query("select * from `event` where `TIME_END_E` > "  + datetime + " ORDER BY `TIME_START_E`" ,function(err,rows)
 	        {
 	            //connection.release();
 	            if(!err) 
@@ -201,7 +202,7 @@ app.get('/AllEvent/:category',function(req,res)
         {
         	var datetime  = new Date().getTime();
         	var category = req.params.category;
-	        connection.query("select * from `event` where `TIME_START_E` > "  + datetime + " and `CATEGORY` = '" + category + " '" +" ORDER BY `TIME_START_E`" ,function(err,rows)
+	        connection.query("select * from `event` where `TIME_END_E` > "  + datetime + " and `CATEGORY` = '" + category + " '" +" ORDER BY `TIME_START_E`" ,function(err,rows)
 	        {
 	            //connection.release();
 	            if(!err) 
@@ -300,11 +301,16 @@ app.post('/create_event',function(req,res)
 	    	console.log('error : t');
 	        return
 	    }
-	    var datetime = form.start_date.toString() + "T" + form.start_time.toString() + ":00.000Z";
- 		var start_time = new Date(datetime).getTime();
- 		datetime = form.end_date.toString() + "T" + form.end_time.toString() + ":00.000Z";
- 		var end_time = new Date(datetime).getTime();
+	    //var datetime = form.start_date.toString() + "T" + form.start_time.toString() + ":00.000Z";
+	    //console.log(datetime);
+ 		var start_time = 1492714800000;//new Date(datetime).getTime();
+ 		//datetime = form.end_date.toString() + "T" + form.end_time.toString() + ":00.000Z";
+ 		var end_time = 1492725600000;//new Date(datetime).getTime();
  		var today = new Date().getTime();
+
+ 		console.log(datetime);
+ 		
+
 	    if(today > start_time)
 	    {
 	        res.end('error : t>');
@@ -323,11 +329,13 @@ app.post('/create_event',function(req,res)
 	    	console.log('error : xxxx');
 	        return;
 	    }
-	    console.log('<3');
+	    console.log("INSERT INTO `event` (`OWNER_ID`, `EVENT_NAME`, `CATEGORY`, `DETAIL`, `PICTURE`, `VIDEO`, `TIME_START_E`, `TIME_END_E`, `CONDITION_MIN_AGE`, `CONDITION_MAX_AGE`, `CONDITION_SEX`, `SOLD_OUT_SEAT`, `MAX_SEAT`, `PRICE`, `LOCATION_lat`, `LOCATION_lng`) VALUES" + "('" + sess.member_id + "','" + form.event_name + "','" +  form.category + "','" + form.detail + "','" + form.pic + "','" + form.video + "','" + start_time + "','" + end_time +  "','" + form.min_age + "','" + form.max_age + "','" + form.gender + "','" + '0' +  "','" + form.max_seat + "','" + form.ticket_price + "','" + form.location_lat + "','" + form.location_lng + "')");
 
 	    connection.query("INSERT INTO `event` (`OWNER_ID`, `EVENT_NAME`, `CATEGORY`, `DETAIL`, `PICTURE`, `VIDEO`, `TIME_START_E`, `TIME_END_E`, `CONDITION_MIN_AGE`, `CONDITION_MAX_AGE`, `CONDITION_SEX`, `SOLD_OUT_SEAT`, `MAX_SEAT`, `PRICE`, `LOCATION_lat`, `LOCATION_lng`) VALUES" + "('" + sess.member_id + "','" + form.event_name + "','" +  form.category + "','" + form.detail + "','" + form.pic + "','" + form.video + "','" + start_time + "','" + end_time +  "','" + form.min_age + "','" + form.max_age + "','" + form.gender + "','" + '0' +  "','" + form.max_seat + "','" + form.ticket_price + "','" + form.location_lat + "','" + form.location_lng + "')",function(err)
 	    {
 	        //connection.release();
+	        console.log(start_time);
+	        console.log(end_time);
 	        console.log(err);
 	        if(!err) 
 	        {

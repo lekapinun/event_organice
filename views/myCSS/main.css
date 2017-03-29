@@ -14,12 +14,19 @@ html, body {
     background-color: white;
     height: 100%;
     padding: 0px;
-    text-align: right;
+    text-align: center;
 }
+
+.main-list-menu li a:hover{
+    background-color: #FC575E;
+    color: white;
+    border-radius: 20px;
+}
+
 
 .main-pic-head{
 
-    background-image: url("profile.jpg");
+    background-image: url("http://orig10.deviantart.net/ec38/f/2011/268/2/a/profile_picture_by_circle_glasses-d4axbdn.jpg");
     
     /* make it responsive */
     max-width: 100%;
@@ -52,6 +59,7 @@ html, body {
 .main-pic-name {
     text-align: center;
     margin-top: 15%;
+    font-size: 160%;padding-bottom: 15px;
 }
 
 .maincontent {
@@ -192,3 +200,18 @@ html, body {
 #pac-input:focus {
 		        border-color: #4d90fe;
 		      }
+
+
+.main-list-menu1 {
+    margin-top: 250px;
+    background-color: #FC575E;
+    height: 100%;
+    padding: 0px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.main-list-menu1:hover{
+    background-color: white;
+    color: black;
+}

@@ -547,11 +547,7 @@ textarea {
 	}
 	.img-ourteam{
 		position: relative;
-<<<<<<< HEAD
-		top: 0px;
-=======
 		top: -10px;
->>>>>>> origin/FrontEnd
 		left: 120px;
 	}
 
@@ -702,6 +698,9 @@ body{
 }
 .flexcroll::-webkit-scrollbar-track {
       background-color: #ffffff;
+}
+.category{
+	padding-left: 20px;
 }
 
 /*==================================detailEvent page================================*/
