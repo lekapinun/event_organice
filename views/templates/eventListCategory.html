@@ -24,14 +24,14 @@
 	<div class="col-sm-11 col-md-10 col-lg-10 offset-lg-1 offset-md-1 textarea-detail-event">
 		<div class="card-deck">
 			<div class="row">
-				<div class="col-sm-11 col-md-4 col-lg-4 eventList-card-box" ng-repeat="event in events">
+				<div class="col-sm-11 col-md-4 col-lg-4 eventList-card-box" ng-repeat="event in eventsCat">
 					<a href="#!/detail/{{event.EVENT_ID}}">
 						<div class="card eventList-card">
 					    	<img class="card-img-top" src="{{event.PICTURE}}" alt="Card image cap">
 					    	<div class="card-block">
 					      		<h4 class="card-title"> {{event.EVENT_NAME | limitTo: 19}}</h4>
 					      		<p class="card-text"> {{event.DETAIL | limitTo: 30}} </p>
-					      		<p class="card-text"><small class="text-muted">{{event.TIME_START_E | date:'medium'}} - {{event.TIME_END_E | date:'medium'}} </small></p>
+					      		<p class="card-text"><small class="text-muted">{{event.TIME_START_E | date:'medium'}} - {{event.TIME_END_E | date:'medium'}}</small></p>
 					    	</div>
 						</div>
 					</a>

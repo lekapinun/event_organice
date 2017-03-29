@@ -1,27 +1,37 @@
 angular.module('app')
-  .controller('menuController', function ($scope,$routeParams,$http) {
+  .controller('menuController', function ($scope,$routeParams,$http,$window) {
   		$http({
 	        method: 'GET',
-	        url: '/test',
+	        url: '/check',
     	}).then(function (response) {
-        	console.log(response);
+    		console.log(response.data === 'error');
+    		if(response.data === 'error'){
+    			$scope.errorMgs = "please try agian."
+    			$window.location.href = '#!/login';	
+    		}
 	    }, function (response) {
-	    	$window.location.href = 'http://localhost:5555/login.html';
 	        console.log("ERROR");
-	        console.log(response);
 	    });
 
   		$http({
 	        method: 'GET',
 	        url: '/member',
     	}).then(function (response) {
+          console.log(response.data[0].USERNAME);
         	$scope.currentUser = response.data[0];
 	    }, function (response) {
 	        console.log("ERROR");
 	        console.log(response);
 	    });
 
-	    $scope.signout = function(){
-
-	    }
+      $scope.logout = function(){
+          $http({
+              method: 'GET',
+              url: '/logout',
+          }).then(function (response) {
+              $window.location.href = '#!/login'; 
+          }, function (response) {
+              console.log("ERROR");
+          });
+      }
 });

@@ -25,11 +25,17 @@ angular.module('app')
     			console.log($scope.errorMgs);
     		}
     		else{
-
     			$scope.events = response.data;
-                 
     		}
 	    }, function (response) {
 	        console.log("ERROR");
 	    });
+}).directive('myDialog', function() {
+  return {
+    restrict: 'E',
+    transclude: true,
+    scope: {},
+    template: '<div>test menu</div>'
+    // templateUrl: 'my-dialog.html'
+  };
 });

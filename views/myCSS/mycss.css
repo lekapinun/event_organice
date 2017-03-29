@@ -471,42 +471,42 @@ textarea {
 @media (min-width: 1400px) {
 	.eventorganice{
 
-		height: 800px;
+		height: 1000px;
 	}
 	.registerwithus{
 		height: 850px;
 	}
 	.event{
 		font-size: 10rem; 
-		top:0rem;
+		top:10rem;
 		right: 2rem;
 
 	}
 	.organice{
 		font-size: 13rem; 
-		top: -10rem;
+		top: -1rem;
 
 
 	}
 	.poem{
 		font-size: 2.8rem;
-		top: -10rem;
+		top: -2rem;
 	}
 
 	.btn-warning-signup {
 		position: relative;
-		top: -3rem;
+		top: 1rem;
 	 
 	}
 	.btn-warning-signin {
 		margin-left: 3rem;
 		position: relative;
-		top: -3rem;
+		top: 1rem;
 		right: 1rem;
  	
 	}
 	.block-btn-mind{
-		top: -3rem;
+		top: 1rem;
 
 	}
 	.btn-lg, .btn-group-lg > .btn {
@@ -547,7 +547,7 @@ textarea {
 	}
 	.img-ourteam{
 		position: relative;
-		top: 0px;
+		top: -10px;
 		left: 120px;
 	}
 
@@ -698,6 +698,9 @@ body{
 }
 .flexcroll::-webkit-scrollbar-track {
       background-color: #ffffff;
+}
+.category{
+	padding-left: 20px;
 }
 
 /*==================================detailEvent page================================*/

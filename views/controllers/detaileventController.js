@@ -5,7 +5,7 @@ angular.module('app')
 	        method: 'GET',
 	        url: '/check'
     	}).then(function (response) {
-    		console.log(response.data === 'error');
+    		console.log(response.data);
     		if(response.data === 'error'){
     			$scope.errorMgs = "please try agian."
     			$window.location.href = '#!/login';	
@@ -29,5 +29,4 @@ angular.module('app')
 	    }, function (response) {
 	        console.log("ERROR");
 	    });
-        
 });
