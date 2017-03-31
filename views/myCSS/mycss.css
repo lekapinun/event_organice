@@ -879,3 +879,50 @@ body{
 }
 
 }
+
+/*================================Event navbar=================================*/
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+.event_navbar-nav-nav_box {
+	background-color: #48515A;
+}
+
+.event_nav-text-event{
+	font-family: "Nunito";
+	color: white;
+	font-size: 30px;
+	margin-top: 15px;
+}
+
+.event_nav-text-oraganice {
+	font-family: "Nunito";
+	color: white;
+	font-size: 15px;
+	position: relative;
+	top: -15px;
+
+}
+
+.event_nav-a-button_box {
+	display: inline-flex;
+	margin-top: 17px;
+}
+
+.event_nav-a-button {
+	font-family: "Nunito";
+	color: white;
+	font-size: 20px;
+}
+
+.event_nav-a-button_box a:hover{
+	color: #FBD451;
+}
+
+.event_nav-a-button_box a:focus{
+	color: #FBD451;
+}
+
+.event_nav-div-search {
+	margin-top: 18px;
+	padding-right: 5%;
+}
