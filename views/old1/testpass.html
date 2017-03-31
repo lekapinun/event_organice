@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">	
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+			        $.get("http://localhost:5555/AllEvent",{},function(data){  
+                         $("#member_id").html(data[0].MEMBER_ID);
+                        $("#picture").html(data[0].PICTURE);
+                        $("#event_name").html(data[0].EVENT_NAME);
+                        $("#detail").html(data[0].DETAIL);
+                        $("#time_start_e").html(data[0].TIME_START_E);
+                        $("#time_end_e").html(data[0].TIME_END_E);
+			        });
+		});
+		</script>		
+</head>
+<body>
+	<div id="member_id"></div>
+    
+    <div id="picture"></div>
+    <div id="event_name"></div>
+    <div id="detail"></div>
+    <div id="time_start_e"></div>
+    <div id="time_end_e"></div>
+</body>
+</html>
