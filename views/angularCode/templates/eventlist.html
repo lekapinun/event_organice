@@ -1,0 +1,13 @@
+<div class="card-deck">
+  <div class="card" ng-repeat="event in events">
+    <!-- <a ng-href="" ng-click="showdetail(event.EVENT_ID);" style="text-decoration: none;color: #000;"> -->
+    <a ng-href="#!/home/eventdetail/{{event.EVENT_ID}}" style="text-decoration: none;color: #000;">
+      <img class="card-img-top" ng-src="{{event.PICTURE}}" alt="Event image">
+      <div class="card-block">
+        <h4 class="card-title">{{event.EVENT_NAME}}</h4>
+        <p class="card-text">{{event.DETAIL}}</p>
+        <p class="card-text"><small class="text-muted">{{event.TIME_START_E | date:'medium'}} - {{event.TIME_END_E | date:'medium'}}</small></p>
+      </div>
+    </a>
+  </div>
+</div>
