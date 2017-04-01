@@ -880,7 +880,7 @@ body{
 
 }
 
-
+/*================================Event navbar=================================*/
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 .event_navbar-nav-nav_box {
@@ -958,17 +958,19 @@ body{
 
 .event_nav-a-link {
 	color: #95989A;
-	font-family: "Nunito"
+	font-family: "Nunito";
 	font-size: 15px;
 }
 
 .event_nav-dropdown-drop a:hover{
-	color: #48515A !important;
-	text-decoration: none !important;
+	color: #48515A ;
+	background-color: transparent;
+	text-decoration: none ;
 }
 
 .event_nav-dropdown-drop a:focus{
 	color: #48515A;
+	background-color: transparent;
 	text-decoration: none;
 }
 
