@@ -599,5 +599,79 @@ app.get('/category',function(req,res)
 	// }
 });
 
+app.post('/signup',function(req,res)
+{
+    sess = req.session;
+    var form = req.body;
+    console.log(form);
+	//if(sess.member_id) 
+	//{
+	pool.getConnection(function(err,connection)
+	{
+		if(form.user == '' || form.fname == '' || form.lname == '' || form.bd == '' || form.sex == '')
+	    {
+	    	res.end('error : en');
+	    	console.log('error : en')
+	        return
+	    }  		
+	    connection.query("SELECT * FROM `member` WHERE `USERNAME` = '" + form.user + "'",function(err,rows)
+	    {
+	        //connection.release();
+	        if(!err) 
+	        {
+	            if(rows.length > 0)
+	            {
+	            	res.end('error : sn');
+	            	console.log('error : sn');
+	            }
+	            else
+	            {
+				    var datetime = form.bd.toString() + "T00.00.00.000Z";
+				    console.log(datetime);
+			 		var datetime = new Date(datetime).getTime();
+
+			 		var today = new Date().getTime();
+
+			 		console.log(datetime);
+			 		
+
+				    if(today > datetime)
+				    {
+				        res.end('error : t');
+				        console.log('error : t');
+				    }
+				    else
+				    {
+				        console.log("INSERT INTO `member`(`NATIONAL_ID`, `USERNAME`, `PASSWORD`, `FNAME`, `LNAME`, `SEX`, `BIRTH_DATE`, `ADDRESS`, `E-MAIL`, `PHONE`, `CREDIT_CARD`, `URL_IMG`) VALUES ('" + form.nid + "','" + form.user + "','" + form.pass + "','" + form.fname + "','" + form.lname + "','" + form.sex + "','" + form.bd + "','" + form.address + "','" + form.email + "','" + form.phone + "','" + form.cd,form.img + "')");
+
+					    connection.query("INSERT INTO `member`(`NATIONAL_ID`, `USERNAME`, `PASSWORD`, `FNAME`, `LNAME`, `SEX`, `BIRTH_DATE`, `ADDRESS`, `E-MAIL`, `PHONE`, `CREDIT_CARD`, `URL_IMG`) VALUES ('" + form.nid + "','" + form.user + "','" + form.pass + "','" + form.fname + "','" + form.lname + "','" + form.sex + "','" + form.bd + "','" + form.address + "','" + form.email + "','" + form.phone + "','" + form.cd,form.img + "')",function(err)
+					    {
+					        //connection.release();
+					        console.log(datetime);
+					        console.log(err);
+					        if(!err) 
+					        {
+					        	console.log('dsfagrr');
+					            var temp = form.user;
+					            res.json(temp);
+					        }
+					        else
+					        {
+					        	console.log('insert error');
+					        	res.end('error');
+					        }           
+					    });
+				    }
+	            }
+	        }           
+	    }); 
+    }); 
+    // }
+	// else 
+	// {
+	//     res.render('login.html');
+	// }  
+});
+
 
 app.listen(5555);
