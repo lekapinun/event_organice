@@ -1,0 +1,90 @@
+<!-- menu for mobile -->
+	<nav class="navbar navbar-toggleable-md navbar-light bg-faded hidden-md-up black-fill menu-bar-sm" style="margin-top: -17px;margin-left: -40px;">
+	  	<button class="navbar-toggler navbar-toggler-right menu-bar-hamburger" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    	<span class="navbar-toggler-icon"></span>
+	  	</button>
+	  	<a class="navbar-brand white-color menu-bar-logo" href="#">Event Organize</a>
+
+	  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item white-fill menu-bar-user black-color font-weight-bold">
+		        	<a class="nav-link" href="#">
+			        	<img src="pic/tanJI.jpg" class="rounded-circle">
+			        	{{currentUser.USERNAME}}
+		        	</a>
+		      	</li>
+		      	<li class="nav-item active menu-bar-list">
+		        	<a class="nav-link white-color" href="#">Home <span class="sr-only">(current)</span></a>
+		      	</li>
+		      	<li class="nav-item menu-bar-list">
+		        	<a class="nav-link white-color" ng-click="showCategory=!showCategory">event</a>
+		        	<ul ng-show="showCategory">
+		                <li><a ng-click="" >Art</a></li>
+		                <li><a ng-click="" >test</a></li>
+		            </ul>
+		      	</li>
+		      	<li class="nav-item menu-bar-list">
+		        	<a class="nav-link white-color" href="#">contact us</a>
+		      	</li>
+		      	<li class="nav-item menu-bar-list">
+		        	<a class="nav-link white-color" ng-click="">sign out</a>
+		      	</li>
+		    </ul>
+			</div>
+	</nav>
+	<!-- side-nav -->
+	<div class="side-nav hidden-sm-down flexcroll " ng-controller="menuController" style="top:0px;left:0px;">
+		<div class="row logo">
+			<div class="col-12">
+				<h3 class="text-center">Event Organice</h3>
+			</div>
+		</div>
+		<div class="row user">
+			<div class="col-12">
+				<a href=""><img src="pic/tanJI.jpg" class="rounded-circle mx-auto d-block" alt="..."></a>
+			</div>
+			<div class="col-12">
+				<a href=""><p class="text-center font-weight-bold username">{{currentUser.USERNAME}}</p></a>
+			</div>
+			<div class="col-6 user-following">
+				<p class="text-center">Following</p>
+				<a href=""><p class="text-center font-weight-bold user-follow-detail">11</p></a>
+			</div>
+			<div class="col-6 user-follower">
+				<p class="text-center">Follower</p>
+				<a href=""><p class="text-center font-weight-bold user-follow-detail">2</p></a>
+			</div>
+		</div>
+		<div class="menu">
+			<ul class="nav flex-sm-column">
+			  	<li class="nav-item">
+			    	<a class="nav-link active font-weight-bold text-uppercase" href="#!/index">HOME</a>
+			  	</li>
+			  	<li class="nav-item">
+			    	<a class="nav-link active font-weight-bold text-uppercase" href="#!/create">create</a>
+			  	</li>
+			  	<li class="nav-item">
+			    	<a class="nav-link font-weight-bold text-uppercase white-color show-category" ng-click="showCategory=!showCategory">event</a>
+			  	</li>
+			  	<li class="nav-item category" ng-show="showCategory"><a ng-href="#!/index" class="white-color">All</a></li>
+			  	<li class="nav-item category" ng-show="showCategory"><a ng-href="#!/event/Art" class="white-color">Art</a></li>
+                <li class="nav-item category" ng-show="showCategory"><a ng-href="#!/event/Business" class="white-color">Business</a></li>
+                <li class="nav-item category" ng-show="showCategory"><a ng-href="#!/event/Chairity&Causes" class="white-color">Chairity & Causes</a></li>
+                <li class="nav-item category" ng-show="showCategory"><a ng-href="#!/event/Community" class="white-color">Community</a></li>
+                <li class="nav-item category" ng-show="showCategory"><a ng-href="#!/event/Education" class="white-color">Education</a></li>
+                <li class="nav-item category" ng-show="showCategory"><a ng-href="#!/event/Fashion" class="white-color">Fashion</a></li>
+                <li class="nav-item category" ng-show="showCategory"><a ng-href="#!/event/Flim&Media" class="white-color">Flim & Media</a></li>
+                <li class="nav-item category" ng-show="showCategory"><a ng-href="#!/event/Food&Drink" class="white-color">Food & Drink</a></li>
+                <li class="nav-item category" ng-show="showCategory"><a ng-href="#!/event/LiftStyle" class="white-color">LiftStyle</a></li>
+                <li class="nav-item category" ng-show="showCategory"><a ng-href="#!/event/Music" class="white-color">Music</a></li>
+                <li class="nav-item category" ng-show="showCategory"><a ng-href="#!/event/Science&Technology" class="white-color">Science & Technology</a></li>
+                <li class="nav-item category" ng-show="showCategory"><a ng-href="#!/event/>Sport&Fitness" class="white-color">Sport & Fitness</a></li>
+			  	<li class="nav-item">
+			    	<a class="nav-link font-weight-bold text-uppercase" href="#!/index">contact us</a>
+			  	</li>
+			  	<li class="nav-item">
+			    	<a class="nav-link font-weight-bold text-uppercase white-color" ng-click="logout()">sign out</a>
+			  	</li>
+			</ul>
+		</div>			
+	</div>

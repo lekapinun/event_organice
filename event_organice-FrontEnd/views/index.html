@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>
+    <script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="myCSS/mycss.css">
+	<script type="text/javascript" src="myJS/myjs.js"></script>
+	<!-- <script type="text/javascript">
+		$(document).ready(function(){
+		        // $.get("http://localhost:5555/member",{},function(data){  
+            
+		        //     $("#member_id").html(data[0].MEMBER_ID);
+		        //     $("#national_id").html(data[0].NATIONAL_ID);
+		        //     $("#username").html(data[0].USERNAME);
+		        //     $("#password").html(data[0].PASSWORD);
+		        //     $("#fname").html(data[0].FNAME);
+		        //     $("#lname").html(data[0].LNAME);
+		        //     $("#sex").html(data[0].SEX);
+		        //     $("#birthday").html(data[0].BIRTH_DAY);
+		        //     $("#address").html(data[0].ADDRESS);
+		        //     $("#e_mail").html(data[0].E_MAIL);
+		        //     $("#phone").html(data[0].PHONE);
+		        //     $("#credit_card").html(data[0].CREDIT_CARD);
+		        //     $("#url_img").html(data[0].URL_IMG);
+		        // });
+
+		});
+	</script> -->	
+</head>
+<body ng-app="app">
+	<div id="member_id"> asdasd</div>
+	<div id="national_id"> asdasd</div>
+	<div id="username"> asdasd</div>
+	<div id="password"> sfgsfg</div>
+	<div id="fname"></div>
+	<div id="lname"></div>
+	<div id="sex"></div>
+	<div id="birthday"></div>
+	<div id="address"></div>
+	<div id="e_mail"></div>
+	<div id="phone"></div>
+	<div id="credit_card"></div>
+	<div id="url_img"></div>
+
+	<div ng-view></div>
+</body>
+</html>
+
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="myJS/directive.js"></script>
+<script type="text/javascript" src="controllers/loginController.js"></script>
+<script type="text/javascript" src="controllers/menuController.js"></script>
+<script type="text/javascript" src="controllers/eventlistController.js"></script>
+<script type="text/javascript" src="controllers/detaileventController.js"></script>
+<script type="text/javascript" src="controllers/eventlistcategoryController.js"></script>
+<script type="text/javascript" src="controllers/createeventController.js"></script>
