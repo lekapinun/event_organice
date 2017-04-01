@@ -2,7 +2,7 @@
 	margin-top: 2rem;
 	margin-bottom: 1rem;
 
-	font-size: 1.2rem; 
+	font-size: 1.5rem; 
 }
 
 .event_detail-border{
@@ -72,6 +72,78 @@
 
 .text-md-p{
 	font-size: 1rem;
+}
+
+.event_datail-text-otherevent{
+	font-family: nunito;
+	font-size: 2rem;
+
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+
+	color: #fff;
+	border-bottom: 0.1rem solid #fff;
+	
+
+	
+}
+.img-fluid-clip {
+  	/*position: absolute;
+  	clip: rect(0rem, 100rem,10rem, 0rem);*/
+
+  	position: relative; /* allows repositioning */
+    left: 100%; /* move the whole width of the image to the right */
+    margin-left: -200%; /* magic! */
+}
+
+.blockofimg {
+	width: 100%; /* or whatever is required */
+    height: 150px;
+    text-align: center; /* ensures the image is always in the h-middle */
+    overflow: hidden; /* hide the cropped portion */
+}
+.event_detail-textlink-card a{
+	color: #48515A;
+	text-decoration: none;
+}
+.event_detail-textlink-card a:hover , a:focus{
+	color: #48515A;
+	text-decoration: none;
+	
+}
+
+.event_detail-cardbox{
+	background-color:#48515A ;
+	border-color:#48515A ;
+}
+.event_detail-cardbox:hover{
+	opacity: 0.9;
+}
+
+.btn-buyticket {
+  color: #fff;
+  background-color: #30DADB;
+  border-color: #30DADB;
+}
+
+.btn-buyticket:hover {
+  color: #fff;
+  background-color: #30C77F;
+  border-color: #30C77F;
+}
+
+.btn-buyticket:focus, .btn-buyticket.focus {
+  -webkit-box-shadow: 0 0 0 2px rgba(48, 199, 127, 0.5);
+          box-shadow: 0 0 0 2px rgba(48, 199, 127, 0.5);
+}
+
+.event_detail-showmore {
+	background-color:#48515A ;
+	border-color:#48515A ;
+}
+.event_detail-showmore:hover{
+	background-color:#3D454C ;
+	border-color:#3D454C ;
 }
 
 @media (max-width:575px){
