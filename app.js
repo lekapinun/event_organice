@@ -571,5 +571,33 @@ app.get('/supoort_list',function(req,res)
 	// }
 });
 
+app.get('/category',function(req,res)
+{
+	sess = req.session;
+	// console.log(sess);
+	// if(sess.member_id) 
+	// {
+	    pool.getConnection(function(err,connection)
+        {
+	        connection.query("SELECT * FROM `Category`" ,function(err,rows)
+	        {
+	            //connection.release();
+	            if(!err) 
+	            {
+	                res.json(rows);
+	            }      
+	            else
+	            {
+	            	res.end('error');
+	            }     
+	        });
+  		});
+	// }
+	// else 
+	// {
+	//     res.render('login.html');
+	// }
+});
+
 
 app.listen(5555);

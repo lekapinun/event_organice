@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <!-- <link rel="stylesheet" type="text/css" href="../bootstrap-4/css/bootstrap.css"> -->
+	    <!-- <script type="text/javascript" src="../bootstrap-4/js/bootstrap.js"></script> -->
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+			    // var event_name,category,start_date,start_time,end_date,end_time,min_age, max_age,gender,max_seat,location_lat,location_lng,ticket_price,detail,pic,video;
+			    // $("#submit").click(function(){
+			    //     event_name=$("#event_name").val();
+			    //     category=$("#category").val();
+			    //     start_date=$("#start_date").val();
+			    //     start_time=$("#start_time").val();
+			    //     end_date=$("#end_date").val();
+			    //     end_time=$("#end_time").val();
+			    //     min_age=$("#min_age").val();
+			    //     max_age=$("#max_age").val();
+			    //     gender=$("#gender").val();
+			    //     max_seat=$("#max_seat").val();
+			    //     location_lat=$("#location_lat").val();
+			    //     location_lng=$("#location_lng").val();
+			    //     detail=$("#detail").val();
+			    //     ticket_price=$("#ticket_price").val();
+			    //     pic=$("#pic").val();
+			    //     video=$("#video").val();
+			    //     $.post("http://localhost:5555/create_event",{event_name:event_name,category:category,start_date:start_date,start_time:start_time,end_date:end_date,end_time:end_time,min_age:min_age,max_age:max_age,gender:gender,max_seat:max_seat,location_lat:location_lat,location_lng:location_lng,ticket_price:ticket_price,detail:detail,pic:pic,video:video},function(data){  
+			    //     	console.log(data);
+			    //     	$("#box").html(data); 
+			    //     	console.log(data);
+			    //     });
+			    // });
+			});
+		</script>
+</head>
+<body>
+	<div id="box">
+		
+	</div>
+	<div>
+		<label for="event_name">Sign Up</label>
+  		<input type="text" id="event_name" name="event_name">
+	</div>
+	<div>
+		<label >Owner : Thomas</label>
+	</div>
+	<div>
+		<label for="category">Category</label>
+  		<input type="text" id="category" name="category">
+	</div>
+	<div>
+		<label for="start_date">Start date</label>
+  		<input type="date" id="start_date" name="start_date">
+  		<label for="start_time">Start time</label>
+  		<input type="time" id="start_time" name="start_time">
+	</div>
+	<div>
+		<label for="end_date">End date</label>
+  		<input type="date" id="end_date" name="end_date">
+  		<label for="end_time">End time</label>
+  		<input type="time" id="end_time" name="end_time">
+	</div>
+	<div>
+		<label for="min_age">Min age</label>
+  		<input type="text" id="min_age" name="min_age">
+	</div>
+	<div>
+		<label for="max_age">Max age</label>
+  		<input type="text" id="max_age" name="max_age">
+	</div>
+	<div>
+		<label for="gender">Gender</label>
+  		<input type="text" id="gender" name="gender">
+	</div>
+	<div>
+		<label for="ticket_price">Ticket price</label>
+  		<input type="text" id="ticket_price" name="ticket_price">
+	</div>
+	<div>
+		<label for="max_seat">Max seat</label>
+  		<input type="text" id="max_seat" name="max_seat">
+	</div>
+	<div>
+		<label for="location">Location</label>
+  		<input type="text" id="location_lat" name="location_lat">
+  		<input type="text" id="location_lng" name="location_lag">
+	</div>
+
+		<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    	<div id="map"></div>
+    	<!-- <div id="mar_pos_lat"></div>
+    	<div id="mar_pos_lng"></div> -->
+    	<div id="marker"></div>
+
+	<div>
+		<label for="detail">Detail</label>
+  		<input type="text" id="detail" name="detail">
+	</div>
+	<div>
+		<label for="pic">Add picture</label>
+  		<input type="text" id="pic" name="pic">
+	</div>
+	<div>
+		<label for="video">Add video</label>
+  		<input type="text" id="video" name="video" value="">
+	</div>
+    <div id="mar_pos"></div>
+	<div>
+	<input type="button" value="Submit" id="submit">
+	</div>
+
+</body>
+</html>
+
+
