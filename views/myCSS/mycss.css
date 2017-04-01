@@ -927,7 +927,55 @@ body{
 	color: white;
 }
 
-.event_nav-div-search {
-	margin-top: 18px;
+.event_nav-btn-user {
+	margin-top: 22px;
+	font-family: "Nunito";
+	font-size: 18px;
+	background-color: #48515A;
+	border-color: white;
+}
+
+.event_nav-img-user_img {
+	width: 30px;
+	height: 30px;
+	border-radius: 20px;
+}
+
+.event_nav-dropdown-box_dropdow {
+	height: 60px;
+}
+
+.btn-primary-jan:hover {
+	color: #fff;
+  	background-color: #28323d !important;
+  	border-color: white !important;
+}
+
+.event_nav-dropdown-drop {
+	border: none;
+	margin-left: 6%;
 	padding-right: 5%;
+	padding-left: 5%;
+	border-radius: 10px;
+}
+
+.event_nav-a-link {
+	color: #95989A;
+	font-family: "Nunito"
+	font-size: 15px;
+}
+
+.event_nav-dropdown-drop a:hover{
+	color: #48515A;
+	text-decoration: none;
+}
+
+.event_nav-dropdown-drop a:focus{
+	color: #48515A;
+	text-decoration: none;
+}
+
+.event_nav-img-icon {
+	width: 30px;
+	height: 30px;
 }
