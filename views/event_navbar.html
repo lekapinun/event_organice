@@ -17,9 +17,9 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 	
 	<!-- angula -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>
-    <script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script> -->
+    <!-- <script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script> -->
 	
 	<!-- my css -->
 	<link rel="stylesheet" type="text/css" href="myCSS/mycss.css">
@@ -28,7 +28,7 @@
 	<script type="text/javascript" src="myJS/myjs.js"></script>
 </head>
 <body>
-	<nav class="navbar fixed-top navbar-light event_navbar-nav-nav_box">
+	<!-- <nav class="navbar fixed-top navbar-light event_navbar-nav-nav_box">
   		<div class="row">
   			<div class="col-sm-3 col-md-3 col-lg-3 offset-md-1 offset-lg-1">
   				<div class="event_nav-text-event">
@@ -59,6 +59,50 @@
   				</ul>
   			</div>
   		</div>
+	</nav> -->
+
+	<nav class="navbar navbar-toggleable-md navbar-light bg-faded fixed-top event_navbar-nav-nav_box">
+  			<button class="navbar-toggler navbar-toggler-right event_nav-btn-hamberger" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    			<span class="navbar-toggler-icon"></span>
+  			</button>
+  			<div class="ml-sm-1 ml-md-5 ml-lg-5">
+    			<div class="event_nav-text-event">
+            		EVENT
+    			</div>
+    			<div class="event_nav-text-oraganice">
+      				o&nbsp;&nbsp;r&nbsp;&nbsp;g&nbsp;&nbsp;a&nbsp;&nbsp;n&nbsp;&nbsp;i&nbsp;&nbsp;c&nbsp;&nbsp;e
+    			</div>
+  			</div>
+  			<div class="mr-auto ml-lg-auto collapse navbar-collapse event_nav-a-button_box" id="navbarNavDropdown">
+        		<ul class="navbar-nav">
+        			<li class="nav-item">
+        				<a class="nav-link event_nav-a-button" href="#">HOME</a>
+      				</li>
+      				<li class="nav-item">
+        				<a class="nav-link event_nav-a-button" href="#">EVENTS</a>
+      				</li>
+      				<li class="nav-item">
+        				<a class="nav-link event_nav-a-button" href="#">FRIENDS</a>
+      				</li>
+      				<li class="nav-item">
+        				<a class="nav-link event_nav-a-button" href="#">CONTACT</a>
+      				</li>
+        			<li class="nav-item dropdown">
+        				<button class="btn btn-primary-jan dropdown-toggle badge badge-pill badge-default event_nav-btn-user" type="button" data-toggle="dropdown" id="navbarDropdownMenuLink">
+              				<img class="event_nav-img-user_img" src="pic/user1.png">&nbsp;&nbsp;&nbsp;User Name
+            			</button>
+        				<div class="dropdown-menu event_nav-dropdown-drop" aria-labelledby="navbarDropdownMenuLink">
+          					<a class="dropdown-item event_nav-a-link" href="#"><img class="event_nav-img-icon" src="pic/happiness.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PROFILE</a>
+          					<div class="dropdown-divider"></div>
+          					<a class="dropdown-item event_nav-a-link" href="#"><img class="event_nav-img-icon" src="pic/user2.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EDIT PROFILE</a>
+          					<div class="dropdown-divider"></div>
+          					<a class="dropdown-item event_nav-a-link" href="#"><img class="event_nav-img-icon" src="pic/tools.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MANAGED EVENT</a>
+          					<div class="dropdown-divider"></div>
+          					<a class="dropdown-item event_nav-a-link" href="#"><img class="event_nav-img-icon" src="pic/sign-out.png">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SIGN OUT</a>
+        				</div>
+      				</li>
+        		</ul>
+  			</div>
 	</nav>
 </body>
 </html>
