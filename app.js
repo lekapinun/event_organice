@@ -626,28 +626,27 @@ app.post('/signup',function(req,res)
 	            }
 	            else
 	            {
-				    var datetime = form.bd.toString() + "T00.00.00.000Z";
-				    console.log(datetime);
-			 		var datetime = new Date(datetime).getTime();
+				  //   var datetime = form.bd.toString();
+				  //   console.log(datetime);
+			 		// var datetime = new Date(datetime).getTime();
+			 		var today = new Date();
 
-			 		var today = new Date().getTime();
+			 		console.log(today.toISOString().split('T')[0]);
+			 		console.log(form.bd.split('T')[0]);
 
-			 		console.log(datetime);
-			 		
-
-				    if(today > datetime)
+				    if(today < form.bd)
 				    {
 				        res.end('error : t');
 				        console.log('error : t');
 				    }
 				    else
 				    {
-				        console.log("INSERT INTO `member`(`NATIONAL_ID`, `USERNAME`, `PASSWORD`, `FNAME`, `LNAME`, `SEX`, `BIRTH_DATE`, `ADDRESS`, `E-MAIL`, `PHONE`, `CREDIT_CARD`, `URL_IMG`) VALUES ('" + form.nid + "','" + form.user + "','" + form.pass + "','" + form.fname + "','" + form.lname + "','" + form.sex + "','" + form.bd + "','" + form.address + "','" + form.email + "','" + form.phone + "','" + form.cd,form.img + "')");
+				        console.log("INSERT INTO `member`(`NATIONAL_ID`, `USERNAME`, `PASSWORD`, `FNAME`, `LNAME`, `SEX`, `BIRTH_DATE`, `ADDRESS`, `E-MAIL`, `PHONE`, `CREDIT_CARD`, `URL_IMG`) VALUES ('" + form.nid + "','" + form.user + "','" + form.pass + "','" + form.fname + "','" + form.lname + "','" + form.sex + "','" + form.bd.split('T')[0] + "','" + form.address + "','" + form.email + "','" + form.phone + "','" + form.cd + "','" + form.img + "')");
 
-					    connection.query("INSERT INTO `member`(`NATIONAL_ID`, `USERNAME`, `PASSWORD`, `FNAME`, `LNAME`, `SEX`, `BIRTH_DATE`, `ADDRESS`, `E-MAIL`, `PHONE`, `CREDIT_CARD`, `URL_IMG`) VALUES ('" + form.nid + "','" + form.user + "','" + form.pass + "','" + form.fname + "','" + form.lname + "','" + form.sex + "','" + form.bd + "','" + form.address + "','" + form.email + "','" + form.phone + "','" + form.cd,form.img + "')",function(err)
+					    connection.query("INSERT INTO `member`(`NATIONAL_ID`, `USERNAME`, `PASSWORD`, `FNAME`, `LNAME`, `SEX`, `BIRTH_DATE`, `ADDRESS`, `E-MAIL`, `PHONE`, `CREDIT_CARD`, `URL_IMG`) VALUES ('" + form.nid + "','" + form.user + "','" + form.pass + "','" + form.fname + "','" + form.lname + "','" + form.sex + "','" + form.bd.split('T')[0] + "','" + form.address + "','" + form.email + "','" + form.phone + "','" + form.cd + "','" + form.img + "')",function(err)
 					    {
 					        //connection.release();
-					        console.log(datetime);
+					        //console.log(datetime);
 					        console.log(err);
 					        if(!err) 
 					        {
