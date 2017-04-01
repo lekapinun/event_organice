@@ -880,6 +880,7 @@ body{
 
 }
 
+
 /*================================Event navbar=================================*/
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
@@ -906,20 +907,24 @@ body{
 .event_nav-a-button_box {
 	display: inline-flex;
 	margin-top: 17px;
+	padding-bottom: 20px;
 }
 
 .event_nav-a-button {
 	font-family: "Nunito";
 	color: white;
 	font-size: 20px;
+	border-radius: 10px;
 }
 
 .event_nav-a-button_box a:hover{
-	color: #FBD451;
+	background-color: #28323d;
+	color: white;
 }
 
 .event_nav-a-button_box a:focus{
-	color: #FBD451;
+	background-color: #28323d;
+	color: white;
 }
 
 .event_nav-div-search {
