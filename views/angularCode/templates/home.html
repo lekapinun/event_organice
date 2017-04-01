@@ -1,24 +1,54 @@
-<!-- put navbar here!! -->
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded nav-menu">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon white-color"></span>
   </button>
-  <a class="navbar-brand" ng-href="#!/home/eventlist" >Navbar</a>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand hidden-sm-down" ng-href="#!/home/eventlist">
+      <p class="text-uppercase" style="margin-bottom: 0px;color: #fff;">event</p>
+      <p style="margin-bottom: 0px;margin-top: -13px;color: #fff;">o r g a n i c e</p>
+    </a>
+    <ul class="navbar-nav mr-auto ml-lg-auto mt-2 mt-lg-2 nav-menu-center">
       <li class="nav-item active">
-        <a class="nav-link" ng-href="#!/home/eventlist">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-uppercase white-color" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" ng-href="#!/home/eventdetail">Link</a>
+        <a class="nav-link text-uppercase white-color" href="#">events</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-uppercase white-color" href="#">friends</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-uppercase white-color" href="#">contact</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <ul class="navbar-nav mt-2 mt-lg-2">
+    <li class="dropdown">
+      <a class="nav-link dropdown-toggle white-color nav-menu-dropdown-button" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span>
+            <img src="pic/user1.png">
+            SketchJI
+          </span>
+      </a>
+      <div class="dropdown-menu nav-menu-dropdown" aria-labelledby="navbarDropdownMenuLink">
+        <a class="dropdown-item text-uppercase" href="#">
+          <img src="pic/happiness.png">
+          profile
+        </a>
+        <a class="dropdown-item text-uppercase" href="#">
+          <img src="pic/user2.png">
+          edit profile
+        </a>
+        <a class="dropdown-item text-uppercase" href="#">
+          <img src="pic/tools.png">
+          managed event
+        </a>
+        <a class="dropdown-item text-uppercase" ng-href="" ng-click="logout()">
+          <img src="pic/sign-out.png">
+          sign out
+        </a>
+      </div>
+    </li>
+    </ul>
   </div>
 </nav>
-
 <div ui-view></div>

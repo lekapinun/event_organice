@@ -3,6 +3,11 @@ var project = angular.module('project', ['ngRoute', 'ui.router']);
 project.config(function ($routeProvider, $stateProvider, $urlRouterProvider) {
 
     var states = [{
+        name: 'signup',
+        url: '/signup',
+        templateUrl: 'angularCode/templates/signup.html',
+        controller: 'signupController'
+    },{
         name: 'login',
         url: '/',
         templateUrl: 'angularCode/templates/login.html',
