@@ -27,7 +27,8 @@ app.get('/check',function(req,res)
 	sess = req.session;
 	if(sess.email) 
 	{
-	    res.end('done');
+		var id = sess.member_id;
+	    res.json(id);
 	}
 	else 
 	{
@@ -53,7 +54,7 @@ app.post('/login',function(req,res)
             }
             else
             {
-            	console.log('xxx');
+            	console.log('login fail');
             	res.end('error');
             }           
         });
