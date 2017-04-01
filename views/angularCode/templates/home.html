@@ -1,53 +1,78 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded nav-menu">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon white-color"></span>
+  <button class="navbar-toggler navbar-toggler-right hamburger-button" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
   </button>
+  <a class="navbar-brand mt-1 hidden-md-up nav-menu-search">
+    <p class="white-color text-center">e v e n t &nbsp;&nbsp; o r g a n i c e</p>
+  </a>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <a class="navbar-brand hidden-sm-down" ng-href="#!/home/eventlist">
-      <p class="text-uppercase" style="margin-bottom: 0px;color: #fff;">event</p>
-      <p style="margin-bottom: 0px;margin-top: -13px;color: #fff;">o r g a n i c e</p>
+    <a class="navbar-brand hidden-md-down" ng-href="#!/home/newfeed">
+      <p class="text-uppercase white-color">event</p>
+      <p class="white-color down">o r g a n i c e</p>
     </a>
     <ul class="navbar-nav mr-auto ml-lg-auto mt-2 mt-lg-2 nav-menu-center">
+      <li class="nav-item active nav-menu-mobile">
+        <a class="nav-link white-color hidden-lg-up" href="#!/home/profile">
+          <img src="pic/user1.png">
+          SketchJI
+        </a>
+      </li>
       <li class="nav-item active">
-        <a class="nav-link text-uppercase white-color" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-uppercase white-color" href="#!/home/newfeed">Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-uppercase white-color" href="#">events</a>
+        <a class="nav-link text-uppercase white-color" href="#!/home/eventlist">events</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-uppercase white-color" href="#">friends</a>
+        <a class="nav-link text-uppercase white-color" href="#!/home/friendslist">friends</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-uppercase white-color" href="#">contact</a>
+        <a class="nav-link text-uppercase white-color" href="#!/home/contact">contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-uppercase dropdown-toggle white-color nav-menu-dropdown-button-mobile hidden-lg-up" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        account & setting
+        </a>
+        <div class="dropdown-menu nav-menu-dropdown-mobile" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item text-uppercase white-color" href="#!/home/editprofile">
+            edit profile
+          </a>
+          <a class="dropdown-item text-uppercase white-color" href="#!/home/managed-event">
+            managed event
+          </a>
+        </div>
+      </li>
+      <li class="nav-item hidden-lg-up">
+        <a class="nav-link text-uppercase white-color" ng-click="logout()">sign out</a>
       </li>
     </ul>
-    <ul class="navbar-nav mt-2 mt-lg-2">
-    <li class="dropdown">
-      <a class="nav-link dropdown-toggle white-color nav-menu-dropdown-button" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span>
-            <img src="pic/user1.png">
-            SketchJI
-          </span>
-      </a>
-      <div class="dropdown-menu nav-menu-dropdown" aria-labelledby="navbarDropdownMenuLink">
-        <a class="dropdown-item text-uppercase" href="#">
-          <img src="pic/happiness.png">
-          profile
+    <ul class="navbar-nav mt-2 mt-lg-1 hidden-md-down">
+      <li class="dropdown">
+        <a class="nav-link dropdown-toggle white-color nav-menu-dropdown-button" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span>
+              <img src="pic/user1.png">
+              SketchJI
+            </span>
         </a>
-        <a class="dropdown-item text-uppercase" href="#">
-          <img src="pic/user2.png">
-          edit profile
-        </a>
-        <a class="dropdown-item text-uppercase" href="#">
-          <img src="pic/tools.png">
-          managed event
-        </a>
-        <a class="dropdown-item text-uppercase" ng-href="" ng-click="logout()">
-          <img src="pic/sign-out.png">
-          sign out
-        </a>
-      </div>
-    </li>
+        <div class="dropdown-menu nav-menu-dropdown" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item text-uppercase" href="#!/home/profile">
+            <img src="pic/happiness.png">
+            profile
+          </a>
+          <a class="dropdown-item text-uppercase" href="#!/home/editprofile">
+            <img src="pic/user2.png">
+            edit profile
+          </a>
+          <a class="dropdown-item text-uppercase" href="#!/home/managed-event">
+            <img src="pic/tools.png">
+            managed event
+          </a>
+          <a class="dropdown-item text-uppercase" ng-href="" ng-click="logout()">
+            <img src="pic/sign-out.png">
+            sign out
+          </a>
+        </div>
+      </li>
     </ul>
   </div>
 </nav>

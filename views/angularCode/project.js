@@ -19,6 +19,11 @@ project.config(function ($routeProvider, $stateProvider, $urlRouterProvider) {
         templateUrl: 'angularCode/templates/home.html',
         controller: 'homeController'
     },{
+        name: 'home.feed',
+        url: '/newfeed',
+        templateUrl: 'angularCode/templates/newfeed.html',
+        controller: 'newfeedController'
+    },{
         name: 'home.event',
         url: '/eventlist',
         templateUrl: 'angularCode/templates/eventlist.html',
@@ -28,9 +33,30 @@ project.config(function ($routeProvider, $stateProvider, $urlRouterProvider) {
         url: '/eventdetail/:id',
         templateUrl: 'angularCode/templates/eventdetail.html',
         controller: 'eventdetailController'
-        // params: {
-        //     'id' : null
-        // }
+    },{
+        name: 'home.friends',
+        url: '/friendslist',
+        templateUrl: 'angularCode/templates/friendslist.html',
+        controller: 'friendslistController'
+    },{
+        name: 'home.contact',
+        url: '/contact',
+        templateUrl: 'angularCode/templates/contact.html',
+    },{
+        name: 'home.profile',
+        url: '/profile',
+        templateUrl: 'angularCode/templates/profile.html',
+        controller: 'profileController'
+    },{
+        name: 'home.editprofile',
+        url: '/editprofile',
+        templateUrl: 'angularCode/templates/editprofile.html',
+        controller: 'editprofileController'
+    },{
+        name: 'home.managedevent',
+        url: '/managed-event',
+        templateUrl: 'angularCode/templates/managedevent.html',
+        controller: 'managedeventController'
     }];
 
     // Loop over the state definitions and register them
