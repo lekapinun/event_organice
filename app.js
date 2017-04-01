@@ -218,29 +218,88 @@ app.get('/AllEvent/:category',function(req,res)
 	// }
 });
 
+app.get('/join/:id',function(req,res)
+{
+	sess = req.session;
+    pool.getConnection(function(err,connection)
+    {
+
+    	var event_id = req.params.id;
+        connection.query("select * from event where event_id =" + event_id,function(err,rows)
+        {
+            if(rows.length > 0) 
+            {
+                var event_id = req.params.id;
+		        connection.query("INSERT INTO `join_event`(`EVENT_ID`, `MEMBER_ID`) VALUES ("+ event_id +","+ sess.member_id+")",function(err,rows)
+		        {
+		            if(!err) 
+		            {
+		            	console.log('join suscess!');
+		                res.end('done');
+		            }
+		            else
+		            {
+		            	console.log('join fail');
+		            	res.end('error');
+		            }           
+		        });
+            } 
+            else
+            {
+            	console.log('join fail');
+		        res.end('error');
+            }          
+        });     	
+  	});
+});
+
 app.get('/event/:id',function(req,res)
 {
-        pool.getConnection(function(err,connection)
-        {
-        // if (err) {
-        //   res.json({"code" : 100, "status" : "Error in connection database"});
-        //   return;
-        // }   
+    pool.getConnection(function(err,connection)
+    {
      	var event_id = req.params.id;
         connection.query("select * from event where event_id =" + event_id,function(err,rows)
         {
-            //connection.release();
             if(!err) 
             {
+            	var date = rows[0].TIME_START_E;
+            	var _start_date = new Date(parseInt(date));
+            	var _start_time = _start_date.toISOString().split('T')[1].split('.000Z')[0];
+            	_start_date = _start_date.toISOString().split('T')[0];
+            	rows[0].start_date = _start_date;
+            	rows[0].start_time = _start_time;
+            	date = rows[0].TIME_END_E;
+            	var _end_date = new Date(parseInt(date));
+            	var _end_time = _end_date.toISOString().split('T')[1].split('.000Z')[0];
+            	_end_date = _end_date.toISOString().split('T')[0];
+            	rows[0].end_date = _end_date;
+            	rows[0].end_time = _end_time;
                 res.json(rows);
             }           
         });
+  	});
+});
 
-        // connection.on('error', function(err) {      
-        //       res.json({"code" : 100, "status" : "Error in connection database"});
-        //       return;     
-        // });
-  });
+app.get('/my_event',function(req,res)
+{
+	sess = req.session;
+	console.log('my_event');
+    pool.getConnection(function(err,connection)
+    {
+        connection.query("SELECT * FROM `event` WHERE `OWNER_ID` =" + sess.member_id ,function(err,rows)
+        {
+            if(!err) 
+            {
+            	console.log('all event of you!');
+                res.json(rows);
+            }   
+            else
+            {
+            	console.log('error');
+            	res.end('error');
+            }        
+        });
+  	});
 });
 
 app.post('/check_event',function(req,res)
@@ -301,11 +360,11 @@ app.post('/create_event',function(req,res)
 	    	console.log('error : t');
 	        return
 	    }
-	    //var datetime = form.start_date.toString() + "T" + form.start_time.toString() + ":00.000Z";
-	    //console.log(datetime);
- 		var start_time = 1492714800000;//new Date(datetime).getTime();
- 		//datetime = form.end_date.toString() + "T" + form.end_time.toString() + ":00.000Z";
- 		var end_time = 1492725600000;//new Date(datetime).getTime();
+	    var datetime = form.start_date.toString() + "T" + form.start_time.toString() + ".000Z";
+	    console.log(datetime);
+ 		var start_time = new Date(datetime).getTime();//1492714800000;//new Date(datetime).getTime();
+ 		datetime = form.end_date.toString() + "T" + form.end_time.toString() + ".000Z";
+ 		var end_time = new Date(datetime).getTime();//1492725600000;//new Date(datetime).getTime();
  		var today = new Date().getTime();
 
  		console.log(datetime);
@@ -340,7 +399,7 @@ app.post('/create_event',function(req,res)
 	        if(!err) 
 	        {
 	        	console.log('dsfagrr');
-	            var temp = [form.event_name,'done'];
+	            var temp = form.event_name;
 	            res.json('temp');
 	        }
 	        else
@@ -349,6 +408,84 @@ app.post('/create_event',function(req,res)
 	        	res.end('error');
 	        }           
 	    });
+    }); 
+    // }
+	// else 
+	// {
+	//     res.render('login.html');
+	// }  
+});
+
+
+app.post('/edit_event/:id',function(req,res)
+{
+    sess = req.session;
+    var form = req.body;
+    console.log(form);
+	//if(sess.member_id) 
+	//{
+	pool.getConnection(function(err,connection)
+	{
+		if(form.event_name == '')
+	    {
+	    	res.end('error : en');
+	    	console.log('error : en')
+	        return
+	    }  		
+	    if(form.start_date == '' || form.start_time == '' || form.end_time == '' || form.end_date == '')
+	    {
+	    	res.end('error : t');
+	    	console.log('error : t');
+	    }
+	    else
+	    {
+	    	var datetime = form.start_date.toString() + "T" + form.start_time.toString() + ".000Z";
+		    console.log(datetime);
+	 		var start_time = new Date(datetime).getTime();//1492714800000;//new Date(datetime).getTime();
+	 		datetime = form.end_date.toString() + "T" + form.end_time.toString() + ".000Z";
+	 		var end_time = new Date(datetime).getTime();//1492725600000;//new Date(datetime).getTime();
+	 		var today = new Date().getTime();
+
+	 		console.log(datetime);
+	 		
+
+		    if(today > start_time)
+		    {
+		        res.end('error : t>');
+		        console.log('error : t>');
+		    }
+		    else if(end_time <= start_time)
+		    {
+		        res.end('error : t<');
+		        console.log('error : t<');
+		    }
+		    if(form.min_age < 0 || form.max_age < 0  || form.min_age > 120 || form.max_age > 120 || form.ticket_price < 0 || form.max_seat < 0)
+		    {
+		    	res.end('error : xxxx');
+		    	console.log('error : xxxx');
+		    }
+		    else
+		    {
+			    connection.query("UPDATE `event` SET `EVENT_NAME`= '" + form.event_name + "',`CATEGORY`= '" + form.category + "' ,`DETAIL`= '" + form.detail + "',`PICTURE`= '" + form.pic + "',`VIDEO`= '" + form.video + "',`TIME_START_E`= '" + start_time + "',`TIME_END_E`= '" + end_time + "',`CONDITION_MIN_AGE`= '" + form.min_age + "',`CONDITION_MAX_AGE`='" + form.max_age + "',`CONDITION_SEX`= '" + form.gender + "',`MAX_SEAT`= '" + form.max_seat + "',`PRICE`= '" + form.ticket_price + "',`LOCATION_lat`= '" + form.location_lat + "',`LOCATION_lng`= '" + form.location_lng + "' WHERE `EVENT_ID` =" + req.params.id,function(err)
+			    {
+			        //connection.release();
+			        console.log(start_time);
+			        console.log(end_time);
+			        console.log(err);
+			        if(!err) 
+			        {
+			        	console.log('update suscess');
+			            var temp = form.event_name;
+			            res.json('temp');
+			        }
+			        else
+			        {
+			        	console.log('update error');
+			        	res.end('error');
+			        }           
+			    });
+		    } 
+	    }
     }); 
     // }
 	// else 
@@ -406,6 +543,33 @@ app.get('/DeleteEvent/:id_event/:pass',function(req,res)
 	// }
 });
 
+app.get('/supoort_list',function(req,res)
+{
+	sess = req.session;
+	// console.log(sess);
+	// if(sess.member_id) 
+	// {
+	    pool.getConnection(function(err,connection)
+        {
+	        connection.query("SELECT * FROM `support`" ,function(err,rows)
+	        {
+	            //connection.release();
+	            if(!err) 
+	            {
+	                res.json(rows);
+	            }      
+	            else
+	            {
+	            	res.end('error');
+	            }     
+	        });
+  		});
+	// }
+	// else 
+	// {
+	//     res.render('login.html');
+	// }
+});
 
 
 app.listen(5555);

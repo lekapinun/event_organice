@@ -9,29 +9,50 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
-			    var event_name,category,start_date,start_time,end_date,end_time,min_age, max_age,gender,max_seat,location_lat,location_lng,ticket_price,detail,pic,video;
-			    $("#submit").click(function(){
-			        event_name=$("#event_name").val();
-			        category=$("#category").val();
-			        start_date=$("#start_date").val();
-			        start_time=$("#start_time").val();
-			        end_date=$("#end_date").val();
-			        end_time=$("#end_time").val();
-			        min_age=$("#min_age").val();
-			        max_age=$("#max_age").val();
-			        gender=$("#gender").val();
-			        max_seat=$("#max_seat").val();
-			        location_lat=$("#location_lat").val();
-			        location_lng=$("#location_lng").val();
-			        detail=$("#detail").val();
-			        ticket_price=$("#ticket_price").val();
-			        pic=$("#pic").val();
-			        video=$("#video").val();
-			        $.post("http://localhost:5555/create_event",{event_name:event_name,category:category,start_date:start_date,start_time:start_time,end_date:end_date,end_time:end_time,min_age:min_age,max_age:max_age,gender:gender,max_seat:max_seat,location_lat:location_lat,location_lng:location_lng,ticket_price:ticket_price,detail:detail,pic:pic,video:video},function(data){  
-			        	console.log(data);
-			        	$("#box").html(data); 
-			        	console.log(data);
-			        });
+			    var event_name,category,start_date,start_time,end_date,end_time,min_age, max_age,gender,max_seat,location_lat,location_lng,ticket_price,detail,pic,video,id;
+			    $.get("http://localhost:5555/event/1",{},function(data){  
+			    		console.log(data);
+			    		id = data[0].EVENT_ID;
+			            $("#event_name").val(data[0].EVENT_NAME);
+				        $("#category").val(data[0].CATEGORY);
+				        $("#start_date").val(data[0].start_date);
+				        $("#start_time").val(data[0].start_time);
+				        $("#end_date").val(data[0].end_date);
+				        $("#end_time").val(data[0].end_time);
+				        $("#min_age").val(data[0].CONDITION_MIN_AGE);
+				        $("#max_age").val(data[0].CONDITION_MAX_AGE);
+				        $("#gender").val(data[0].CONDITION_SEX);
+				        $("#max_seat").val(data[0].MAX_SEAT);
+				        $("#location_lat").val(data[0].LOCATION_lat);
+				        $("#location_lng").val(data[0].LOCATION_lng);
+				        $("#detail").val(data[0].DETAIL);
+				        $("#ticket_price").val(data[0].PRICE);
+				        $("#pic").val(data[0].PICTURE);
+				        $("#video").val(data[0].VIDEO);
+			       	});
+					    $("#submit").click(function(){
+					    	console.log(id);
+					        event_name=$("#event_name").val();
+					        category=$("#category").val();
+					        start_date=$("#start_date").val();
+					        start_time=$("#start_time").val();
+					        end_date=$("#end_date").val();
+					        end_time=$("#end_time").val();
+					        min_age=$("#min_age").val();
+					        max_age=$("#max_age").val();
+					        gender=$("#gender").val();
+					        max_seat=$("#max_seat").val();
+					        location_lat=$("#location_lat").val();
+					        location_lng=$("#location_lng").val();
+					        detail=$("#detail").val();
+					        ticket_price=$("#ticket_price").val();
+					        pic=$("#pic").val();
+					        video=$("#video").val();
+					        $.post("http://localhost:5555/edit_event/" + id,{event_name:event_name,category:category,start_date:start_date,start_time:start_time,end_date:end_date,end_time:end_time,min_age:min_age,max_age:max_age,gender:gender,max_seat:max_seat,location_lat:location_lat,location_lng:location_lng,ticket_price:ticket_price,detail:detail,pic:pic,video:video},function(data){  
+					        	console.log(data);
+					        	$("#box").html(data); 
+					        	console.log(data);
+					        });
 			    });
 		});
 		</script>
@@ -125,7 +146,7 @@
 	</div>
 	<div>
 		<label for="event_name">Event's Name</label>
-  		<input type="text" id="event_name" name="event_name">
+  		<input type="text" id="event_name" name="event_name" >
 	</div>
 	<div>
 		<label >Owner : Thomas</label>
