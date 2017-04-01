@@ -881,11 +881,14 @@ body{
 }
 
 
-/*================================Event navbar=================================*/
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 .event_navbar-nav-nav_box {
 	background-color: #48515A;
+}
+
+.event_nav-btn-hamberger {
+	margin-top: 22px;
 }
 
 .event_nav-text-event{
@@ -905,14 +908,13 @@ body{
 }
 
 .event_nav-a-button_box {
-	display: inline-flex;
-	margin-top: 17px;
+	margin-top: 20px;
 	padding-bottom: 20px;
 }
 
 .event_nav-a-button {
 	font-family: "Nunito";
-	color: white;
+	color: white !important;
 	font-size: 20px;
 	border-radius: 10px;
 }
@@ -928,7 +930,6 @@ body{
 }
 
 .event_nav-btn-user {
-	margin-top: 22px;
 	font-family: "Nunito";
 	font-size: 18px;
 	background-color: #48515A;
@@ -939,10 +940,6 @@ body{
 	width: 30px;
 	height: 30px;
 	border-radius: 20px;
-}
-
-.event_nav-dropdown-box_dropdow {
-	height: 60px;
 }
 
 .btn-primary-jan:hover {
@@ -966,8 +963,8 @@ body{
 }
 
 .event_nav-dropdown-drop a:hover{
-	color: #48515A;
-	text-decoration: none;
+	color: #48515A !important;
+	text-decoration: none !important;
 }
 
 .event_nav-dropdown-drop a:focus{
