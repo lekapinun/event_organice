@@ -254,6 +254,64 @@ app.get('/join/:id',function(req,res)
   	});
 });
 
+app.get('/gift/:id_event/:id_member',function(req,res)
+{
+	sess = req.session;
+	var event_id = req.params.id_event;
+    var member_id = req.params.id_member;
+    pool.getConnection(function(err,connection)
+    {
+        connection.query("select * from event where event_id =" + event_id,function(err,rows)
+        {
+            if(rows.length > 0) 
+            {
+                connection.query("select * from `member` where `member_id` = '" + member_id + "'",function(err,rows)
+		        {
+		            if(rows.length > 0) 
+		            {
+		            	connection.query("SELECT * FROM `join_event` WHERE `EVENT_ID` = '" + event_id +"' and `MEMBER_ID` = " + member_id,function(err,rows)
+				        {
+				            if(rows.length <= 0) 
+				            {
+				            	console.log("INSERT INTO `join_event`(`EVENT_ID`, `MEMBER_ID`) VALUES ('"+ event_id +"','"+ member_id+"')");
+				            	connection.query("INSERT INTO `join_event`(`EVENT_ID`, `MEMBER_ID`) VALUES ('"+ event_id +"','"+ member_id+"')",function(err,rows)
+						        {
+						        	console.log(err);
+						            if(!err) 
+						            {
+						            	console.log('gift suscess!');
+						                res.end('done');
+						            }
+						            else
+						            {
+						            	console.log('gift fail!');
+						            	res.end('error');
+						            }           
+						        });
+				            }
+				            else
+				            {
+				            	console.log('gift fail');
+				            	res.end('error');
+				            }           
+				        });
+		            }
+		            else
+		            {
+		            	console.log('member fail');
+		            	res.end('error');
+		            }           
+		        });
+            } 
+            else
+            {
+            	console.log('event fail');
+		        res.end('error');
+            }          
+        });     	
+  	});
+});
+
 app.get('/event/:id',function(req,res)
 {
     pool.getConnection(function(err,connection)
