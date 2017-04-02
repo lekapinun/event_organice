@@ -876,10 +876,40 @@ app.get('/following_list',function(req,res)
 app.get('/follower_list',function(req,res)
 {
 	sess = req.session;
-	console.log(sess);
+	var follower = '';
 	if(sess.member_id) 
 	{
-	    
+	    pool.getConnection(function(err,connection)
+        {
+		    console.log("SELECT * FROM `following` WHERE `FOLLOWING_ID` = " + sess.member_id);
+		    connection.query("SELECT * FROM `following` WHERE `FOLLOWING_ID` = " + sess.member_id,function(err,rows)
+		    {		    	
+		    	if(rows.length > 0)
+		    	{
+		    		for (var item of rows) 
+		    		{
+		    			follower = follower + "MEMBER_ID = '" + item.FOLLOWING_ID + "'" + ' or ';
+		    		}
+		    		follower = follower.substr(0,follower.length - 4);
+		    		console.log("SELECT * FROM `member` WHERE " + follower);
+		    		connection.query("SELECT * FROM `member` WHERE " + follower,function(err,rows_foll)
+				    {		    	
+				    	if(rows.length > 0)
+				    	{
+				    		res.json(rows_foll);
+				    	}
+				    	else
+				    	{
+				    		res.end('error');
+				    	}
+				    });
+		    	}
+		    	else
+		    	{
+		    		res.end('error');
+		    	}
+		    });
+		});
 	}
 	else 
 	{
