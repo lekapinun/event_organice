@@ -210,10 +210,80 @@
 .text-sm-p{
 	font-size: 0.5rem;
 }
-
-
-
-
 }
+
+.btnmap {
+    
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
+
+.mapshow {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.mapshow-content {
+    background-color: #fefefe;
+    /*margin-top: 5rem;*/
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    color: black;
+}
+
+.map-close {
+    .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+}
+
+.map-close:hover,
+.map-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.text-r {
+    text-align: right;
+}
+
+#map {
+	width: auto;
+    height: 500px;
+    display: block;
+    margin-top: 10px;
+}
+
+#pac-input {
+                background-color: #fff;
+		        font-family: Roboto;
+		        font-size: 15px;
+		        font-weight: 300;
+		        text-overflow: ellipsis;
+                margin-top: 6px;
+                width: 50%;
+                }
+
+#pac-input:focus {
+		        border-color: #4d90fe;
+		      }
 
 

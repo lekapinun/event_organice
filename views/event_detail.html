@@ -20,7 +20,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>
     <script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
-	
+	<!-- google js -->
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuyEycAxVaRvLY5CuQ84d3eFXU0PSf1Jg&libraries=places&callback=initMap"></script>
+
 	<!-- my css -->
 	<link rel="stylesheet" type="text/css" href="myCSS/eventdetail.css">
 	<link rel="stylesheet" type="text/css" href="myCSS/mycss.css">
@@ -85,9 +87,16 @@
 					
 					<div class="col-sm-12 col-md-6 col-lg-6 event_detail-detail" >
 						<img src="http://www.soompi.com/wp-content/uploads/2015/02/park-shin-hye2.jpg">
+
 					</div>
 					<div class="col-sm-12 col-md-6 col-lg-6 mt-sm-0 mt-md-5" >
-						<div><label style="color: #48515A"><a href="#"><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i> VENUE:</a> asdasfsf</div>
+						<div><label style="color: #48515A">
+								<!-- Button trigger modal -->
+              					<button type="button" class=" btn btn-primary" data-toggle="modal" data-target="#location" >
+                  					<i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
+              					</button>
+               					VENUE: asdasfsf
+						</div>
 						<div><label style="color: #48515A" >SHOWTIME:</label></div>
 						<div><label style="color: #48515A" >TIME:</label></div>
 						<div style="margin-bottom: 1rem;" ><label>TICKET PRICE:</label></div>
@@ -116,6 +125,9 @@
 
 							แฟนตาซีเคอร์ฟิวแชมป์หม่านโถวนายพราน แฮมเบอร์เกอร์รอยัลตี้ คีตราชันเรซิ่นโกลด์สุริยยาตรโฟล์ค แทงกั๊กไคลแม็กซ์ ติวเตอร์ต้าอ่วยวอฟเฟิล สุริยยาตรจิ๊กซอว์แจ็กพ็อตติวเตอร์ แบล็กเปราะบาง วีนจ๊าบแรงใจ ป๊อกเฝอฮัลโลวีน วิลเลจคอนโดมิเนียมปาสคาลสุริยยาตร์ โอเปอเรเตอร์ ฟาสต์ฟู้ดเวเฟอร์แคป ชัตเตอร์มาร์เก็ต สกรัมเมคอัพสโตร์ วีเจบาร์บีคิวแก๊สโซฮอล์ แรลลีคอนเซปต์กีวีวีเจ
 					</p>
+					<div>
+						
+					</div>
 				</div>
 			
 			
@@ -231,10 +243,78 @@
 		</div>
 	</div>
 </div>
-	
-	
-	
 </div>
+
+	<div class="modal fade" id="location" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+								
+									<!-- <div class="modal-content">
+										<div class="" style="margin-right: 25%">
+											
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          										<span aria-hidden="true">&times;</span>
+        									</button>
+										</div>
+									
+										<div class="modal-body">
+        									<div class="mapshow-content">
+									               <div id="map"></div>
+									          </div> 
+									      </div>	
+									</div> -->
+
+								<div class="modal-dialog">
+								<div class="modal-content">
+								<div class="modal-header">
+								<button style="float:right;" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+								
+								</div>
+								<div class="modal-body">
+								<div class="mapshow-content">
+								       <div id="map"></div>
+								  </div> 
+								</div>
+								</div><!-- /.modal-content -->
+								</div><!-- /.modal-dialog -->
+							
+			
+								
+	</div>
+                          
+        
+	<script>
+
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 2,
+          center: new google.maps.LatLng(2.8,-187.3),
+          mapTypeId: 'terrain'
+        });
+
+        // Create a <script> tag and set the USGS URL as the source.
+        var script = document.createElement('script');
+        // This example uses a local copy of the GeoJSON stored at
+        // http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp
+        script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
+        document.getElementsByTagName('head')[0].appendChild(script);
+      }
+
+      // Loop through the results array and place a marker for each
+      // set of coordinates.
+      window.eqfeed_callback = function(results) {
+        for (var i = 0; i < results.features.length; i++) {
+          var coords = results.features[i].geometry.coordinates;
+          var latLng = new google.maps.LatLng(coords[1],coords[0]);
+          var marker = new google.maps.Marker({
+            position: latLng,
+            map: map
+          });
+        }
+      }
+    </script>
+
+
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuyEycAxVaRvLY5CuQ84d3eFXU0PSf1Jg&libraries=places&callback=initMap"></script>
 
 </body>
 </html>
