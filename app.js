@@ -744,5 +744,86 @@ app.post('/editprofile',function(req,res)
 	// }  
 });
 
+app.get('/follow/:id',function(req,res)
+{
+	sess = req.session;
+	console.log(sess);
+	if(sess.member_id) 
+	{
+	    pool.getConnection(function(err,connection)
+        {
+        	var check = 0;
+        	connection.query("select * from `member` where `member_id` = '" + req.params.id + "'",function(err,rows)
+	        {
+	            if(rows.length > 0) 
+	            {
+	                connection.query("SELECT * FROM `following` WHERE `FOLLOWING_ID` = '" + req.params.id + "'",function(err,rows)
+			        {
+			            if(rows.length <= 0) 
+			            {
+			                console.log("INSERT INTO `following`(`MEMBER_ID`, `FOLLOWING_ID`) VALUES ( '" + sess.member_id + "','" + req.params.id + "')");
+					        connection.query("INSERT INTO `following`(`MEMBER_ID`, `FOLLOWING_ID`) VALUES ( '" + sess.member_id + "','" + req.params.id + "')" ,function(err,rows)
+					        {
+					            //connection.release();
+					            console.log(err);
+					            if(!err) 
+					            {
+					                res.end(sess.member_id + 'follow' + req.params.id);
+					            }      
+					            else
+					            {
+					            	res.end('error');
+					            }     
+					        });
+			            }
+			            else
+			            {
+			            	res.end('error');
+			            }           
+			        });
+	            }
+	            else
+	            {
+	            	res.end('error');
+	            }           
+	        });     	
+  		});
+	}
+	else 
+	{
+	    res.end('error');
+	}
+});
+
+app.get('/unfollow/:id',function(req,res)
+{
+	sess = req.session;
+	console.log(sess);
+	if(sess.member_id) 
+	{
+	    pool.getConnection(function(err,connection)
+        {
+        	console.log("DELETE FROM `following` WHERE `MEMBER_ID` = '" + sess.member_id + "' and  `FOLLOWING_ID` = '" + req.params.id + "'" );
+	        connection.query("DELETE FROM `following` WHERE `MEMBER_ID` = '" + sess.member_id + "' and  `FOLLOWING_ID` = '" + req.params.id + "'" ,function(err,rows)
+	        {
+	            //connection.release();
+	            console.log(err);
+	            if(!err) 
+	            {
+	                res.end(sess.member_id + 'unfollow' + req.params.id);
+	            }      
+	            else
+	            {
+	            	res.end('error');
+	            }     
+	        });
+  		});
+	}
+	else 
+	{
+	    res.end('error');
+	}
+});
+
 
 app.listen(5555);
