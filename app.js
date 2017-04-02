@@ -222,32 +222,43 @@ app.get('/AllEvent/:category',function(req,res)
 app.get('/join/:id',function(req,res)
 {
 	sess = req.session;
+	var event_id = req.params.id;
     pool.getConnection(function(err,connection)
     {
-
-    	var event_id = req.params.id;
         connection.query("select * from event where event_id =" + event_id,function(err,rows)
         {
             if(rows.length > 0) 
             {
-                var event_id = req.params.id;
-		        connection.query("INSERT INTO `join_event`(`EVENT_ID`, `MEMBER_ID`) VALUES ("+ event_id +","+ sess.member_id+")",function(err,rows)
-		        {
-		            if(!err) 
-		            {
-		            	console.log('join suscess!');
-		                res.end('done');
-		            }
-		            else
-		            {
-		            	console.log('join fail');
-		            	res.end('error');
-		            }           
-		        });
+            	connection.query("SELECT * FROM `join_event` WHERE `EVENT_ID` = '" + event_id +"' and `MEMBER_ID` = " + sess.member_id,function(err,rows)
+				{
+				    if(rows.length <= 0) 
+			        {
+			            console.log("INSERT INTO `join_event`(`EVENT_ID`, `MEMBER_ID`) VALUES ('"+ event_id +"','"+ sess.member_id+"')");
+			            connection.query("INSERT INTO `join_event`(`EVENT_ID`, `MEMBER_ID`) VALUES ('"+ event_id +"','"+ sess.member_id+"')",function(err,rows)
+					    {
+					 		console.log(err);
+					        if(!err) 
+					        {
+					           	console.log('join suscess!');
+					            res.end('done');
+					        }
+					        else
+					        {
+						       	console.log('join fail!');
+						       	res.end('error');
+						    }           
+						});
+				    }
+				    else
+				    {
+				        console.log('join fail');
+				        res.end('error');
+				     }           
+				});
             } 
             else
             {
-            	console.log('join fail');
+            	console.log('event fail');
 		        res.end('error');
             }          
         });     	
