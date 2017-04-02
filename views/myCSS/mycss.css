@@ -1,3 +1,4 @@
+/*========================Home========================*/
 .eventorganice{
 
 	height: 700px;
@@ -281,7 +282,136 @@ textarea {
   
 }
 
+/*modal sign up*/
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+.home-modal-box_modal {
+	background-color: #48515A !important;
+	padding-left: 5%;
+	padding-right: 5%;
+}
 
+.home-btn-close {
+  font-size: 70px !important;
+  color: white !important;
+  background-color: #FC575E !important;
+  font-family: "Nunito";
+  margin-left: 90%;
+  margin-right: auto;
+}
+
+.home-text-hello {
+	font-family: "Quicksand";
+	color: white;
+	font-size: 25px;
+}
+
+.home-text-welcome {
+	font-family: "Quicksand";
+	color: white;
+	font-size: 15px;
+	margin-top: 5%;
+}
+
+.home-text-signup {
+	font-family: "Quicksand-bold";
+	color: white;
+	font-size: 25px;
+	margin-left: 25%;
+}
+
+.home-img-man {
+	width: 100px;
+	height: 100px;
+}
+
+.home-input-font_input {
+	font-family: "Quicksand-bold";
+	font-size: 15px;
+}
+
+.home-text-gender {
+	font-family: "Quicksand";
+	color: white;
+	font-size: 15px;
+}
+
+.home-dropdown-gender {
+	font-family: "Quicksand-bold";
+	font-size: 15px;
+	margin-left: 6%;
+}
+
+.home-text-date {
+	font-family: "Quicksand";
+	color: white;
+	font-size: 15px;
+}
+
+.home-input-date {
+	font-family: "Quicksand-bold";
+	font-size: 15px;
+	margin-left: 2%;
+}
+
+.modal-footer-jan {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 15px;
+}
+
+.home-btn-clear {
+	font-family: "Nunito";
+	background-color: #FBD451;
+	border-color: #FBD451 !important;
+	margin-right: auto;
+	box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.home-btn-clear:hover {
+	background-color: #eab70b;
+	border-color: #eab70b !important;
+}
+
+.home-btn-clear:focus {
+	background-color: #eab70b;
+	border-color: #eab70b !important;
+}
+
+.home-btn-signup {
+	font-family: "Nunito";
+	box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	background-color: #FC575E;
+	border-color: #FC575E !important;
+}
+
+.home-btn-signup:hover {
+	background-color: #e04c52;
+	border-color: #e04c52 !important;
+}
+
+@media (max-width:575px){
+	.home-text-signup {
+		margin-left: 20%;
+	}
+
+	.home-dropdown-gender {
+		margin-left: 0%;
+	}
+
+	.home-input-date {
+		margin-left: 0%;
+	}
+}
 
 
 
