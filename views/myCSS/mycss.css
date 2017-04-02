@@ -978,3 +978,67 @@ body{
 	width: 30px;
 	height: 30px;
 }
+
+
+/*==========================eventlist=====================================================*/
+
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+
+
+
+.eventlist-title{
+	font-family: 'Quicksand';
+	color: black;
+	font-size: 15px;
+	text-decoration: bold;
+}
+
+.eventlist-describe{
+	font-family: 'Quicksand';
+	color: black;
+	font-size: 15px;
+	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	text-overflow: '.....?';
+}
+
+
+.eventlist-start_date{
+	font-family: 'Quicksand';
+	color: black;
+	font-size: 12px;
+}
+
+.eventlist-end_date{
+	font-family: 'Quicksand';
+	color: black;
+	font-size: 12px;
+}
+
+.a-eventlist{
+	color: black !important;
+	font-family: "Nunito";
+	font-size: 1rem;
+	text-decoration: none;
+	margin-top: 1rem;
+	border-top-color: black;
+	border-bottom-color: black;
+}
+
+.a-eventlist:hover{
+	text-decoration: none;
+}
+
+
+
+.eventlist-show{
+	font-family: 'Quicksand';
+	font-size: 1rem;
+	margin-top: 1rem;
+	margin-left: 1rem;
+
+}
+
