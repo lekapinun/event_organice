@@ -613,7 +613,6 @@ app.post('/signup',function(req,res)
 	    {
 	    	res.end('error : en');
 	    	console.log('error : en')
-	        return
 	    }  		
 	    connection.query("SELECT * FROM `member` WHERE `USERNAME` = '" + form.user + "'",function(err,rows)
 	    {
@@ -642,16 +641,16 @@ app.post('/signup',function(req,res)
 				    }
 				    else
 				    {
-				        console.log("INSERT INTO `member`(`NATIONAL_ID`, `USERNAME`, `PASSWORD`, `FNAME`, `LNAME`, `SEX`, `BIRTH_DATE`, `ADDRESS`, `E-MAIL`, `PHONE`, `CREDIT_CARD`, `URL_IMG`) VALUES ('" + form.nid + "','" + form.user + "','" + form.pass + "','" + form.fname + "','" + form.lname + "','" + form.sex + "','" + form.bd.split('T')[0] + "','" + form.address + "','" + form.email + "','" + form.phone + "','" + form.cd + "','" + form.img + "')");
+				        console.log("INSERT INTO `member`(`USERNAME`, `PASSWORD`, `FNAME`, `LNAME`, `SEX`, `BIRTH_DATE`, `E-MAIL`, `PHONE`, `CREDIT_CARD`, `URL_IMG`) VALUES ('" + form.user + "','" + form.pass + "','" + form.fname + "','" + form.lname + "','" + form.sex + "','" + form.bd.split('T')[0] + "','" + form.email + "','" + form.phone + "','" + form.cd + "','" + form.img + "')");
 
-					    connection.query("INSERT INTO `member`(`NATIONAL_ID`, `USERNAME`, `PASSWORD`, `FNAME`, `LNAME`, `SEX`, `BIRTH_DATE`, `ADDRESS`, `E-MAIL`, `PHONE`, `CREDIT_CARD`, `URL_IMG`) VALUES ('" + form.nid + "','" + form.user + "','" + form.pass + "','" + form.fname + "','" + form.lname + "','" + form.sex + "','" + form.bd.split('T')[0] + "','" + form.address + "','" + form.email + "','" + form.phone + "','" + form.cd + "','" + form.img + "')",function(err)
+					    connection.query("INSERT INTO `member`(`USERNAME`, `PASSWORD`, `FNAME`, `LNAME`, `SEX`, `BIRTH_DATE`, `E-MAIL`, `PHONE`, `CREDIT_CARD`, `URL_IMG`) VALUES ('" + form.user + "','" + form.pass + "','" + form.fname + "','" + form.lname + "','" + form.sex + "','" + form.bd.split('T')[0] + "','" + form.email + "','" + form.phone + "','" + form.cd + "','" + form.img + "')",function(err)
 					    {
 					        //connection.release();
 					        //console.log(datetime);
 					        console.log(err);
 					        if(!err) 
 					        {
-					        	console.log('dsfagrr');
+					        	console.log('insert suscess');
 					            var temp = form.user;
 					            res.json(temp);
 					        }
@@ -665,6 +664,78 @@ app.post('/signup',function(req,res)
 	            }
 	        }           
 	    }); 
+    }); 
+    // }
+	// else 
+	// {
+	//     res.render('login.html');
+	// }  
+});
+
+app.post('/editprofile',function(req,res)
+{
+    sess = req.session;
+    var form = req.body;
+    
+    console.log(form);
+	//if(sess.member_id) 
+	//{
+	pool.getConnection(function(err,connection)
+	{
+		if(form.pass != form.repass)
+		{
+			res.end('error : password not match re-password');
+		    console.log('error : password not match re-password')
+		}
+		else
+		{
+			if(form.user == '' || form.fname == '' || form.lname == '' || form.bd == '' || form.sex == '' || form.cd == '' || form.phone == '')
+		    {
+		    	res.end('error : space');
+		    	console.log('error : space')
+		    }  		
+		    else
+		    {
+		    	var today = new Date();
+		    	var date = form.bd.split('T')[0] + "T17:00:00.420Z";
+    			//var date_timestamp = new Date(date);
+    			//var new_date = date_timestamp.getTime();
+    			var birthday = new Date(date)
+    			var bd = birthday.getFullYear() + '-' + (birthday.getMonth()+1) + '-' + birthday.getDate();
+
+				console.log(today.toISOString().split('T')[0]);
+				console.log(bd);
+
+				if(today < birthday)
+				{
+					res.end('error : t');
+					console.log('error : t');
+				}
+				else
+				{
+					console.log("UPDATE `member` SET `USERNAME`= '" + form.user + "',`PASSWORD`= '" + form.pass + "',`FNAME`= '" + form.fname + "',`LNAME`='" + form.lname + "',`SEX`='" + form.sex + "',`BIRTH_DATE`='" + bd + "',`E-MAIL`='" + form.email + "',`PHONE`='" + form.phone + "',`CREDIT_CARD`='" + form.cd + "',`URL_IMG`='" + form.img + "' WHERE `MEMBER_ID` = " + sess.member_id);
+
+					connection.query("UPDATE `member` SET `USERNAME`= '" + form.user + "',`PASSWORD`= '" + form.pass + "',`FNAME`= '" + form.fname + "',`LNAME`='" + form.lname + "',`SEX`='" + form.sex + "',`BIRTH_DATE`='" + bd + "',`E-MAIL`='" + form.email + "',`PHONE`='" + form.phone + "',`CREDIT_CARD`='" + form.cd + "',`URL_IMG`='" + form.img + "' WHERE `MEMBER_ID` = " + sess.member_id,function(err)
+					{
+						//connection.release();
+						//console.log(datetime);
+						console.log(err);
+						if(!err) 
+						{
+						    console.log('edit suscess');
+						    var temp = form.user;
+						    res.json(temp);
+						}
+						else
+						{
+						    console.log('edit error');
+						    res.end('error');
+						}           
+					});
+				}
+	    	}
+		}
+		
     }); 
     // }
 	// else 
