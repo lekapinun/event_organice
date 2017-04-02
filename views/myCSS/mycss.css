@@ -1118,14 +1118,14 @@ body{
 
 
 
-.eventlist-title{
+.event_list-h4-title{
 	font-family: 'Quicksand';
 	color: black;
 	font-size: 15px;
 	text-decoration: bold;
 }
 
-.eventlist-describe{
+.event_list-h6-describe{
 	font-family: 'Quicksand';
 	color: black;
 	font-size: 15px;
@@ -1136,19 +1136,7 @@ body{
 }
 
 
-.eventlist-start_date{
-	font-family: 'Quicksand';
-	color: black;
-	font-size: 12px;
-}
-
-.eventlist-end_date{
-	font-family: 'Quicksand';
-	color: black;
-	font-size: 12px;
-}
-
-.a-eventlist{
+.event_list-a-event_type{
 	color: black !important;
 	font-family: "Nunito";
 	font-size: 1rem;
@@ -1158,13 +1146,13 @@ body{
 	border-bottom-color: black;
 }
 
-.a-eventlist:hover{
+.event_list-a-event_type:hover{
 	text-decoration: none;
 }
 
 
 
-.eventlist-show{
+.event_list-div-show{
 	font-family: 'Quicksand';
 	font-size: 1rem;
 	margin-top: 1rem;
@@ -1172,3 +1160,28 @@ body{
 
 }
 
+.event_list-li-page-link{
+	color: white;
+	font-family: 'Nunito';
+	background-color:#FFD700;
+	border-radius: 0px;
+}
+
+
+.event_list-div-start_date{
+	font-family: 'Quicksand';
+	color: black;
+	font-size: 12px;
+}
+
+.event_list-div-end_date{
+	font-family: 'Quicksand';
+	color: black;
+	font-size: 12px;
+}
+
+.event_list-div-dat{
+	color: black;
+	font-family: 'quicksand';
+	font-size: 12px;
+}
