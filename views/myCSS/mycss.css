@@ -585,7 +585,7 @@ textarea {
 
 /*====================================center-page================================*/
 body{
-	background-color: #f7d51c;
+	/*background-color: #f7d51c;*/
 }
 .center-container{
 	padding-right: 0px!important;
@@ -880,12 +880,15 @@ body{
 
 }
 
-
 /*================================Event navbar=================================*/
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 .event_navbar-nav-nav_box {
 	background-color: #48515A;
+}
+
+.event_nav-btn-hamberger {
+	margin-top: 22px;
 }
 
 .event_nav-text-event{
@@ -905,14 +908,13 @@ body{
 }
 
 .event_nav-a-button_box {
-	display: inline-flex;
-	margin-top: 17px;
+	margin-top: 20px;
 	padding-bottom: 20px;
 }
 
 .event_nav-a-button {
 	font-family: "Nunito";
-	color: white;
+	color: white !important;
 	font-size: 20px;
 	border-radius: 10px;
 }
@@ -927,7 +929,116 @@ body{
 	color: white;
 }
 
-.event_nav-div-search {
-	margin-top: 18px;
-	padding-right: 5%;
+.event_nav-btn-user {
+	font-family: "Nunito";
+	font-size: 18px;
+	background-color: #48515A;
+	border-color: white;
 }
+
+.event_nav-img-user_img {
+	width: 30px;
+	height: 30px;
+	border-radius: 20px;
+}
+
+.btn-primary-jan:hover {
+	color: #fff;
+  	background-color: #28323d !important;
+  	border-color: white !important;
+}
+
+.event_nav-dropdown-drop {
+	border: none;
+	margin-left: 6%;
+	padding-right: 5%;
+	padding-left: 5%;
+	border-radius: 10px;
+}
+
+.event_nav-a-link {
+	color: #95989A;
+	font-family: "Nunito";
+	font-size: 15px;
+}
+
+.event_nav-dropdown-drop a:hover{
+	color: #48515A ;
+	background-color: transparent;
+	text-decoration: none ;
+}
+
+.event_nav-dropdown-drop a:focus{
+	color: #48515A;
+	background-color: transparent;
+	text-decoration: none;
+}
+
+.event_nav-img-icon {
+	width: 30px;
+	height: 30px;
+}
+
+
+/*==========================eventlist=====================================================*/
+
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+
+
+
+.eventlist-title{
+	font-family: 'Quicksand';
+	color: black;
+	font-size: 15px;
+	text-decoration: bold;
+}
+
+.eventlist-describe{
+	font-family: 'Quicksand';
+	color: black;
+	font-size: 15px;
+	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	text-overflow: '.....?';
+}
+
+
+.eventlist-start_date{
+	font-family: 'Quicksand';
+	color: black;
+	font-size: 12px;
+}
+
+.eventlist-end_date{
+	font-family: 'Quicksand';
+	color: black;
+	font-size: 12px;
+}
+
+.a-eventlist{
+	color: black !important;
+	font-family: "Nunito";
+	font-size: 1rem;
+	text-decoration: none;
+	margin-top: 1rem;
+	border-top-color: black;
+	border-bottom-color: black;
+}
+
+.a-eventlist:hover{
+	text-decoration: none;
+}
+
+
+
+.eventlist-show{
+	font-family: 'Quicksand';
+	font-size: 1rem;
+	margin-top: 1rem;
+	margin-left: 1rem;
+
+}
+
