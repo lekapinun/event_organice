@@ -757,7 +757,6 @@ app.get('/follow/:id',function(req,res)
 	{
 	    pool.getConnection(function(err,connection)
         {
-        	var check = 0;
         	connection.query("select * from `member` where `member_id` = '" + req.params.id + "'",function(err,rows)
 	        {
 	            if(rows.length > 0) 
@@ -823,6 +822,64 @@ app.get('/unfollow/:id',function(req,res)
 	            }     
 	        });
   		});
+	}
+	else 
+	{
+	    res.end('error');
+	}
+});
+
+app.get('/following_list',function(req,res)
+{
+	sess = req.session;
+	var follow = '';
+	if(sess.member_id) 
+	{
+		pool.getConnection(function(err,connection)
+        {
+		    console.log("SELECT * FROM `following` WHERE `MEMBER_ID` = " + sess.member_id);
+		    connection.query("SELECT * FROM `following` WHERE `MEMBER_ID` = " + sess.member_id,function(err,rows)
+		    {		    	
+		    	if(rows.length > 0)
+		    	{
+		    		for (var item of rows) 
+		    		{
+		    			follow = follow + "MEMBER_ID = '" + item.FOLLOWING_ID + "'" + ' or ';
+		    		}
+		    		follow = follow.substr(0,follow.length - 4);
+		    		console.log("SELECT * FROM `member` WHERE " + follow);
+		    		connection.query("SELECT * FROM `member` WHERE " + follow,function(err,rows_foll)
+				    {		    	
+				    	if(rows.length > 0)
+				    	{
+				    		res.json(rows_foll);
+				    	}
+				    	else
+				    	{
+				    		res.end('error');
+				    	}
+				    });
+		    	}
+		    	else
+		    	{
+		    		res.end('error');
+		    	}
+		    });
+		});
+	}
+	else 
+	{
+	    res.end('error');
+	}
+});
+
+app.get('/follower_list',function(req,res)
+{
+	sess = req.session;
+	console.log(sess);
+	if(sess.member_id) 
+	{
+	    
 	}
 	else 
 	{
