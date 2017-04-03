@@ -54,6 +54,11 @@ project.config(function ($routeProvider, $stateProvider, $urlRouterProvider, $sc
         templateUrl: 'angularCode/templates/editprofile.html',
         controller: 'editprofileController'
     },{
+        name: 'home.eventcreate',
+        url: '/eventcreate',
+        templateUrl: 'angularCode/templates/eventcreate.html',
+        controller: 'eventcreateController'
+    },{
         name: 'home.managedevent',
         url: '/managed-event',
         templateUrl: 'angularCode/templates/managedevent.html',

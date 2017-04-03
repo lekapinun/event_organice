@@ -184,11 +184,8 @@ furthermore, we are the social media - you can update event's news and meet new 
         					<div class="home-text-signup">
         						SIGN UP <span><img class="home-img-man" src="../pic/nerd.png"></span>
         					</div>
-        					<div name="myusername"	 class="input-group">
-  								<input ng-minlength="3" ng-maxlength="8" type="text" class="form-control home-input-font_input" placeholder="U S E R N A M E" aria-describedby="basic-addon1">
-  								<P style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myusername.$touched && myusername.$invalid">Password is required.</P>
-  								<P  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myusername.$error.minlength">username is too short.</P>
-  								<P  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myusername.$error.maxlength">username is too long.</P>
+        					<div class="input-group">
+  								<input type="text" class="form-control home-input-font_input" placeholder="U S E R N A M E" aria-describedby="basic-addon1" ng-model="signup.user">
 							</div>
 							<div class="input-group" style="margin-top: 10px;">
   								<input type="password" class="form-control home-input-font_input" placeholder="P A S S W O R D" aria-describedby="basic-addon1" ng-model="signup.pass">
