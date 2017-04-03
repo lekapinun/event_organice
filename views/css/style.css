@@ -211,7 +211,7 @@
  	padding-left: 10%;
  	padding-right: 10%;
 
- 	margin-left: 1rem;
+ 	margin-left: 11.5rem;
  	
 }
 .btn-warning-signin:focus, .btn-warning-signin.focus {
@@ -460,9 +460,9 @@ textarea {
 }
 
 .home-text-gender {
-	font-family: "Quicksand";
+	
 	color: white;
-	font-size: 15px;
+	font-size: 20px;
 }
 
 .home-dropdown-gender {
@@ -472,9 +472,8 @@ textarea {
 }
 
 .home-text-date {
-	font-family: "Quicksand";
 	color: white;
-	font-size: 15px;
+	font-size: 20px;
 }
 
 .home-input-date {
@@ -520,13 +519,14 @@ textarea {
 .home-btn-signup {
 	font-family: "Nunito";
 	box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-	background-color: #FC575E;
-	border-color: #FC575E !important;
+	background-color: #02B1E0!important;
+	border-color: #02B1E0 !important;
 }
 
 .home-btn-signup:hover {
-	background-color: #e04c52;
-	border-color: #e04c52 !important;
+
+	background-color: #02FFFF!important;
+	border-color: #02FFFF !important;
 }
 
 @media (max-width:575px){
@@ -601,7 +601,7 @@ textarea {
 		 position:relative;
 		 top:1rem;
 		 width: 50%;
-		 margin-left: 25%;
+		 margin-left: 0%;
 		 border-bottom: 0.3rem solid #FC575E ; 
 		 border-radius: 0.8rem;
 	}
@@ -793,14 +793,14 @@ textarea {
 	}
 	.img-share-white{
 		position: relative;
-		top: -200px;
-		left: 200px;
+		top: -5rem;
+		left: 15rem;
 		width: 70%;
 	}
 		.img-share-red{
 		position: relative;
-		top: -530px;
-		left: 110px;
+		top: -20rem;
+		left: 10rem;
 		right: 0px;
 
 		width: 70%;
@@ -1055,6 +1055,17 @@ body{
 	color: #ED297B !important;
 }
 @media (max-width:575px){
+	.btn-warning-signin-modal {
+		font-family: Quicksand-Regular;  
+ 		color: #fff;
+ 		background-color: #48515A;
+ 		border-color: #48515A;
+ 		padding-left: 10%;
+ 		padding-right: 10%;
+
+ 		margin-left: 6.5rem;
+ 	
+}
 	.detailEvent-row-card{
 		margin-top:5px;
 		margin-bottom: 5px;
@@ -1465,6 +1476,44 @@ body{
 .event_detail-showmore:hover{
 	background-color:#3D454C !important ;
 	border-color:#3D454C !important;
+}
+
+
+
+
+
+.modal-open .modal::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.modal-open .modal::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+.modal-open .modal::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+.modal-open .modal::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+.modal-open .modal::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+.modal-open .modal::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 20px;
+}
+.modal-open .modal::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+.modal-open .modal::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+.modal-open .modal::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 @media (max-width:575px){

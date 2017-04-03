@@ -129,9 +129,9 @@ furthermore, we are the social media - you can update event's news and meet new 
 
 
 			<!-- sign-in modal -->
-			<div id="signin" class="modal fade">
+			<div id="signin" class="modal fade col-10 offset-md-1">
 			    <div class="modal-dialog" role="document">
-					<div class="modal-content">
+					<div class="modal-content ">
 					    <div>
 					    	<button type="button" ng-click="close()" class="close" data-dismiss="modal" aria-label="Close">
           					<span aria-hidden="true">&times;</span></div>
@@ -154,7 +154,7 @@ furthermore, we are the social media - you can update event's news and meet new 
 										<label for="remember"> Remember Me</label>
 									</div>
 
-									<button style="position: relative;top:0px;left: 144px;" type="button" ng-click="loginsubmit()" data-toggle="modal" data-target="#signin" class="btn btn-md btn-warning-signin-modal" ng-disabled="mysignin.$invalid"> SIGN IN </button>
+									<button type="button" ng-click="loginsubmit()" data-toggle="modal" data-target="#signin" class="btn btn-md btn-warning-signin-modal" ng-disabled="mysignin.$invalid"> SIGN IN </button>
 									<div class="col-lg-12">
 										<div class="text-center">
 											<a href="http://phpoll.com/recover" tabindex="5"  style="font-family: Quicksand-bold; color:#48515A;position: relative;top:10px;  " class="forgot-password">Forgot Password?</a>
@@ -168,16 +168,16 @@ furthermore, we are the social media - you can update event's news and meet new 
 			</div>
 
 			<!--sign up modal-->
-			<div id="signup" class="modal fade">
+			<div id="signup" class="modal fade col-10 offset-md-1">
   				<div class="modal-dialog" role="document">
     				<div class="modal-content home-modal-box_modal">
       					<button type="button" class="close home-btn-close" data-dismiss="modal" aria-label="Close">
           					<span aria-hidden="true">&times;</span>
         				</button>
-        				<div class="home-text-hello">
+        				<div class="home-text-hello quicksand">
         					Hello there,
         				</div>
-        				<div class="home-text-welcome">
+        				<div class="home-text-welcome quicksand">
         					welcome to EVENT ORGANICE
         				</div>
       					<div class="modal-body">
@@ -217,16 +217,16 @@ furthermore, we are the social media - you can update event's news and meet new 
 								<div class="input-group" style="margin-top: 10px;">
 	  								<input name="mylastname" ng-model="signup.lname" type="text" class="form-control home-input-font_input" placeholder="L A S T  N A M E" aria-describedby="basic-addon1">
 								</div>
-								<form class="form-inline" style="margin-top: 10px;">
+								<form class="form-inline quicksand" style="margin-top: 10px;">
 									<label for="gender" class="home-text-gender">Gender</label>
 									
-									<select name="mysex"  required ng-model="signup.sex" class="form-control home-dropdown-gender mb-2 mr-sm-2 mb-sm-0" >
+									<select name="mysex quicksand"  required ng-model="signup.sex" class="form-control home-dropdown-gender mb-2 ml-sm-2 mb-sm-0" >
 	      								<option>Male</option>
 	      								<option>Female</option>
 	    							</select>
 	    						</form>
-	    						<form class="form-inline" style="margin-top: 10px;">
-	    							<label for="birthday" class="home-text-date">Birth Date</label>
+	    						<form class="form-inline " style="margin-top: 10px;">
+	    							<label for="birthday" class="home-text-date quicksand">Birth Date</label>
 	    							<input class="form-control home-input-date" type="date" ng-model="signup.bd">
 	    						</form>
 	    						<div class="input-group" style="margin-top: 10px;">
