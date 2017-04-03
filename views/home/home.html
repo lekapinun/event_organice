@@ -53,7 +53,7 @@
 				<div class="poem">Life is not about waiting for the strom to pass. <br> It is about learning dance in the rain.</div>
 				<div class="block-btn-mind ">
 					
-					<button type="button" class="btn  btn-lg btn-warning-signup" > SIGN UP </button>
+					<button type="button" data-toggle="modal" data-target="#signup" class="btn  btn-lg btn-warning-signup" > SIGN UP </button>
 					
 
 					<button type="button" data-toggle="modal" data-target="#signin" class="btn btn-lg btn-warning-signin" > SIGN IN </button>
@@ -208,6 +208,66 @@ furthermore, we are the social media - you can update event's news and meet new 
 			  </div>
 			</div>
 
+			<!--sign up modal-->
+			<div id="signup" class="modal fade">
+  				<div class="modal-dialog" role="document">
+    				<div class="modal-content home-modal-box_modal">
+      					<button type="button" class="close home-btn-close" data-dismiss="modal" aria-label="Close">
+          					<span aria-hidden="true">&times;</span>
+        				</button>
+        				<div class="home-text-hello">
+        					Hello there,
+        				</div>
+        				<div class="home-text-welcome">
+        					welcome to EVENT ORGANICE
+        				</div>
+      					<div class="modal-body">
+        					<div class="home-text-signup">
+        						SIGN UP <span><img class="home-img-man" src="../pic/nerd.png"></span>
+        					</div>
+        					<div class="input-group">
+  								<input type="text" class="form-control home-input-font_input" placeholder="U S E R N A M E" aria-describedby="basic-addon1">
+							</div>
+							<div class="input-group" style="margin-top: 10px;">
+  								<input type="password" class="form-control home-input-font_input" placeholder="P A S S W O R D" aria-describedby="basic-addon1">
+							</div>
+							<div class="input-group" style="margin-top: 10px;">
+  								<input type="password" class="form-control home-input-font_input" placeholder="R E - P A S S W O R D" aria-describedby="basic-addon1">
+							</div>
+							<div class="input-group" style="margin-top: 10px;">
+  								<input type="email" class="form-control home-input-font_input" placeholder="E - M A I L" aria-describedby="basic-addon1">
+							</div>
+							<div class="input-group" style="margin-top: 10px;">
+  								<input type="text" class="form-control home-input-font_input" placeholder="F I R S T  N A M E" aria-describedby="basic-addon1">
+							</div>
+							<div class="input-group" style="margin-top: 10px;">
+  								<input type="text" class="form-control home-input-font_input" placeholder="L A S T  N A M E" aria-describedby="basic-addon1">
+							</div>
+							<form class="form-inline" style="margin-top: 10px;">
+								<label for="gender" class="home-text-gender">Gender</label>
+								<select class="form-control home-dropdown-gender mb-2 mr-sm-2 mb-sm-0" id="gender">
+      								<option>Male</option>
+      								<option>Female</option>
+    							</select>
+    						</form>
+    						<form class="form-inline" style="margin-top: 10px;">
+    							<label for="birthday" class="home-text-date">Birth Date</label>
+    							<input class="form-control home-input-date" type="date" id="birthday">
+    						</form>
+    						<div class="input-group" style="margin-top: 10px;">
+  								<input type="tel" class="form-control home-input-font_input" placeholder="P H O N E  N U M B E R" aria-describedby="basic-addon1">
+							</div>
+							<div class="input-group" style="margin-top: 10px;">
+  								<input type="text" class="form-control home-input-font_input" placeholder="C R E D I T  CA R D" aria-describedby="basic-addon1">
+							</div>
+      					</div>
+      					<div class="modal-footer-jan">
+        					<button type="button" class="btn btn-primary home-btn-clear">CLEAR</button>
+        					<button type="button" class="btn btn-primary home-btn-signup">SIGN UP</button>
+      					</div>
+    				</div>
+  				</div>
+			</div>
 
 </body>
 </html>
