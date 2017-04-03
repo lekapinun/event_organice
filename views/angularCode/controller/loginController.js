@@ -37,4 +37,28 @@ project.controller('loginController', function ($scope,$http,$state) {
             $scope.msgError = 'please enter email & password';
         }
     }
+    $scope.signupsubmit = function(){
+        if ($scope.signup!= undefined) {
+            $http({
+                method : 'POST',
+                url : '/signup',
+                data: $scope.signup
+            })
+            .then(function (response) {
+                if(response.data === 'error'){
+                    $scope.msgError = "wrong information,please try agian."
+                }
+                else{
+                    $state.go('home.event');
+                }
+                
+            }, function (response) {
+                $scope.msgError = "system down please contact dev"
+                console.log(response);
+            });
+        }
+        else{
+            $scope.msgError = 'wrong information,please try agian.';
+        }
+    }
 });

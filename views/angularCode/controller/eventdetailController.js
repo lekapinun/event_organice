@@ -1,4 +1,4 @@
-project.controller('eventdetailController', function ($scope,$state, $stateParams, $http) {
+project.controller('eventdetailController', function ($scope,$sce,$state, $stateParams, $http) {
 	//check login 
 	$http({
         method: 'GET',
@@ -38,10 +38,12 @@ project.controller('eventdetailController', function ($scope,$state, $stateParam
 					}
 					else{
 						$scope.memberID = response.data[0];
+						//$scope.url = $sce.trustAsResourceUrl(response.data[0].VIDEO);
 					}
 			    }, function (response) {
 			        console.log("ERROR");
 			    });
+			    console.log($sce.trustAsUrl(response.data[0].VIDEO));
 			}
 	    }, function (response) {
 	        console.log("ERROR");

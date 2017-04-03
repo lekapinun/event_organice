@@ -13,8 +13,8 @@
     <ul class="navbar-nav mr-auto ml-lg-auto mt-2 mt-lg-2 nav-menu-center">
       <li class="nav-item active nav-menu-mobile">
         <a class="nav-link white-color hidden-lg-up" href="#!/home/profile">
-          <img src="pic/user1.png">
-          SketchJI
+          <img src="{{member.URL_IMG}}" class="rounded-circle">
+          {{member.USERNAME}}
         </a>
       </li>
       <li class="nav-item active">
@@ -50,8 +50,8 @@
       <li class="dropdown">
         <a class="nav-link dropdown-toggle white-color nav-menu-dropdown-button" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span>
-              <img src="pic/user1.png">
-              SketchJI
+              <img src="{{member.URL_IMG}}" class="rounded-circle">
+              {{member.USERNAME}}
             </span>
         </a>
         <div class="dropdown-menu nav-menu-dropdown" aria-labelledby="navbarDropdownMenuLink">

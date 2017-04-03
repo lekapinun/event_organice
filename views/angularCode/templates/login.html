@@ -183,44 +183,47 @@ furthermore, we are the social media - you can update event's news and meet new 
         						SIGN UP <span><img class="home-img-man" src="../pic/nerd.png"></span>
         					</div>
         					<div class="input-group">
-  								<input type="text" class="form-control home-input-font_input" placeholder="U S E R N A M E" aria-describedby="basic-addon1">
+  								<input type="text" class="form-control home-input-font_input" placeholder="U S E R N A M E" aria-describedby="basic-addon1" ng-model="signup.user">
 							</div>
 							<div class="input-group" style="margin-top: 10px;">
-  								<input type="password" class="form-control home-input-font_input" placeholder="P A S S W O R D" aria-describedby="basic-addon1">
+  								<input type="password" class="form-control home-input-font_input" placeholder="P A S S W O R D" aria-describedby="basic-addon1" ng-model="signup.pass">
 							</div>
 							<div class="input-group" style="margin-top: 10px;">
-  								<input type="password" class="form-control home-input-font_input" placeholder="R E - P A S S W O R D" aria-describedby="basic-addon1">
+  								<input type="password" class="form-control home-input-font_input" placeholder="R E - P A S S W O R D" aria-describedby="basic-addon1" ng-model="signup.repass">
 							</div>
 							<div class="input-group" style="margin-top: 10px;">
-  								<input type="email" class="form-control home-input-font_input" placeholder="E - M A I L" aria-describedby="basic-addon1">
+  								<input type="email" class="form-control home-input-font_input" placeholder="E - M A I L" aria-describedby="basic-addon1" ng-model="signup.email">
 							</div>
 							<div class="input-group" style="margin-top: 10px;">
-  								<input type="text" class="form-control home-input-font_input" placeholder="F I R S T  N A M E" aria-describedby="basic-addon1">
+  								<input type="text" class="form-control home-input-font_input" placeholder="F I R S T  N A M E" aria-describedby="basic-addon1" ng-model="signup.fname">
 							</div>
 							<div class="input-group" style="margin-top: 10px;">
-  								<input type="text" class="form-control home-input-font_input" placeholder="L A S T  N A M E" aria-describedby="basic-addon1">
+  								<input type="text" class="form-control home-input-font_input" placeholder="L A S T  N A M E" aria-describedby="basic-addon1" ng-model="signup.lname">
 							</div>
 							<form class="form-inline" style="margin-top: 10px;">
 								<label for="gender" class="home-text-gender">Gender</label>
-								<select class="form-control home-dropdown-gender mb-2 mr-sm-2 mb-sm-0" id="gender">
+								<select class="form-control home-dropdown-gender mb-2 mr-sm-2 mb-sm-0" id="gender" ng-model="signup.sex">
       								<option>Male</option>
       								<option>Female</option>
     							</select>
     						</form>
     						<form class="form-inline" style="margin-top: 10px;">
     							<label for="birthday" class="home-text-date">Birth Date</label>
-    							<input class="form-control home-input-date" type="date" id="birthday">
+    							<input class="form-control home-input-date" type="date" id="birthday" ng-model="signup.bd">
     						</form>
     						<div class="input-group" style="margin-top: 10px;">
-  								<input type="tel" class="form-control home-input-font_input" placeholder="P H O N E  N U M B E R" aria-describedby="basic-addon1">
+  								<input type="tel" class="form-control home-input-font_input" placeholder="P H O N E  N U M B E R" aria-describedby="basic-addon1" ng-model="signup.phone">
 							</div>
 							<div class="input-group" style="margin-top: 10px;">
-  								<input type="text" class="form-control home-input-font_input" placeholder="C R E D I T  CA R D" aria-describedby="basic-addon1">
+  								<input type="text" class="form-control home-input-font_input" placeholder="C R E D I T  CA R D" aria-describedby="basic-addon1" ng-model="signup.cd">
+							</div>
+							<div class="input-group" style="margin-top: 10px;">
+  								<input type="text" class="form-control home-input-font_input" placeholder="U R L I M G" aria-describedby="basic-addon1" ng-model="signup.img">
 							</div>
       					</div>
       					<div class="modal-footer-jan">
         					<button type="button" class="btn btn-primary home-btn-clear">CLEAR</button>
-        					<button type="button" class="btn btn-primary home-btn-signup">SIGN UP</button>
+        					<button type="button" class="btn btn-primary home-btn-signup" ng-click="signupsubmit()">SIGN UP</button>
       					</div>
     				</div>
   				</div>

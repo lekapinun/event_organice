@@ -1,6 +1,7 @@
 var project = angular.module('project', ['ngRoute', 'ui.router']);
 
-project.config(function ($routeProvider, $stateProvider, $urlRouterProvider) {
+project.config(function ($routeProvider, $stateProvider, $urlRouterProvider, $sceProvider)  {
+     $sceProvider.enabled(false);
 
     var states = [{
         name: 'signup',

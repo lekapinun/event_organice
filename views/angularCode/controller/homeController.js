@@ -11,6 +11,21 @@ project.controller('homeController', function ($scope,$http,$state) {
     	console.log("ERROR");
         $state.go('login');
     });
+    $http({
+        method: 'GET',
+        url: '/member'
+    }).then(function (response) {
+        if(response.data.length === 0)
+        {
+            console.log('fail!');
+        }
+        else
+        {
+            $scope.member = response.data[0];
+        }
+    }, function (response) {
+        console.log("ERROR");
+    });
     //logout function
     $scope.logout = function(){
 		$http({

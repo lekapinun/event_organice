@@ -681,7 +681,7 @@ app.post('/signup',function(req,res)
 	{
 		if(form.user == '' || form.fname == '' || form.lname == '' || form.bd == '' || form.sex == '')
 	    {
-	    	res.end('error : en');
+	    	res.end('error');
 	    	console.log('error : en')
 	    }  		
 	    connection.query("SELECT * FROM `member` WHERE `USERNAME` = '" + form.user + "'",function(err,rows)
@@ -691,7 +691,7 @@ app.post('/signup',function(req,res)
 	        {
 	            if(rows.length > 0)
 	            {
-	            	res.end('error : sn');
+	            	res.end('error');
 	            	console.log('error : sn');
 	            }
 	            else
@@ -711,7 +711,7 @@ app.post('/signup',function(req,res)
 
 					if(today < birthday)
 					{
-						res.end('error : t');
+						res.end('error');
 						console.log('error : t');
 					}
 				    else
@@ -731,7 +731,7 @@ app.post('/signup',function(req,res)
 					        }
 					        else
 					        {
-					        	console.log('insert error');
+					        	console.log('error');
 					        	res.end('error');
 					        }           
 					    });
