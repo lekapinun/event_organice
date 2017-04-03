@@ -38,12 +38,25 @@ project.controller('eventdetailController', function ($scope,$sce,$state, $state
 					}
 					else{
 						$scope.memberID = response.data[0];
-						//$scope.url = $sce.trustAsResourceUrl(response.data[0].VIDEO);
+						$http({
+					        method: 'GET',
+					        url: '/other_join/' + $scope.eventID.EVENT_ID
+						}).then(function (response) {
+							if(response.data.length === 0){
+								$scope.errorMgs = "no member here."
+								console.log($scope.errorMgs);
+							}
+							else{
+								$scope.otherID = response.data;
+							}
+					    }, function (response) {
+					        console.log("ERROR");
+					    });
 					}
 			    }, function (response) {
 			        console.log("ERROR");
 			    });
-			    console.log($sce.trustAsUrl(response.data[0].VIDEO));
+			    //console.log($sce.trustAsUrl(response.data[0].VIDEO));
 			}
 	    }, function (response) {
 	        console.log("ERROR");

@@ -987,5 +987,39 @@ app.get('/follower_list',function(req,res)
 	}
 });
 
-
+app.get('/other_join/:event_id',function(req,res)
+{
+	sess = req.session;
+	var other = '';
+    pool.getConnection(function(err,connection)
+    {
+        connection.query("SELECT * FROM `join_event` WHERE `EVENT_ID` =" + req.params.event_id ,function(err,rows)
+        {
+            if(rows.length > 0) 
+            {
+            	for (var item of rows) 
+		    	{
+		    		other = other + "MEMBER_ID = '" + item.MEMBER_ID + "'" + ' or ';
+		    	}
+		    	other = other.substr(0,other.length - 4);
+		    	connection.query("SELECT * FROM `member` WHERE " + other,function(err,rows)
+				{		    	
+				    if(rows.length > 0)
+				    {
+				    	res.json(rows);
+				    }
+				    else
+				    {
+				    	res.end('error');
+				    }
+				});
+            }   
+            else
+            {
+            	console.log('error');
+            	res.end('error');
+            }        
+        });
+  	});
+});
 app.listen(5555);
