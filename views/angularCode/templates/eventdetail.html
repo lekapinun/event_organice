@@ -1,3 +1,198 @@
-{{ eventID.DETAIL}}
-<br>
-{{ eventID.EVENT_ID}}
+<div class="container-fluid">
+	
+	<div class="col-sm-10 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
+		<div class=" nunito event_detail-textlink">
+	  			<a style="color: #48515A" class="breadcrumb-item" href="#">EVENT</a>
+	  			<a style="color: #48515A" class="breadcrumb-item" href="#">{{eventID.CATEGORY}}</a>
+	  			<label style="color: #48515A" class="breadcrumb-item" href="#">{{ eventID.EVENT_NAME}}</label>
+				<form class="form-inline col-md-3 offset-md-9 event_detail-search" >
+    				<input class="form-control mr-sm-2" type="text" placeholder="Search">
+  				</form>
+  			
+		</div>
+		
+		
+		<div class="col-sm-12 col-md-12 col-lg-12 event_detail-border">
+				<div class="col-sm-12 col-md-12 col-lg-12 ">
+					<div class="embed-responsive embed-responsive-16by9 event_detail-embed" >
+  						<iframe class="embed-responsive-item" ng-src="{{eventID.VIDEO}}"></iframe>
+
+					</div>
+				</div>
+
+				<div class="col-md-12" style="border-bottom: 0.1rem solid #48515A;">
+					
+					<div class="event_datail-text-eventname">
+						<span> {{ eventID.EVENT_NAME}}</span>
+					</div>
+					<div class="event_datail-text-createdby">
+						<span style="color:#7A8A99 ">CREATED BY: </span>
+						<span style="color: #47D2E9 ">{{memberID.USERNAME}}</span>
+						<span style="color:#7A8A99 ">TYPE: </span>
+						<span style="color: #47D2E9 ">{{eventID.CATEGORY}}</span>
+						<div class="hidden-sm-down" style="height: 2px;" >
+							<div class="event_detail-imguser" style="position:relative;top: -5.5rem;margin-left: 50rem; ">
+								<div>
+									<label style="color: #48515A" class="quicksand-bold" >OTHERS JOINED</label>
+								</div>
+								<a href="#">
+									<img class="rounded-circle" src="https://scontent.cdninstagram.com/t51.2885-15/s320x320/e35/12407446_1080123332028779_941818407_n.jpg?ig_cache_key=MTE2MDU1MzA5NTQxMTgyMTYyNw%3D%3D.2">
+									<img class="rounded-circle" src="https://scontent.cdninstagram.com/t51.2885-15/s320x320/e35/12407446_1080123332028779_941818407_n.jpg?ig_cache_key=MTE2MDU1MzA5NTQxMTgyMTYyNw%3D%3D.2">
+									<img class="rounded-circle" src="https://scontent.cdninstagram.com/t51.2885-15/s320x320/e35/12407446_1080123332028779_941818407_n.jpg?ig_cache_key=MTE2MDU1MzA5NTQxMTgyMTYyNw%3D%3D.2">
+									<img class="rounded-circle" src="https://scontent.cdninstagram.com/t51.2885-15/s320x320/e35/12407446_1080123332028779_941818407_n.jpg?ig_cache_key=MTE2MDU1MzA5NTQxMTgyMTYyNw%3D%3D.2">
+									<img class="rounded-circle" src="https://scontent.cdninstagram.com/t51.2885-15/s320x320/e35/12407446_1080123332028779_941818407_n.jpg?ig_cache_key=MTE2MDU1MzA5NTQxMTgyMTYyNw%3D%3D.2">
+								
+								</a>
+							</div>
+								
+						</div>
+					</div>
+				</div>	
+
+				<div class="row event_detail-detail mb-sm-1rem "   >
+					
+					<div class="col-sm-12 col-md-6 col-lg-6 event_detail-detail" >
+						<img src={{eventID.PICTURE}}>
+					</div>
+					<div class="col-sm-12 col-md-6 col-lg-6 mt-sm-0 mt-md-5" >
+						<!-- <div><label style="color: #48515A">VENUE:</label></div> -->
+						<div><label style="color: #48515A" >START: {{eventID.TIME_START_E | date:'medium'}}</label></div>
+						<div><label style="color: #48515A" >END: {{eventID.TIME_END_E | date:'medium'}}</label></div>
+						<div style="margin-bottom: 1rem;" ><label>TICKET PRICE: {{eventID.PRICE}} ฿</label></div>
+						
+						<button type="button" class="btn btn-buyticket btn-lg nunito">BUY TICKET</button>
+						<button type="button" class="btn btn-secondary btn-lg nunito">GIFT</button>
+					</div>
+				</div>
+				
+				<div style="border-bottom: 0.1rem solid #48515A;">
+					<span class="event_datail-text-detail mt-md-3" >EVENT DETAIL OF {{ eventID.EVENT_NAME}}</span>
+				</div>
+				
+				<div class="text-center text-md-p col-sm-12 col-md-12 col-lg-12" style="margin-bottom: 2rem;">
+					<p >
+						<div class="mb-sm-1rem mb-md-5" >
+							<img style="width: 100%" src={{eventID.PICTURE}}>
+						</div>
+							{{ eventID.DETAIL}}
+					</p>
+				</div>
+			
+			
+		</div>
+	</div>
+	 <!-- other event -->
+
+	<div class="row mt-md-5 hidden-sm-down" style="background-color: #48515A;">
+		<div class="col-md-12" >
+			<div class="event_datail-text-otherevent mt-md-5" style="">
+				<span>OTHER EVENTS</span>
+
+			</div>
+			<div class="col-md-12 mt-md-5 mb-md-5 nunito" style="color: #48515A;">
+
+				<div class="card-deck event_detail-textlink-card">
+						
+						<a href="#" class="">
+							<div class="card ">
+						  	<div class="blockofimg ">
+						  		<img class="card-img-top img-fluid img-fluid-clip " src="https://0.soompi.io/wp-content/uploads/2013/02/1st-look_park-shin-hye-e1360290397864.jpg" alt="Card image cap">
+						  	</div>
+	
+						    <div class="card-block">
+						      	<h4 class="card-title">Event's Name</h4>
+						      	<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+						      	<span style="font-size: 0.8rem">12/02/2018 - 14/02/2016</span>
+						    </div>
+						   	<div class="card-footer">
+						      <span class="quicksand-bold">฿ 100</span><a style="float: right;" class="quicksand-bold" href="#"> detail</a>
+						    </div>
+
+						  </div>
+						 </a> 
+						 
+
+						  <a href="#" class="">
+						  	
+					
+						  <div class="card ">
+						  	<div class="blockofimg ">
+						  		<img class="card-img-top img-fluid img-fluid-clip " src="https://www.dramafever.com/st/news/images/f1cad0e1-e89a-41e3-8045-cd306a894eaf.jpg" alt="Card image cap">
+						  	</div>
+						  	
+
+						    <div class="card-block">
+						      	<h4 class="card-title">Event's Name</h4>
+						      	<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+						      	<span style="font-size: 0.8rem">12/02/2018 - 14/02/2016</span>
+						    </div>
+						    
+						   	<div class="card-footer">
+						      <span class="quicksand-bold">฿ 100</span><a style="float: right;" class="quicksand-bold" href="#"> detail</a>
+						    </div>
+
+						  </div>
+						</a>
+						
+						<a href="#">
+							<div class="card ">
+						  	<div class="blockofimg ">
+						  		<img class="card-img-top img-fluid img-fluid-clip " src="http://images.kdramastars.com/data/images/full/223632/park-shin-hye-reached-3-million-instagram-followers.jpg?w=600" alt="Card image cap">
+						  	</div>
+						  	
+
+
+						    <div class="card-block">
+						      	<h4 class="card-title">Event's Name</h4>
+						      	<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+						      	<span style=" font-size: 0.8rem">12/02/2018 - 14/02/2016</span>
+						    </div>
+						   	<div class="card-footer">
+						      <span class="quicksand-bold">฿ 100</span><a style="float: right;" class="quicksand-bold" href="#"> detail</a>
+						    </div>
+
+						  </div>
+						</a>
+						  
+						<a href="#">
+							<div class="card ">
+						  	<div class="blockofimg ">
+						  		<img class="card-img-top img-fluid img-fluid-clip " src="http://www.allkpop.com/upload/2016/01/content/park-shin-hye_1454081321_psh3.png" alt="Card image cap">
+						  	</div>
+						  	
+
+
+						    <div class="card-block">
+						      	<h4 class="card-title">Event's Name</h4>
+						      	<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+						      	<span style="font-size: 0.8rem">12/02/2018 - 14/02/2016</span>
+						    </div>
+						   	<div class="card-footer">
+						      <span class="quicksand-bold">฿ 100</span><a style="float: right;" class="quicksand-bold" href="#"> detail</a>
+						    </div>
+
+						  </div>
+						</a>
+						  
+
+						  <div class="card event_detail-showmore" >
+						    <div class="card-block text-center">
+						      	<div style="margin-top: 10rem;">
+						      		<a href="#" class="" style="color: #fff">SHOW MORE +</a>
+						    	</div>
+						      	
+						    </div>
+						   	
+
+						  </div>		  
+
+				</div>		
+			</div>
+		</div>
+	</div>
+</div>
+	
+	
+	
+	
+</div>

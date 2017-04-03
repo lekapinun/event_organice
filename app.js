@@ -78,29 +78,30 @@ app.get('/logout',function(req,res)
 	});
 });
 
-// app.get('/member/:id',function(req,res)
-// {
-//         pool.getConnection(function(err,connection)
-//         {
-//         // if (err) {
-//         //   res.json({"code" : 100, "status" : "Error in connection database"});
-//         //   return;
-//         // }   
-//      	var mem_id = req.params.id;
-//         connection.query("select * from member where member_id =" + mem_id,function(err,rows)
-//         {
-//             connection.release();
-//             if(!err) 
-//             {
-//                 res.json(rows);
-//             }           
-//         });
-//         // connection.on('error', function(err) {      
-//         //       res.json({"code" : 100, "status" : "Error in connection database"});
-//         //       return;     
-//         // });
-//   });
-// });
+app.get('/member/:id',function(req,res)
+{
+	sess = req.session;
+	//console.log(sess.member_id);
+	if(sess.member_id) 
+	{
+	    pool.getConnection(function(err,connection)
+        {
+	     	var mem_id = req.params.id;
+	        connection.query("select * from `member` where `member_id` = '" + req.params.id + "'",function(err,rows)
+	        {
+	            connection.release();
+	            if(!err) 
+	            {
+	                res.json(rows);
+	            }           
+	        });
+  		});
+	}
+	else 
+	{
+	    res.render('login.html');
+	}
+});
 
 app.get('/member',function(req,res)
 {

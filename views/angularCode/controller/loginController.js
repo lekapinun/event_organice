@@ -36,6 +36,5 @@ project.controller('loginController', function ($scope,$http,$state) {
         else{
             $scope.msgError = 'please enter email & password';
         }
-        
     }
 });

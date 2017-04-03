@@ -28,6 +28,20 @@ project.controller('eventdetailController', function ($scope,$state, $stateParam
 			}
 			else{
 				$scope.eventID = response.data[0];
+				$http({
+			        method: 'GET',
+			        url: '/member/' + $scope.eventID.OWNER_ID
+				}).then(function (response) {
+					if(response.data.length === 0){
+						$scope.errorMgs = "no member here."
+						console.log($scope.errorMgs);
+					}
+					else{
+						$scope.memberID = response.data[0];
+					}
+			    }, function (response) {
+			        console.log("ERROR");
+			    });
 			}
 	    }, function (response) {
 	        console.log("ERROR");
