@@ -127,3 +127,1191 @@
 		font-size: 16px;
 	}
 }
+
+/*========================Home========================*/
+.eventorganice{
+
+	height: 700px;
+	background-color:#F5F6FA;
+	
+}
+.ourteammember{
+
+	height: 700px;
+	background-color:#F5F6FA;
+	
+}
+.registerwithus{
+	height: 750px;
+	background-color:  #B5EBF7; 
+	color: #48515A;
+	
+}
+.contact{
+	height: 650px ;
+	background-color:  #48515A;
+	
+}
+.event{
+	font-family: Londrina_outline ;
+	text-align:center; 
+	font-size: 8rem; 
+	font-style: italic;
+
+	position: relative;
+	top:5rem;
+	right: 2rem;
+
+	}
+.organice{
+	font-family: Londrina_outline ;
+	text-align:center; 
+	font-size: 11rem; 
+	font-style: italic;
+
+	position: relative;
+	top: -3rem;
+
+}
+.poem{
+	font-family: Quicksand-Regular; 
+	text-align:center; 
+	font-size: 2rem; 
+
+	position: relative;
+	top: -4rem;
+}
+
+.btn-warning-signup {
+	font-family: Quicksand-Regular;  
+ 	color: #48515A;
+ 	background-color: #FBD451;
+ 	border-color: #FBD451;
+ 
+}
+
+.btn-warning-signup:focus, .btn-warning-signup.focus {
+  -webkit-box-shadow: 0 0 0 2px rgba(251, 212, 81, 0.5);
+          box-shadow: 0 0 0 2px rgba(251, 212, 81, 0.5);
+}
+.btn-warning-signin {
+	font-family: Quicksand-Regular;  
+ 	color: #fff;
+ 	background-color: #48515A;
+ 	border-color: #48515A;
+
+ 	margin-left: 1rem;
+ 	
+}
+.btn-warning-signin-modal {
+	font-family: Quicksand-Regular;  
+ 	color: #fff;
+ 	background-color: #48515A;
+ 	border-color: #48515A;
+ 	padding-left: 10%;
+ 	padding-right: 10%;
+
+ 	margin-left: 1rem;
+ 	
+}
+.btn-warning-signin:focus, .btn-warning-signin.focus {
+  -webkit-box-shadow: 0 0 0 2px rgba(72, 81,90, 0.5);
+          box-shadow: 0 0 0 2px rgba(72, 81,90, 0.5);
+}
+
+.block-btn-mind{
+	text-align:center;
+	position: relative;
+	top: -2rem;
+}
+.register{
+	font-family: Quicksand-bold; 
+	text-align:center;
+	font-size: 3rem;
+	color: #48515A; 
+
+	position: relative;
+	top: 2.5rem; 
+	margin-bottom:  1rem;
+	
+}
+.sillyline-register{
+	 position:relative;
+	 top:1rem;
+	 margin-left: 42%;
+	 border-bottom: 0.5rem solid #FC575E ; 
+	 border-radius: 0.8rem;
+}
+.sillyline-ourteam{
+	 position:relative;
+	 top:1rem;
+	 margin-left: 35%;
+	 border-bottom: 0.5rem solid #FBD451 ; 
+	 border-radius: 0.8rem;
+}
+.build-join-1{
+	
+	font-family: Quicksand-Regular;
+	font-size: 2rem;
+	text-align-last: center;
+
+	position: relative;
+	top: 100px;
+}
+.detail-1{
+	font-family: Quicksand-bold;
+	font-size: 2rem;
+	text-align-last: left;
+
+	position: relative;
+	top: 30px;
+}
+
+.build-join-2{
+	
+	font-family: Quicksand-Regular;
+	font-size: 1.5rem;
+	text-align-last: center;
+
+	position: relative;
+	top: 200px;
+}
+
+.detail-2{
+	font-family: Quicksand-Regular;
+	font-size: 1.3rem;
+	text-align-last: left;
+
+	position: relative;
+	top: -70px;
+	left: 100px;
+}
+
+.img-share-white{
+	position: relative;
+	top: -100px;
+	left: 100px;
+	width: 80%;
+}
+.img-share-red{
+	position: relative;
+	top: -350px;
+	left: 100px;
+	right: 50px;
+
+	width: 80%;
+}
+
+
+textarea {
+  resize: none !important;
+}
+
+.btn-warning-submit {
+	font-family: Quicksand-Regular;  
+ 	color: #fff;
+ 	background-color:  #FC575E;
+ 	border-color:  #FC575E;
+ 
+}
+
+.btn-warning-submit:focus, .btn-warning-submit.focus {
+  -webkit-box-shadow: 0 0 0 2px rgba(252,87,94, 0.5);
+          box-shadow: 0 0 0 2px rgba(252,87,94, 0.5);
+}
+
+.text-contact{
+	font-family: Quicksand-bold;
+	font-size: 3rem;
+	text-align-last: center;
+
+	color: #F5F6FA;
+
+	position:relative;top:70px;
+	margin-bottom: 60px ;
+}
+.contact-center{
+	margin-left: 27%;
+}
+.contact-form{
+	position: relative;
+	top: 30px;
+}
+.ourteam{
+	font-family: Londrina_outline ;
+	text-align:center; 
+	font-size: 8rem;
+
+	position: relative;
+	margin-top:30px;
+
+}
+.text-nickname{
+	font-family:Quicksand-bold ;
+	font-size: 2rem;
+	text-align-last: center;
+}
+.text-name{
+	font-family:Quicksand-bold ;
+	font-size: 0.6rem;
+	text-align-last: center;
+}
+.text-nickname-1{
+	font-family:Quicksand-bold ;
+	font-size: 2rem;
+	text-align-last: center;
+}
+.text-name-1{
+	font-family:Quicksand-bold ;
+	font-size: 0.6rem;
+	text-align-last: center;
+}
+.img-ourteam{
+	position: relative;
+	top: -50px;
+	left: 120px;
+}
+
+/*modal css*/
+.modal-title {
+  text-align: center;
+  font-family: Quicksand-bold;
+  font-size: 2rem;
+  color: #48515A; 
+
+  position: relative;
+  top: 1px;
+}
+
+
+.modal-content{
+	background-color: #FBD451 !important;
+}
+
+.close{
+		padding-left: 100px;
+		font-size: 3rem !important;
+		color: #FC575E !important;
+		text-shadow: 0 1px 0 #FC575E !important;
+		opacity: 1 !important;
+
+		position: relative;
+		right: 10px;
+}
+
+.form-group-signin {
+	margin-bottom: 1rem;
+  font-family: Quicksand-Regular;
+  font-size: 2rem;
+}
+
+.form-control {
+
+  border: 0px solid rgba(0, 0, 0, 0) !important;
+  border-radius: 0.4rem !important;
+  
+}
+
+/*modal sign up*/
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+.home-modal-box_modal {
+	background-color: #48515A !important;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+.home-btn-close {
+  font-size: 70px !important;
+  color: white !important;
+  background-color: #FC575E !important;
+  font-family: "Nunito";
+  margin-left: 90%;
+  margin-right: auto;
+}
+
+.home-text-hello {
+	font-family: "Quicksand";
+	color: white;
+	font-size: 25px;
+}
+
+.home-text-welcome {
+	font-family: "Quicksand";
+	color: white;
+	font-size: 15px;
+	margin-top: 5%;
+}
+
+.home-text-signup {
+	font-family: "Quicksand-bold";
+	color: white;
+	font-size: 25px;
+	margin-left: 25%;
+}
+
+.home-img-man {
+	width: 100px;
+	height: 100px;
+}
+
+.home-input-font_input {
+	font-family: "Quicksand-bold";
+	font-size: 15px;
+}
+
+.home-text-gender {
+	font-family: "Quicksand";
+	color: white;
+	font-size: 15px;
+}
+
+.home-dropdown-gender {
+	font-family: "Quicksand-bold";
+	font-size: 15px;
+	margin-left: 6%;
+}
+
+.home-text-date {
+	font-family: "Quicksand";
+	color: white;
+	font-size: 15px;
+}
+
+.home-input-date {
+	font-family: "Quicksand-bold";
+	font-size: 15px;
+	margin-left: 2%;
+}
+
+.modal-footer-jan {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 15px;
+}
+
+.home-btn-clear {
+	font-family: "Nunito";
+	background-color: #FBD451;
+	border-color: #FBD451 !important;
+	margin-right: auto;
+	box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.home-btn-clear:hover {
+	background-color: #eab70b;
+	border-color: #eab70b !important;
+}
+
+.home-btn-clear:focus {
+	background-color: #eab70b;
+	border-color: #eab70b !important;
+}
+
+.home-btn-signup {
+	font-family: "Nunito";
+	box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+	background-color: #FC575E;
+	border-color: #FC575E !important;
+}
+
+.home-btn-signup:hover {
+	background-color: #e04c52;
+	border-color: #e04c52 !important;
+}
+
+@media (max-width:575px){
+	.home-text-signup {
+		margin-left: 20%;
+	}
+
+	.home-dropdown-gender {
+		margin-left: 0%;
+	}
+
+	.home-input-date {
+		margin-left: 0%;
+	}
+}
+
+
+
+@media (max-width: 700px) { 
+	.eventorganice{
+
+		height: 600px;
+	}
+	.registerwithus{
+		height: 400px;
+		
+	}
+	.registerwithus{
+	height: 400px;
+	}
+	.ourteammember{
+
+		height: 1800px;
+		background-color:#F5F6FA;
+	}
+	.event{
+		font-size: 4rem; 
+		right: 1rem;
+	}
+	.organice{
+		font-size: 5rem; 
+		top: 1rem;
+	} 
+	.poem{
+		font-size: 0.8rem; 
+		top: 0.8rem;
+	}
+
+	.btn-warning-signup {
+		position: relative;
+		top: 1rem;
+	 	
+	}
+	.btn-warning-signin {
+	 	position: relative;
+	 	margin-left: 0rem;
+		top: 1rem;
+	}
+	.block-btn-mind{
+		top: 1rem;
+	}
+	.register{
+		
+		font-family: Quicksand-bold; 
+		text-align:center;
+		font-size: 1.5rem; 
+
+		position: relative;
+		top: 2rem; 
+	}
+	.sillyline-register{
+		 position:relative;
+		 top:1rem;
+		 width: 50%;
+		 margin-left: 25%;
+		 border-bottom: 0.3rem solid #FC575E ; 
+		 border-radius: 0.8rem;
+	}
+	.sillyline-ourteam{
+		 position:relative;
+		 top:1rem;
+		 width: 50%;
+		 margin-left: 25%;
+		 border-bottom: 0.3rem solid #FBD451 ; 
+		 border-radius: 0.8rem;
+	}
+	.text-build-1{
+		font-family: Quicksand-Regular;
+		font-size: 0.7rem;
+		text-align-last: center;
+
+		position: relative;
+		top: 10px;
+		left: 24vw;
+
+	}
+	.detail-1{
+		font-family: Quicksand-Regular;
+		font-size: 0.8rem;
+		text-align-last: center;
+
+		position: relative;
+		top: 20px;
+	}
+	
+	.detail-2{
+		font-family: Quicksand-Regular;
+		font-size: 0.7rem;
+		text-align-last: center;
+		left: 0px;
+		position: relative;
+		top: -60px;
+	}
+	.img-share-white{
+		position: relative;
+		top: -40px;
+		left: 0px;
+		width: 100%;
+	}
+	.img-share-red{
+		position: relative;
+		top: -110px;
+		right: 0px;
+		left: 0px;
+
+		width: 100%;
+	}
+	.img-moblie{
+
+		position: absolute;
+		text-align-last: center;
+		top: -55px;
+		left: 25vw;
+		bottom: 10px;
+
+		width: 100%;
+	}
+	.contact-center{
+		margin-left: 0%;
+	}
+	.contact-form-surname{
+		position: relative;
+		top: 5px;
+	}
+	.ourteam{
+		font-size: 3rem; 
+	}
+	.text-nickname{
+		font-family:Quicksand-bold ;
+		font-size: 1rem;
+		text-align-last: center;
+
+		position: relative;
+		top: -10px;
+	}
+	.text-nickname-1{
+		font-family:Quicksand-bold ;
+		font-size: 1rem;
+		text-align-last: center;
+
+		position: relative;
+		top: -50px;
+	}
+	.text-name{
+		font-family:Quicksand-bold ;
+		font-size: 0.6rem;
+		text-align-last: center;
+
+		position: relative;
+		top: -10px;
+	}
+	.text-name-1{
+		font-family:Quicksand-bold ;
+		font-size: 0.6rem;
+		text-align-last: center;
+
+		position: relative;
+		top: -50px;
+	}
+	.img-ourteam{
+		position: relative;
+		left: -90px;
+	
+	}
+	.img-ourteam-each-1{
+		position: relative;
+		
+		left: 180px;
+		width: 50%;
+	}
+	.img-ourteam-each{
+		position: relative;
+		top: -10px;
+		left: 180px;
+		width: 50%;
+	}
+
+}
+
+
+
+@media (min-width: 1400px) {
+	.eventorganice{
+
+		height: 1000px;
+	}
+	.registerwithus{
+		height: 850px;
+	}
+	.event{
+		font-size: 10rem; 
+		top:10rem;
+		right: 2rem;
+
+	}
+	.organice{
+		font-size: 13rem; 
+		top: -1rem;
+
+
+	}
+	.poem{
+		font-size: 2.8rem;
+		top: -2rem;
+	}
+
+	.btn-warning-signup {
+		position: relative;
+		top: 1rem;
+	 
+	}
+	.btn-warning-signin {
+		margin-left: 3rem;
+		position: relative;
+		top: 1rem;
+		right: 1rem;
+ 	
+	}
+	.block-btn-mind{
+		top: 1rem;
+
+	}
+	.btn-lg, .btn-group-lg > .btn {
+	  padding: 0.75rem 2.5rem;
+	  font-size: 2.25rem;
+	  border-radius: 0.3rem;
+	}
+	.detail-1{
+		font-family: Quicksand-Regular;
+		font-size: 2.5rem;
+		text-align-last: center;
+
+		position: relative;
+		top: 50px;
+	}
+	.detail-2{
+		font-family: Quicksand-Regular;
+		font-size: 1.5rem;
+		text-align-last: left;
+
+		position: relative;
+		top: -60px;
+		left: 100px;
+	}
+	.img-share-white{
+		position: relative;
+		top: -200px;
+		left: 200px;
+		width: 70%;
+	}
+		.img-share-red{
+		position: relative;
+		top: -530px;
+		left: 110px;
+		right: 0px;
+
+		width: 70%;
+	}
+	.img-ourteam{
+		position: relative;
+		top: -10px;
+		left: 120px;
+	}
+
+}
+
+.nunito{
+	font-family: Nunito;
+}
+.quicksand{
+	font-family: Quicksand-Regular;
+}
+.quicksand-bold{
+	font-family:Quicksand-Bold;
+}
+
+@font-face{
+	font-family: 'Londrina_outline';
+	src:url('../font/Londrina_outline/LondrinaOutline-Regular.ttf') format('truetype');
+	
+}
+@font-face{
+	font-family: 'Nunito';
+	src:url('../font/Nunito/Nunito-Regular.ttf') format('truetype');
+}
+
+@font-face{
+	font-family: 'Quicksand-Regular';
+	src:url('../font/Quicksand/Quicksand-Regular.ttf') format('truetype');
+}
+
+@font-face{
+	font-family: 'Quicksand-Bold';
+	src:url('../font/Quicksand/Quicksand-Bold.ttf') format('truetype');
+}
+
+/*====================================center-page================================*/
+body{
+	/*background-color: #f7d51c;*/
+}
+.center-container{
+	padding-right: 0px!important;
+	padding-left: 0px!important;
+}
+.content{
+	margin-left: 300px;
+	margin-right: 0px;
+}
+@media (max-width:575px){
+	.content{
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+}
+.black-fill{
+	background-color:  #2d2a27;
+}
+.black-color{
+	color:  #2d2a27;
+}
+.white-fill{
+	background-color: #fff;
+}
+.white-color{
+	color: #fff!important;
+}
+/*======================================for menu bar=============================*/
+.menu-bar-sm{
+	padding: 0px 0px;
+}
+.menu-bar-logo{
+	padding: 8px 20px;
+}
+.menu-bar-hamburger{
+	padding: 8px 10px;
+    border: 0px!important;
+}
+.menu-bar-user{
+	padding: 0px 20px;
+}
+.menu-bar-user img{
+	height:40px;
+	padding-right: 10px;
+}
+.menu-bar-list{
+	padding-left:20px;
+}
+/*======================================for sidenav==============================*/
+./*side-nav{
+	width: 300px;
+	height: 100%;
+	background-color:  #2d2a27;
+	position: fixed;
+	font-family: Nunito;
+	overflow-y:auto;
+}
+.side-nav a{
+	text-decoration: none;
+}
+.side-nav .logo{
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 10px;
+}
+.side-nav .user{
+	background-color: #fff;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+.side-nav .user img{
+	height: 100px;
+	margin-top: 30px;
+}
+.side-nav .user .username{
+	margin-top: 10px;
+	margin-bottom: 5px;
+	color: #2d2a27;
+}
+.side-nav .user p{
+	margin-bottom: 0px;
+}
+.side-nav .user .user-following{
+	padding-left: 50px;
+	border-right: 1px solid #000;
+}
+.side-nav .user .user-follower{
+	padding-right: 50px;
+}
+.side-nav .user .col-6{
+	margin-top: 10px;
+	padding-right: 50px;
+	font-size: 12px;
+	margin-bottom: 15px;
+}
+.side-nav .user .user-follow-detail{
+	color: #ED297B ;
+	font-size: 16px;
+}
+.side-nav .menu{
+	margin-top: 10px;
+}
+.side-nav ul li a{
+	color: #fff;
+	padding-left: 30px;
+}
+.side-nav ul li a:hover{
+	color: #fff ;
+}
+.side-nav ul li:hover{
+	background-color:  #ED297B;
+}
+.flexcroll::-webkit-scrollbar {
+    width: 7px;
+}
+.flexcroll::-webkit-scrollbar-thumb {
+    background-color: #ED297B;
+}
+.flexcroll::-webkit-scrollbar-track {
+      background-color: #ffffff;
+}
+.category{
+	padding-left: 20px;
+}*/
+
+/*==================================detailEvent page================================*/
+.detailEvent-row-card{
+	margin-right: 0px;
+	margin-left: 0px;
+}
+.detailEvent-detail{
+	padding-top: 20px;
+	margin-bottom: 20px;
+}
+.detailEvent-slide{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.detailEvent-slide img{
+	background-color: #F5F6FA ;
+	height: 300px;
+}
+.detailEvent-linkpage{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.detailEvent-linkpage span{
+	color: #2d2a27;
+	font-size: 1.5rem;
+}
+.search{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.search input{
+	border-radius: 5px!important;
+}
+.detailEvent-ticket{
+	background-color: #2d2a27;
+	height: 50px;
+}
+.detailEvent-ticket-button{
+	color: #F5F6FA;padding-top: 5px;
+	padding-bottom: 5px;
+}
+.detailEvent-ticket-price{
+	font-size: 20px;
+	padding: 9px;
+}
+.btn-warning-buy {
+	font-family: Quicksand-bold;  
+ 	color:  #F5F6FA;
+ 	background-color:  #f2385a;
+ 	border-color:  #F5F6FA;
+ 	
+}
+.btn-warning-buy:hover {
+  	color:   #F5F6FA;
+ 	background-color:   #f00f38;
+ 	border-color:   #fff;
+}
+.btn-warning-gift {
+	font-family: Quicksand-bold;  
+ 	color: #2d2a27;
+ 	background-color:   #F5F6FA;
+ 	border-color: #F5F6FA;
+ 	
+}
+.btn-warning-gift:hover {
+  	color:  #2d2a27;
+ 	background-color:  #fff;
+ 	border-color:   #fff;
+}
+.textarea-detail-event{
+	border-radius: 5px;
+	margin-bottom: 50px;
+}
+
+.text-link{
+	font-family: Nunito; 
+	font-size: 1.5rem;
+}
+.a-mind {
+	color:  #2d2a27;
+}
+.a-mind:focus, .a-mind:hover{
+	color: #ED297B !important;
+}
+@media (max-width:575px){
+	.detailEvent-row-card{
+		margin-top:5px;
+		margin-bottom: 5px;
+	}
+	.detailEvent-linkpage{
+		padding-left: 20px;
+	}
+	.detailEvent-linkpage a,.detailEvent-linkpage span{
+		font-size: 16px;
+	}
+	.search{
+		padding-left: 20px; 
+		padding-right: 20px;
+		margin-top: 5px;
+	}
+	.search .form-group{
+		margin-bottom: 10px;
+	}
+	.detailEvent-slide img{
+		height: 180px;
+	}
+	.detailEvent-ticket-price{
+		font-size: 12px;
+		padding-top :5px;
+		text-align: center;
+	}
+	.detailEvent-ticket-button button{
+		font-size: 14px;
+	}
+	.detailEvent-detail{
+		font-size: 14px;
+	}
+}
+/*===================================Event list page============================*/
+.eventList-card img{
+	height: 200px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+.eventList-card{
+	padding: 0px 0px;
+	border-radius: 10px!important;
+}
+.eventList-card-box{
+	padding-right: 5px;
+	padding-left: 5px;
+	margin-top: 10px;
+}
+/*===================================Event navbar page============================*/
+/*.event_navbar-white{
+	color: #F5F6FA;
+}
+.navbar li :hover{
+	background-color: #2A3238;
+	border-color: #2A3238;
+	border-radius: 0.5rem;
+}
+.float-right{
+	float: right !important;
+}
+.event_navbar-textlink{
+	color: #F5F6FA !important;
+	margin-right: 2rem ;
+}
+.event_navbar-list{
+	margin-left: 20rem;
+}
+.event_navbar-search{
+	margin-left: 20rem;
+}
+@media (max-width:575px){
+	.float-right{
+		float:initial!important;
+	}
+	.event_navbar-textlink{
+	margin-right: 0rem ;}
+	
+}
+@media(min-width: 1900px){
+	.event_navbar-list{
+	margin-left: 40rem;
+}
+
+}*/
+
+/*================================Event navbar=================================*/
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+.event_navbar-nav-nav_box {
+	background-color: #48515A;
+}
+
+.event_nav-btn-hamberger {
+	margin-top: 22px;
+}
+
+.event_nav-text-event{
+	font-family: "Nunito";
+	color: white;
+	font-size: 30px;
+	margin-top: 15px;
+}
+
+.event_nav-text-oraganice {
+	font-family: "Nunito";
+	color: white;
+	font-size: 15px;
+	position: relative;
+	top: -15px;
+
+}
+
+.event_nav-a-button_box {
+	margin-top: 20px;
+	padding-bottom: 20px;
+}
+
+.event_nav-a-button {
+	font-family: "Nunito";
+	color: white !important;
+	font-size: 20px;
+	border-radius: 10px;
+}
+
+.event_nav-a-button_box a:hover{
+	background-color: #28323d;
+	color: white;
+}
+
+.event_nav-a-button_box a:focus{
+	background-color: #28323d;
+	color: white;
+}
+
+.event_nav-btn-user {
+	font-family: "Nunito";
+	font-size: 18px;
+	background-color: #48515A;
+	border-color: white;
+}
+
+.event_nav-img-user_img {
+	width: 30px;
+	height: 30px;
+	border-radius: 20px;
+}
+
+.btn-primary-jan:hover {
+	color: #fff;
+  	background-color: #28323d !important;
+  	border-color: white !important;
+}
+
+.event_nav-dropdown-drop {
+	border: none;
+	margin-left: 6%;
+	padding-right: 5%;
+	padding-left: 5%;
+	border-radius: 10px;
+}
+
+.event_nav-a-link {
+	color: #95989A;
+	font-family: "Nunito";
+	font-size: 15px;
+}
+
+.event_nav-dropdown-drop a:hover{
+	color: #48515A ;
+	background-color: transparent;
+	text-decoration: none ;
+}
+
+.event_nav-dropdown-drop a:focus{
+	color: #48515A;
+	background-color: transparent;
+	text-decoration: none;
+}
+
+.event_nav-img-icon {
+	width: 30px;
+	height: 30px;
+}
+
+
+/*==========================eventlist=====================================================*/
+
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+
+
+
+.event_list-h4-title{
+	font-family: 'Quicksand';
+	color: black;
+	font-size: 15px;
+	text-decoration: bold;
+}
+
+.event_list-h6-describe{
+	font-family: 'Quicksand';
+	color: black;
+	font-size: 15px;
+	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	text-overflow: '.....?';
+}
+
+
+.event_list-a-event_type{
+	color: black !important;
+	font-family: "Nunito";
+	font-size: 1rem;
+	text-decoration: none;
+	margin-top: 1rem;
+	border-top-color: black;
+	border-bottom-color: black;
+}
+
+.event_list-a-event_type:hover{
+	text-decoration: none;
+}
+
+
+
+.event_list-div-show{
+	@-family: 'Quicksand';
+	font-size: 1rem;
+	margin-top: 1rem;
+	margin-left: 1rem;
+
+}
+
+.event_list-li-page-link{
+	color: white;
+	font-family: 'Nunito';
+	background-color:#FFD700;
+	border-radius: 0px;
+}
+
+
+.event_list-div-start_date{
+	font-family: 'Quicksand';
+	color: black;
+	font-size: 12px;
+}
+
+.event_list-div-end_date{
+	font-family: 'Quicksand';
+	color: black;
+	font-size: 12px;
+}
+
+.event_list-div-dat{
+	color: black;
+	font-family: 'quicksand';
+	font-size: 12px;
+}
