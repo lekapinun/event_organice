@@ -99,12 +99,12 @@
                     <form class="container">
                       <div class="form-group">
                         <label for="formGroupExampleInput">EVENT NAME</label>
-                        <input type="text" class="form-control"  placeholder="Example input">
+                        <input type="text" class="form-control"  placeholder="Example input" ng-model="create.event_name">
                       </div>
                     <div class="row col-sm-12 col-12" style="padding-left : 0px;">
                         <div class="form-group col-sm-6 col-12">
                             <div style="margin-bottom:.5rem;">CATEGORY</div>
-                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:100%;text-align:right;">
+                            <!-- <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:100%;text-align:right;">
                             Select Category
                           </button>
                           <div class="dropdown-menu dropdown-menu-right">
@@ -120,41 +120,56 @@
                               <a class="dropdown-item" href="#">Music</a>
                               <a class="dropdown-item" href="#">Science&Technology</a>
                               <a class="dropdown-item" href="#">Sport&Fitness</a>
+                          </div> -->
+                          <select class="custom-select col-12" ng-model="create.category">
                             
-                          </div>
+                            <option>Art</option>
+                            <option>Business</option>
+                            <option>Charity&Cause</option>
+                            <option>Community</option>
+                            <option>Education</option>
+                            <option>Fashion</option>
+                            <option>Film&Media</option>
+                            <option>Food&drink</option>
+                            <option>Liftstyle</option>
+                            <option>Music</option>
+                            <option>Science&Technology</option>
+                            <option>Sport&Fitness</option>
+                          </select>
+
                         </div>
                         <div class="form-group col-sm-6 col-12">
                             <label for="formGroupExampleInput2">TICKET PRICE ( bath ) </label>
-                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="input price">
-                        </div>
-                    </div>
-                    <div class="row col-sm-12 col-12" style="padding-left : 0px;">
-                        <div class="form-group col-sm-6 col-12">
-                            <label for="formGroupExampleInput">TIME ( Start, End )</label>
-                            <input class="form-control" type="time" value="13:45:00" id="example-time-input">
-                        </div>
-                        <div class="form-group col-sm-6 col-12">
-                            <label for="formGroupExampleInput"><br></label>
-                            <input class="form-control" type="time" value="13:45:00" id="example-time-input">
+                            <input type="text" class="form-control" placeholder="input price" ng-model="create.ticket_price">
                         </div>
                     </div>
                     <div class="row col-sm-12 col-12" style="padding-left : 0px;">
                         <div class="form-group col-sm-6 col-12">
                             <label for="formGroupExampleInput">DATE ( Start, End )</label>
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                            <input class="form-control" type="date" value="2011-08-19" ng-model="create.start_date">
                         </div>
                         <div class="form-group col-sm-6 col-12">
                             <label for="formGroupExampleInput"><br></label>
-                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                            <input class="form-control" type="date" value="2011-08-19" ng-model="create.end_date">
+                        </div>
+                    </div>
+                    <div class="row col-sm-12 col-12" style="padding-left : 0px;">
+                        <div class="form-group col-sm-6 col-12">
+                            <label for="formGroupExampleInput">TIME ( Start, End )</label>
+                            <input class="form-control" type="time" value="13:45:00" ng-model="create.start_time">
+                        </div>
+                        <div class="form-group col-sm-6 col-12">
+                            <label for="formGroupExampleInput"><br></label>
+                            <input class="form-control" type="time" value="13:45:00"  ng-model="create.end_time">
                         </div>
                     </div>
                         <div class="form-group">
                         <label for="formGroupExampleInput">PICTURE URL</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="input url picture">
+                        <input type="text" class="form-control" ng-model="create.pic" placeholder="input url picture">
                       </div>
                         <div class="form-group">
                         <label for="formGroupExampleInput">VIDEO URL</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="input url video">
+                        <input type="text" class="form-control" ng-model="create.video" placeholder="input url video">
                       </div>
                     </form>
                   <br>
@@ -177,12 +192,12 @@
                         <label for="formGroupExampleInput2">GENDER </label>
                       <div class="form-check">
                           <label class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input">
+                              <input type="checkbox" class="custom-control-input" ng-model="create.gender_male">
                               <span class="custom-control-indicator"></span>
                               <span class="custom-control-description">MALE</span>
                         </label>
                           <label class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input">
+                              <input type="checkbox" class="custom-control-input" ng-model="create.gender_female">
                               <span class="custom-control-indicator"></span>
                               <span class="custom-control-description">FEMALE</span>
                             </label>
@@ -190,11 +205,11 @@
                     <div class="row col-sm-12 col-12" style="padding-left : 0px;">
                         <div class="form-group col-sm-6 col-12">
                             <label for="formGroupExampleInput">AGE</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="min age">
+                            <input type="text" class="form-control" ng-model="create.min_age"  placeholder="min age">
                         </div>
                         <div class="form-group col-sm-6 col-12">
                             <label for="formGroupExampleInput"><br></label>
-                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="max age">
+                            <input type="text" class="form-control" ng-model="create.max_age" placeholder="max age">
                         </div>
                     </div><br>
                     </form>
@@ -203,10 +218,50 @@
             </div>
           </div>
         </div>
+
+        <BR><BR>
+
+        <div class="container">
+          <div class="col-sm-12" style="background-color:#FC575E;">
+              <br>
+            <div class="row border-top-0" style="background-color:white;border:1px solid;border-color: #95989A;">
+              <div class="col-12 col-sm-12"><br>
+                FIELD 3 : Add location
+                  <br>
+                  <hr>
+                      <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
+                          <b>API Error : </b>
+                          <span>{{ apiStatus }}</span>
+                      </div>  
+                      <form name="searchForm" novalidate 
+                      ng-submit="search()">
+                          <div class="input-group">
+                              <input name="place" type="text" class="form-control" 
+                              ng-model="searchPlace" required autofocus />
+                              <span class="input-group-btn">
+                                  <button class="btn btn-primary" 
+                                  ng-disabled="searchForm.$invalid">Search</button>
+                              </span>
+                          </div>
+                      </form> 
+                      <div id="map"></div>
+                        <!-- <div class="form-group col-sm-6 col-6">
+                            <label >Position</label>
+                            <input name="resLat" type="number" class="form-control" ng-model="place.lat" placeholder="Latitude" required />
+                        </div>
+                        <div class="form-group col-sm-6 col-6">
+                            <label f><br></label>
+                            <input name="resLng" type="number" class="form-control" ng-model="place.lng" placeholder="Longtitude" required />
+                        </div> -->
+                  <br>
+                </div>              
+            </div>
+          </div>
+        </div><br>
             
          <BR><BR>
             
-        <div class="container">
+       <!--  <div class="container">
           <div class="col-sm-12" style="background-color:#FC575E;">
               <br>
             <div class="row border-top-0" style="background-color:white;border:1px solid;border-color: #95989A;">
@@ -218,17 +273,16 @@
                         <label for="formGroupExampleInput2">LOCATION </label>
                         <input id="pac-input" class="controls" type="text" placeholder="Search Box">
                         <div id="map"></div>
-                        <!-- <div id="mar_pos"></div> -->
                         <div id="marker"></div>
                         <br>
                         <div class="row col-sm-12 col-12" style="padding-left : 0px;">
                         <div class="form-group col-sm-6 col-12">
                             <label for="formGroupExampleInput">Position</label>
-                            <input type="text" class="form-control" id="location_lat" placeholder="Latitude" >
+                            <input type="text" class="form-control" ng-model="create.location_lat" placeholder="Latitude" >
                         </div>
                         <div class="form-group col-sm-6 col-12">
                             <label for="formGroupExampleInput"><br></label>
-                            <input type="text" class="form-control" id="location_lng" placeholder="Longtitude">
+                            <input type="text" class="form-control" ng-model="create.location_lng" placeholder="Longtitude">
                         </div>
                     </div>
                     </form>
@@ -236,61 +290,36 @@
                 </div>              
             </div>
           </div>
-        </div><br>
+        </div><br> -->
              <div class="container" style="display:inline-block">
-                 <div align="center" style="float:left">
+                 <!-- <div align="center" style="float:left">
                     <button type="button" class="btn btn-outline-warning">Clear</button>
-                 </div>
+                 </div> -->
                  <div align="center" style="float:right">
-                    <button type="button" class="btn btn-danger" >Submit</button>
+                    <button type="button" class="btn btn-danger" ng-click="createsubmit()">Submit</button>
                  </div>
              </div><br><br>
     </div>
-    <br>
-    <script>
-      // This example adds a search box to a map, using the Google Place Autocomplete
-      // feature. People can enter geographical searches. The search box will return a
-      // pick list containing a mix of places and predicted search terms.
+    <br> 
+</div>
 
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
+ <!--    <script>
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 18.78775, lng:98.99313},
           zoom: 15,
           mapTypeId: 'roadmap'
         });
-
-        //var infoWindow = new google.maps.InfoWindow({map: map});
-        // Try HTML5 geolocation.
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-            //var mar_pos = document.getElementById('pos')
-            //infoWindow.setPosition(pos);
-            //infoWindow.setContent('Location found.');
             map.setCenter(pos);
-          }//, function() {
-            //handleLocationError(true, infoWindow, map.getCenter());
-          //}
-          );
+          });
         } 
-        // else {
-        //   // Browser doesn't support Geolocation
-        //   handleLocationError(false, infoWindow, map.getCenter());
-        // }
-
-        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        //infoWindow.setPosition(pos);
-        // infoWindow.setContent(browserHasGeolocation ?
-        //                       'Error: The Geolocation service failed.' :
-        //                       'Error: Your browser doesn\'t support geolocation.');
-      }
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {}
 
         // Create the search box and link it to the UI element.
         var input = document.getElementById('pac-input');
@@ -371,11 +400,10 @@
         });
         markers.push(marker);
         $('#location_lat').val(location.lat());
-        $('#location_lng').val(location.lng());
+        $('#location_lng').val(location.lng()); 
       }
 
       }
 
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuyEycAxVaRvLY5CuQ84d3eFXU0PSf1Jg&libraries=places&callback=initMap"
-         async defer></script>
+    </script> -->
+    

@@ -1100,7 +1100,7 @@ body{
 	}
 }
 /*===================================Event list page============================*/
-.eventList-card img{
+/*.eventList-card img{
 	height: 200px;
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
@@ -1113,7 +1113,7 @@ body{
 	padding-right: 5px;
 	padding-left: 5px;
 	margin-top: 10px;
-}
+}*/
 /*===================================Event navbar page============================*/
 /*.event_navbar-white{
 	color: #F5F6FA;
@@ -1655,3 +1655,134 @@ body{
 #pac-input:focus {
 		        border-color: #4d90fe;
 		      }
+
+/*==========================eventlist=====================================================*/
+
+@import url('https://fonts.googleapis.com/css?family=Nunito|Quicksand');
+
+
+
+
+.event_list-h4-title{
+	font-family: Quicksand-bold;
+	color: #48515A;
+	font-size: 25px;
+	font-weight: bold;
+	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	
+}
+
+.event_list-h6-describe{
+	font-family: Quicksand-bold;
+	color: #95989A;
+	font-size: 20px;
+	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	
+}
+
+
+.event_list-a-event_type{
+	color: black;
+	font-family: "Nunito";
+	font-size: 1rem;
+	text-decoration: none;
+	margin-top: 1rem;
+	border-top-color: black;
+	border-bottom-color: black;
+}
+
+.event_list-a-event_type:hover{
+	text-decoration: none;
+	color: yellow;
+}
+
+
+
+.event_list-div-show{
+	font-family: 'Quicksand' ,sans-serif;
+	font-size: 1rem;
+	margin-top: 0rem;
+	margin-left: 1rem;
+
+}
+
+.event_list-li-page-link{
+	color: white;
+	font-family: 'Nunito';
+	background-color:#FFD700;
+	border-radius: 0px;
+}
+
+.event_list-li-page-link:hover{
+	color: white;
+	font-family: 'Nunito';
+	background-color:#FC575E;
+	border-radius: 0px;
+}
+
+
+.event_list-div-start_date{
+	color: #95989A;
+	font-size: 15px;
+}
+
+.event_list-div-end_date{
+	color: #95989A;
+	font-size: 15px;
+}
+
+.event_list-div-dat{
+	color: #95989A;
+
+}
+
+.event_list-div-detail{
+	color: black;
+	font-size: 22px;
+}
+
+.event_list-div-price{
+	color: black;
+	font-size: 22px;
+}
+
+.event_list-div-redtype{
+
+	background-color: #FC575E;
+	/*width: 5rem;*/
+	height: 2rem;
+	font-size: 15px;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	margin-left: 150px;
+	margin-top: 194px;
+
+	border-top-left-radius: 14px; 
+
+	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	text-overflow: '.....?';
+
+}
+
+.event_list-input-txt{
+	width: 15rem;
+	border: 1.5px solid #000;
+	border-radius: 12px;
+	
+}
+
+
+
+@media (max-width:575px){
+	.event_list-div-pag{
+		margin-left: 5rem;
+	}
+}
+

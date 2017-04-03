@@ -34,6 +34,5 @@ project.controller('signupController', function ($scope,$http,$state) {
         else{
             $scope.msgError = 'please enter form';
         }
-        
     }
 });
