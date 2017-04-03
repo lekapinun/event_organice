@@ -140,7 +140,7 @@ furthermore, we are the social media - you can update event's news and meet new 
 
 						    <div class="modal-body">
 						        <form name="mysignin">
-									<div 		class="form-group-signin" style="position: relative;top: 1.5rem;">
+									<div class="form-group-signin" style="position: relative;top: 1.5rem;">
 											<input name="myemail" type="email" class="form-control"  ng-model="login.email" aria-describedby="emailHelp" placeholder="Enter email" required >
 											<P  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="mysignin.myemail.$invalid && !mysignin.myemail.$pristine">E-mail is invalid.</P>
 									</div>
@@ -181,51 +181,65 @@ furthermore, we are the social media - you can update event's news and meet new 
         					welcome to EVENT ORGANICE
         				</div>
       					<div class="modal-body">
-        					<div class="home-text-signup">
-        						SIGN UP <span><img class="home-img-man" src="../pic/nerd.png"></span>
+      						<div class="home-text-signup">
+        							SIGN UP <span><img class="home-img-man" src="../pic/nerd.png"></span>
         					</div>
-        					<div class="input-group">
-  								<input type="text" class="form-control home-input-font_input" placeholder="U S E R N A M E" aria-describedby="basic-addon1" ng-model="signup.user">
-							</div>
-							<div class="input-group" style="margin-top: 10px;">
-  								<input type="password" class="form-control home-input-font_input" placeholder="P A S S W O R D" aria-describedby="basic-addon1" ng-model="signup.pass">
-							</div>
-							<div class="input-group" style="margin-top: 10px;">
-  								<input type="password" class="form-control home-input-font_input" placeholder="R E - P A S S W O R D" aria-describedby="basic-addon1" ng-model="signup.repass">
-							</div>
-							<div class="input-group" style="margin-top: 10px;">
-  								<input type="email" class="form-control home-input-font_input" placeholder="E - M A I L" aria-describedby="basic-addon1" ng-model="signup.email">
-							</div>
-							<div class="input-group" style="margin-top: 10px;">
-  								<input type="text" class="form-control home-input-font_input" placeholder="F I R S T  N A M E" aria-describedby="basic-addon1" ng-model="signup.fname">
-							</div>
-							<div class="input-group" style="margin-top: 10px;">
-  								<input type="text" class="form-control home-input-font_input" placeholder="L A S T  N A M E" aria-describedby="basic-addon1" ng-model="signup.lname">
-							</div>
-							<form class="form-inline" style="margin-top: 10px;">
-								<label for="gender" class="home-text-gender">Gender</label>
-								<select class="form-control home-dropdown-gender mb-2 mr-sm-2 mb-sm-0" id="gender" ng-model="signup.sex">
-      								<option>Male</option>
-      								<option>Female</option>
-    							</select>
-    						</form>
-    						<form class="form-inline" style="margin-top: 10px;">
-    							<label for="birthday" class="home-text-date">Birth Date</label>
-    							<input class="form-control home-input-date" type="date" id="birthday" ng-model="signup.bd">
-    						</form>
-    						<div class="input-group" style="margin-top: 10px;">
-  								<input type="tel" class="form-control home-input-font_input" placeholder="P H O N E  N U M B E R" aria-describedby="basic-addon1" ng-model="signup.phone">
-							</div>
-							<div class="input-group" style="margin-top: 10px;">
-  								<input type="text" class="form-control home-input-font_input" placeholder="C R E D I T  CA R D" aria-describedby="basic-addon1" ng-model="signup.cd">
-							</div>
-							<div class="input-group" style="margin-top: 10px;">
-  								<input type="text" class="form-control home-input-font_input" placeholder="U R L I M G" aria-describedby="basic-addon1" ng-model="signup.img">
-							</div>
+      						<form name="mysignup">
+	        					<div class="input-group">
+	  								<input name="myusername"  required type="text" ng-model="signup.user" class="form-control home-input-font_input" placeholder="U S E R N A M E" aria-describedby="basic-addon1"  >
+								</div>
+								<P style="margin-left:1rem;font-size:0.8rem;color:white;" ng-show="mysignup.myusername.$touched && mysignup.myusername.$invalid">Please enter your username</P>
+	  							
+							
+
+								<div class="input-group" style="margin-top: 10px;">
+	  								<input name="mypassword"  required ng-model="signup.pass" type="password" class="form-control home-input-font_input" placeholder="P A S S W O R D" aria-describedby="basic-addon1">
+								</div>
+								<P style="margin-left:1rem;font-size:0.8rem;color:white;" ng-show="mysignup.mypassword.$touched && mysignup.mypassword.$invalid ">Please enter your password</P>
+	  								
+							
+
+								<!-- <div class="input-group" style="margin-top: 10px;">
+	  								<input name="myrepassword"  required ng-model="signup.repass" type="password" class="form-control home-input-font_input" placeholder="R E - P A S S W O R D" aria-describedby="basic-addon1">
+								</div>
+								<P style="margin-left:1rem;font-size:0.8rem;color:white;" ng-show="mysignup.myrepassword.$touched && mysignup.myrepassword.$invalid ">Please enter re-password</P> -->
+
+								<div class="input-group" style="margin-top: 10px;">
+	  								<input name="myemails"  required ng-model="signup.email" type="email" class="form-control home-input-font_input" placeholder="E - M A I L" aria-describedby="basic-addon1">
+								</div>
+								<P style="margin-left:1rem;font-size:0.8rem;color:white;" ng-show="mysignup.mypassword.$touched && mysignup.mypassword.$invalid ">Please enter your E-mail</P>
+								<P  style="margin-left:1rem;font-size:0.8rem;color:white;" ng-show="mysignup.myemails.$invalid && !mysignup.myemails.$pristine">Example: mind@event.com</P>
+
+								<div class="input-group" style="margin-top: 10px;">
+	  								<input name="myfirstname" ng-model="signup.fname" type="text" class="form-control home-input-font_input" placeholder="F I R S T  N A M E" aria-describedby="basic-addon1">
+								</div>
+								
+								<div class="input-group" style="margin-top: 10px;">
+	  								<input name="mylastname" ng-model="signup.lname" type="text" class="form-control home-input-font_input" placeholder="L A S T  N A M E" aria-describedby="basic-addon1">
+								</div>
+								<form class="form-inline" style="margin-top: 10px;">
+									<label for="gender" class="home-text-gender">Gender</label>
+									
+									<select name="mysex"  required ng-model="signup.sex" class="form-control home-dropdown-gender mb-2 mr-sm-2 mb-sm-0" >
+	      								<option>Male</option>
+	      								<option>Female</option>
+	    							</select>
+	    						</form>
+	    						<form class="form-inline" style="margin-top: 10px;">
+	    							<label for="birthday" class="home-text-date">Birth Date</label>
+	    							<input class="form-control home-input-date" type="date" id="birthday">
+	    						</form>
+	    						<div class="input-group" style="margin-top: 10px;">
+	  								<input type="tel" class="form-control home-input-font_input" placeholder="P H O N E  N U M B E R" aria-describedby="basic-addon1">
+								</div>
+								<div class="input-group" style="margin-top: 10px;">
+	  								<input type="text" class="form-control home-input-font_input" placeholder="C R E D I T  CA R D" aria-describedby="basic-addon1">
+								</div>
+      						</form>
+        					
       					</div>
       					<div class="modal-footer-jan">
-        					<button type="button" class="btn btn-primary home-btn-clear">CLEAR</button>
-        					<button type="button" class="btn btn-primary home-btn-signup" ng-click="signupsubmit()">SIGN UP</button>
+        					<button ng-disabled="mysignup.$invalid" type="button" class="btn btn-primary home-btn-signup">SIGN UP</button>
       					</div>
     				</div>
   				</div>
