@@ -22,6 +22,10 @@ project.controller('eventcreateController', function ($scope,$http,$state,Map) {
         {
             $scope.create.gender = 'Female'
         }
+        else
+        {
+            $scope.create.gender = 'None'
+        }
         
         if ($scope.create!= undefined) {
             $http({

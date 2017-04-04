@@ -138,31 +138,39 @@
                           </select>
 
                         </div>
-                        <div class="form-group col-sm-6 col-12">
+                        <div class="form-group col-sm-3 col-12">
                             <label for="formGroupExampleInput2">TICKET PRICE ( bath ) </label>
                             <input type="text" class="form-control" placeholder="input price" ng-model="create.ticket_price">
                         </div>
+                        <div class="form-group col-sm-3 col-12">
+                            <label for="formGroupExampleInput2">MAX SEAT </label>
+                            <input type="text" class="form-control" placeholder="input max seat" ng-model="create.max_seat">
+                        </div>
                     </div>
                     <div class="row col-sm-12 col-12" style="padding-left : 0px;">
                         <div class="form-group col-sm-6 col-12">
-                            <label for="formGroupExampleInput">DATE ( Start, End )</label>
-                            <input class="form-control" type="date" value="2011-08-19" ng-model="create.start_date">
+                            <label for="formGroupExampleInput">Start</label>
+                            <input class="form-control" type="datetime-local" ng-model="create.start_time">
                         </div>
                         <div class="form-group col-sm-6 col-12">
+                            <label for="formGroupExampleInput">End</label>
+                            <input class="form-control" type="datetime-local"  ng-model="create.end_time">
+                        </div>
+                        <!-- <div class="form-group col-sm-6 col-12">
                             <label for="formGroupExampleInput"><br></label>
                             <input class="form-control" type="date" value="2011-08-19" ng-model="create.end_date">
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="row col-sm-12 col-12" style="padding-left : 0px;">
-                        <div class="form-group col-sm-6 col-12">
+                    <!-- <div class="row col-sm-12 col-12" style="padding-left : 0px;"> -->
+                        <!-- <div class="form-group col-sm-6 col-12">
                             <label for="formGroupExampleInput">TIME ( Start, End )</label>
                             <input class="form-control" type="time" value="13:45:00" ng-model="create.start_time">
-                        </div>
-                        <div class="form-group col-sm-6 col-12">
+                        </div> -->
+                        <!-- <div class="form-group col-sm-6 col-12">
                             <label for="formGroupExampleInput"><br></label>
                             <input class="form-control" type="time" value="13:45:00"  ng-model="create.end_time">
-                        </div>
-                    </div>
+                        </div> -->
+                    <!-- </div> -->
                         <div class="form-group">
                         <label for="formGroupExampleInput">PICTURE URL</label>
                         <input type="text" class="form-control" ng-model="create.pic" placeholder="input url picture">
@@ -170,6 +178,11 @@
                         <div class="form-group">
                         <label for="formGroupExampleInput">VIDEO URL</label>
                         <input type="text" class="form-control" ng-model="create.video" placeholder="input url video">
+                      </div>
+                      <div>
+                        <div class="form-group">
+                        <label for="formGroupExampleInput">DETAIL</label>
+                        <input type="text" class="form-control" ng-model="create.detail" placeholder="input datail">
                       </div>
                     </form>
                   <br>

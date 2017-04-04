@@ -731,37 +731,37 @@ textarea {
 @media (min-width: 1400px) {
 	.eventorganice{
 
-		height: 1000px;
+		height: 800px;
 	}
 	.registerwithus{
 		height: 850px;
 	}
 	.event{
 		font-size: 10rem; 
-		top:10rem;
+		top:1rem;
 		right: 2rem;
 
 	}
 	.organice{
 		font-size: 13rem; 
-		top: -1rem;
+		top: -10rem;
 
 
 	}
 	.poem{
 		font-size: 2.8rem;
-		top: -2rem;
+		top: -10rem;
 	}
 
 	.btn-warning-signup {
 		position: relative;
-		top: 1rem;
+		top: -8rem;
 	 
 	}
 	.btn-warning-signin {
 		margin-left: 3rem;
 		position: relative;
-		top: 1rem;
+		top: -8rem;
 		right: 1rem;
  	
 	}

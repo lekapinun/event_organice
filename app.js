@@ -431,14 +431,30 @@ app.post('/create_event',function(req,res)
 	    	console.log('error : t');
 	        return
 	    }
-	    var datetime = form.start_date.toString() + "T" + form.start_time.toString() + ".000Z";
-	    console.log(datetime);
- 		var start_time = new Date(datetime).getTime();//1492714800000;//new Date(datetime).getTime();
- 		datetime = form.end_date.toString() + "T" + form.end_time.toString() + ".000Z";
- 		var end_time = new Date(datetime).getTime();//1492725600000;//new Date(datetime).getTime();
- 		var today = new Date().getTime();
 
- 		console.log(datetime);
+	    var start = form.start_time.substr(0,form.start_time.length - 4) + '420Z';
+	    var end  = form.end_time.substr(0,form.end_time.length - 4) + '420Z';
+	    var start_time = new Date(start);
+	    var end_time = new Date(end);
+	    var today = new Date();
+
+	    // var _today = new Date();
+	    // var today = _today.getTime();
+	    // form.start_date = form.start_date.substr(0,form.start_date.length - 4) + '420Z';
+	    // form.start_time = form.start_date.substr(0,form.start_date.length - 4) + '420Z';
+	    // var _start_date = new Date(form.start_date)
+	    // var _start_time = new Date(form.start_time);
+	    // var start_time = _start_time.getTime() + _start_date.getTime();
+	    
+
+	    // var datetime = form.start_date.toString() + "T" + form.start_time.toString() + ".000Z";
+	    // console.log(datetime);
+ 		// var start_time = new Date(datetime).getTime();
+ 		// datetime = form.end_date.toString() + "T" + form.end_time.toString() + ".000Z";
+ 		// var end_time = new Date(datetime).getTime();
+ 		// var today = new Date().getTime();
+
+ 		//console.log(datetime);
  		
 
 	    if(today > start_time)
@@ -459,9 +475,9 @@ app.post('/create_event',function(req,res)
 	    	console.log('error : xxxx');
 	        return;
 	    }
-	    console.log("INSERT INTO `event` (`OWNER_ID`, `EVENT_NAME`, `CATEGORY`, `DETAIL`, `PICTURE`, `VIDEO`, `TIME_START_E`, `TIME_END_E`, `CONDITION_MIN_AGE`, `CONDITION_MAX_AGE`, `CONDITION_SEX`, `SOLD_OUT_SEAT`, `MAX_SEAT`, `PRICE`, `LOCATION_lat`, `LOCATION_lng`) VALUES" + "('" + sess.member_id + "','" + form.event_name + "','" +  form.category + "','" + form.detail + "','" + form.pic + "','" + form.video + "','" + start_time + "','" + end_time +  "','" + form.min_age + "','" + form.max_age + "','" + form.gender + "','" + '0' +  "','" + form.max_seat + "','" + form.ticket_price + "','" + form.location_lat + "','" + form.location_lng + "')");
+	    console.log("INSERT INTO `event` (`OWNER_ID`, `EVENT_NAME`, `CATEGORY`, `DETAIL`, `PICTURE`, `VIDEO`, `TIME_START_E`, `TIME_END_E`, `CONDITION_MIN_AGE`, `CONDITION_MAX_AGE`, `CONDITION_SEX`, `SOLD_OUT_SEAT`, `MAX_SEAT`, `PRICE`, `LOCATION_lat`, `LOCATION_lng`) VALUES" + "('" + sess.member_id + "','" + form.event_name + "','" +  form.category + "','" + form.detail + "','" + form.pic + "','" + form.video + "','" + start_time.getTime() + "','" + end_time.getTime() +  "','" + form.min_age + "','" + form.max_age + "','" + form.gender + "','" + '0' +  "','" + form.max_seat + "','" + form.ticket_price + "','" + form.location_lat + "','" + form.location_lng + "')");
 
-	    connection.query("INSERT INTO `event` (`OWNER_ID`, `EVENT_NAME`, `CATEGORY`, `DETAIL`, `PICTURE`, `VIDEO`, `TIME_START_E`, `TIME_END_E`, `CONDITION_MIN_AGE`, `CONDITION_MAX_AGE`, `CONDITION_SEX`, `SOLD_OUT_SEAT`, `MAX_SEAT`, `PRICE`, `LOCATION_lat`, `LOCATION_lng`) VALUES" + "('" + sess.member_id + "','" + form.event_name + "','" +  form.category + "','" + form.detail + "','" + form.pic + "','" + form.video + "','" + start_time + "','" + end_time +  "','" + form.min_age + "','" + form.max_age + "','" + form.gender + "','" + '0' +  "','" + form.max_seat + "','" + form.ticket_price + "','" + form.location_lat + "','" + form.location_lng + "')",function(err)
+	    connection.query("INSERT INTO `event` (`OWNER_ID`, `EVENT_NAME`, `CATEGORY`, `DETAIL`, `PICTURE`, `VIDEO`, `TIME_START_E`, `TIME_END_E`, `CONDITION_MIN_AGE`, `CONDITION_MAX_AGE`, `CONDITION_SEX`, `SOLD_OUT_SEAT`, `MAX_SEAT`, `PRICE`, `LOCATION_lat`, `LOCATION_lng`) VALUES" + "('" + sess.member_id + "','" + form.event_name + "','" +  form.category + "','" + form.detail + "','" + form.pic + "','" + form.video + "','" + start_time.getTime() + "','" + end_time.getTime() +  "','" + form.min_age + "','" + form.max_age + "','" + form.gender + "','" + '0' +  "','" + form.max_seat + "','" + form.ticket_price + "','" + form.location_lat + "','" + form.location_lng + "')",function(err)
 	    {
 	        //connection.release();
 	        console.log(start_time);

@@ -52,6 +52,10 @@
 						<!-- <div><label style="color: #48515A">VENUE:</label></div> -->
 						<div><label style="color: #48515A" >START: {{eventID.TIME_START_E | date:'medium'}}</label></div>
 						<div><label style="color: #48515A" >END: {{eventID.TIME_END_E | date:'medium'}}</label></div>
+						<div><label style="color: #48515A" >GENDER: {{eventID.CONDITION_SEX}}</label></div>
+						<div><label style="color: #48515A" >MIN AGE: {{eventID.CONDITION_MIN_AGE}}</label></div>
+						<div><label style="color: #48515A" >MAX AGE: {{eventID.CONDITION_MAX_AGE}}</label></div>
+						<div><label style="color: #48515A" >MAX SEAT: {{eventID.MAX_SEAT}}</label></div>
 						<div style="margin-bottom: 1rem;" ><label>TICKET PRICE: {{eventID.PRICE}} ฿</label></div>
 						
 						<button type="button" class="btn btn-buyticket btn-lg nunito">BUY TICKET</button>
