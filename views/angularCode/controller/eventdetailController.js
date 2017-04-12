@@ -28,35 +28,9 @@ project.controller('eventdetailController', function ($scope,$sce,$state, $state
 			}
 			else{
 				$scope.eventID = response.data[0];
-				$http({
-			        method: 'GET',
-			        url: '/member/' + $scope.eventID.OWNER_ID
-				}).then(function (response) {
-					if(response.data.length === 0){
-						$scope.errorMgs = "no member here."
-						console.log($scope.errorMgs);
-					}
-					else{
-						$scope.memberID = response.data[0];
-						$http({
-					        method: 'GET',
-					        url: '/other_join/' + $scope.eventID.EVENT_ID
-						}).then(function (response) {
-							if(response.data.length === 0){
-								$scope.errorMgs = "no member here."
-								console.log($scope.errorMgs);
-							}
-							else{
-								$scope.otherID = response.data;
-							}
-					    }, function (response) {
-					        console.log("ERROR");
-					    });
-					}
-			    }, function (response) {
-			        console.log("ERROR");
-			    });
-			    //console.log($sce.trustAsUrl(response.data[0].VIDEO));
+				$scope.memberID = response.data[1];
+				$scope.otherID = response.data[2];
+				console.log(response);
 			}
 	    }, function (response) {
 	        console.log("ERROR");

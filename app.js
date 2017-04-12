@@ -324,8 +324,36 @@ app.get('/gift/:id_event/:id_member',function(req,res)
   	});
 });
 
+// app.get('/event/:id',function(req,res)
+// {
+//     pool.getConnection(function(err,connection)
+//     {
+//      	var event_id = req.params.id;
+//         connection.query("select * from event where event_id =" + event_id,function(err,rows)
+//         {
+//             if(!err) 
+//             {
+//             	var date = rows[0].TIME_START_E;
+//             	var _start_date = new Date(parseInt(date));
+//             	var _start_time = _start_date.toISOString().split('T')[1].split('.000Z')[0];
+//             	_start_date = _start_date.toISOString().split('T')[0];
+//             	rows[0].start_date = _start_date;
+//             	rows[0].start_time = _start_time;
+//             	date = rows[0].TIME_END_E;
+//             	var _end_date = new Date(parseInt(date));
+//             	var _end_time = _end_date.toISOString().split('T')[1].split('.000Z')[0];
+//             	_end_date = _end_date.toISOString().split('T')[0];
+//             	rows[0].end_date = _end_date;
+//             	rows[0].end_time = _end_time;
+//                 res.json(rows);
+//             }           
+//         });
+//   	});
+// });
+
 app.get('/event/:id',function(req,res)
 {
+	var detail = [];
     pool.getConnection(function(err,connection)
     {
      	var event_id = req.params.id;
@@ -345,7 +373,45 @@ app.get('/event/:id',function(req,res)
             	_end_date = _end_date.toISOString().split('T')[0];
             	rows[0].end_date = _end_date;
             	rows[0].end_time = _end_time;
-                res.json(rows);
+            	detail = rows.concat(detail);
+                //res.json(detail);
+                connection.query("select * from `member` where `member_id` = '" + detail[0].OWNER_ID + "'",function(err,rows)
+        		{
+	            	if(!err) 
+	            	{
+	            		detail = detail.concat(rows);
+	            		//res.json(detail);
+	            		connection.query("SELECT * FROM `join_event` WHERE `EVENT_ID` =" + detail[0].EVENT_ID ,function(err,rows)
+				        {
+				        	other = '';
+				            if(rows.length > 0) 
+				            {
+				            	for (var item of rows) 
+						    	{
+						    		other = other + "MEMBER_ID = '" + item.MEMBER_ID + "'" + ' or ';
+						    	}
+						    	other = other.substr(0,other.length - 4);
+						    	connection.query("SELECT * FROM `member` WHERE " + other,function(err,rows)
+								{		    	
+								    if(rows.length > 0)
+								    {
+								    	detail[2] = rows;
+	            						res.json(detail);
+								    }
+								    else
+								    {
+								    	res.end('error');
+								    }
+								});
+				            }   
+				            else
+				            {
+				            	console.log('error');
+				            	res.end('error');
+				            }        
+				        });
+	            	}
+            	});
             }           
         });
   	});
