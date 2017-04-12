@@ -91,86 +91,28 @@
 
 				<div class="card-deck event_detail-textlink-card">
 						
-						<a href="#" class="">
-							<div class="card ">
+						<a href="#" class="" >
+							<div class="card " ng-repeat="event in otherEID">
 						  	<div class="blockofimg ">
-						  		<img class="card-img-top img-fluid img-fluid-clip " src="https://0.soompi.io/wp-content/uploads/2013/02/1st-look_park-shin-hye-e1360290397864.jpg" alt="Card image cap">
+						  		<img class="card-img-top img-fluid img-fluid-clip " src={{event.PICTURE}} alt="Card image cap">
 						  	</div>
 	
 						    <div class="card-block">
-						      	<h4 class="card-title">Event's Name</h4>
-						      	<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-						      	<span style="font-size: 0.8rem">12/02/2018 - 14/02/2016</span>
+						      	<h4 class="card-title">{{event.EVENT_NAME}}</h4>
+						      	<p class="card-text">{{event.DETAIL}} .</p>
+						      	<span style="font-size: 0.8rem">{{event.TIME_START_E | date:'medium'}} - {{event.TIME_END_E | date:'medium'}} </span>
 						    </div>
 						   	<div class="card-footer">
-						      <span class="quicksand-bold">฿ 100</span><a style="float: right;" class="quicksand-bold" href="#"> detail</a>
+						      <span class="quicksand-bold">฿ {{event.PRICE}}</span><a style="float: right;" class="quicksand-bold" href="#"> detail</a>
 						    </div>
 
 						  </div>
-						 </a> 
+						 </a> 		 
+						 
 						 
 
-						  <a href="#" class="">
-						  	
-					
-						  <div class="card ">
-						  	<div class="blockofimg ">
-						  		<img class="card-img-top img-fluid img-fluid-clip " src="https://www.dramafever.com/st/news/images/f1cad0e1-e89a-41e3-8045-cd306a894eaf.jpg" alt="Card image cap">
-						  	</div>
-						  	
-
-						    <div class="card-block">
-						      	<h4 class="card-title">Event's Name</h4>
-						      	<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-						      	<span style="font-size: 0.8rem">12/02/2018 - 14/02/2016</span>
-						    </div>
-						    
-						   	<div class="card-footer">
-						      <span class="quicksand-bold">฿ 100</span><a style="float: right;" class="quicksand-bold" href="#"> detail</a>
-						    </div>
-
-						  </div>
-						</a>
 						
-						<a href="#">
-							<div class="card ">
-						  	<div class="blockofimg ">
-						  		<img class="card-img-top img-fluid img-fluid-clip " src="http://images.kdramastars.com/data/images/full/223632/park-shin-hye-reached-3-million-instagram-followers.jpg?w=600" alt="Card image cap">
-						  	</div>
-						  	
-
-
-						    <div class="card-block">
-						      	<h4 class="card-title">Event's Name</h4>
-						      	<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-						      	<span style=" font-size: 0.8rem">12/02/2018 - 14/02/2016</span>
-						    </div>
-						   	<div class="card-footer">
-						      <span class="quicksand-bold">฿ 100</span><a style="float: right;" class="quicksand-bold" href="#"> detail</a>
-						    </div>
-
-						  </div>
-						</a>
-						  
-						<a href="#">
-							<div class="card ">
-						  	<div class="blockofimg ">
-						  		<img class="card-img-top img-fluid img-fluid-clip " src="http://www.allkpop.com/upload/2016/01/content/park-shin-hye_1454081321_psh3.png" alt="Card image cap">
-						  	</div>
-						  	
-
-
-						    <div class="card-block">
-						      	<h4 class="card-title">Event's Name</h4>
-						      	<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-						      	<span style="font-size: 0.8rem">12/02/2018 - 14/02/2016</span>
-						    </div>
-						   	<div class="card-footer">
-						      <span class="quicksand-bold">฿ 100</span><a style="float: right;" class="quicksand-bold" href="#"> detail</a>
-						    </div>
-
-						  </div>
-						</a>
+						
 						  
 
 						  <div class="card event_detail-showmore" >

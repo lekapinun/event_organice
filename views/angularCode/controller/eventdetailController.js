@@ -30,6 +30,7 @@ project.controller('eventdetailController', function ($scope,$sce,$state, $state
 				$scope.eventID = response.data[0];
 				$scope.memberID = response.data[1];
 				$scope.otherID = response.data[2];
+				$scope.otherEID = response.data[3];
 				console.log(response);
 			}
 	    }, function (response) {

@@ -391,12 +391,25 @@ app.get('/event/:id',function(req,res)
 						    		other = other + "MEMBER_ID = '" + item.MEMBER_ID + "'" + ' or ';
 						    	}
 						    	other = other.substr(0,other.length - 4);
-						    	connection.query("SELECT * FROM `member` WHERE " + other,function(err,rows)
+						    	connection.query("SELECT * FROM `member` WHERE " + other + " ORDER BY rand() ",function(err,rows)
 								{		    	
 								    if(rows.length > 0)
 								    {
 								    	detail[2] = rows;
-	            						res.json(detail);
+	            						//res.json(detail);
+	            						var datetime  = new Date().getTime();
+	            						connection.query("SELECT * FROM `event` WHERE `TIME_END_E` > "  + datetime + " ORDER BY rand() ",function(err,rows)
+										{		    	
+										    if(rows.length > 0)
+										    {
+										    	detail[3] = rows;
+			            						res.json(detail);
+										    }
+										    else
+										    {
+										    	res.end('error');
+										    }
+										});
 								    }
 								    else
 								    {
