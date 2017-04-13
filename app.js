@@ -1201,5 +1201,147 @@ app.get('/following_create_event',function(req,res)
 	}
 });
 
+app.get('/profile/:id',function(req,res)
+{
+	var detail = [];
+	//sess = req.session;
+	// if(sess.member_id) 
+	// {
+		pool.getConnection(function(err,connection)
+        {
+	        connection.query("select * from `member` where `member_id` = '" + req.params.id + "'",function(err,rows)
+	        {
+	            connection.release();
+	            if(!err) 
+	            {
+	            	rows[0].PASSWORD = "sshhhhhhh!";
+	            	detail[0] = rows;
+	                //res.json(detail);
+	                console.log("SELECT * FROM `following` WHERE `MEMBER_ID` = " + req.params.id);
+				    connection.query("SELECT * FROM `following` WHERE `MEMBER_ID` = " + req.params.id,function(err,rows)
+				    {		    	
+				    	// if(rows.length > 0)
+				    	// {
+				    		follow = '';
+				    		for (var item of rows) 
+				    		{
+				    			follow = follow + "MEMBER_ID = '" + item.FOLLOWING_ID + "'" + ' or ';
+				    		}
+				    		follow = follow.substr(0,follow.length - 4);
+				    		console.log("SELECT * FROM `member` WHERE " + follow);
+				    		connection.query("SELECT * FROM `member` WHERE " + follow,function(err,rows)
+						    {		    	
+						    	// if(rows.length > 0)
+						    	// {
+						    		for (var i = rows.length - 1; i >= 0; i--) {
+						    			rows[i].PASSWORD = "sshhhhhhh!";
+						    		}
+						    		detail[1] = rows;
+						    		//res.json(detail);
+						    		console.log("SELECT * FROM `following` WHERE `FOLLOWING_ID` = " + req.params.id);
+								    connection.query("SELECT * FROM `following` WHERE `FOLLOWING_ID` = " + req.params.id,function(err,rows)
+								    {		    	
+								    	// if(rows.length > 0)
+								    	// {
+								    		follow = '';
+								    		for (var item of rows) 
+								    		{
+								    			follow = follow + "MEMBER_ID = '" + item.MEMBER_ID + "'" + ' or ';
+								    		}
+								    		follow = follow.substr(0,follow.length - 4);
+								    		console.log("SELECT * FROM `member` WHERE " + follow);
+								    		connection.query("SELECT * FROM `member` WHERE " + follow,function(err,rows)
+										    {		    	
+										    	// if(rows.length > 0)
+										    	// {
+										    		for (var i = rows.length - 1; i >= 0; i--) {
+										    			rows[i].PASSWORD = "sshhhhhhh!";
+										    		}
+										    		detail[2] = rows;
+										    		//res.json(detail);
+										    		connection.query("SELECT * FROM `join_event` WHERE `MEMBER_ID` =" + req.params.id ,function(err,rows)
+											        {
+											            // if(rows.length > 0) 
+											            // {
+											            	list = '';
+											            	for (var item of rows) 
+													    	{
+													    		list = list + "EVENT_ID = '" + item.EVENT_ID + "'" + ' or ';
+													    	}
+													    	list = list.substr(0,list.length - 4);
+													    	var datetime  = new Date().getTime();
+													    	console.log("SELECT * FROM `event` WHERE " + list + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME_START_E`");
+	        												connection.query("SELECT * FROM `event` WHERE " + list + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME_START_E`",function(err,rows)
+															{		    	
+															    // if(rows.length > 0)
+															    // {
+															    	detail[3] = rows;
+															    	//res.json(detail);
+															    	var datetime  = new Date().getTime();
+															    	console.log("SELECT * FROM `event` WHERE `OWNER_ID` =" + req.params.id + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME_START_E`")
+															    	connection.query("SELECT * FROM `event` WHERE `OWNER_ID` =" + req.params.id + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME_START_E`",function(err,rows)
+															        {
+															            // if(rows.length > 0) 
+															            // {
+																			detail[4] = rows;
+																			res.json(detail);
+															            // }   
+															            // else
+															            // {
+															            // 	console.log('error');
+															            // 	res.end('error');
+															            // }        
+															        });
+															    // }
+															    // else
+															    // {
+															    // 	res.end('error');
+															    // }
+															});
+											            // }   
+											            // else
+											            // {
+											            // 	console.log('error');
+											            // 	res.end('error');
+											            // }        
+											        });
+										    	// }
+										    	// else
+										    	// {
+										    	// 	res.end('error');
+										    	// }
+										    });
+								    	// }
+								    	// else
+								    	// {
+								    	// 	res.end('error');
+								    	// }
+								    });
+						    	// }
+						    	// else
+						    	// {
+						    	// 	res.end('error');
+						    	// }
+						    });
+				    	// }
+				    	// else
+				    	// {
+				    	// 	res.end('error');
+				    	// }
+				    });
+	            }
+	            else
+	            {
+	            	res.end("fail id");
+	            }           
+	        });
+  		});
+	// }
+	// else
+	// {
+	// 	res.end('error');
+	// }
+});
+
 
 app.listen(5555);
