@@ -1117,4 +1117,83 @@ app.get('/other_join/:event_id',function(req,res)
         });
   	});
 });
+
+app.get('/joinevent',function(req,res)
+{
+	sess = req.session;
+	var list = '';
+    pool.getConnection(function(err,connection)
+    {
+        connection.query("SELECT * FROM `join_event` WHERE `MEMBER_ID` =" + sess.member_id ,function(err,rows)
+        {
+            if(rows.length > 0) 
+            {
+            	for (var item of rows) 
+		    	{
+		    		list = list + "EVENT_ID = '" + item.EVENT_ID + "'" + ' or ';
+		    	}
+		    	list = list.substr(0,list.length - 4);
+		    	connection.query("SELECT * FROM `event` WHERE " + list,function(err,rows)
+				{		    	
+				    if(rows.length > 0)
+				    {
+				    	res.json(rows);
+				    }
+				    else
+				    {
+				    	res.end('error');
+				    }
+				});
+            }   
+            else
+            {
+            	console.log('error');
+            	res.end('error');
+            }        
+        });
+  	});
+});
+
+app.get('/following_create_event',function(req,res)
+{
+	sess = req.session;
+	var list = '';
+	if(sess.member_id) 
+	{
+		pool.getConnection(function(err,connection)
+        {
+		    console.log("SELECT * FROM `following` WHERE `MEMBER_ID` = " + sess.member_id);
+		    connection.query("SELECT * FROM `following` WHERE `MEMBER_ID` = " + sess.member_id,function(err,rows)
+		    {		    	
+		    	if(rows.length > 0)
+		    	{
+		    		for(var item of rows)
+		    		{
+		    			list = list + "(OWNER_ID = '" + item.FOLLOWING_ID + "' and MEMBER_ID = '" + item.FOLLOWING_ID + "')" + ' or ';
+		    		}
+		    		list = list.substr(0,list.length - 4);
+		    		console.log("SELECT *  FROM `event` JOIN  `member` WHERE " + list);
+		    		connection.query("SELECT *  FROM `event` JOIN  `member` WHERE " + list ,function(err,rows)
+					{	
+						//console.log(rows);
+						for (var i = rows.length - 1; i >= 0; i--) {
+							rows[i].PASSWORD = "shhhhhh!"
+						}
+					    res.json(rows);
+					});
+		    	}
+		    	else
+		    	{
+		    		res.end('error');
+		    	}
+		    });
+		});
+	}
+	else 
+	{
+	    res.end('error');
+	}
+});
+
+
 app.listen(5555);
