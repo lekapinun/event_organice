@@ -359,6 +359,7 @@ app.get('/event/:id',function(req,res)
      	var event_id = req.params.id;
         connection.query("select * from event where event_id =" + event_id,function(err,rows)
         {
+        	console.log(err);
             if(!err) 
             {
             	var date = rows[0].TIME_START_E;
@@ -377,6 +378,7 @@ app.get('/event/:id',function(req,res)
                 //res.json(detail);
                 connection.query("select * from `member` where `member_id` = '" + detail[0].OWNER_ID + "'",function(err,rows)
         		{
+        			console.log(err);
 	            	if(!err) 
 	            	{
 	            		rows[0].PASSWORD = "shhhhh!";
@@ -384,45 +386,48 @@ app.get('/event/:id',function(req,res)
 	            		//res.json(detail);
 	            		connection.query("SELECT * FROM `join_event` WHERE `EVENT_ID` =" + detail[0].EVENT_ID ,function(err,rows)
 				        {
+				        	console.log(err);
 				        	other = '';
-				            if(rows.length > 0) 
-				            {
+				            //if(!err) 
+				            //{
 				            	for (var item of rows) 
 						    	{
 						    		other = other + "MEMBER_ID = '" + item.MEMBER_ID + "'" + ' or ';
 						    	}
 						    	other = other.substr(0,other.length - 4);
 						    	connection.query("SELECT * FROM `member` WHERE " + other + " ORDER BY rand() ",function(err,rows)
-								{		    	
-								    if(rows.length > 0)
-								    {
+								{		 
+									console.log(err);   	
+								    //if(!err)
+								    //{
 								    	detail[2] = rows;
 	            						//res.json(detail);
 	            						var datetime  = new Date().getTime();
 	            						connection.query("SELECT * FROM `event` WHERE `TIME_END_E` > "  + datetime + " ORDER BY rand() ",function(err,rows)
-										{		    	
-										    if(rows.length > 0)
-										    {
+										{		
+											console.log(err);    	
+										    //if(!err)
+										    //{
 										    	detail[3] = rows;
 			            						res.json(detail);
-										    }
-										    else
-										    {
-										    	res.end('error');
-										    }
+										    // }
+										    // else
+										    // {
+										    // 	res.end('error');
+										    // }
 										});
-								    }
-								    else
-								    {
-								    	res.end('error');
-								    }
+								    // }
+								    // else
+								    // {
+								    // 	res.end('error');
+								    // }
 								});
-				            }   
-				            else
-				            {
-				            	console.log('error');
-				            	res.end('error');
-				            }        
+				            //}   
+				            // else
+				            // {
+				            // 	console.log('error');
+				            // 	res.end('error');
+				            // }        
 				        });
 	            	}
             	});
