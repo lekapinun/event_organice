@@ -379,6 +379,7 @@ app.get('/event/:id',function(req,res)
         		{
 	            	if(!err) 
 	            	{
+	            		rows[0].PASSWORD = "shhhhh!";
 	            		detail = detail.concat(rows);
 	            		//res.json(detail);
 	            		connection.query("SELECT * FROM `join_event` WHERE `EVENT_ID` =" + detail[0].EVENT_ID ,function(err,rows)
