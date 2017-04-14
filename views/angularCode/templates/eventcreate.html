@@ -96,10 +96,13 @@
                 FIELD 1 : Detail event
                   <br>
                   <hr>
-                    <form class="container">
+                    <form name="myField1" class="container">
                       <div class="form-group">
                         <label for="formGroupExampleInput">EVENT NAME</label>
-                        <input type="text" class="form-control"  placeholder="Example input" ng-model="create.event_name">
+                        <input name="myEventName" required type="text" class="form-control"  placeholder="Example input" ng-model="create.event_name" >
+
+                        <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField1.myEventName.$touched && myField1.myEventName.$invalid">Event name is required.</span>
+                      
                       </div>
                     <div class="row col-sm-12 col-12" style="padding-left : 0px;">
                         <div class="form-group col-sm-6 col-12">
@@ -121,7 +124,7 @@
                               <a class="dropdown-item" href="#">Science&Technology</a>
                               <a class="dropdown-item" href="#">Sport&Fitness</a>
                           </div> -->
-                          <select class="custom-select col-12" ng-model="create.category">
+                          <select name="myCatagory"  required class="custom-select col-12" ng-model="create.category">
                             
                             <option>Art</option>
                             <option>Business</option>
@@ -136,25 +139,31 @@
                             <option>Science&Technology</option>
                             <option>Sport&Fitness</option>
                           </select>
-
+                          <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField1.myCatagory.$touched && myField1.myEventName.$invalid">Please select your catagory.</span>
                         </div>
                         <div class="form-group col-sm-3 col-12">
                             <label for="formGroupExampleInput2">TICKET PRICE ( bath ) </label>
-                            <input type="text" class="form-control" placeholder="input price" ng-model="create.ticket_price">
+                            <input name="myTicketPrice"  required type="text" class="form-control" placeholder="input price" ng-model="create.ticket_price">
+                            <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField1.myTicketPrice.$touched && myField1.myTicketPrice.$invalid">Please enter ticket price.</span>
                         </div>
                         <div class="form-group col-sm-3 col-12">
                             <label for="formGroupExampleInput2">MAX SEAT </label>
-                            <input type="text" class="form-control" placeholder="input max seat" ng-model="create.max_seat">
+                            <input name="myMaxSeat"  required type="text" class="form-control" placeholder="input max seat" ng-model="create.max_seat">
+                            <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField1.myMaxSeat.$touched && myField1.myMaxSeat.$invalid">Please enter maximum seat.</span>
                         </div>
                     </div>
                     <div class="row col-sm-12 col-12" style="padding-left : 0px;">
+
                         <div class="form-group col-sm-6 col-12">
                             <label for="formGroupExampleInput">Start</label>
-                            <input class="form-control" type="datetime-local" ng-model="create.start_time">
+                            <input name="myStart" required class="form-control" type="datetime-local" ng-model="create.start_time">
+                            <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField1.myStart.$touched && myField1.myStart.$invalid">Please enter start date and time.</span>
                         </div>
+
                         <div class="form-group col-sm-6 col-12">
-                            <label for="formGroupExampleInput">End</label>
-                            <input class="form-control" type="datetime-local"  ng-model="create.end_time">
+                            <label  for="formGroupExampleInput">End</label>
+                            <input name="myEnd" required class="form-control" type="datetime-local"  ng-model="create.end_time">
+                            <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField1.myEnd.$touched && myField1.myEnd.$invalid">Please enter end date and time.</span>
                         </div>
                         <!-- <div class="form-group col-sm-6 col-12">
                             <label for="formGroupExampleInput"><br></label>
@@ -173,10 +182,11 @@
                     <!-- </div> -->
                         <div class="form-group">
                         <label for="formGroupExampleInput">PICTURE URL</label>
-                        <input type="text" class="form-control" ng-model="create.pic" placeholder="input url picture">
+                        <input name="myPicture" required type="text" class="form-control" ng-model="create.pic" placeholder="input url picture">
+                         <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField1.myPicture.$touched && myField1.myPicture.$invalid">Please paste picture url.</span>
                       </div>
                         <div class="form-group">
-                        <label for="formGroupExampleInput">VIDEO URL</label>
+                        <label for="formGroupExampleInput">VIDEO URL <label style="color: gray;font-size: 0.8rem"> : embed video url</label></label>
                         <input type="text" class="form-control" ng-model="create.video" placeholder="input url video">
                       </div>
                       <div>
@@ -201,28 +211,36 @@
                 FIELD 2 : Event option
                   <br>
                   <hr>
-                    <form class="container">
+                    <form name="myField2" class="container">
                         <label for="formGroupExampleInput2">GENDER </label>
-                      <div class="form-check">
+                      <div  class="form-check">
                           <label class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" ng-model="create.gender_male">
+                              
+                              <input name="myMale" required type="checkbox" class="custom-control-input" ng-model="create.gender_male">
+                              
                               <span class="custom-control-indicator"></span>
                               <span class="custom-control-description">MALE</span>
+                              
+                             
+
                         </label>
                           <label class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" ng-model="create.gender_female">
+                              <input name="myFemale" required  type="checkbox" class="custom-control-input" ng-model="create.gender_female">
                               <span class="custom-control-indicator"></span>
                               <span class="custom-control-description">FEMALE</span>
                             </label>
+                             <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField2.myMale.$invalid  && myField2.myFemale.$invalid && myField2.myMale.$touched && myField2.myFemale.$touched">Please select less one.</span>
                       </div>
                     <div class="row col-sm-12 col-12" style="padding-left : 0px;">
                         <div class="form-group col-sm-6 col-12">
                             <label for="formGroupExampleInput">AGE</label>
-                            <input type="text" class="form-control" ng-model="create.min_age"  placeholder="min age">
+                            <input name="myMinAge" required type="text" class="form-control" ng-model="create.min_age"  placeholder="min age">
+                            <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField2.myMinAge.$touched && myField2.myMinAge.$invalid">Please enter minimum age.</span>
                         </div>
                         <div class="form-group col-sm-6 col-12">
                             <label for="formGroupExampleInput"><br></label>
-                            <input type="text" class="form-control" ng-model="create.max_age" placeholder="max age">
+                            <input name="myMaxAge" required type="text" class="form-control" ng-model="create.max_age" placeholder="max age">
+                            <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField2.myMaxAge.$touched && myField2.myMaxAge.$invalid">Please enter maximum age.</span>
                         </div>
                     </div><br>
                     </form>
