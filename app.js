@@ -1270,20 +1270,28 @@ app.get('/profile/:id',function(req,res)
 													    	}
 													    	list = list.substr(0,list.length - 4);
 													    	var datetime  = new Date().getTime();
-													    	console.log("SELECT * FROM `event` WHERE " + list + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME_START_E`");
-	        												connection.query("SELECT * FROM `event` WHERE " + list + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME_START_E`",function(err,rows)
+													    	console.log("SELECT * FROM `event` WHERE " + list + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME` DESC");
+	        												connection.query("SELECT * FROM `event` WHERE " + list + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME` DESC",function(err,rows)
 															{		    	
 															    // if(rows.length > 0)
 															    // {
 															    	detail[3] = rows;
+															    	for (var i = detail[3].length - 1; i >= 0; i--) {
+															    		detail[3][i].TYPE = 'JOIN';
+															    	}
 															    	//res.json(detail);
 															    	var datetime  = new Date().getTime();
-															    	console.log("SELECT * FROM `event` WHERE `OWNER_ID` =" + req.params.id + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME_START_E`")
-															    	connection.query("SELECT * FROM `event` WHERE `OWNER_ID` =" + req.params.id + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME_START_E`",function(err,rows)
+															    	console.log("SELECT * FROM `event` WHERE `OWNER_ID` =" + req.params.id + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME` DESC")
+															    	connection.query("SELECT * FROM `event` WHERE `OWNER_ID` =" + req.params.id + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME` DESC",function(err,rows)
 															        {
 															            // if(rows.length > 0) 
 															            // {
-																			detail[4] = rows;
+															            	for (var i = rows.length - 1; i >= 0; i--) {
+																	    		rows[i].TYPE = 'OWNER';
+																	    	}
+															            	detail[3] = detail[3].concat(rows);
+															            	detail[3] = detail[3].sort(function(a,b) {return (b.TIME > a.TIME) ? 1 : ((a.TIME > b.TIME) ? -1 : 0);} );	
+																			//detail[4] = rows;
 																			res.json(detail);
 															            // }   
 															            // else
@@ -1345,7 +1353,74 @@ app.get('/profile/:id',function(req,res)
 
 app.get('/newsfeed',function(req,res)
 {
-	
+	var detail = [];
+	sess = req.session;
+	var list = '';
+	var list_2 = '';
+	if(sess.member_id) 
+	{
+		pool.getConnection(function(err,connection)
+        {
+	        connection.query("select * from `member` where `member_id` = '" + sess.member_id + "'",function(err,rows)
+	        {
+	            connection.release();
+	            if(!err) 
+	            {
+	            	rows[0].PASSWORD = "sshhhhhhh!";
+	            	detail[0] = rows;
+	                //res.json(detail);
+	                console.log("SELECT * FROM `following` WHERE `MEMBER_ID` = " + sess.member_id);
+				    connection.query("SELECT * FROM `following` WHERE `MEMBER_ID` = " + sess.member_id,function(err,rows)
+				    {		    	
+				    	// if(rows.length > 0)
+				    	// {
+				    		for(var item of rows)
+				    		{
+				    			list = list + "(OWNER_ID = '" + item.FOLLOWING_ID + "' and MEMBER_ID = '" + item.FOLLOWING_ID + "')" + ' or ';
+				    			list_2 = list_2 + "(join_event.MEMBER_ID='" + item.FOLLOWING_ID + "' and member.MEMBER_ID='" + item.FOLLOWING_ID + "') or ";
+				    		}
+				    		list = list.substr(0,list.length - 4);
+				    		list_2 = list_2.substr(0,list_2.length - 4);
+				    		console.log("SELECT *  FROM `event` JOIN  `member` WHERE " + list);
+				    		connection.query("SELECT *  FROM `event` JOIN  `member` WHERE " + list ,function(err,rows)
+							{	
+								//console.log(rows);
+								for (var i = rows.length - 1; i >= 0; i--) {
+									rows[i].PASSWORD = "shhhhhh!"
+									rows[i].TYPE = "OWNER";
+								}
+								detail[1] = rows;
+								//res.json(detail);
+								console.log("SELECT join_event.EVENT_ID,join_event.MEMBER_ID,join_event.TIME,event.EVENT_NAME,event.CATEGORY,event.DETAIL,event.PICTURE,event.TIME_START_E,event.TIME_END_E FROM event JOIN join_event ON event.EVENT_ID=join_event.EVENT_ID JOIN member ON " + list_2);
+					    		connection.query("SELECT join_event.EVENT_ID,join_event.MEMBER_ID,join_event.TIME,event.EVENT_NAME,event.CATEGORY,event.DETAIL,event.PICTURE,event.TIME_START_E,event.TIME_END_E FROM event JOIN join_event ON event.EVENT_ID=join_event.EVENT_ID JOIN member ON " + list_2,function(err,rows)
+								{	
+									for (var i = rows.length - 1; i >= 0; i--) {
+										rows[i].TYPE = "JOIN";
+									}
+									detail[2] = rows;
+									detail[2] = detail[2].sort(function(a,b) {return (b.TIME > a.TIME) ? 1 : ((a.TIME > b.TIME) ? -1 : 0);} );
+									res.json(detail);
+								});
+							    //res.json(detail);
+							});
+				    	// }
+				    	// else
+				    	// {
+				    	// 	res.end('error');
+				    	// }
+				    });
+	            }
+	            else
+	            {
+	            	res.end("fail id");
+	            }           
+	        });
+  		});
+	}
+	else
+	{
+		res.end('error');
+	}
 });
 
 app.listen(5555);
