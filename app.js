@@ -1397,8 +1397,8 @@ app.get('/newsfeed',function(req,res)
 									for (var i = rows.length - 1; i >= 0; i--) {
 										rows[i].TYPE = "JOIN";
 									}
-									detail[2] = rows;
-									detail[2] = detail[2].sort(function(a,b) {return (b.TIME > a.TIME) ? 1 : ((a.TIME > b.TIME) ? -1 : 0);} );
+									detail[1] = detail[1].concat(rows);
+									detail[1] = detail[1].sort(function(a,b) {return (b.TIME > a.TIME) ? 1 : ((a.TIME > b.TIME) ? -1 : 0);} );
 									res.json(detail);
 								});
 							    //res.json(detail);
