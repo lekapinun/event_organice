@@ -1207,6 +1207,46 @@ app.get('/following_create_event',function(req,res)
 	}
 });
 
+app.get('/following_join_event',function(req,res)
+{
+	sess = req.session;
+	var list = '';
+	if(sess.member_id) 
+	{
+		pool.getConnection(function(err,connection)
+        {
+		    console.log("SELECT * FROM `following` WHERE `MEMBER_ID` = " + sess.member_id);
+			connection.query("SELECT * FROM `following` WHERE `MEMBER_ID` = " + sess.member_id,function(err,rows)
+			{		    	
+				// if(rows.length > 0)
+				// {
+					for(var item of rows)
+					{
+					  	list = list + "(join_event.MEMBER_ID='" + item.FOLLOWING_ID + "' and member.MEMBER_ID='" + item.FOLLOWING_ID + "') or ";
+					}
+					list = list.substr(0,list.length - 4);
+					var today = new Date();
+					console.log("SELECT join_event.EVENT_ID,join_event.MEMBER_ID,join_event.TIME,event.EVENT_NAME,event.CATEGORY,event.DETAIL,event.PICTURE,event.TIME_START_E,event.TIME_END_E,member.MEMBER_ID,member.USERNAME,member.URL_IMG  FROM event JOIN join_event ON event.EVENT_ID=join_event.EVENT_ID JOIN member ON " + list + " WHERE event.TIME_END_E > " + today.getTime() );
+					connection.query("SELECT join_event.EVENT_ID,join_event.MEMBER_ID,join_event.TIME,event.EVENT_NAME,event.CATEGORY,event.DETAIL,event.PICTURE,event.TIME_START_E,event.TIME_END_E,member.MEMBER_ID,member.USERNAME,member.URL_IMG  FROM event JOIN join_event ON event.EVENT_ID=join_event.EVENT_ID JOIN member ON " + list + " WHERE event.TIME_END_E > " + today.getTime(),function(err,rows)
+					{	
+						rows = rows.sort(function(a,b) {return (b.TIME > a.TIME) ? 1 : ((a.TIME > b.TIME) ? -1 : 0);} );
+						res.json(rows);
+					});
+					//res.json(detail);
+				// }
+				// else
+				// {
+				// 	res.end('error');
+				// }
+			});
+		});
+	}
+	else 
+	{
+	    res.end('error');
+	}
+});
+
 app.get('/profile/:id',function(req,res)
 {
 	var detail = [];
@@ -1387,8 +1427,9 @@ app.get('/newsfeed',function(req,res)
 				    		}
 				    		list = list.substr(0,list.length - 4);
 				    		list_2 = list_2.substr(0,list_2.length - 4);
-				    		console.log("SELECT *  FROM `event` JOIN  `member` WHERE " + list);
-				    		connection.query("SELECT *  FROM `event` JOIN  `member` WHERE " + list ,function(err,rows)
+				    		var today = new Date();
+				    		console.log("SELECT *  FROM `event` JOIN  `member` WHERE " + list + " and TIME_END_E > " + today.getTime() );
+				    		connection.query("SELECT *  FROM `event` JOIN  `member` WHERE " + list + " and TIME_END_E > " + today.getTime() ,function(err,rows)
 							{	
 								//console.log(rows);
 								for (var i = rows.length - 1; i >= 0; i--) {
@@ -1397,8 +1438,8 @@ app.get('/newsfeed',function(req,res)
 								}
 								detail[1] = rows;
 								//res.json(detail);
-								console.log("SELECT join_event.EVENT_ID,join_event.MEMBER_ID,join_event.TIME,event.EVENT_NAME,event.CATEGORY,event.DETAIL,event.PICTURE,event.TIME_START_E,event.TIME_END_E FROM event JOIN join_event ON event.EVENT_ID=join_event.EVENT_ID JOIN member ON " + list_2);
-					    		connection.query("SELECT join_event.EVENT_ID,join_event.MEMBER_ID,join_event.TIME,event.EVENT_NAME,event.CATEGORY,event.DETAIL,event.PICTURE,event.TIME_START_E,event.TIME_END_E FROM event JOIN join_event ON event.EVENT_ID=join_event.EVENT_ID JOIN member ON " + list_2,function(err,rows)
+								console.log("SELECT join_event.EVENT_ID,join_event.MEMBER_ID,join_event.TIME,event.EVENT_NAME,event.CATEGORY,event.DETAIL,event.PICTURE,event.TIME_START_E,event.TIME_END_E,member.MEMBER_ID,member.USERNAME,member.URL_IMG  FROM event JOIN join_event ON event.EVENT_ID=join_event.EVENT_ID JOIN member ON " + list_2 + " WHERE event.TIME_END_E > " + today.getTime() );
+								connection.query("SELECT join_event.EVENT_ID,join_event.MEMBER_ID,join_event.TIME,event.EVENT_NAME,event.CATEGORY,event.DETAIL,event.PICTURE,event.TIME_START_E,event.TIME_END_E,member.MEMBER_ID,member.USERNAME,member.URL_IMG  FROM event JOIN join_event ON event.EVENT_ID=join_event.EVENT_ID JOIN member ON " + list_2 + " WHERE event.TIME_END_E > " + today.getTime(),function(err,rows)
 								{	
 									for (var i = rows.length - 1; i >= 0; i--) {
 										rows[i].TYPE = "JOIN";
