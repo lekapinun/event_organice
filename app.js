@@ -92,6 +92,7 @@ app.get('/member/:id',function(req,res)
 	            connection.release();
 	            if(!err) 
 	            {
+	            	rows[0].PASSWORD = "sshhhhh!";
 	                res.json(rows);
 	            }           
 	        });
@@ -117,6 +118,7 @@ app.get('/member',function(req,res)
 	            connection.release();
 	            if(!err) 
 	            {
+	            	rows[0].PASSWORD = "sshhhhh!";
 	                res.json(rows);
 	            }           
 	        });
@@ -234,8 +236,9 @@ app.get('/join/:id',function(req,res)
 				{
 				    if(rows.length <= 0) 
 			        {
-			            console.log("INSERT INTO `join_event`(`EVENT_ID`, `MEMBER_ID`) VALUES ('"+ event_id +"','"+ sess.member_id+"')");
-			            connection.query("INSERT INTO `join_event`(`EVENT_ID`, `MEMBER_ID`) VALUES ('"+ event_id +"','"+ sess.member_id+"')",function(err,rows)
+			        	var today = new Date();
+			            console.log("INSERT INTO `join_event`(`EVENT_ID`, `MEMBER_ID`, `TIME`) VALUES ('"+ event_id +"','"+ sess.member_id + "','" + today.getTime() + "')");
+			            connection.query("INSERT INTO `join_event`(`EVENT_ID`, `MEMBER_ID`, `TIME`) VALUES ('"+ event_id +"','"+ sess.member_id + "','" + today.getTime() + "')",function(err,rows)
 					    {
 					 		console.log(err);
 					        if(!err) 
@@ -285,8 +288,8 @@ app.get('/gift/:id_event/:id_member',function(req,res)
 				        {
 				            if(rows.length <= 0) 
 				            {
-				            	console.log("INSERT INTO `join_event`(`EVENT_ID`, `MEMBER_ID`) VALUES ('"+ event_id +"','"+ member_id+"')");
-				            	connection.query("INSERT INTO `join_event`(`EVENT_ID`, `MEMBER_ID`) VALUES ('"+ event_id +"','"+ member_id+"')",function(err,rows)
+				            	console.log("INSERT INTO `join_event`(`EVENT_ID`, `MEMBER_ID`, `TIME`) VALUES ('"+ event_id +"','"+ member_id + "','" + today.getTime() + "')");			            	
+				            	connection.query("INSERT INTO `join_event`(`EVENT_ID`, `MEMBER_ID`, `TIME`) VALUES ('"+ event_id +"','"+ member_id + "','" + today.getTime() + "')",function(err,rows)
 						        {
 						        	console.log(err);
 						            if(!err) 
@@ -400,6 +403,9 @@ app.get('/event/:id',function(req,res)
 									console.log(err);   	
 								    //if(!err)
 								    //{
+								    	for (var i = rows.length - 1; i >= 0; i--) {
+								    		rows[i].PASSWORD = "sshhh!";
+								    	}
 								    	detail[2] = rows;
 	            						//res.json(detail);
 	            						var datetime  = new Date().getTime();
@@ -560,9 +566,9 @@ app.post('/create_event',function(req,res)
 	    	console.log('error : xxxx');
 	        return;
 	    }
-	    console.log("INSERT INTO `event` (`OWNER_ID`, `EVENT_NAME`, `CATEGORY`, `DETAIL`, `PICTURE`, `VIDEO`, `TIME_START_E`, `TIME_END_E`, `CONDITION_MIN_AGE`, `CONDITION_MAX_AGE`, `CONDITION_SEX`, `SOLD_OUT_SEAT`, `MAX_SEAT`, `PRICE`, `LOCATION_lat`, `LOCATION_lng` , `TIME` ) VALUES" + "('" + sess.member_id + "','" + form.event_name + "','" +  form.category + "','" + form.detail + "','" + form.pic + "','" + form.video + "','" + start_time.getTime() + "','" + end_time.getTime() +  "','" + form.min_age + "','" + form.max_age + "','" + form.gender + "','" + '0' +  "','" + form.max_seat + "','" + form.ticket_price + "','" + form.location_lat + "','" + form.location_lng + "','" + today + "')");
+	    console.log("INSERT INTO `event` (`OWNER_ID`, `EVENT_NAME`, `CATEGORY`, `DETAIL`, `PICTURE`, `VIDEO`, `TIME_START_E`, `TIME_END_E`, `CONDITION_MIN_AGE`, `CONDITION_MAX_AGE`, `CONDITION_SEX`, `SOLD_OUT_SEAT`, `MAX_SEAT`, `PRICE`, `LOCATION_lat`, `LOCATION_lng` , `TIME` ) VALUES" + "('" + sess.member_id + "','" + form.event_name + "','" +  form.category + "','" + form.detail + "','" + form.pic + "','" + form.video + "','" + start_time.getTime() + "','" + end_time.getTime() +  "','" + form.min_age + "','" + form.max_age + "','" + form.gender + "','" + '0' +  "','" + form.max_seat + "','" + form.ticket_price + "','" + form.location_lat + "','" + form.location_lng + "','" + today.getTime() + "')");
 
-	    connection.query("INSERT INTO `event` (`OWNER_ID`, `EVENT_NAME`, `CATEGORY`, `DETAIL`, `PICTURE`, `VIDEO`, `TIME_START_E`, `TIME_END_E`, `CONDITION_MIN_AGE`, `CONDITION_MAX_AGE`, `CONDITION_SEX`, `SOLD_OUT_SEAT`, `MAX_SEAT`, `PRICE`, `LOCATION_lat`, `LOCATION_lng` , `TIME` ) VALUES" + "('" + sess.member_id + "','" + form.event_name + "','" +  form.category + "','" + form.detail + "','" + form.pic + "','" + form.video + "','" + start_time.getTime() + "','" + end_time.getTime() +  "','" + form.min_age + "','" + form.max_age + "','" + form.gender + "','" + '0' +  "','" + form.max_seat + "','" + form.ticket_price + "','" + form.location_lat + "','" + form.location_lng + "','" + today + "')",function(err)
+	    connection.query("INSERT INTO `event` (`OWNER_ID`, `EVENT_NAME`, `CATEGORY`, `DETAIL`, `PICTURE`, `VIDEO`, `TIME_START_E`, `TIME_END_E`, `CONDITION_MIN_AGE`, `CONDITION_MAX_AGE`, `CONDITION_SEX`, `SOLD_OUT_SEAT`, `MAX_SEAT`, `PRICE`, `LOCATION_lat`, `LOCATION_lng` , `TIME` ) VALUES" + "('" + sess.member_id + "','" + form.event_name + "','" +  form.category + "','" + form.detail + "','" + form.pic + "','" + form.video + "','" + start_time.getTime() + "','" + end_time.getTime() +  "','" + form.min_age + "','" + form.max_age + "','" + form.gender + "','" + '0' +  "','" + form.max_seat + "','" + form.ticket_price + "','" + form.location_lat + "','" + form.location_lng + "','" + today.getTime() + "')",function(err)
 	    {
 	        //connection.release();
 	        console.log(start_time);
