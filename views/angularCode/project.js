@@ -74,8 +74,33 @@ project.config(function ($routeProvider, $stateProvider, $urlRouterProvider, $sc
 });
 
 project.service('Map', function($q) {
-    
+
     this.init = function() {
+        // if (navigator.geolocation) {
+        //     navigator.geolocation.getCurrentPosition(function(position) {
+        //         var options = {
+        //         center: new google.maps.LatLng(position.coords.latitude,position.coords.longitude),
+        //         zoom: 15,
+        //         disableDefaultUI: true    
+        //         }
+        //         this.map = new google.maps.Map(
+        //             document.getElementById("map"), options
+        //         );
+        //         this.places = new google.maps.places.PlacesService(this.map);
+        //         }
+        //     );
+        // } 
+        // else
+        // {
+        //     var options = {
+        //     center: new google.maps.LatLng(18.78775, 98.99313),
+        //     zoom: 15,
+        //     disableDefaultUI: true    
+        //     }
+        //     this.map = new google.maps.Map(
+        //         document.getElementById("map"), options
+        //     );
+        //     this.places = new google.maps.places.PlacesService(this.map);
         var options = {
             center: new google.maps.LatLng(18.78775, 98.99313),
             zoom: 15,
