@@ -1227,3 +1227,121 @@ body{
 	}
 }
 
+
+/*==========================eventprofile=====================================================*/
+
+@import url('https://fonts.googleapis.com/css?family=Nunito|Quicksand');
+
+
+
+
+.event_profile-h4-title{
+	color: #48515A;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.event_profile-h6-describe{
+	color: #95989A;
+	font-size: 20px;
+	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	text-overflow: '.....?';
+}
+
+
+.event_profile-a-event_type{
+	color: black;
+	font-family: "Nunito";
+	font-size: 1rem;
+	text-decoration: none;
+	margin-top: 1rem;
+	border-top-color: black;
+	border-bottom-color: black;
+}
+
+.event_profile-a-event_type:hover{
+	text-decoration: none;
+	color: yellow;
+}
+
+
+
+.event_profile-div-show{
+	font-family: 'Quicksand' ,sans-serif;
+	font-size: 1rem;
+	margin-top: 0rem;
+	margin-left: 1rem;
+
+}
+
+.event_profile-li-page-link{
+	color: white;
+	font-family: 'Nunito';
+	background-color:#FFD700;
+	border-radius: 0px;
+}
+
+.event_profile-li-page-link:hover{
+	color: white;
+	font-family: 'Nunito';
+	background-color:#FC575E;
+	border-radius: 0px;
+}
+
+
+.event_profile-div-start_date{
+	color: #95989A;
+	font-size: 15px;
+}
+
+.event_profile-div-end_date{
+	color: #95989A;
+	font-size: 15px;
+}
+
+.event_profile-div-dat{
+	color: #95989A;
+
+}
+
+.event_profile-div-detail{
+	color: black;
+	font-size: 22px;
+}
+
+.event_profile-div-price{
+	color: black;
+	font-size: 22px;
+}
+
+.event_profile-div-redtype{
+	background-color: #FC575E;
+	width: 5rem;
+	height: 2rem;
+	font-size: 20px;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	margin-left: 150px;
+	margin-top: 194px;
+	border-top-left-radius: 15px; 
+
+}
+
+.event_profile-input-txt{
+	width: 15rem;
+	border: 1.5px solid #000;
+	border-radius: 12px;
+	
+}
+
+
+
+@media (max-width:575px){
+	.event_profile-div-pag{
+		margin-left: 5rem;
+	}
+}
+
