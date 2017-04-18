@@ -1345,3 +1345,119 @@ body{
 	}
 }
 
+/*================================Event Newfeed=================================*/
+.event_newfeed-bg-white_box {
+	background-color: white;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+.event_newfeed-text-newfeed {
+	font-family: "Quicksand-bold";
+	color: #FC575E;
+	font-size: 20px;
+	margin-top: 30px;
+	padding-bottom: 30px;
+	border-bottom: 2px  solid #ededed;
+}
+
+.event_newfeed-card_group-all_card {
+	margin-top: 30px;
+	padding-right: 2%;
+	padding-left: 2%;
+}
+
+.event_newfeed-card-each {
+	margin-bottom: 2%;
+}
+
+.event_newfeed-img-img_card {
+	padding-top: 5%;
+}
+
+.event_newfeed-text-username {
+	font-family: "Quicksand-bold";
+	color: #48515A;
+	font-size: 25px;
+	text-align: right;
+	margin-top: 20px;
+	margin-left: 40%;
+}
+
+.event_newfeed-text-status {
+	background-color: #FC575E;
+	position: absolute;
+	right: 0%;
+	top: 5%;
+	padding: 2% 2% 2% 2%;
+}
+
+.event_newfeed-text-join {
+	color: white;
+	font-family: "Quicksand-Regular";
+	font-size: 15px;
+	text-align: right;
+}
+
+.event_newfeed-div-user {
+	display: inline-flex;
+	margin-top: 15px;
+	padding-bottom: 15px;
+	border-bottom: 2px  solid #ededed;
+	padding-right: 30%;
+}
+
+.event_newfeed-img-profile {
+	width: 80px;
+	height: 80px;
+	border-radius: 50px;
+	/*
+	position: absolute;
+	right: 10%;
+	top: 45%;
+	*/
+}
+
+.event_newfeed-text-event_name {
+	font-family: "Quicksand-bold";
+	color: #828282;
+	margin-top: 10px;
+}
+
+.event_newfeed-text-detail {
+	font-family: "Quicksand-Regular";
+	color: #828282;
+}
+
+.event_newfeed-a-link_detail {
+	font-family: "Quicksand-bold";
+	color: #FC575E;
+	margin-left: 80%;
+}
+
+.event_newfeed-a-link_detail:hover {
+	font-family: "Quicksand-bold";
+	color: #FC575E;
+}
+
+@media (max-width:575px){
+	.event_newfeed-bg-white_box {
+		padding-right: 10%;
+		padding-left:  10%;
+	}
+
+	.event_newfeed-card_group-all_card {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+}
+
+@media (min-width: 1400px) {
+	.event_newfeed-text-username {
+		margin-left: 65%;
+	}
+
+	.event_newfeed-div-user {
+		padding-right: 40%;
+	}
+}
