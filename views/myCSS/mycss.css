@@ -1350,7 +1350,7 @@ body{
            z-index: -1;
            height: inherit;
 }
-#event_profile-div-filter_dis{
+.event_profile-div-filter_dis{
             background-color: rgba(0,0,0,0.5);
             height: 520px;
             z-index: 0;
