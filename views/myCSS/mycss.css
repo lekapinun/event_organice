@@ -1456,6 +1456,10 @@ body{
 	top: 5%;
 	padding: 2% 2% 2% 2%;
 }
+.card{
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
 
 .event_newfeed-text-join {
 	color: white;
