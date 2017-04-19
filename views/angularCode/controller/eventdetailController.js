@@ -14,6 +14,7 @@ project.controller('eventdetailController', function ($scope,$sce,$state, $state
     
     //get detail by id
 	$scope.id= $stateParams.id;
+	console.log($stateParams);
 	if($scope.id == undefined){
 		$state.go('home.event');
 	}

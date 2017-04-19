@@ -173,6 +173,7 @@ app.get('/member',function(req,res)
 
 app.get('/AllEvent',function(req,res)
 {
+	detail = [];
 	sess = req.session;
 	// console.log(sess);
 	// if(sess.member_id) 
@@ -180,12 +181,21 @@ app.get('/AllEvent',function(req,res)
 	    pool.getConnection(function(err,connection)
         {
         	var datetime  = new Date().getTime();
+        	console.log("select * from `event` where `TIME_END_E` > "  + datetime + " ORDER BY `TIME_START_E`");
 	        connection.query("select * from `event` where `TIME_END_E` > "  + datetime + " ORDER BY `TIME_START_E`" ,function(err,rows)
 	        {
 	            //connection.release();
 	            if(!err) 
 	            {
-	                res.json(rows);
+	            	detail[0] = rows;
+	            	connection.query("SELECT * FROM `category` WHERE 1" ,function(err,rows)
+	        		{
+	        			if(!err) 
+	            		{
+	        				detail[1] = rows;
+	        				res.json(detail);
+	        			}
+	        		});
 	            }           
 	        });
   		});
@@ -198,6 +208,7 @@ app.get('/AllEvent',function(req,res)
 
 app.get('/AllEvent/:category',function(req,res)
 {
+	detail = [];
 	sess = req.session;
 	// console.log(sess);
 	// if(sess.member_id) 
@@ -206,12 +217,21 @@ app.get('/AllEvent/:category',function(req,res)
         {
         	var datetime  = new Date().getTime();
         	var category = req.params.category;
+        	console.log("select * from `event` where `TIME_END_E` > "  + datetime + " and `CATEGORY` = '" + category + " '" +" ORDER BY `TIME_START_E`" );
 	        connection.query("select * from `event` where `TIME_END_E` > "  + datetime + " and `CATEGORY` = '" + category + " '" +" ORDER BY `TIME_START_E`" ,function(err,rows)
 	        {
 	            //connection.release();
 	            if(!err) 
 	            {
-	                res.json(rows);
+	                detail[0] = rows;
+	            	connection.query("SELECT * FROM `category` WHERE 1" ,function(err,rows)
+	        		{
+	        			if(!err) 
+	            		{
+	        				detail[1] = rows;
+	        				res.json(detail);
+	        			}
+	        		});
 	            }           
 	        });
   		});
@@ -393,18 +413,24 @@ app.get('/event/:id',function(req,res)
 				        	other = '';
 				            //if(!err) 
 				            //{
-				            	for (var item of rows) 
-						    	{
-						    		other = other + "MEMBER_ID = '" + item.MEMBER_ID + "'" + ' or ';
-						    	}
-						    	other = other.substr(0,other.length - 4);
+				            	if(!err)
+				            	{
+					            	for (var item of rows) 
+							    	{
+							    		other = other + "MEMBER_ID = '" + item.MEMBER_ID + "'" + ' or ';
+							    	}
+							    	other = other.substr(0,other.length - 4);
+						    	}						    	
 						    	connection.query("SELECT * FROM `member` WHERE " + other + " ORDER BY rand() ",function(err,rows)
 								{		 
 									console.log(err);   	
 								    //if(!err)
 								    //{
-								    	for (var i = rows.length - 1; i >= 0; i--) {
-								    		rows[i].PASSWORD = "sshhh!";
+								    	if(!err)
+				            			{
+									    	for (var i = rows.length - 1; i >= 0; i--) {
+									    		rows[i].PASSWORD = "sshhh!";
+									    	}
 								    	}
 								    	detail[2] = rows;
 	            						//res.json(detail);
@@ -413,7 +439,7 @@ app.get('/event/:id',function(req,res)
 										{		
 											console.log(err);    	
 										    //if(!err)
-										    //{
+										    //{										    	
 										    	detail[3] = rows;
 			            						res.json(detail);
 										    // }
