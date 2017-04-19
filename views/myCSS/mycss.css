@@ -1348,16 +1348,18 @@ body{
 /*================================Event Newfeed=================================*/
 .event_newfeed-bg-white_box {
 	background-color: white;
-	padding-left: 2%;
-	padding-right: 2%;
+	padding-top: 1rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-bottom: 3rem; 
 }
 
 .event_newfeed-text-newfeed {
 	font-family: "Quicksand-bold";
 	color: #FC575E;
-	font-size: 20px;
-	margin-top: 30px;
-	padding-bottom: 30px;
+	font-size: 1.5rem;
+	margin-top: 1rem;
+	padding-bottom: 1rem;
 	border-bottom: 2px  solid #ededed;
 }
 
@@ -1368,7 +1370,8 @@ body{
 }
 
 .event_newfeed-card-each {
-	margin-bottom: 2%;
+	margin-top: 1rem;
+	margin-bottom: 0.5rem;
 }
 
 .event_newfeed-img-img_card {
@@ -1376,14 +1379,40 @@ body{
 }
 
 .event_newfeed-text-username {
-	font-family: "Quicksand-bold";
 	color: #48515A;
-	font-size: 25px;
+	font-size: 1rem;
 	text-align: right;
-	margin-top: 20px;
-	margin-left: 40%;
+	padding-left: 1rem;
+	/*margin-top: 20px;
+	margin-left: 40%;*/
+}
+.event_newfeed-img{
+	max-width: 100%;
+	max-height:20rem;
+	overflow:hidden;
+}
+.event_newfeed-img img{
+	height: 100%;
+	width:100%;
 }
 
+@media (min-width: 576px) {
+  .event_newfeed-card-columns {
+    -webkit-column-count: 2;
+       -moz-column-count: 2;
+            column-count: 2;
+    -webkit-column-gap: 1.25rem;
+       -moz-column-gap: 1.25rem;
+            column-gap: 1.25rem;
+
+  }
+  .event_newfeed-card-columns .card {
+
+    display: inline-flex;
+    width: 100%;
+    margin-bottom: 0.75rem;
+  }
+}
 .event_newfeed-text-status {
 	background-color: #FC575E;
 	position: absolute;
@@ -1400,16 +1429,17 @@ body{
 }
 
 .event_newfeed-div-user {
-	display: inline-flex;
-	margin-top: 15px;
-	padding-bottom: 15px;
-	border-bottom: 2px  solid #ededed;
-	padding-right: 30%;
+	/*display: inline-flex;*/
+	margin-top: 1rem;
+	margin-left: 1rem;
+	margin-right: 1rem;
+	border-bottom: 2px solid #ededed;
+
+	padding-bottom: 1rem;
 }
 
 .event_newfeed-img-profile {
-	width: 80px;
-	height: 80px;
+	width: 2rem;
 	border-radius: 50px;
 	/*
 	position: absolute;
@@ -1440,6 +1470,12 @@ body{
 	color: #FC575E;
 }
 
+.event_newfeed-eventdetail-overflow{
+	/*height: 3.5rem;*/
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 @media (max-width:575px){
 	.event_newfeed-bg-white_box {
 		padding-right: 10%;
