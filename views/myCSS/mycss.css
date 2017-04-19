@@ -1461,3 +1461,32 @@ body{
 		padding-right: 40%;
 	}
 }
+
+/*================================Support Detail=================================*/
+.spport_detail-img-shop_img {
+	margin-top: 30px;
+}
+
+.supoort_detail-text-topic {
+	font-family: "Quicksand-bold";
+	color: #48515A;
+	display: inline-flex;
+}
+
+.support_detail-text-data_contact {
+	font-family: "Quicksand-Regular";
+	color: #48515A;
+	display: inline-flex;
+}
+
+.support_detail-p-detail {
+	font-family: "Quicksand-Regular";
+	color: #48515A
+}
+
+.support_detail-text-location {
+	font-family: "Quicksand-bold";
+	font-size: 20px;
+	margin-bottom: 1rem;
+	color: #48515A;
+}
