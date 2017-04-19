@@ -1337,6 +1337,42 @@ body{
 	
 }
 
+.event_profile-div-center_cropped {
+            background-image: url('pic/profile.jpg');
+            background-position: center center;
+            background-repeat: no-repeat;
+           position:absolute;
+          top:0;
+          left:0;
+          right:0;
+          bottom:0;
+          background-size:cover;
+           z-index: -1;
+           height: inherit;
+}
+#event_profile-div-filter_dis{
+            background-color: rgba(0,0,0,0.5);
+            height: 520px;
+            z-index: 0;
+            width: 100%;
+            padding-top: 70px;
+            font-family: 'Quicksand', sans-serif;
+            color: white;
+            font-weight: 800;
+}
+        
+        
+#event_profile-div-circle{
+            width: 220px;
+            height: 220px;
+            background: red;
+        
+}
+        
+#event_profile-div-circle img{
+            width: 220px;
+            height: 220px;
+}
 
 
 @media (max-width:575px){
