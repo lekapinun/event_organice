@@ -29,27 +29,67 @@
   </script> -->
 
 </head>
-<body>
+<body style="padding:0;margin:0;">
+     <script>
+        window.onload = function(){
+            document.getElementById('cen-crop').style.backgroundImage = "url('pic/profile.jpg')";
+        };
+    </script>
+    <style>
+       .center-cropped {
+            background-position: center center;
+            background-repeat: no-repeat;
+           position:absolute;
+          top:0;
+          left:0;
+          right:0;
+          bottom:0;
+          background-size:cover;
+           z-index: -1;
+           height: inherit;
+        }
+        #filter-dis{
+            background-color: rgba(0,0,0,0.5);
+            height: 520px;
+            z-index: 0;
+            width: 100%;
+            padding-top: 70px;
+            font-family: 'Quicksand', sans-serif;
+            color: white;
+            font-weight: 800;
+        }
 
+        #circle{
+            width: 220px;
+            height: 220px;
+            background: red;
+        
+        }
+        
+        #circle img{
+            width: 220px;
+            height: 220px;
+        }
+        
+    </style>
 
-
-
-    <div class="event_profile-div-filter_dis col-12" style="padding-left: 0px; padding-right: 0px;">
-        <div class="event_profile-div-center_cropped"></div>
-        <div id="event_profile-div-circle" class="mx-auto rounded-circle">
-            <img class="rounded-circle" src="pic/girl.jpg">
+    <!-- main head pic -->
+    <div id="filter-dis">
+        <div class="center-cropped" id="cen-crop"></div>
+        <div id="circle" class="mx-auto rounded-circle">
+            <img class="rounded-circle" src="pic/profile.jpg">
         </div>
         <div id="text-dis" class="text-center" >
-            <div id="text-dis-head" style="padding-top:1rem;font-size:2rem;"><p style="letter-spacing:15px;">Hanuelina</p>
+            <div id="text-dis-head" style="padding-top:20px;font-size:50px;"><p style="letter-spacing:15px;">Hanuelina</p>
             </div>
             <div style="display:inline-block;">
-                <div id="text-dis-follower" style="float:left;border-right:3px solid; padding-right:2rem;">
-                    <div style="font-size:1rem;">542000</div>
-                    <div style="font-size:1rem;">FOLLOWER</div>
+                <div id="text-dis-follower" style="float:left;border-right:3px solid; padding-right:80px;">
+                    <div style="font-size:25px;">542000</div>
+                    <div style="font-size:15px;">FOLLOWER</div>
                 </div>
-                <div id="text-dis-following" style="float:left;padding-left:2rem;">
-                    <div style="font-size:1rem;">313</div>
-                    <div style="font-size:1rem;">FOLLOWING</div>
+                <div id="text-dis-following" style="float:left;padding-left:80px;">
+                    <div style="font-size:25px;">313</div>
+                    <div style="font-size:15px;">FOLLOWING</div>
                 </div>
             </div>
         </div>
