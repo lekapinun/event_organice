@@ -1447,16 +1447,16 @@ app.get('/newsfeed',function(req,res)
 				    {		    	
 				    	// if(rows.length > 0)
 				    	// {
+				    		var today = new Date().getTime();
 				    		for(var item of rows)
 				    		{
-				    			list = list + "(OWNER_ID = '" + item.FOLLOWING_ID + "' and MEMBER_ID = '" + item.FOLLOWING_ID + "')" + ' or ';
+				    			list = list + "(OWNER_ID = '" + item.FOLLOWING_ID + "' and MEMBER_ID = '" + item.FOLLOWING_ID + "' and event.TIME_END_E > " + today + ")" + ' or ';
 				    			list_2 = list_2 + "(join_event.MEMBER_ID='" + item.FOLLOWING_ID + "' and member.MEMBER_ID='" + item.FOLLOWING_ID + "') or ";
 				    		}
 				    		list = list.substr(0,list.length - 4);
 				    		list_2 = list_2.substr(0,list_2.length - 4);
-				    		var today = new Date();
-				    		console.log("SELECT *  FROM `event` JOIN  `member` WHERE " + list + " and TIME_END_E > " + today.getTime() );
-				    		connection.query("SELECT *  FROM `event` JOIN  `member` WHERE " + list + " and TIME_END_E > " + today.getTime() ,function(err,rows)
+				    		console.log("SELECT *  FROM `event` JOIN  `member` WHERE " + list );
+				    		connection.query("SELECT *  FROM `event` JOIN  `member` WHERE " + list ,function(err,rows)
 							{	
 								//console.log(rows);
 								for (var i = rows.length - 1; i >= 0; i--) {
@@ -1465,8 +1465,8 @@ app.get('/newsfeed',function(req,res)
 								}
 								detail[1] = rows;
 								//res.json(detail);
-								console.log("SELECT join_event.EVENT_ID,join_event.MEMBER_ID,join_event.TIME,event.EVENT_NAME,event.CATEGORY,event.DETAIL,event.PICTURE,event.TIME_START_E,event.TIME_END_E,member.MEMBER_ID,member.USERNAME,member.URL_IMG  FROM event JOIN join_event ON event.EVENT_ID=join_event.EVENT_ID JOIN member ON " + list_2 + " WHERE event.TIME_END_E > " + today.getTime() );
-								connection.query("SELECT join_event.EVENT_ID,join_event.MEMBER_ID,join_event.TIME,event.EVENT_NAME,event.CATEGORY,event.DETAIL,event.PICTURE,event.TIME_START_E,event.TIME_END_E,member.MEMBER_ID,member.USERNAME,member.URL_IMG  FROM event JOIN join_event ON event.EVENT_ID=join_event.EVENT_ID JOIN member ON " + list_2 + " WHERE event.TIME_END_E > " + today.getTime(),function(err,rows)
+								console.log("SELECT join_event.EVENT_ID,join_event.MEMBER_ID,join_event.TIME,event.EVENT_NAME,event.CATEGORY,event.DETAIL,event.PICTURE,event.TIME_START_E,event.TIME_END_E,member.MEMBER_ID,member.USERNAME,member.URL_IMG  FROM event JOIN join_event ON event.EVENT_ID=join_event.EVENT_ID JOIN member ON " + list_2 + " WHERE event.TIME_END_E > " + today );
+								connection.query("SELECT join_event.EVENT_ID,join_event.MEMBER_ID,join_event.TIME,event.EVENT_NAME,event.CATEGORY,event.DETAIL,event.PICTURE,event.TIME_START_E,event.TIME_END_E,member.MEMBER_ID,member.USERNAME,member.URL_IMG  FROM event JOIN join_event ON event.EVENT_ID=join_event.EVENT_ID JOIN member ON " + list_2 + " WHERE event.TIME_END_E > " + today,function(err,rows)
 								{	
 									for (var i = rows.length - 1; i >= 0; i--) {
 										rows[i].TYPE = "JOINED";
