@@ -224,20 +224,25 @@ furthermore, we are the social media - you can update event's news and meet new 
 									<label for="gender" class="home-text-gender">Gender</label>
 									
 									<select name="mysex quicksand"  required ng-model="signup.sex" class="form-control home-dropdown-gender mb-2 ml-sm-2 mb-sm-0" >
+										<option value="" selected disabled>PLEASE SELECT</option>
 	      								<option>Male</option>
 	      								<option>Female</option>
 	    							</select>
 	    						</form>
+	    						<span class="home-text-gender mt-2">Birth Date</span>
 	    						<form class="form-inline " style="margin-top: 10px;">
-	    							<label for="birthday" class="home-text-date quicksand">Birth Date</label>
+	    							<!-- <label for="birthday" class="home-text-date quicksand">Birth Date</label> -->
 	    							<input class="form-control home-input-date" type="date" ng-model="signup.bd">
 	    						</form>
+	    						<span class="home-text-gender mt-2">Phone number</span>
 	    						<div class="input-group" style="margin-top: 10px;">
 	  								<input type="tel" class="form-control home-input-font_input" placeholder="P H O N E  N U M B E R" aria-describedby="basic-addon1" ng-model="signup.phone">
 								</div>
+								<span class="home-text-gender mt-2">Credit card</span>
 								<div class="input-group" style="margin-top: 10px;">
 	  								<input type="text" class="form-control home-input-font_input" placeholder="C R E D I T  CA R D" aria-describedby="basic-addon1" ng-model="signup.cd">
 								</div>
+								<span class="home-text-gender mt-2">URL IMG</span>
 								<div class="input-group" style="margin-top: 10px;">
 	  								<input type="text" class="form-control home-input-font_input" placeholder="U R L I M G" aria-describedby="basic-addon1" ng-model="signup.img">
 								</div>
