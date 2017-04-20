@@ -14,11 +14,11 @@
 
 <div class="container-fluid"> <!-- fluid -->
         <div class="row"> <!-- rowbig -->
-          <div class="col-sm-10 col-md-3 col-lg-3 offset-sm-2 offset-md-1 offset-lg-1 nunito"> <!-- left -->
-            <h6 style="margin-top: 3rem; font-size: 2rem; ">CATEGORY</h6>
+          <div class="col-sm-10 col-md-3 col-lg-3 offset-sm-2 offset-md-0 offset-lg-0 nunito"> <!-- left -->
+            <h6 class="text-center" style="margin-top: 3rem; font-size: 2rem; ">CATEGORY</h6>
             <div class="btn-group-vertical">
-              <a class="event_list-a-event_type" ng-href="#!/home/eventlist">+ ALL</a>
-              <div ng-repeat="category in categorys" class="btn-group-vertical" >
+              <a class="event_list-a-event_type " ng-href="#!/home/eventlist">+ ALL</a>
+              <div ng-repeat="category in categorys" class="btn-group-vertical " >
                 <a ng-href="#!/home/eventlist/{{category.CATEGORY}}" class="event_list-a-event_type">
                 + {{category.CATEGORY}}</a>
               </div>
@@ -40,16 +40,19 @@
           <div class="col-sm-12 col-md-8 col-lg-8" style="margin-top: 2rem"> <!-- right -->
           <div class="row"> <!-- top -->
             <div class="event_list-div-show col-sm-12 col-md-4 col-lg-4">
-              SHOWING 1-6 OF 6 PRODUCTS
+              <!-- SHOWING 1-6 OF 6 PRODUCTS -->
             </div>
               <!-- filter -->
               <!-- filter -->
               
-                <select class="custom-select col-sm-3 col-md-3 col-lg-3 nunito" style="border-color:#FC575E ;border-radius:10px; color: #FC575E; height: 2rem; ">
+              
+              <select class="custom-select col-sm-3 col-md-3 col-lg-3 nunito" style="border-color:#FC575E ;border-radius:10px; color: #FC575E; height: 2rem; ">
                 <option selected>Filter by</option>
                 <option value="1">A - Z</option>
                 <option value="2">Most Nearest</option>
               </select>
+              
+              
               
 
 
@@ -66,13 +69,14 @@
             <div class="picture col-sm-12 col-md-4 col-lg-4" ng-repeat="event in events">
               <a ng-href="#!/home/eventdetail/{{event.EVENT_ID}}" style="text-decoration: none;">
                 <div class="card " style=" margin-bottom: 1rem;">
-                  <div style="position: relative; overflow: hidden;" >
-                      <img class="card-event-img" style="height: 15rem; width: 100% " ng-src="{{event.PICTURE}}">
-                      <div class="event_list-div-redtype quicksand" style="padding-top:0.3rem; padding-left:0.3rem; padding-right: 0.3rem; position: absolute;top: 1rem;bottom: 0px;right:0px;">{{event.CATEGORY}}</div>
+                  <div class="blockofimg" style="position: relative;min-height: 8.5rem;" >
+                      <img class=""  ng-src="{{event.PICTURE}}">
+                      <div class="event_list-div-redtype quicksand" style="padding-top:0.3rem; padding-left:0.3rem; padding-right: 0.3rem; position: absolute;bottom: 20px;right:0px;">{{event.CATEGORY}}</div>
                     </div>
                   <div class="card-block" style="" >
-                      <h4 class="event_list-h4-title ">{{event.EVENT_NAME}}</h4>
+                      <h4 class="event_list-h4-title " style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{event.EVENT_NAME}}</h4>
                       <h6 class="event_list-h6-describe ">{{event.DETAIL}}</h6>
+
                       <div class="row">
                         <div class="event_list-div-start_date quicksand col-5"> {{event.TIME_START_E | date:'medium'}} </div>
                         <div class="event_list-div-dat quicksand col-1">-</div>
@@ -80,9 +84,9 @@
                       
                       </div>
                       <div class="row">
-                        <div class="event_list-div-price quicksand 
-                        col-8">฿{{event.PRICE}}</div>
-                      <!-- <div class="event_list-div-detail quicksand col-2">detail</div>                        -->
+                        <div class="event_list-div-price quicksand col-8">฿{{event.PRICE}}</div>
+                        <!-- <div class="event_profile-div-detail quicksand col-2">{{event.TYPE}}</div>  -->
+                      <div class="event_list-div-detail quicksand col-2">{{event.TYPE}}</div>                       
                       </div>
                     </div>
                 </div>
