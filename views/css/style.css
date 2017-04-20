@@ -1938,3 +1938,157 @@ body{
 		padding-right: 40%;
 	}
 }
+
+/*==========================eventprofile=====================================================*/
+
+@import url('https://fonts.googleapis.com/css?family=Nunito|Quicksand');
+
+
+
+
+.event_profile-h4-title{
+	color: #48515A;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.event_profile-h6-describe{
+	color: #95989A;
+	font-size: 20px;
+	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	text-overflow: '.....?';
+}
+
+
+.event_profile-a-event_type{
+	color: black;
+	font-family: "Nunito";
+	font-size: 1rem;
+	text-decoration: none;
+	margin-top: 1rem;
+	border-top-color: black;
+	border-bottom-color: black;
+}
+
+.event_profile-a-event_type:hover{
+	text-decoration: none;
+	color: yellow;
+}
+
+
+
+.event_profile-div-show{
+	font-family: 'Quicksand' ,sans-serif;
+	font-size: 1rem;
+	margin-top: 0rem;
+	margin-left: 1rem;
+
+}
+
+.event_profile-li-page-link{
+	color: white;
+	font-family: 'Nunito';
+	background-color:#FFD700;
+	border-radius: 0px;
+}
+
+.event_profile-li-page-link:hover{
+	color: white;
+	font-family: 'Nunito';
+	background-color:#FC575E;
+	border-radius: 0px;
+}
+
+
+.event_profile-div-start_date{
+	color: #95989A;
+	font-size: 15px;
+}
+
+.event_profile-div-end_date{
+	color: #95989A;
+	font-size: 15px;
+}
+
+.event_profile-div-dat{
+	color: #95989A;
+
+}
+
+.event_profile-div-detail{
+	color: black;
+	font-size: 22px;
+}
+
+.event_profile-div-price{
+	color: black;
+	font-size: 22px;
+}
+
+.event_profile-div-redtype{
+	background-color: #FC575E;
+	width: 5rem;
+	height: 2rem;
+	font-size: 20px;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	margin-left: 150px;
+	margin-top: 194px;
+	border-top-left-radius: 15px; 
+
+}
+
+.event_profile-input-txt{
+	width: 15rem;
+	border: 1.5px solid #000;
+	border-radius: 12px;
+	
+}
+
+.event_profile-div-center_cropped {
+            /*background-image: url('pic/profile.jpg');*/
+            background-position: center center;
+            background-repeat: no-repeat;
+           position:absolute;
+          top:0;
+          left:0;
+          right:0;
+          bottom:0;
+          background-size:cover;
+           z-index: -1;
+           height: inherit;
+}
+.event_profile-div-filter_dis{
+            background-color: rgba(0,0,0,0.5);
+            height: 520px;
+            z-index: 0;
+            width: 100%;
+            padding-top: 70px;
+            font-family: 'Quicksand', sans-serif;
+            color: white;
+            font-weight: 800;
+}
+        
+        
+#event_profile-div-circle{
+            width: 220px;
+            height: 220px;
+            background: red;
+        
+}
+        
+#event_profile-div-circle img{
+            width: 220px;
+            height: 220px;
+}
+
+
+@media (max-width:575px){
+	.event_profile-div-pag{
+		margin-left: 5rem;
+	}
+}
+ 

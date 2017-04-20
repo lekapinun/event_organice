@@ -45,7 +45,7 @@ project.config(function ($routeProvider, $stateProvider, $urlRouterProvider, $sc
         templateUrl: 'angularCode/templates/contact.html',
     },{
         name: 'home.profile',
-        url: '/profile',
+        url: '/profile/:id',
         templateUrl: 'angularCode/templates/profile.html',
         controller: 'profileController'
     },{

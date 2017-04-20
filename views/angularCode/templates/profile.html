@@ -1,1 +1,133 @@
-this's profile page.
+
+    <div class="event_profile-div-filter_dis col-12" style="padding-left: 0px; padding-right: 0px;">
+        <div class="event_profile-div-center_cropped"  id="cen-crop"></div>
+        <div id="event_profile-div-circle" class="mx-auto rounded-circle">
+            <img class="rounded-circle" ng-src="{{member.URL_IMG}}">
+        </div>
+        <div id="text-dis" class="text-center" >
+            <div id="text-dis-head" style="padding-top:1rem;font-size:2rem;"><p style="letter-spacing:15px;">{{member.USERNAME}}</p>
+            </div>
+            <div style="display:inline-block;">
+                <div id="text-dis-follower" style="float:left;border-right:3px solid; padding-right:2rem;">
+                    <div style="font-size:1rem;">{{follower.length}}</div>
+                    <div style="font-size:1rem;">FOLLOWER</div>
+                </div>
+                <div id="text-dis-following" style="float:left;padding-left:2rem;">
+                    <div style="font-size:1rem;">{{following.length}}</div>
+                    <div style="font-size:1rem;">FOLLOWING</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid"> <!-- fluid -->
+
+
+                
+        <div class="row"> <!-- rowbig -->
+          <div class="col-sm-10 col-md-3 col-lg-3 offset-sm-2 offset-md-1 offset-lg-1 nunito"> <!-- left -->
+
+            <button type="button" class="btn btn-primary btn-lg btn-block" style="height: 40px; font-size: 1rem; background-color: #FC575E; border-color:#FC575E; margin-top: 2rem; font-family: 'nunito'; ">CREATE EVENT</button>
+
+            <h6 style="margin-top: 3rem; font-size: 2rem; ">EVENTS</h6>
+            <div class="btn-group-vertical">
+              <a class="event_profile-a-event_type" href="">+ MY EVENT</a>
+              <a class="event_profile-a-event_type" href="">+ EVENT JOINED</a>
+            </div>
+            <h6 style="margin-top: 3rem; font-size: 2rem; ">FRIENDS</h6>
+            <div class="btn-group-vertical">
+              <a class="event_profile-a-event_type" href="">+ FOLLOWERS</a>
+              <a class="event_profile-a-event_type" href="">+ FOLLOWING</a>
+            </div>
+            <h6 style="margin-top: 3rem; font-size: 2rem; ">EDIT</h6>
+            <div class="btn-group-vertical">
+              <a class="event_profile-a-event_type" href="">+ EDIT MY PROFILE</a>
+              <a class="event_profile-a-event_type" href="">+ EDIT MY EVENTS</a>
+            </div>
+          </div><!-- left -->
+
+          <div class="col-sm-12 col-md-8 col-lg-8" style="margin-top: 2rem; border-color: #FC575E;"> <!-- right -->
+
+          <!-- top -->
+          <!-- <div class="row">  -->
+            <!-- <div class="event_profile-div-show col-sm-12 col-md-4 col-lg-4"> -->
+              <!-- SHOWING 1-6 OF 6 PRODUCTS -->
+            <!-- </div> -->
+              <!-- filter -->
+              <!-- filter -->
+              <!-- <select class="custom-select col-sm-3 col-md-3 col-lg-3 nunito" style="border-color:#FC575E ;border-radius:10px; color: #FC575E; height: 2rem; "> -->
+                <!-- <option selected>Filter by</option> -->
+                <!-- <option value="1">A - Z</option> -->
+                <!-- <option value="2">Most Nearest</option> -->
+              <!-- </select> -->
+
+            <!-- <div class="hidden-sm-down col-3 "> -->
+            <!-- search -->
+              <!-- <input class=" mr-sm-2 event_profile-input-txt" type="text" placeholder=" Search..."> -->
+            <!-- </div>  -->
+            <!-- search -->
+            
+          <!-- </div>  -->
+          <!-- top -->
+
+          <br>
+          <div class="row col-12" style="margin-left: 0px;"> <!-- pic -->
+
+            <div class="picture col-sm-12 col-md-4 col-lg-4" ng-repeat="event in events">
+              <a style="text-decoration: none;" href="#">
+                <div class="card " style=" margin-bottom: 1rem;">
+                  <div style="position: relative; overflow: hidden;" >
+                      <img class="card-event-img" style="height: 15rem; width: 100% " ng-src="{{event.PICTURE}}">
+                      <div class="event_profile-div-redtype quicksand" style="position: absolute;bottom: 0px;right:0px;">{{event.CATEGORY}}</div>
+                    </div>
+                  <div class="card-block" style="" >
+                      <h4 class="event_profile-h4-title quicksand">{{event.EVENT_NAME}}</h4>
+                      <h6 class="event_profile-h6-describe quicksand">{{event.DETAIL}} </h6>
+                      <div class="row">
+                        <div class="event_profile-div-start_date quicksand col-5">{{event.TIME_START_E | date:'medium'}}</div>
+                        <div class="event_profile-div-dat quicksand col-1">-</div>
+                        <div class="event_profile-div-end_date quicksand col-5">{{event.TIME_END_E | date:'medium'}}</div>
+                      
+                      </div>
+                      <div class="row">
+                        <div class="event_profile-div-price quicksand 
+                        col-8">฿{{event.PRICE}}</div>
+                      <div class="event_profile-div-detail quicksand col-2">{{event.TYPE}}</div>                       
+                      </div>
+                    </div>
+                </div>
+              </a>
+            </div>
+
+                   
+
+          </div> <!-- pic -->
+          
+          <!-- <br>
+
+          <div class="row event_list-div-pag offset-md-9 offset-lg-9 offset-sm-9">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item" >
+                      <a class="page-link event_list-li-page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                  </li>
+                  <li class="page-item"><a class="page-link event_list-li-page-link" style="margin-left: 3px;" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link event_list-li-page-link" style="margin-left: 3px;" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link event_list-li-page-link" style="margin-left: 3px;" href="#">3</a></li>
+                  <li class="page-item">
+                      <a class="page-link event_list-li-page-link" style="margin-left: 3px;" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                  </li>
+                </ul>
+            </nav>
+          </div> -->
+
+          </div> <!-- right -->
+          
+        </div> <!-- rowbig -->
+    </div> <!-- fluid -->
