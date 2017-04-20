@@ -11,6 +11,7 @@ project.controller('homeController', function ($scope,$http,$state) {
     	console.log("ERROR");
         $state.go('login');
     });
+    
     $http({
         method: 'GET',
         url: '/member'
@@ -26,6 +27,7 @@ project.controller('homeController', function ($scope,$http,$state) {
     }, function (response) {
         console.log("ERROR");
     });
+
     //logout function
     $scope.logout = function(){
 		$http({

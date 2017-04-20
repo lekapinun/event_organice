@@ -1,3 +1,8 @@
+<!--   <script>
+        window.onload = function(){
+            document.getElementById('cen-crop').style.backgroundImage = "url('http://myomlife.com/i/2017/03/photo-sunrise-wallpaper.jpeg')";
+        };
+    </script> -->
 
     <div class="event_profile-div-filter_dis col-12" style="padding-left: 0px; padding-right: 0px;">
         <div class="event_profile-div-center_cropped"  id="cen-crop"></div>
@@ -74,7 +79,7 @@
           <div class="row col-12" style="margin-left: 0px;"> <!-- pic -->
 
             <div class="picture col-sm-12 col-md-4 col-lg-4" ng-repeat="event in events">
-              <a style="text-decoration: none;" href="#">
+              <a style="text-decoration: none;" ng-href="#!/home/eventdetail/{{event.EVENT_ID}}">
                 <div class="card " style=" margin-bottom: 1rem;">
                   <div style="position: relative; overflow: hidden;" >
                       <img class="card-event-img" style="height: 15rem; width: 100% " ng-src="{{event.PICTURE}}">
