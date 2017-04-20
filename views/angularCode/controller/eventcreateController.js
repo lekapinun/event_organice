@@ -75,6 +75,7 @@ project.controller('eventcreateController', function ($scope,$http,$state,Map) {
     }
     
     Map.init();
+    
 });
 
 

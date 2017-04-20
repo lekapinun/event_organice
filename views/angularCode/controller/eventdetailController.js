@@ -1,4 +1,4 @@
-project.controller('eventdetailController', function ($scope,$sce,$state, $stateParams, $http) {
+project.controller('eventdetailController', function ($scope,$sce,$state, $stateParams, $http, Map) {
 	//check login 
 	$http({
         method: 'GET',
@@ -32,6 +32,8 @@ project.controller('eventdetailController', function ($scope,$sce,$state, $state
 				$scope.memberID = response.data[1];
 				$scope.otherID = response.data[2];
 				$scope.otherEID = response.data[3];
+				Map.init_fixed($scope.eventID.LOCATION_lat,$scope.eventID.LOCATION_lng);
+				Map.addMarker_fixed($scope.eventID.LOCATION_lat,$scope.eventID.LOCATION_lng);
 				console.log(response);
 			}
 	    }, function (response) {

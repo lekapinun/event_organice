@@ -108,4 +108,26 @@ project.service('Map', function($q) {
         this.map.setCenter(res.geometry.location);
     }
     
+    this.init_fixed = function(x,y) {
+        var options = {
+            center: new google.maps.LatLng(x, y),
+            zoom: 18,
+            disableDefaultUI: true    
+        }
+        this.map = new google.maps.Map(
+            document.getElementById("map"), options
+        );
+        this.places = new google.maps.places.PlacesService(this.map);
+    }
+
+    this.addMarker_fixed = function(x,y) {
+        var myLatlng = new google.maps.LatLng(x,y);
+        if(this.marker) this.marker.setMap(null);
+        this.marker = new google.maps.Marker({
+            map: this.map,
+            position : myLatlng,
+            animation: google.maps.Animation.DROP
+        });
+    }
+
 });
