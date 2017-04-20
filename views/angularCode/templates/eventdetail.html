@@ -91,7 +91,7 @@
 
 				<div class="card-deck event_detail-textlink-card">
 						
-						<a href="#" class="" >
+						<!-- <a href="#" class="" >
 							<div class="card " ng-repeat="event in otherEID">
 						  	<div class="blockofimg ">
 						  		<img class="card-img-top img-fluid img-fluid-clip " ng-src="{{event.PICTURE}}" alt="Card image cap">
@@ -107,24 +107,38 @@
 						    </div>
 
 						  </div>
-						 </a> 		 
-						 
-						 
+						 </a> -->
 
-						
-						
-						  
+						 <div class="col-md-3" ng-repeat="event in otherEID">
+							<a href="#" class="">
+								<div class="card " >
+							  	<div class="blockofimg ">
+							  		<img class="card-img-top img-fluid img-fluid-clip " ng-src="{{event.PICTURE}}" >
+							  	</div>
+		
+							    <div class="card-block " >
+							      	<h4 class="card-title" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{event.EVENT_NAME}}</h4>
+							      	<p class="card-text " style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{event.DETAIL}}</p>
+							      	<span style="font-size: 0.8rem">{{event.TIME_START_E | date:'medium'}} - {{event.TIME_END_E | date:'medium'}} </span>
+							    </div>
+							   	<div class="card-footer">
+							      <span class="quicksand-bold">฿ {{event.PRICE}}</span><a style="float: right;" class="quicksand-bold" href="#"> detail</a>
+							    </div>
 
-						  <div class="card event_detail-showmore" >
+							  </div>
+							</a> 
+						</div> 		 
+
+						<div class="col-md-3">
+							<div class="card event_detail-showmore" >
 						    <div class="card-block text-center">
-						      	<div style="margin-top: 10rem;">
+						      	<div>
 						      		<a href="#" class="" style="color: #fff">SHOW MORE +</a>
 						    	</div>
-						      	
 						    </div>
-						   	
-
-						  </div>		  
+						  </div>
+						</div>
+						  		  
 
 				</div>		
 			</div>
