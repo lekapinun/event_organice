@@ -2,6 +2,7 @@ var express = require('express');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
+
 var app = express();
 
 var pool = mysql.createPool
@@ -1460,7 +1461,7 @@ app.get('/newsfeed',function(req,res)
 								//console.log(rows);
 								for (var i = rows.length - 1; i >= 0; i--) {
 									rows[i].PASSWORD = "shhhhhh!"
-									rows[i].TYPE = "OWNER";
+									rows[i].TYPE = "CREATED";
 								}
 								detail[1] = rows;
 								//res.json(detail);
@@ -1468,7 +1469,7 @@ app.get('/newsfeed',function(req,res)
 								connection.query("SELECT join_event.EVENT_ID,join_event.MEMBER_ID,join_event.TIME,event.EVENT_NAME,event.CATEGORY,event.DETAIL,event.PICTURE,event.TIME_START_E,event.TIME_END_E,member.MEMBER_ID,member.USERNAME,member.URL_IMG  FROM event JOIN join_event ON event.EVENT_ID=join_event.EVENT_ID JOIN member ON " + list_2 + " WHERE event.TIME_END_E > " + today.getTime(),function(err,rows)
 								{	
 									for (var i = rows.length - 1; i >= 0; i--) {
-										rows[i].TYPE = "JOIN";
+										rows[i].TYPE = "JOINED";
 									}
 									detail[1] = detail[1].concat(rows);
 									detail[1] = detail[1].sort(function(a,b) {return (b.TIME > a.TIME) ? 1 : ((a.TIME > b.TIME) ? -1 : 0);} );

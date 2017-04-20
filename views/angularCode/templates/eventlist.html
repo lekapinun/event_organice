@@ -67,7 +67,7 @@
               <a ng-href="#!/home/eventdetail/{{event.EVENT_ID}}" style="text-decoration: none;">
                 <div class="card " style=" margin-bottom: 1rem;">
                   <div style="position: relative; overflow: hidden;" >
-                      <img class="card-event-img" style="height: 15rem; width: 100% " src="{{event.PICTURE}}">
+                      <img class="card-event-img" style="height: 15rem; width: 100% " ng-src="{{event.PICTURE}}">
                       <div class="event_list-div-redtype quicksand" style="padding-top:0.3rem; padding-left:0.3rem; padding-right: 0.3rem; position: absolute;top: 1rem;bottom: 0px;right:0px;">{{event.CATEGORY}}</div>
                     </div>
                   <div class="card-block" style="" >

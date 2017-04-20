@@ -1,1 +1,36 @@
-This's newfeed :)
+<!-- <body style="background-color: #ededed;"> -->
+	<div class="container-fluid" style="background-color: #ededed;">
+		<div class="col-lg-8 col-md-8 col-sm-12 offset-md-2 offset-lg-2 event_newfeed-bg-white_box">
+			<!--text newfeed--> 
+			<div class="event_newfeed-text-newfeed mb-md-3">NEWS FEED</div>
+			<!--card column-->
+				<div class="event_newfeed-card-columns">
+				
+
+				  <!-- card -->
+				  <div class="card" ng-repeat="event in events">
+				  	<div class="card-img-top event_newfeed-img" >
+				  		<img ng-src="{{event.PICTURE}}">
+				  	</div>
+				    
+
+				    <div class="event_newfeed-text-status">
+                		<div class="event_newfeed-text-join">{{event.TYPE}}</div>
+                		<div class="event_newfeed-text-join">{{event.TIME | date:'medium'}}</div>
+              		</div>
+
+              		<div class="event_newfeed-div-user">
+                		<img ng-src="{{event.URL_IMG}}" class="event_newfeed-img-profile">
+                		<span class="quicksand-bold event_newfeed-text-username">{{event.USERNAME}}</span>
+              		</div>
+
+				    <div class="card-block">
+				      <h4 class="card-title event_newfeed-text-event_name " >{{event.EVENT_NAME}}</h4>
+				      <p class="card-text quicksand event_newfeed-eventdetail-overflow" style="color:#828282; ">{{event.DETAIL}}</p>
+				      <a ng-href="#!/home/eventdetail/{{event.EVENT_ID}}" class="event_newfeed-a-link_detail">details</a>
+				    </div>
+				  </div>
+			</div>
+		</div>
+	</div>
+<!-- </body> -->

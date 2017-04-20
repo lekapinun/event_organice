@@ -35,7 +35,7 @@
 									<label style="color: #48515A" class="quicksand-bold" >OTHERS JOINED</label>
 								</div>
 								<a href="#">
-								    <img ng-repeat="item in otherID|limitTo:5" src="{{item.URL_IMG}}" class="rounded-circle">								
+								    <img ng-repeat="item in otherID|limitTo:5" ng-src="{{item.URL_IMG}}" class="rounded-circle">								
 								</a>
 							</div>
 								
@@ -94,7 +94,7 @@
 						<a href="#" class="" >
 							<div class="card " ng-repeat="event in otherEID">
 						  	<div class="blockofimg ">
-						  		<img class="card-img-top img-fluid img-fluid-clip " src={{event.PICTURE}} alt="Card image cap">
+						  		<img class="card-img-top img-fluid img-fluid-clip " ng-src="{{event.PICTURE}}" alt="Card image cap">
 						  	</div>
 	
 						    <div class="card-block">

@@ -11,4 +11,20 @@ project.controller('newfeedController', function ($scope,$http,$state) {
         console.log("ERROR");
         $state.go('login');
     });
+
+    $http({
+        method: 'GET',
+        url: '/newsfeed'
+        }).then(function (response) {
+        if(response.data.length === 0)
+        {
+            $scope.errorMgs = "no event here."
+        }
+        else
+        {
+            $scope.events = response.data[1];
+        }
+    }, function (response) {
+        console.log("ERROR");
+    }); 
 });
