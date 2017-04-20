@@ -1566,3 +1566,14 @@ body{
 	margin-bottom: 1rem;
 	color: #48515A;
 }
+
+.support_detail-img-product {
+	margin-top: 0px;
+}
+
+@media (max-width:575px){
+	.support_detail-img-product {
+		margin-top: 15px;
+	}
+}	
+
