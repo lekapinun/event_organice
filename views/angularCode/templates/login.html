@@ -185,13 +185,14 @@ furthermore, we are the social media - you can update event's news and meet new 
         							SIGN UP <span><img class="home-img-man" src="../pic/nerd.png"></span>
         					</div>
       						<form name="mysignup">
+      							<span class="home-text-gender mt-2">User name</span>
 	        					<div class="input-group">
 	  								<input name="myusername"  required type="text" ng-model="signup.user" class="form-control home-input-font_input" placeholder="U S E R N A M E" aria-describedby="basic-addon1">
 								</div>
 								<P style="margin-left:1rem;font-size:0.8rem;color:white;" ng-show="mysignup.myusername.$touched && mysignup.myusername.$invalid">Please enter your username</P>
 	  							
 							
-
+								<span class="home-text-gender mt-2">Password</span>
 								<div class="input-group" style="margin-top: 10px;">
 	  								<input name="mypassword"  required ng-model="signup.pass" type="password" class="form-control home-input-font_input" placeholder="P A S S W O R D" aria-describedby="basic-addon1">
 								</div>
@@ -203,17 +204,19 @@ furthermore, we are the social media - you can update event's news and meet new 
 	  								<input name="myrepassword"  required ng-model="signup.repass" type="password" class="form-control home-input-font_input" placeholder="R E - P A S S W O R D" aria-describedby="basic-addon1">
 								</div>
 								<P style="margin-left:1rem;font-size:0.8rem;color:white;" ng-show="mysignup.myrepassword.$touched && mysignup.myrepassword.$invalid ">Please enter re-password</P> -->
-
+								<span class="home-text-gender mt-2">E - mail</span>
 								<div class="input-group" style="margin-top: 10px;">
 	  								<input name="myemails"  required ng-model="signup.email" type="email" class="form-control home-input-font_input" placeholder="E - M A I L" aria-describedby="basic-addon1">
 								</div>
 								<P style="margin-left:1rem;font-size:0.8rem;color:white;" ng-show="mysignup.mypassword.$touched && mysignup.mypassword.$invalid ">Please enter your E-mail</P>
 								<P  style="margin-left:1rem;font-size:0.8rem;color:white;" ng-show="mysignup.myemails.$invalid && !mysignup.myemails.$pristine">Example: mind@event.com</P>
 
+								<span class="home-text-gender mt-2">First name</span>
 								<div class="input-group" style="margin-top: 10px;">
 	  								<input name="myfirstname" ng-model="signup.fname" type="text" class="form-control home-input-font_input" placeholder="F I R S T  N A M E" aria-describedby="basic-addon1">
 								</div>
 								
+								<span class="home-text-gender mt-2">Last name</span>
 								<div class="input-group" style="margin-top: 10px;">
 	  								<input name="mylastname" ng-model="signup.lname" type="text" class="form-control home-input-font_input" placeholder="L A S T  N A M E" aria-describedby="basic-addon1">
 								</div>
