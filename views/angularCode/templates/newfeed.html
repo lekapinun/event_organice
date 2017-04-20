@@ -10,7 +10,9 @@
 				  <!-- card -->
 				  <div class="card" ng-repeat="event in events">
 				  	<div class="card-img-top event_newfeed-img" >
-				  		<img ng-src="{{event.PICTURE}}">
+				  	 	<a ng-href="#!/home/eventdetail/{{event.EVENT_ID}}">
+				  			<img ng-src="{{event.PICTURE}}">
+				  		</a>
 				  	</div>
 				    
 
