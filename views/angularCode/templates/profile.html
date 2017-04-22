@@ -7,10 +7,10 @@
      <div class="event_profile-div-filter_dis col-12" style="padding-left: 0px; padding-right: 0px;">
         <div class="event_profile-div-center_cropped"  id="cen-crop"></div>
         <div id="event_profile-div-circle" class="mx-auto rounded-circle">
-            <img class="rounded-circle" ng-src={{member.URL_IMG}}>
+            <img class="rounded-circle" ng-src={{member[0].URL_IMG}}>
         </div>
         <div id="text-dis" class="text-center" >
-            <div id="text-dis-head" style="padding-top:1rem;font-size:2rem;"><p style="letter-spacing:15px;">{{member.USERNAME}}</p>
+            <div id="text-dis-head" style="padding-top:1rem;font-size:2rem;"><p style="letter-spacing:15px;">{{member[0].USERNAME}}</p>
             </div>
             <div style="display:inline-block;">
                 <div id="text-dis-follower" style="float:left;border-right:3px solid; padding-right:2rem;">
@@ -38,9 +38,15 @@
 
 
             <div ng-if="IsOwner == false">
-              <button type="button" class="btn btn-primary btn-lg btn-block btn-block-profile" style="height: 40px; font-size: 1rem; background-color: #FC575E; border-color:#FC575E; margin-top: 2rem; font-family: 'nunito'; ">FOLLOW</button>
-             <button type="button" class="btn btn-primary btn-lg btn-block btn-block-profile" style="height: 40px; font-size: 1rem; background-color: #FC575E; border-color:#FC575E; margin-top: 2rem; font-family: 'nunito'; ">UNFOLLOW</button>
+              <div ng-if="following_status == false">
+                <button type="button" class="btn btn-primary btn-lg btn-block btn-block-profile" style="height: 40px; font-size: 1rem; background-color: #FC575E; border-color:#FC575E; margin-top: 2rem; font-family: 'nunito'; ">FOLLOW</button>
+              </div>
+              <div ng-if="following_status == true">
+                <button type="button" class="btn btn-primary btn-lg btn-block btn-block-profile" style="height: 40px; font-size: 1rem; background-color: #FC575E; border-color:#FC575E; margin-top: 2rem; font-family: 'nunito'; ">UNFOLLOW</button>
+              </div>             
             </div>
+
+
              <!-- <button type="button" class="btn btn-primary btn-lg btn-block btn-block-profile" style="height: 40px; font-size: 1rem; background-color: #FC575E; border-color:#FC575E; margin-top: 2rem; font-family: 'nunito'; ">FOLLOW</button>
              <button type="button" class="btn btn-primary btn-lg btn-block btn-block-profile" style="height: 40px; font-size: 1rem; background-color: #FC575E; border-color:#FC575E; margin-top: 2rem; font-family: 'nunito'; ">UNFOLLOW</button> -->
 

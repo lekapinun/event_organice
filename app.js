@@ -1277,6 +1277,7 @@ app.get('/following_join_event',function(req,res)
 app.get('/profile/:id',function(req,res)
 {
 	var detail = [];
+	sess = req.session;
 	//sess = req.session;
 	// if(sess.member_id) 
 	// {
@@ -1345,7 +1346,7 @@ app.get('/profile/:id',function(req,res)
 													    	list = list.substr(0,list.length - 4);
 													    	var datetime  = new Date().getTime() - 25200000;
 													    	// console.log("SELECT * FROM `event` WHERE " + list + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME` DESC");
-	        									// 			connection.query("SELECT * FROM `event` WHERE " + list + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME` DESC",function(err,rows)
+	        												//connection.query("SELECT * FROM `event` WHERE " + list + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME` DESC",function(err,rows)
 	        												console.log("SELECT * FROM `event` WHERE " + list + " ORDER BY `TIME` DESC");
 	        												connection.query("SELECT * FROM `event` WHERE " + list + " ORDER BY `TIME` DESC",function(err,rows)
 															{		    	
@@ -1353,7 +1354,7 @@ app.get('/profile/:id',function(req,res)
 															    // {
 															    	detail[3] = rows;
 															    	for (var i = detail[3].length - 1; i >= 0; i--) {
-															    		detail[3][i].TYPE = 'JOIN';
+															    		detail[3][i].TYPE = 'JOINED';
 															    	}
 															    	//res.json(detail);
 															    	var datetime  = new Date().getTime();
@@ -1365,12 +1366,25 @@ app.get('/profile/:id',function(req,res)
 															            // if(rows.length > 0) 
 															            // {
 															            	for (var i = rows.length - 1; i >= 0; i--) {
-																	    		rows[i].TYPE = 'OWNER';
+																	    		rows[i].TYPE = 'CREATED';
 																	    	}
 															            	detail[3] = detail[3].concat(rows);
 															            	detail[3] = detail[3].sort(function(a,b) {return (b.TIME > a.TIME) ? 1 : ((a.TIME > b.TIME) ? -1 : 0);} );	
 																			//detail[4] = rows;
-																			res.json(detail);
+																			// res.json(detail);
+																			connection.query("SELECT * FROM `following` WHERE `MEMBER_ID` = '" + sess.member_id + "' and `FOLLOWING_ID` = '" + req.params.id + "'",function(err,rows)
+															        		{
+															        			if( rows.length > 0)
+															        			{
+															        				detail[4] = true;
+															        				res.json(detail);
+															        			}
+															        			else
+															        			{
+															        				detail[4] = false;
+															        				res.json(detail);
+															        			}
+															        		});
 															            // }   
 															            // else
 															            // {
