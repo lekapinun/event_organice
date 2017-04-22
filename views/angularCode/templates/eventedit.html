@@ -1,0 +1,438 @@
+<style>
+  .create_event {
+    font-family: 'Quicksand', sans-serif;
+  }
+  .create_event input {
+    font-family: 'Nunito', sans-serif;;
+  }
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+  #map {
+    height: 400px;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 75%;
+    margin: 0;
+    padding: 0;
+  }
+  #description {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+  }
+  #infowindow-content .title {
+    font-weight: bold;
+  }
+  #infowindow-content {
+    display: none;
+  }
+  #map #infowindow-content {
+    display: inline;
+  }
+ .pac-card {
+    margin: 10px 10px 0 0;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    font-family: Roboto;
+  }
+
+  #pac-container {
+    padding-bottom: 12px;
+    margin-right: 12px;
+  }
+
+  .pac-controls {
+    display: inline-block;
+    padding: 5px 11px;
+  }
+
+  .pac-controls label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+  }
+
+  #pac-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 400px;
+  }
+  #pac-input:focus {
+    border-color: #4d90fe;
+  }
+
+  #title {
+    color: #fff;
+    background-color: #4d90fe;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 6px 12px;
+  }
+  #target {
+    width: 345px;
+  }
+</style>
+<br>
+    <div class="container border create_event" style="border-style: solid;border-width: 1px;border-color: #95989A;"><br>
+        <div class="col-sm-12 col-12">
+            <div style="margin-bottom : 10px;font-size:45px;font-family:">EDIT MY EVENT</div>
+        </div>
+        
+        <div class="col-sm-12 col-12 container">
+          <div class="col-sm-12" style="background-color:#47D2E9;">
+              <br>
+            <div class="row border-top-0" style="background-color:white;border:1px solid;border-color: #95989A;">
+              <div class="col-12 col-sm-12"><br>
+                FIELD 1 : Detail event
+                  <br>
+                  <hr>
+                    <form name="myField1" class="container">
+                      <div class="form-group">
+                        <label for="formGroupExampleInput">EVENT NAME</label>
+                        <input name="myEventName" required type="text" class="form-control"  placeholder="Example input" ng-model="create.event_name" ng-value= "event.EVENT_NAME">
+
+                        <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField1.myEventName.$touched && myField1.myEventName.$invalid">Event name is required.</span>
+                      
+                      </div>
+                    <div class="row col-sm-12 col-12" style="padding-left : 0px;">
+                        <div class="form-group col-sm-6 col-12">
+                            <div style="margin-bottom:.5rem;">CATEGORY</div>
+                            <!-- <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:100%;text-align:right;">
+                            Select Category
+                          </button>
+                          <div class="dropdown-menu dropdown-menu-right">
+                              <a class="dropdown-item" href="#">Art</a>
+                              <a class="dropdown-item" href="#">Business</a>
+                              <a class="dropdown-item" href="#">Charity&Cause</a>
+                              <a class="dropdown-item" href="#">Community</a>
+                              <a class="dropdown-item" href="#">Education</a>
+                              <a class="dropdown-item" href="#">Fashion</a>
+                              <a class="dropdown-item" href="#">Film&Media</a>
+                              <a class="dropdown-item" href="#">Food&drink</a>
+                              <a class="dropdown-item" href="#">Liftstyle</a>
+                              <a class="dropdown-item" href="#">Music</a>
+                              <a class="dropdown-item" href="#">Science&Technology</a>
+                              <a class="dropdown-item" href="#">Sport&Fitness</a>
+                          </div> -->
+                          <select name="myCatagory"  required class="custom-select col-12" ng-model="create.category" ng-value= "event.CATEGORY">
+                            
+                            <option>Art</option>
+                            <option>Business</option>
+                            <option>Charity&Cause</option>
+                            <option>Community</option>
+                            <option>Education</option>
+                            <option>Fashion</option>
+                            <option>Film&Media</option>
+                            <option>Food&drink</option>
+                            <option>Liftstyle</option>
+                            <option>Music</option>
+                            <option>Science&Technology</option>
+                            <option>Sport&Fitness</option>
+                          </select>
+                          <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField1.myCatagory.$touched && myField1.myEventName.$invalid">Please select your catagory.</span>
+                        </div>
+                        <div class="form-group col-sm-3 col-12">
+                            <label for="formGroupExampleInput2">TICKET PRICE ( bath ) </label>
+                            <input name="myTicketPrice"  required type="text" class="form-control" placeholder="input price" ng-model="create.ticket_price" ng-value="event.PRICE">
+                            <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField1.myTicketPrice.$touched && myField1.myTicketPrice.$invalid">Please enter ticket price.</span>
+                        </div>
+                        <div class="form-group col-sm-3 col-12">
+                            <label for="formGroupExampleInput2">MAX SEAT </label>
+                            <input name="myMaxSeat"  required type="text" class="form-control" placeholder="input max seat" ng-model="create.max_seat" ng-value="event.MAX_SEAT">
+                            <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField1.myMaxSeat.$touched && myField1.myMaxSeat.$invalid">Please enter maximum seat.</span>
+                        </div>
+                    </div>
+                    <div class="row col-sm-12 col-12" style="padding-left : 0px;">
+
+                        <div class="form-group col-sm-6 col-12">
+                            <label for="formGroupExampleInput">Start</label>
+                            <input name="myStart" required class="form-control" type="datetime-local" ng-model="create.start_time">
+                            <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField1.myStart.$touched && myField1.myStart.$invalid">Please enter start date and time.</span>
+                        </div>
+
+                        <div class="form-group col-sm-6 col-12">
+                            <label  for="formGroupExampleInput">End</label>
+                            <input name="myEnd" required class="form-control" type="datetime-local"  ng-model="create.end_time">
+                            <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField1.myEnd.$touched && myField1.myEnd.$invalid">Please enter end date and time.</span>
+                        </div>
+                        <!-- <div class="form-group col-sm-6 col-12">
+                            <label for="formGroupExampleInput"><br></label>
+                            <input class="form-control" type="date" value="2011-08-19" ng-model="create.end_date">
+                        </div> -->
+                    </div>
+                    <!-- <div class="row col-sm-12 col-12" style="padding-left : 0px;"> -->
+                        <!-- <div class="form-group col-sm-6 col-12">
+                            <label for="formGroupExampleInput">TIME ( Start, End )</label>
+                            <input class="form-control" type="time" value="13:45:00" ng-model="create.start_time">
+                        </div> -->
+                        <!-- <div class="form-group col-sm-6 col-12">
+                            <label for="formGroupExampleInput"><br></label>
+                            <input class="form-control" type="time" value="13:45:00"  ng-model="create.end_time">
+                        </div> -->
+                    <!-- </div> -->
+                        <div class="form-group">
+                        <label for="formGroupExampleInput">PICTURE URL</label>
+                        <input name="myPicture" required type="text" class="form-control" ng-model="create.pic" placeholder="input url picture" ng-value="event.PICTURE">
+                         <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField1.myPicture.$touched && myField1.myPicture.$invalid">Please paste picture url.</span>
+                      </div>
+                        <div class="form-group">
+                        <label for="formGroupExampleInput">VIDEO URL <label style="color: gray;font-size: 0.8rem"> : embed video url</label></label>
+                        <input type="text" class="form-control" ng-model="create.video" placeholder="input url video" ng-value="event.VIDEO">
+                      </div>
+                      <div>
+                        <div class="form-group">
+                        <label for="formGroupExampleInput">DETAIL</label>
+                        <input type="text" class="form-control" ng-model="create.detail" placeholder="input datail" ng-value="event.DETAIL">
+                      </div>
+                    </form>
+                  <br>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        <BR><BR>
+            
+        <div class="container">
+          <div class="col-sm-12" style="background-color:#fbd451;">
+              <br>
+            <div class="row border-top-0" style="background-color:white;border:1px solid;border-color: #95989A;">
+              <div class="col-12 col-sm-12"><br>
+                FIELD 2 : Event option
+                  <br>
+                  <hr>
+                    <form name="myField2" class="container">
+                        <label for="formGroupExampleInput2">GENDER </label>
+                      <div  class="form-check">
+                          <label class="custom-control custom-checkbox">
+                              
+                              <input name="myMale" required type="checkbox" class="custom-control-input" ng-model="create.gender_male" >
+                              
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description">MALE</span>
+                              
+                             
+
+                        </label>
+                          <label class="custom-control custom-checkbox">
+                              <input name="myFemale" required  type="checkbox" class="custom-control-input" ng-model="create.gender_female">
+                              <span class="custom-control-indicator"></span>
+                              <span class="custom-control-description">FEMALE</span>
+                            </label>
+                             <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField2.myMale.$invalid  && myField2.myFemale.$invalid && myField2.myMale.$touched && myField2.myFemale.$touched">Please select less one.</span>
+                      </div>
+                    <div class="row col-sm-12 col-12" style="padding-left : 0px;">
+                        <div class="form-group col-sm-6 col-12">
+                            <label for="formGroupExampleInput">AGE</label>
+                            <input name="myMinAge" required type="text" class="form-control" ng-model="create.min_age"  placeholder="min age" ng-value="event.CONDITION_MIN_AGE">
+                            <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField2.myMinAge.$touched && myField2.myMinAge.$invalid">Please enter minimum age.</span>
+                        </div>
+                        <div class="form-group col-sm-6 col-12">
+                            <label for="formGroupExampleInput"><br></label>
+                            <input name="myMaxAge" required type="text" class="form-control" ng-model="create.max_age" placeholder="max age" ng-value="event.CONDITION_MAX_AGE">
+                            <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField2.myMaxAge.$touched && myField2.myMaxAge.$invalid">Please enter maximum age.</span>
+                        </div>
+                    </div><br>
+                    </form>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+        <BR><BR>
+
+        <div class="container">
+          <div class="col-sm-12" style="background-color:#FC575E;">
+              <br>
+            <div class="row border-top-0" style="background-color:white;border:1px solid;border-color: #95989A;">
+              <div class="col-12 col-sm-12"><br>
+                FIELD 3 : Add location
+                  <br>
+                  <hr>
+                      <div class="alert alert-danger text-center" role="alert" ng-show="apiError">
+                          <b>API Error : </b>
+                          <span>{{ apiStatus }}</span>
+                      </div>  
+                      <form name="searchForm" novalidate ng-submit="search()">
+                          <div class="input-group">
+                              <input name="place" type="text" class="form-control" ng-model="searchPlace" placeholder="Search" required autofocus />
+                              <span class="input-group-btn">
+                                  <button class="btn btn-primary" 
+                                  ng-disabled="searchForm.$invalid">Search</button>
+                              </span>
+                          </div>
+                      </form> 
+                      <div id="map"></div>
+                        <!-- <div class="form-group col-sm-6 col-6">
+                            <label >Position</label>
+                            <input name="resLat" type="number" class="form-control" ng-model="place.lat" placeholder="Latitude" required />
+                        </div>
+                        <div class="form-group col-sm-6 col-6">
+                            <label f><br></label>
+                            <input name="resLng" type="number" class="form-control" ng-model="place.lng" placeholder="Longtitude" required />
+                        </div> -->
+                  <br>
+                </div>              
+            </div>
+          </div>
+        </div><br>
+            
+         <BR><BR>
+            
+       <!--  <div class="container">
+          <div class="col-sm-12" style="background-color:#FC575E;">
+              <br>
+            <div class="row border-top-0" style="background-color:white;border:1px solid;border-color: #95989A;">
+              <div class="col-12 col-sm-12"><br>
+                FIELD 3 : Add location
+                  <br>
+                  <hr>
+                    <form class="container">
+                        <label for="formGroupExampleInput2">LOCATION </label>
+                        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+                        <div id="map"></div>
+                        <div id="marker"></div>
+                        <br>
+                        <div class="row col-sm-12 col-12" style="padding-left : 0px;">
+                        <div class="form-group col-sm-6 col-12">
+                            <label for="formGroupExampleInput">Position</label>
+                            <input type="text" class="form-control" ng-model="create.location_lat" placeholder="Latitude" >
+                        </div>
+                        <div class="form-group col-sm-6 col-12">
+                            <label for="formGroupExampleInput"><br></label>
+                            <input type="text" class="form-control" ng-model="create.location_lng" placeholder="Longtitude">
+                        </div>
+                    </div>
+                    </form>
+                  <br>
+                </div>              
+            </div>
+          </div>
+        </div><br> -->
+             <div class="container" style="display:inline-block">
+                 <!-- <div align="center" style="float:left">
+                    <button type="button" class="btn btn-outline-warning">Clear</button>
+                 </div> -->
+                 <div align="center" style="float:right">
+                    <button type="button" class="btn btn-danger" ng-click="createsubmit()">Submit</button>
+                 </div>
+             </div><br><br>
+    </div>
+    <br> 
+</div>
+
+ <!--    <script>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 18.78775, lng:98.99313},
+          zoom: 15,
+          mapTypeId: 'roadmap'
+        });
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            map.setCenter(pos);
+          });
+        } 
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {}
+
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('pac-input');
+        var searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener('bounds_changed', function() {
+          searchBox.setBounds(map.getBounds());
+        });
+
+        var markers = [];
+
+       
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+       searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces();
+
+          if (places.length == 0) {
+            return;
+          }
+
+          // Clear out the old markers.
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+
+          // For each place, get the icon, name and location.
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach(function(place) {
+            if (!place.geometry) {
+              console.log("Returned place contains no geometry");
+              return;
+            }
+            var icon = {
+              //url: place.icon,
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+            };
+
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+              map: map,
+              icon: icon,
+              title: place.name,
+              position: place.geometry.location
+            }));
+
+            $('#location_lat').val(place.geometry.location.lat());
+            $('#location_lng').val(place.geometry.location.lng());
+
+            if (place.geometry.viewport) {
+              // Only geocodes have viewport.
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+          map.fitBounds(bounds);
+        });
+
+       map.addListener('click', function(event) {
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+          addMarker(event.latLng);
+        });
+
+       function addMarker(location) {
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map
+        });
+        markers.push(marker);
+        $('#location_lat').val(location.lat());
+        $('#location_lng').val(location.lng()); 
+      }
+
+      }
+
+    </script> -->
+    

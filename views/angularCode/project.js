@@ -35,6 +35,11 @@ project.config(function ($routeProvider, $stateProvider, $urlRouterProvider, $sc
         templateUrl: 'angularCode/templates/eventdetail.html',
         controller: 'eventdetailController'
     },{
+        name: 'home.eventedit',
+        url: '/eventedit/:id',
+        templateUrl: 'angularCode/templates/eventedit.html',
+        controller: 'eventeditController'
+    },{
         name: 'home.friends',
         url: '/friendslist',
         templateUrl: 'angularCode/templates/friendslist.html',
