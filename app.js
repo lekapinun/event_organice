@@ -181,7 +181,7 @@ app.get('/AllEvent',function(req,res)
 	// {
 	    pool.getConnection(function(err,connection)
         {
-        	var datetime  = new Date().getTime();
+        	var datetime  = new Date().getTime() - 25200000;
         	console.log("select * from `event` where `TIME_END_E` > "  + datetime + " ORDER BY `TIME_START_E`");
 	        connection.query("select * from `event` where `TIME_END_E` > "  + datetime + " ORDER BY `TIME_START_E`" ,function(err,rows)
 	        {
@@ -216,7 +216,7 @@ app.get('/AllEvent/:category',function(req,res)
 	// {
 	    pool.getConnection(function(err,connection)
         {
-        	var datetime  = new Date().getTime();
+        	var datetime  = new Date().getTime() - 25200000;
         	var category = req.params.category;
         	console.log("select * from `event` where `TIME_END_E` > "  + datetime + " and `CATEGORY` = '" + category + " '" +" ORDER BY `TIME_START_E`" );
 	        connection.query("select * from `event` where `TIME_END_E` > "  + datetime + " and `CATEGORY` = '" + category + " '" +" ORDER BY `TIME_START_E`" ,function(err,rows)
@@ -1282,7 +1282,8 @@ app.get('/profile/:id',function(req,res)
 	// {
 		pool.getConnection(function(err,connection)
         {
-	        connection.query("select * from `member` where `member_id` = '" + req.params.id + "'",function(err,rows)
+        	console.log("select * from `member` where `MEMBER_ID` = '" + req.params.id + "'");
+	        connection.query("select * from `member` where `MEMBER_ID` = '" + req.params.id + "'",function(err,rows)
 	        {
 	            connection.release();
 	            if(!err) 
@@ -1342,9 +1343,11 @@ app.get('/profile/:id',function(req,res)
 													    		list = list + "EVENT_ID = '" + item.EVENT_ID + "'" + ' or ';
 													    	}
 													    	list = list.substr(0,list.length - 4);
-													    	var datetime  = new Date().getTime();
-													    	console.log("SELECT * FROM `event` WHERE " + list + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME` DESC");
-	        												connection.query("SELECT * FROM `event` WHERE " + list + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME` DESC",function(err,rows)
+													    	var datetime  = new Date().getTime() - 25200000;
+													    	// console.log("SELECT * FROM `event` WHERE " + list + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME` DESC");
+	        									// 			connection.query("SELECT * FROM `event` WHERE " + list + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME` DESC",function(err,rows)
+	        												console.log("SELECT * FROM `event` WHERE " + list + " ORDER BY `TIME` DESC");
+	        												connection.query("SELECT * FROM `event` WHERE " + list + " ORDER BY `TIME` DESC",function(err,rows)
 															{		    	
 															    // if(rows.length > 0)
 															    // {
@@ -1354,8 +1357,10 @@ app.get('/profile/:id',function(req,res)
 															    	}
 															    	//res.json(detail);
 															    	var datetime  = new Date().getTime();
-															    	console.log("SELECT * FROM `event` WHERE `OWNER_ID` =" + req.params.id + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME` DESC")
-															    	connection.query("SELECT * FROM `event` WHERE `OWNER_ID` =" + req.params.id + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME` DESC",function(err,rows)
+															    	// console.log("SELECT * FROM `event` WHERE `OWNER_ID` =" + req.params.id + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME` DESC")
+															    	// connection.query("SELECT * FROM `event` WHERE `OWNER_ID` =" + req.params.id + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME` DESC",function(err,rows)
+															    	console.log("SELECT * FROM `event` WHERE `OWNER_ID` =" + req.params.id + " ORDER BY `TIME` DESC")
+															    	connection.query("SELECT * FROM `event` WHERE `OWNER_ID` =" + req.params.id + " ORDER BY `TIME` DESC",function(err,rows)
 															        {
 															            // if(rows.length > 0) 
 															            // {
@@ -1447,7 +1452,7 @@ app.get('/newsfeed',function(req,res)
 				    {		    	
 				    	// if(rows.length > 0)
 				    	// {
-				    		var today = new Date().getTime();
+				    		var today = new Date().getTime() - 25200000;
 				    		for(var item of rows)
 				    		{
 				    			list = list + "(OWNER_ID = '" + item.FOLLOWING_ID + "' and MEMBER_ID = '" + item.FOLLOWING_ID + "' and event.TIME_END_E > " + today + ")" + ' or ';
