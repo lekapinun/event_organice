@@ -31,15 +31,19 @@
 					</div>
 					<div class="event_datail-text-createdby">
 						<span style="color:#7A8A99 ">CREATED BY: </span>
-						<span style="color: #47D2E9 ">{{memberID.USERNAME}}</span>
+						<a ng-href="#!/home/profile/{{memberID.MEMBER_ID}}">
+							<span style="color: #47D2E9 ">{{memberID.USERNAME}}</span>
+						</a>						
 						<span style="color:#7A8A99 ">TYPE: </span>
-						<span style="color: #47D2E9 ">{{eventID.CATEGORY}}</span>
+						<a ng-href="#!/home/eventlist/{{eventID.CATEGORY}}">
+							<span style="color: #47D2E9 ">{{eventID.CATEGORY}}</span>
+						</a>	
 						<div class="hidden-sm-down" style="height: 2px;" >
 							<div class="event_detail-imguser" style="position:relative;top: -5.5rem;margin-left: 50rem; ">
 								<div>
 									<label style="color: #48515A" class="quicksand-bold" >OTHERS JOINED</label>
 								</div>
-								<a href="#">
+								<a ng-href="">
 								    <img ng-repeat="item in otherID|limitTo:5" ng-src="{{item.URL_IMG}}" class="rounded-circle">								
 								</a>
 							</div>
@@ -136,17 +140,18 @@
 							</a> 
 						</div> 		 
 
-						<div class="col-md-3">
-							<div class="card event_detail-showmore"  >
-						    <div class="card-block text-center">
-						      	<div>
-						      		<a href="#" class="" style="color: #fff">SHOW MORE +</a>
-						    	</div>
-						    </div>
-						  </div>
-						</div>
-						  		  
-
+						<div  class="col-md-3">
+							<a ng-href="#!/home/eventlist">
+								<div class="card event_detail-showmore"  >
+								    <div class="card-block text-center">
+								      	<div>
+								      		<p style="color: #fff">SHOW MORE +</p>
+								      		<!-- <a href="#" class="" style="color: #fff">SHOW MORE +</a> -->
+								    	</div>
+								    </div>
+							    </div>
+							</a>
+						</div>	  		  
 				</div>		
 			</div>
 		</div>
