@@ -27,7 +27,7 @@ project.controller('profileController', function ($scope,$http,$state,$statePara
         $scope.follower = response.data[2];
         $scope.events = response.data[3];
         $scope.following_status = response.data[4];
-        console.log($scope.following_status)
+        //console.log($scope.following_status)
         if( $scope.my_id == $stateParams.id)
         {
             $scope.IsOwner = true;

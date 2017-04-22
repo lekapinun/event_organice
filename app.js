@@ -1303,6 +1303,10 @@ app.get('/profile/:id',function(req,res)
 				    			follow = follow + "MEMBER_ID = '" + item.FOLLOWING_ID + "'" + ' or ';
 				    		}
 				    		follow = follow.substr(0,follow.length - 4);
+				    		if(follow.length < 1)
+				    		{
+				    			follow = 0;
+				    		}
 				    		console.log("SELECT * FROM `member` WHERE " + follow);
 				    		connection.query("SELECT * FROM `member` WHERE " + follow,function(err,rows)
 						    {		    	
@@ -1324,6 +1328,10 @@ app.get('/profile/:id',function(req,res)
 								    			follow = follow + "MEMBER_ID = '" + item.MEMBER_ID + "'" + ' or ';
 								    		}
 								    		follow = follow.substr(0,follow.length - 4);
+								    		if(follow.length < 1)
+								    		{
+								    			follow = 0;
+								    		}
 								    		console.log("SELECT * FROM `member` WHERE " + follow);
 								    		connection.query("SELECT * FROM `member` WHERE " + follow,function(err,rows)
 										    {		    	
@@ -1344,6 +1352,10 @@ app.get('/profile/:id',function(req,res)
 													    		list = list + "EVENT_ID = '" + item.EVENT_ID + "'" + ' or ';
 													    	}
 													    	list = list.substr(0,list.length - 4);
+													    	if(list.length < 1)
+												    		{
+												    			list = 0;
+												    		}
 													    	var datetime  = new Date().getTime() - 25200000;
 													    	// console.log("SELECT * FROM `event` WHERE " + list + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME` DESC");
 	        												//connection.query("SELECT * FROM `event` WHERE " + list + " and `TIME_END_E` > "  + datetime + " ORDER BY `TIME` DESC",function(err,rows)
