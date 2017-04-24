@@ -387,13 +387,13 @@ app.get('/event/:id',function(req,res)
             if(!err) 
             {
             	var date = rows[0].TIME_START_E;
-            	var _start_date = new Date(parseInt(date));
+            	var _start_date = new Date(parseInt(date) + (7 * 60 * 60 * 1000)) ;
             	var _start_time = _start_date.toISOString().split('T')[1].split('.000Z')[0];
             	_start_date = _start_date.toISOString().split('T')[0];
             	rows[0].start_date = _start_date;
             	rows[0].start_time = _start_time;
             	date = rows[0].TIME_END_E;
-            	var _end_date = new Date(parseInt(date));
+            	var _end_date = new Date(parseInt(date) + (7 * 60 * 60 * 1000));
             	var _end_time = _end_date.toISOString().split('T')[1].split('.000Z')[0];
             	_end_date = _end_date.toISOString().split('T')[0];
             	rows[0].end_date = _end_date;
@@ -543,18 +543,22 @@ app.post('/create_event',function(req,res)
 	            }
 	        }           
 	    });
-	    if(form.start_date == '' || form.start_time == '' || form.end_time == '' || form.end_date == '')
+	    if(form.start_date == undefined || form.start_time == undefined || form.end_time == undefined || form.end_date == undefined)
 	    {
 	    	res.end('error : t');
 	    	console.log('error : t');
 	        return
 	    }
-
-	    var start = form.start_time.substr(0,form.start_time.length - 4) + '420Z';
-	    var end  = form.end_time.substr(0,form.end_time.length - 4) + '420Z';
-	    var start_time = new Date(start);
-	    var end_time = new Date(end);
-	    var today = new Date();
+	    else
+	    {
+	    	console.log(form.start_time);
+	    	var start = form.start_time.substr(0,form.start_time.length - 4) + '420Z';
+		    var end  = form.end_time.substr(0,form.end_time.length - 4) + '420Z';
+		    var start_time = new Date(start);
+		    var end_time = new Date(end);
+		    var today = new Date();
+	    }
+	    
 
 	    // var _today = new Date();
 	    // var today = _today.getTime();
@@ -637,7 +641,7 @@ app.post('/edit_event/:id',function(req,res)
 	    	console.log('error : en')
 	        return
 	    }  		
-	    if(form.start_date == '' || form.start_time == '' || form.end_time == '' || form.end_date == '')
+	    if(form.start_date == undefined || form.start_time == undefined || form.end_time == undefined || form.end_date == undefined)
 	    {
 	    	res.end('error : t');
 	    	console.log('error : t');

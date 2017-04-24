@@ -30,6 +30,8 @@ project.controller('eventeditController', function ($scope,$sce,$state, $statePa
             }
             else{
                 $scope.event = response.data[0];
+                $scope.TIME_START_E = $scope.event.start_date + "T" + $scope.event.start_time;
+                $scope.TIME_END_E = $scope.event.end_date + "T" + $scope.event.end_time;
                 console.log($scope.event);
                 Map.init_fixed($scope.event.LOCATION_lat,$scope.event.LOCATION_lng);
                 Map.addMarker_fixed($scope.event.LOCATION_lat,$scope.event.LOCATION_lng);
@@ -41,9 +43,9 @@ project.controller('eventeditController', function ($scope,$sce,$state, $statePa
     }
 
 
-    $scope.createsubmit = function(){
+    $scope.editsubmit = function(){
         //validate data here
-        //console.log($scope.create);
+        
         if($scope.create.gender_male && !$scope.create.gender_female)
         {
             $scope.create.gender = 'Male';
@@ -56,11 +58,11 @@ project.controller('eventeditController', function ($scope,$sce,$state, $statePa
         {
             $scope.create.gender = 'None'
         }
-        
+        console.log($scope.create);
         if ($scope.create!= undefined) {
             $http({
                 method : 'POST',
-                url : '/create_event',
+                url : /edit_event/ + $stateParams.id ,
                 data: $scope.create
             })
             .then(function (response) {

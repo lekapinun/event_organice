@@ -156,13 +156,13 @@
 
                         <div class="form-group col-sm-6 col-12">
                             <label for="formGroupExampleInput">Start</label>
-                            <input name="myStart" required class="form-control" type="datetime-local" ng-model="create.start_time">
+                            <input name="myStart" required class="form-control" type="datetime-local" ng-model="create.start_time" ng-value="TIME_START_E ">
                             <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField1.myStart.$touched && myField1.myStart.$invalid">Please enter start date and time.</span>
                         </div>
 
                         <div class="form-group col-sm-6 col-12">
                             <label  for="formGroupExampleInput">End</label>
-                            <input name="myEnd" required class="form-control" type="datetime-local"  ng-model="create.end_time">
+                            <input name="myEnd" required class="form-control" type="datetime-local"  ng-model="create.end_time" ng-value="TIME_END_E ">
                             <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField1.myEnd.$touched && myField1.myEnd.$invalid">Please enter end date and time.</span>
                         </div>
                         <!-- <div class="form-group col-sm-6 col-12">
@@ -216,18 +216,30 @@
                       <div  class="form-check">
                           <label class="custom-control custom-checkbox">
                               
-                              <input name="myMale" required type="checkbox" class="custom-control-input" ng-model="create.gender_male" >
-                              
-                              <span class="custom-control-indicator"></span>
-                              <span class="custom-control-description">MALE</span>
-                              
-                             
+                              <!-- <div ng-if="event.CONDITION_SEX == 'Male&Female' || event.CONDITION_SEX == 'Male'"> -->
+                                <input name="myMale" required type="checkbox" class="custom-control-input" ng-model="create.gender_male">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">MALE</span>
+                              <!-- </div>
+                              <div ng-if="event.CONDITION_SEX == 'Female' ">
+                                <input name="myMale" required type="checkbox" class="custom-control-input" ng-model="create.gender_male" >
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">MALE</span>
+                              </div>   -->                     
 
                         </label>
                           <label class="custom-control custom-checkbox">
-                              <input name="myFemale" required  type="checkbox" class="custom-control-input" ng-model="create.gender_female">
-                              <span class="custom-control-indicator"></span>
-                              <span class="custom-control-description">FEMALE</span>
+                              <!-- <div ng-if="event.CONDITION_SEX == 'Male&Female' || event.CONDITION_SEX == 'Female'"> -->
+                                <input name="myFemale" required  type="checkbox" class="custom-control-input" ng-model="create.gender_female" >
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">FEMALE</span>
+                              <!-- </div>
+                              <div ng-if="event.CONDITION_SEX == 'Male'">
+                                <input name="myFemale" required  type="checkbox" class="custom-control-input" ng-model="create.gender_female">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">FEMALE</span>
+                              </div> -->
+
                             </label>
                              <span  style="margin-left:1rem;font-size:0.8rem;color:red;" ng-show="myField2.myMale.$invalid  && myField2.myFemale.$invalid && myField2.myMale.$touched && myField2.myFemale.$touched">Please select less one.</span>
                       </div>
@@ -325,7 +337,7 @@
                     <button type="button" class="btn btn-outline-warning">Clear</button>
                  </div> -->
                  <div align="center" style="float:right">
-                    <button type="button" class="btn btn-danger" ng-click="createsubmit()">Submit</button>
+                    <button type="button" class="btn btn-danger" ng-click="editsubmit()">Submit</button>
                  </div>
              </div><br><br>
     </div>
