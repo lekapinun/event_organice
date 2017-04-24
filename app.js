@@ -675,6 +675,7 @@ app.post('/edit_event/:id',function(req,res)
 		    }
 		    else
 		    {
+		    	console.log("UPDATE `event` SET `EVENT_NAME`= '" + form.event_name + "',`CATEGORY`= '" + form.category + "' ,`DETAIL`= '" + form.detail + "',`PICTURE`= '" + form.pic + "',`VIDEO`= '" + form.video + "',`TIME_START_E`= '" + start_time + "',`TIME_END_E`= '" + end_time + "',`CONDITION_MIN_AGE`= '" + form.min_age + "',`CONDITION_MAX_AGE`='" + form.max_age + "',`CONDITION_SEX`= '" + form.gender + "',`MAX_SEAT`= '" + form.max_seat + "',`PRICE`= '" + form.ticket_price + "',`LOCATION_lat`= '" + form.location_lat + "',`LOCATION_lng`= '" + form.location_lng + "' WHERE `EVENT_ID` =" + req.params.id);
 			    connection.query("UPDATE `event` SET `EVENT_NAME`= '" + form.event_name + "',`CATEGORY`= '" + form.category + "' ,`DETAIL`= '" + form.detail + "',`PICTURE`= '" + form.pic + "',`VIDEO`= '" + form.video + "',`TIME_START_E`= '" + start_time + "',`TIME_END_E`= '" + end_time + "',`CONDITION_MIN_AGE`= '" + form.min_age + "',`CONDITION_MAX_AGE`='" + form.max_age + "',`CONDITION_SEX`= '" + form.gender + "',`MAX_SEAT`= '" + form.max_seat + "',`PRICE`= '" + form.ticket_price + "',`LOCATION_lat`= '" + form.location_lat + "',`LOCATION_lng`= '" + form.location_lng + "' WHERE `EVENT_ID` =" + req.params.id,function(err)
 			    {
 			        //connection.release();

@@ -44,43 +44,112 @@ project.controller('eventeditController', function ($scope,$sce,$state, $statePa
 
 
     $scope.editsubmit = function(){
-        //validate data here
-        
-        if($scope.create.gender_male && !$scope.create.gender_female)
-        {
-            $scope.create.gender = 'Male';
-        }
-        else if(!$scope.create.gender_male && $scope.create.gender_female)
-        {
-            $scope.create.gender = 'Female'
-        }
-        else
-        {
-            $scope.create.gender = 'None'
-        }
-        console.log($scope.create);
-        if ($scope.create!= undefined) {
-            $http({
-                method : 'POST',
-                url : /edit_event/ + $stateParams.id ,
-                data: $scope.create
-            })
-            .then(function (response) {
-                if(response.data === 'error'){
-                    $scope.msgError = "Don't have space in this form,please try agian."
+        $http({
+            method: 'GET',
+            url: '/event/' + $scope.id
+        }).then(function (response) {
+            if(response.data.length === 0){
+                $scope.errorMgs = "no event here."
+                console.log($scope.errorMgs);
+            }
+            else{
+                console.log($scope.create);
+                if( $scope.create.EVENT_NAME == undefined)
+                {
+                    $scope.create.EVENT_NAME = $scope.event.EVENT_NAME;
                 }
-                else{
-                    $state.go('home.event');
+                if( $scope.create.CATEGORY == undefined)
+                {
+                    $scope.create.CATEGORY = $scope.event.CATEGORY;
+                }
+                if( $scope.create.DETAIL == undefined)
+                {
+                    $scope.create.DETAIL = $scope.event.DETAIL;
+                }
+                if( $scope.create.PICTURE == undefined)
+                {
+                    $scope.create.PICTURE = $scope.event.PICTURE;
+                }
+                if( $scope.create.VIDEO == undefined)
+                {
+                    $scope.create.VIDEO = $scope.event.VIDEO;
+                }
+                if( $scope.create.TIME_START_E == undefined)
+                {
+                    $scope.create.TIME_START_E = $scope.event.TIME_START_E;
+                }
+                if( $scope.create.TIME_END_E == undefined)
+                {
+                    $scope.create.TIME_END_E = $scope.event.TIME_END_E;
+                }
+                if( $scope.create.CONDITION_MIN_AGE == undefined)
+                {
+                    $scope.create.CONDITION_MIN_AGE = $scope.event.CONDITION_MIN_AGE;
+                }
+                if( $scope.create.CONDITION_MAX_AGE == undefined)
+                {
+                    $scope.create.CONDITION_MAX_AGE = $scope.event.CONDITION_MAX_AGE;
+                }
+                if( $scope.create.CONDITION_SEX == undefined)
+                {
+                    $scope.create.CONDITION_SEX = $scope.event.CONDITION_SEX;
+                }
+                if( $scope.create.MAX_SEAT == undefined)
+                {
+                    $scope.create.MAX_SEAT = $scope.event.MAX_SEAT;
+                }
+                if( $scope.create.PRICE == undefined)
+                {
+                    $scope.create.PRICE = $scope.event.PRICE;
+                }
+                if( $scope.create.LOCATION_lat == undefined)
+                {
+                    $scope.create.LOCATION_lat = $scope.event.LOCATION_lat;
+                }
+                if( $scope.create.LOCATION_lng == undefined)
+                {
+                    $scope.create.LOCATION_lng = $scope.event.LOCATION_lng;
                 }
                 
-            }, function (response) {
-                $scope.msgError = "system down please contact dev"
-                console.log(response);
-            });
-        }
-        else{
-            $scope.msgError = 'please enter form';
-        }
+                if($scope.create.gender_male && !$scope.create.gender_female)
+                {
+                    $scope.create.gender = 'Male';
+                }
+                else if(!$scope.create.gender_male && $scope.create.gender_female)
+                {
+                    $scope.create.gender = 'Female'
+                }
+                else
+                {
+                    $scope.create.gender = 'None'
+                }
+                console.log($scope.create);
+                if ($scope.create!= undefined) {
+                    $http({
+                        method : 'POST',
+                        url : /edit_event/ + $stateParams.id ,
+                        data: $scope.create
+                    })
+                    .then(function (response) {
+                        if(response.data === 'error'){
+                            $scope.msgError = "Don't have space in this form,please try agian."
+                        }
+                        else{
+                            $state.go('home.event');
+                        }
+                        
+                    }, function (response) {
+                        $scope.msgError = "system down please contact dev"
+                        console.log(response);
+                    });
+                }
+                else{
+                    $scope.msgError = 'please enter form';
+                }
+            }
+        }, function (response) {
+            console.log("ERROR");
+        });
     }
 
     $scope.place = {};
