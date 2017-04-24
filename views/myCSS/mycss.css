@@ -1200,7 +1200,6 @@ body{
 
 .event_list-div-redtype{
 	background-color: #FC575E;
-	width: 5rem;
 	height: 2rem;
 	font-size: 20px;
 	color: white;
@@ -1318,7 +1317,6 @@ body{
 
 .event_profile-div-redtype{
 	background-color: #FC575E;
-	width: 5rem;
 	height: 2rem;
 	font-size: 20px;
 	color: white;
@@ -1539,3 +1537,104 @@ body{
 	}
 }	
 
+/*==========================supportlist=====================================================*/
+
+@import url('https://fonts.googleapis.com/css?family=Nunito|Quicksand');
+
+
+
+
+.support_list-h4-title{
+	color: #48515A;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.support_list-h6-describe{
+	color: #95989A;
+	font-size: 20px;
+	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	text-overflow: '.....?';
+}
+
+
+.support_list-a-event_type{
+	color: black;
+	font-family: "Nunito";
+	font-size: 1rem;
+	text-decoration: none;
+	margin-top: 1rem;
+	border-top-color: black;
+	border-bottom-color: black;
+}
+
+.support_list-a-event_type:hover{
+	text-decoration: none;
+	color: yellow;
+}
+
+
+
+.support_list-div-show{
+	font-family: 'Quicksand' ,sans-serif;
+	font-size: 1rem;
+	margin-top: 0rem;
+	margin-left: 1rem;
+
+}
+
+.support_list-li-page-link{
+	color: white;
+	font-family: 'Nunito';
+	background-color:#FFD700;
+	border-radius: 0px;
+}
+
+.support_list-li-page-link:hover{
+	color: white;
+	font-family: 'Nunito';
+	background-color:#FC575E;
+	border-radius: 0px;
+}
+
+
+
+.support_list-div-detail{
+	color: black;
+	font-size: 22px;
+}
+
+.support_list-div-price{
+	color: black;
+	font-size: 22px;
+}
+
+.support_list-div-redtype{
+	background-color: #FC575E;
+	height: 2rem;
+	font-size: 20px;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	margin-left: 150px;
+	margin-top: 194px;
+	border-top-left-radius: 15px; 
+
+}
+
+.support_list-input-txt{
+	width: 15rem;
+	border: 1.5px solid #000;
+	border-radius: 12px;
+	
+}
+
+
+
+@media (max-width:575px){
+	.support_list-div-pag{
+		margin-left: 5rem;
+	}
+}
