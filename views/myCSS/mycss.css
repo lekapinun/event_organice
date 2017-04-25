@@ -1540,6 +1540,42 @@ body{
     animation-name: zoom;
     animation-duration: 0.6s;
 }
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.support_detail-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.support_detail-close:hover,
+.support_detail-close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .support_detail-modal-content {
+        width: 100%;
+    }
+}
+
 .support_detail-card{
 	cursor: pointer;
     transition: 0.3s;

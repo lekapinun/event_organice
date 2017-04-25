@@ -102,17 +102,23 @@
 						<div class="support_detail-card">
 							<div class="card support_detail-card">
 							  	<div class="card-img-top support_detail-img" >
-							  		<img id="myimg" src="https://s-media-cache-ak0.pinimg.com/564x/87/4a/4c/874a4c7c9f109586358faeada64a0334.jpg">
+							  		<img id="sdImg" src="https://s-media-cache-ak0.pinimg.com/564x/87/4a/4c/874a4c7c9f109586358faeada64a0334.jpg">
 							  	</div>
 							    <div class="card-block">
-							      <p class="card-text quicksand event_newfeed-eventdetail-overflow" style="color:#828282; ">This card has supporting text below as a natural lead-in to additional content.</p>
+							      <p class="card-text quicksand " style="color:#828282; ">This card has supporting text below as a natural lead-in to additional content.</p>
 							    </div>
 							</div>
 						</div>
-					
+					</div>
+
+					<!-- The Modal -->
+					<div id="sdModal" class="support_detail-modal">
+					  <span class="support_detail-close">&times;</span>
+					  	<img class="support_detail-modal-content" id="sdImg1">
+					  <p id="support_detail-caption">This card has supporting text below as a natural lead-in to additional content.</p>
 					</div>
 		
-			</div>
+					
 		</div>
 
 		<!-- other support -->
@@ -184,4 +190,32 @@
 			</div>
 		</div>
 	</div>
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('sdModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('sdImg');
+var modalImg = document.getElementById("sdImg1");
+var captionText = document.getElementById("support_detail-caption");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("support_detail-close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>
+
+
+
+
 </body>
