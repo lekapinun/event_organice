@@ -1500,15 +1500,56 @@ body{
 }
 
 /*================================Support Detail=================================*/
-.support_detail-card:hover{
-	border-color: 2px solid black;
+.support_detail-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.support_detail-modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+/* Caption of Modal Image */
+#support_detail-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.support_detail-modal-content, #support_detail-caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+.support_detail-card{
+	cursor: pointer;
+    transition: 0.3s;
 }
 .support_detail-card:hover{
-	border-color: 2px solid yellow;
+	opacity: 0.8;
 }
 .support_detail-img{
 	max-width: 100%;
-	max-height:30rem;
+	max-height:20rem;
 	overflow:hidden;
 }
 .support_detail-img img{
