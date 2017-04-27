@@ -388,13 +388,13 @@ app.get('/event/:id',function(req,res)
             {
             	var date = rows[0].TIME_START_E;
             	var _start_date = new Date(parseInt(date) + (7 * 60 * 60 * 1000)) ;
-            	var _start_time = _start_date.toISOString().split('T')[1].split('.000Z')[0];
+            	var _start_time = _start_date.toISOString().split('T')[1].split('.420Z')[0];
             	_start_date = _start_date.toISOString().split('T')[0];
             	rows[0].start_date = _start_date;
             	rows[0].start_time = _start_time;
             	date = rows[0].TIME_END_E;
             	var _end_date = new Date(parseInt(date) + (7 * 60 * 60 * 1000));
-            	var _end_time = _end_date.toISOString().split('T')[1].split('.000Z')[0];
+            	var _end_time = _end_date.toISOString().split('T')[1].split('.420Z')[0];
             	_end_date = _end_date.toISOString().split('T')[0];
             	rows[0].end_date = _end_date;
             	rows[0].end_time = _end_time;
@@ -403,10 +403,18 @@ app.get('/event/:id',function(req,res)
                 connection.query("select * from `member` where `member_id` = '" + detail[0].OWNER_ID + "'",function(err,rows)
         		{
         			console.log(err);
-	            	if(!err) 
+	            	if(rows.length > 0) 
 	            	{
 	            		rows[0].PASSWORD = "shhhhh!";
 	            		detail = detail.concat(rows);
+	            		if(rows[0].MEMBER_ID == req.session.member_id)
+	            		{
+	            			detail[2] = true;
+	            		}
+	            		else
+	            		{
+	            			detail[2] = false;
+	            		}
 	            		//res.json(detail);
 	            		connection.query("SELECT * FROM `join_event` WHERE `EVENT_ID` =" + detail[0].EVENT_ID ,function(err,rows)
 				        {
@@ -433,7 +441,7 @@ app.get('/event/:id',function(req,res)
 									    		rows[i].PASSWORD = "sshhh!";
 									    	}
 								    	}
-								    	detail[2] = rows;
+								    	detail[3] = rows;
 	            						//res.json(detail);
 	            						var datetime  = new Date().getTime();
 	            						connection.query("SELECT * FROM `event` WHERE `TIME_END_E` > "  + datetime + " ORDER BY rand() ",function(err,rows)
@@ -441,8 +449,21 @@ app.get('/event/:id',function(req,res)
 											console.log(err);    	
 										    //if(!err)
 										    //{										    	
-										    	detail[3] = rows;
-			            						res.json(detail);
+										    	detail[4] = rows;
+			            						//res.json(detail);
+			            						console.log("SELECT * FROM `join_event` WHERE `EVENT_ID` = "  + event_id + " and `MEMBER_ID` = " + req.session.member_id);
+			            						connection.query("SELECT * FROM `join_event` WHERE `EVENT_ID` = "  + event_id + " and `MEMBER_ID` = " + req.session.member_id,function(err,rows)
+												{
+													if(rows.length > 0)
+													{
+														detail[5] = true;
+													}
+													else
+													{
+														detail[5] = false;
+													}
+													res.json(detail);
+												});
 										    // }
 										    // else
 										    // {
@@ -537,15 +558,15 @@ app.post('/create_event',function(req,res)
 	        {
 	            if(rows.length > 0)
 	            {
-	            	res.end('error : sn');
+	            	res.end('error');
 	            	console.log('error : sn');
 	            	return
 	            }
 	        }           
 	    });
-	    if(form.start_date == undefined || form.start_time == undefined || form.end_time == undefined || form.end_date == undefined)
+	    if(form.start_time == undefined || form.end_time == undefined)
 	    {
-	    	res.end('error : t');
+	    	res.end('error');
 	    	console.log('error : t');
 	        return
 	    }
@@ -581,19 +602,19 @@ app.post('/create_event',function(req,res)
 
 	    if(today > start_time)
 	    {
-	        res.end('error : t>');
+	        res.end('error');
 	        console.log('error : t>');
 	        return;
 	    }
 	    else if(end_time <= start_time)
 	    {
-	        res.end('error : t<');
+	        res.end('error');
 	        console.log('error : t<');
 	        return;
 	    }
 	    if(form.min_age < 0 || form.max_age < 0  || form.min_age > 120 || form.max_age > 120 || form.ticket_price < 0 || form.max_seat < 0)
 	    {
-	    	res.end('error : xxxx');
+	    	res.end('error');
 	    	console.log('error : xxxx');
 	        return;
 	    }
@@ -637,40 +658,44 @@ app.post('/edit_event/:id',function(req,res)
 	{
 		if(form.event_name == '')
 	    {
-	    	res.end('error : en');
+	    	res.end('error');
 	    	console.log('error : en')
 	        return
 	    }  		
-	    if(form.start_date == undefined || form.start_time == undefined || form.end_time == undefined || form.end_date == undefined)
+	    if(form.start_time == undefined  || form.end_time == undefined )
 	    {
-	    	res.end('error : t');
+	    	res.end('error');
 	    	console.log('error : t');
 	    }
 	    else
 	    {
-	    	var datetime = form.start_date.toString() + "T" + form.start_time.toString() + ".000Z";
-		    console.log(datetime);
-	 		var start_time = new Date(datetime).getTime();//1492714800000;//new Date(datetime).getTime();
-	 		datetime = form.end_date.toString() + "T" + form.end_time.toString() + ".000Z";
-	 		var end_time = new Date(datetime).getTime();//1492725600000;//new Date(datetime).getTime();
-	 		var today = new Date().getTime();
-
-	 		console.log(datetime);
+	   //  	var datetime = form.start_date.toString() + "T" + form.start_time.toString() + ".000Z";
+		  //   console.log(datetime);
+	 		// var start_time = new Date(datetime).getTime();//1492714800000;//new Date(datetime).getTime();
+	 		// datetime = form.end_date.toString() + "T" + form.end_time.toString() + ".000Z";
+	 		// var end_time = new Date(datetime).getTime();//1492725600000;//new Date(datetime).getTime();
+	 		// var today = new Date().getTime();
+	 		console.log(form.start_time);
+	    	var start = form.start_time.substr(0,form.start_time.length - 4) + '420Z';
+		    var end  = form.end_time.substr(0,form.end_time.length - 4) + '420Z';
+		    var start_time = new Date(start).getTime();
+		    var end_time = new Date(end).getTime();
+		    var today = new Date().getTime();
 	 		
 
 		    if(today > start_time)
 		    {
-		        res.end('error : t>');
+		        res.end('error');
 		        console.log('error : t>');
 		    }
 		    else if(end_time <= start_time)
 		    {
-		        res.end('error : t<');
+		        res.end('error');
 		        console.log('error : t<');
 		    }
 		    if(form.min_age < 0 || form.max_age < 0  || form.min_age > 120 || form.max_age > 120 || form.ticket_price < 0 || form.max_seat < 0)
 		    {
-		    	res.end('error : xxxx');
+		    	res.end('error');
 		    	console.log('error : xxxx');
 		    }
 		    else
@@ -818,7 +843,7 @@ app.post('/signup',function(req,res)
 	//{
 	pool.getConnection(function(err,connection)
 	{
-		if(form.user == '' || form.fname == '' || form.lname == '' || form.bd == '' || form.sex == '')
+		if(form.user == undefined || form.bd == undefined || form.sex == undefined || form.pass == undefined)
 	    {
 	    	res.end('error');
 	    	console.log('error : en')
@@ -847,6 +872,12 @@ app.post('/signup',function(req,res)
 
 					console.log(today.toISOString().split('T')[0]);
 					console.log(bd);
+
+					if(form.img == undefined)
+					{
+						form.img = 'http://www.src.gov.jm/wp-content/uploads/2013/07/Unknown_male.jpg';
+					}
+
 
 					if(today < birthday)
 					{
@@ -961,7 +992,7 @@ app.post('/editprofile',function(req,res)
 app.get('/follow/:id',function(req,res)
 {
 	sess = req.session;
-	console.log(sess);
+	//console.log(sess);
 	if(sess.member_id) 
 	{
 	    pool.getConnection(function(err,connection)
@@ -970,7 +1001,7 @@ app.get('/follow/:id',function(req,res)
 	        {
 	            if(rows.length > 0) 
 	            {
-	                connection.query("SELECT * FROM `following` WHERE `FOLLOWING_ID` = '" + req.params.id + "'",function(err,rows)
+	                connection.query("SELECT * FROM `following` WHERE `FOLLOWING_ID` = '" + req.params.id + "' and `MEMBER_ID` = '" + sess.member_id + "'",function(err,rows)
 			        {
 			            if(rows.length <= 0) 
 			            {
@@ -997,6 +1028,7 @@ app.get('/follow/:id',function(req,res)
 	            }
 	            else
 	            {
+	            	console.log('no member');
 	            	res.end('error');
 	            }           
 	        });     	
@@ -1492,6 +1524,14 @@ app.get('/newsfeed',function(req,res)
 				    		}
 				    		list = list.substr(0,list.length - 4);
 				    		list_2 = list_2.substr(0,list_2.length - 4);
+				    		if(list.length < 1)
+							{
+								list = 0;
+							}
+							if(list_2.length < 1)
+							{
+								list_2 = 0;
+							}
 				    		console.log("SELECT *  FROM `event` JOIN  `member` WHERE " + list );
 				    		connection.query("SELECT *  FROM `event` JOIN  `member` WHERE " + list ,function(err,rows)
 							{	

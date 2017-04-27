@@ -38,7 +38,8 @@ project.controller('eventcreateController', function ($scope,$http,$state,Map) {
                     $scope.msgError = "Don't have space in this form,please try agian."
                 }
                 else{
-                    $state.go('home.event');
+                    // $state.go('home.event');
+                    $state.go('home.eventdetail');
                 }
                 
             }, function (response) {

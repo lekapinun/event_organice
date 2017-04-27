@@ -53,62 +53,61 @@ project.controller('eventeditController', function ($scope,$sce,$state, $statePa
                 console.log($scope.errorMgs);
             }
             else{
-                console.log($scope.create);
-                if( $scope.create.EVENT_NAME == undefined)
+                if( $scope.create.event_name == undefined)
                 {
-                    $scope.create.EVENT_NAME = $scope.event.EVENT_NAME;
+                    $scope.create.event_name = $scope.event.EVENT_NAME;
                 }
-                if( $scope.create.CATEGORY == undefined)
+                if( $scope.create.category == undefined)
                 {
-                    $scope.create.CATEGORY = $scope.event.CATEGORY;
+                    $scope.create.category = $scope.event.CATEGORY;
                 }
-                if( $scope.create.DETAIL == undefined)
+                if( $scope.create.detail == undefined)
                 {
-                    $scope.create.DETAIL = $scope.event.DETAIL;
+                    $scope.create.detail = $scope.event.DETAIL;
                 }
-                if( $scope.create.PICTURE == undefined)
+                if( $scope.create.pic == undefined)
                 {
-                    $scope.create.PICTURE = $scope.event.PICTURE;
+                    $scope.create.pic = $scope.event.PICTURE;
                 }
-                if( $scope.create.VIDEO == undefined)
+                if( $scope.create.video == undefined)
                 {
-                    $scope.create.VIDEO = $scope.event.VIDEO;
+                    $scope.create.video = $scope.event.VIDEO;
                 }
-                if( $scope.create.TIME_START_E == undefined)
+                if( $scope.create.start_time == undefined)
                 {
-                    $scope.create.TIME_START_E = $scope.event.TIME_START_E;
+                    $scope.create.start_time = $scope.TIME_START_E + '.000Z';
                 }
-                if( $scope.create.TIME_END_E == undefined)
+                if( $scope.create.end_time == undefined)
                 {
-                    $scope.create.TIME_END_E = $scope.event.TIME_END_E;
+                    $scope.create.end_time = $scope.TIME_END_E + '.000Z';
                 }
-                if( $scope.create.CONDITION_MIN_AGE == undefined)
+                if( $scope.create.min_age == undefined)
                 {
-                    $scope.create.CONDITION_MIN_AGE = $scope.event.CONDITION_MIN_AGE;
+                    $scope.create.min_age = $scope.event.CONDITION_MIN_AGE;
                 }
-                if( $scope.create.CONDITION_MAX_AGE == undefined)
+                if( $scope.create.max_age == undefined)
                 {
-                    $scope.create.CONDITION_MAX_AGE = $scope.event.CONDITION_MAX_AGE;
+                    $scope.create.max_age = $scope.event.CONDITION_MAX_AGE;
                 }
-                if( $scope.create.CONDITION_SEX == undefined)
+                if( $scope.create.gender == undefined)
                 {
-                    $scope.create.CONDITION_SEX = $scope.event.CONDITION_SEX;
+                    $scope.create.gender = $scope.event.CONDITION_SEX;
                 }
-                if( $scope.create.MAX_SEAT == undefined)
+                if( $scope.create.max_seat == undefined)
                 {
-                    $scope.create.MAX_SEAT = $scope.event.MAX_SEAT;
+                    $scope.create.max_seat = $scope.event.MAX_SEAT;
                 }
-                if( $scope.create.PRICE == undefined)
+                if( $scope.create.ticket_price == undefined)
                 {
-                    $scope.create.PRICE = $scope.event.PRICE;
+                    $scope.create.ticket_price = $scope.event.PRICE;
                 }
-                if( $scope.create.LOCATION_lat == undefined)
+                if( $scope.create.location_lat == undefined)
                 {
-                    $scope.create.LOCATION_lat = $scope.event.LOCATION_lat;
+                    $scope.create.location_lat = $scope.event.LOCATION_lat;
                 }
-                if( $scope.create.LOCATION_lng == undefined)
+                if( $scope.create.location_lng == undefined)
                 {
-                    $scope.create.LOCATION_lng = $scope.event.LOCATION_lng;
+                    $scope.create.location_lng = $scope.event.LOCATION_lng;
                 }
                 
                 if($scope.create.gender_male && !$scope.create.gender_female)
@@ -135,7 +134,7 @@ project.controller('eventeditController', function ($scope,$sce,$state, $statePa
                             $scope.msgError = "Don't have space in this form,please try agian."
                         }
                         else{
-                            $state.go('home.event');
+                            $state.go('home.eventdetail', { "id" : $stateParams.id });
                         }
                         
                     }, function (response) {

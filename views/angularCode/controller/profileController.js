@@ -40,4 +40,47 @@ project.controller('profileController', function ($scope,$http,$state,$statePara
         console.log("ERROR");
     });
 
+
+    $scope.followsubmit = function(){
+        console.log($stateParams.id );
+        $http({
+            method: 'GET',
+            url: '/follow/' + $stateParams.id 
+        }).then(function (response) {
+            if(response.data === 'error')
+            {
+                $scope.errorMgs = "follow error."
+                console.log($scope.errorMgs);
+            }
+            else
+            {
+                $state.reload();
+            }
+        }, function (response) {
+            console.log("ERROR");
+        });
+    }
+
+    $scope.unfollowsubmit = function(){
+        console.log($stateParams.id );
+        $http({
+            method: 'GET',
+            url: '/unfollow/' + $stateParams.id 
+        }).then(function (response) {
+            if(response.data === 'error')
+            {
+                $scope.errorMgs = "unfollow error."
+                console.log($scope.errorMgs);
+            }
+            else
+            {
+                $state.reload();
+            }
+        }, function (response) {
+            console.log("ERROR");
+        });
+    }
+
+
+
 });

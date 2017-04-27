@@ -39,10 +39,10 @@
 
             <div ng-if="IsOwner == false">
               <div ng-if="following_status == false">
-                <button type="button" class="btn btn-primary btn-lg btn-block btn-block-profile" style="height: 40px; font-size: 1rem; background-color: #FC575E; border-color:#FC575E; margin-top: 2rem; font-family: 'nunito'; ">FOLLOW</button>
+                <button type="button" class="btn btn-primary btn-lg btn-block btn-block-profile" ng-click="followsubmit()" style="height: 40px; font-size: 1rem; background-color: #FC575E; border-color:#FC575E; margin-top: 2rem; font-family: 'nunito'; ">FOLLOW</button>
               </div>
               <div ng-if="following_status == true">
-                <button type="button" class="btn btn-primary btn-lg btn-block btn-block-profile" style="height: 40px; font-size: 1rem; background-color: #FC575E; border-color:#FC575E; margin-top: 2rem; font-family: 'nunito'; ">UNFOLLOW</button>
+                <button type="button" class="btn btn-primary btn-lg btn-block btn-block-profile" ng-click="unfollowsubmit()" style="height: 40px; font-size: 1rem; background-color: #FC575E; border-color:#FC575E; margin-top: 2rem; font-family: 'nunito'; ">UNFOLLOW</button>
               </div>             
             </div>
 
@@ -52,18 +52,18 @@
 
             <h6 style="margin-top: 3rem; font-size: 2rem; ">EVENTS</h6>
             <div class="btn-group-vertical">
-              <a class="event_profile-a-event_type" href="">+ MY EVENT</a>
-              <a class="event_profile-a-event_type" href="">+ EVENT JOINED</a>
+              <a class="event_profile-a-event_type" href="">∙ ALL</a>
+              <a class="event_profile-a-event_type checkbox" href="">∙ MY EVENT</a>
+              <a class="event_profile-a-event_type" href="">∙ EVENT JOINED</a>
             </div>
             <h6 style="margin-top: 3rem; font-size: 2rem; ">FRIENDS</h6>
             <div class="btn-group-vertical">
-              <a class="event_profile-a-event_type" href="">+ FOLLOWERS</a>
-              <a class="event_profile-a-event_type" href="">+ FOLLOWING</a>
+              <a class="event_profile-a-event_type" href="">∙ FOLLOWERS</a>
+              <a class="event_profile-a-event_type" href="">∙ FOLLOWING</a>
             </div>
             <h6 style="margin-top: 3rem; font-size: 2rem; ">EDIT</h6>
             <div class="btn-group-vertical">
-              <a class="event_profile-a-event_type" href="">+ EDIT MY PROFILE</a>
-              <a class="event_profile-a-event_type" href="">+ EDIT MY EVENTS</a>
+              <a class="event_profile-a-event_type" ng-href="#!/home/editprofile">∙ EDIT MY PROFILE</a>
             </div>
           </div><!-- left -->
 
