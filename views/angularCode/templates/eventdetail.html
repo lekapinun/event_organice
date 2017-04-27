@@ -69,7 +69,7 @@
 						<div><label style="color: #48515A" >MAX SEAT: {{eventID.MAX_SEAT}}</label></div>
 						<div style="margin-bottom: 1rem;" ><label>TICKET PRICE: {{eventID.PRICE}} ฿</label></div>
 						
-						<div ng-if="joined == false">
+						<div ng-if="joined == false ">
 							<button  ng-if="ISowner == false" type="button" class="btn btn-buyticket btn-lg nunito" data-toggle="modal" data-target=".bd-example-modal-sm" ng-click="joinsubmit()">JOIN</button>
 							<a ng-href="#!/home/eventedit/{{eventID.EVENT_ID}}" style="text-decoration:none">
 								<button ng-if="ISowner == true" type="button" class="btn btn-buyticket btn-lg nunito">EDIT</button>
@@ -129,8 +129,8 @@
 						  </div>
 						 </a> -->
 
-						 <div class="col-md-3" ng-repeat="event in otherEID">
-							<a href="#" class="">
+						 <div class="col-md-3" ng-repeat="event in otherEID | limitTo: 3">
+							<a ng-href="#!/home/eventdetail/{{event.EVENT_ID}}" class="">
 								<div class="card " >
 							  	<div class="event_detail-blockofimg" style="height: 9.5rem;">
 							  		<img class="card-img-top img-fluid img-fluid-clip " ng-src="{{event.PICTURE}}" >
@@ -192,7 +192,7 @@
       </div>
       <div class="modal-footer">
       <!--   <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button> -->
-        <button type="button" class="btn btn-primary " data-dismiss="modal">OK</button>
+        <button type="button" class="btn btn-primary " data-dismiss="modal" ng-click="reload()">OK</button>
       </div>
     </div>
   </div>

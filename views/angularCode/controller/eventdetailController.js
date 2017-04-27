@@ -56,10 +56,14 @@ project.controller('eventdetailController', function ($scope,$sce,$state, $state
 			else
 			{
 				console.log('join suscuess');
-				$state.reload();
 			}
 		}, function (response) {
 	        console.log("ERROR");
 	    });
 	}
+
+	$scope.reload = function(){
+		$state.reload();
+	}
+
 });

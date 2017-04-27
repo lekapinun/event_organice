@@ -26,7 +26,8 @@ project.controller('eventcreateController', function ($scope,$http,$state,Map) {
         {
             $scope.create.gender = 'None'
         }
-        
+        $scope.create.location_lat = $scope.place.lat;
+        $scope.create.location_lng = $scope.place.lng;
         if ($scope.create!= undefined) {
             $http({
                 method : 'POST',
@@ -39,7 +40,9 @@ project.controller('eventcreateController', function ($scope,$http,$state,Map) {
                 }
                 else{
                     // $state.go('home.event');
-                    $state.go('home.eventdetail');
+                    console.log(response[0]);
+                    $state.go('home.event');
+                    //$state.go('home.eventdetail', { "id" : response[0].EVENT_ID});
                 }
                 
             }, function (response) {

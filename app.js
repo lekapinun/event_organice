@@ -628,9 +628,21 @@ app.post('/create_event',function(req,res)
 	        console.log(err);
 	        if(!err) 
 	        {
-	        	console.log('dsfagrr');
-	            var temp = form.event_name;
-	            res.json('temp');
+	        	console.log('create suscess');
+	            //var temp = form.event_name;
+	            //res.json('temp');
+	            connection.query("SELECT * FROM `event` WHERE `EVENT_NAME` = '" + form.event_name + "'",function(err,rows)
+	    		{
+	    			if(rows.length > 0)
+	    			{
+	    				console.log(rows[0]);
+	    				res.json(rows[0]);
+	    			}
+	    			else
+	    			{
+	    				res.end('error');
+	    			}
+	    		});
 	        }
 	        else
 	        {
