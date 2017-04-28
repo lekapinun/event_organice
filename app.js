@@ -243,6 +243,105 @@ app.get('/AllEvent/:category',function(req,res)
 	// }
 });
 
+app.get('/supportlist',function(req,res)
+{
+	sess = req.session;
+	// console.log(sess);
+	// if(sess.member_id) 
+	// {
+	    pool.getConnection(function(err,connection)
+        {
+	        connection.query("SELECT * FROM `support` WHERE 1 ORDER BY rand()" ,function(err,rows)
+	        {
+	            //connection.release();
+	            if(!err) 
+	            {
+	                res.json(rows);
+	            }      
+	            else
+	            {
+	            	res.end('error');
+	            }     
+	        });
+  		});
+	// }
+	// else 
+	// {
+	//     res.render('login.html');
+	// }
+});
+
+app.get('/supportlist/:type',function(req,res)
+{
+	sess = req.session;
+	// console.log(sess);
+	// if(sess.member_id) 
+	// {
+	    pool.getConnection(function(err,connection)
+        {
+	        connection.query("SELECT * FROM `support` WHERE `TYPE` = '" + req.params.type + "' ORDER BY rand()",function(err,rows)
+	        {
+	            //connection.release();
+	            if(!err) 
+	            {
+	                res.json(rows);
+	            }      
+	            else
+	            {
+	            	res.end('error');
+	            }     
+	        });
+  		});
+	// }
+	// else 
+	// {
+	//     res.render('login.html');
+	// }
+});
+
+app.get('/supportdetail/:id',function(req,res)
+{
+	sess = req.session;
+	datail = [];
+	// console.log(sess);
+	// if(sess.member_id) 
+	// {
+	    pool.getConnection(function(err,connection)
+        {
+	        connection.query("SELECT * FROM `support` WHERE `SUPPORT_ID` = " + req.params.id  ,function(err,rows)
+	        {
+	            //connection.release();
+	            if(rows.length > 0) 
+	            {
+	            	detail[0] = rows[0];
+	            	var type = rows[0].TYPE;
+	            	connection.query("SELECT * FROM `support` WHERE `TYPE` = '" + type + "' ORDER BY rand() LIMIT 4",function(err,rows)
+	        		{
+	        			var temp = [];
+	        			for (var i = rows.length - 1; i >= 0; i--) {
+	        				if(detail[0].SUPPORT_ID != rows[i].SUPPORT_ID)
+	        				{
+	        					temp = temp.concat(rows[i]);
+	        				}			
+	        			}
+	        			detail[1] = temp;
+	        			res.json(detail);
+	        		});	
+	                //res.json(rows[0]);
+	            }      
+	            else
+	            {
+	            	res.end('error');
+	            }     
+	        });
+  		});
+	// }
+	// else 
+	// {
+	//     res.render('login.html');
+	// }
+});
+
 app.get('/join/:id',function(req,res)
 {
 	sess = req.session;
@@ -444,12 +543,19 @@ app.get('/event/:id',function(req,res)
 								    	detail[3] = rows;
 	            						//res.json(detail);
 	            						var datetime  = new Date().getTime();
-	            						connection.query("SELECT * FROM `event` WHERE `TIME_END_E` > "  + datetime + " ORDER BY rand() ",function(err,rows)
+	            						console.log("SELECT * FROM `event` WHERE (`TIME_END_E` > "  + datetime + " and `CATEGORY` = '" + detail[0].CATEGORY + "') ORDER BY rand() LIMIT 4 ");
+	            						connection.query("SELECT * FROM `event` WHERE (`TIME_END_E` > "  + datetime + " and `CATEGORY` = '" + detail[0].CATEGORY + "') ORDER BY rand() LIMIT 4 ",function(err,rows)
 										{		
 											console.log(err);    	
 										    //if(!err)
-										    //{										    	
-										    	detail[4] = rows;
+										    //{					
+										    	var temp = [];
+										    	for (var i = rows.length - 1; i >= 0; i--) {
+										    		if(detail[0].EVENT_ID != rows[i].EVENT_ID){
+										    			temp = temp.concat(rows[i]);										    		 
+										    		}
+										    	}					    	
+										    	detail[4] = temp;
 			            						//res.json(detail);
 			            						console.log("SELECT * FROM `join_event` WHERE `EVENT_ID` = "  + event_id + " and `MEMBER_ID` = " + req.session.member_id);
 			            						connection.query("SELECT * FROM `join_event` WHERE `EVENT_ID` = "  + event_id + " and `MEMBER_ID` = " + req.session.member_id,function(err,rows)
@@ -790,34 +896,6 @@ app.get('/DeleteEvent/:id_event/:pass',function(req,res)
 	// }
 });
 
-app.get('/supoort_list',function(req,res)
-{
-	sess = req.session;
-	// console.log(sess);
-	// if(sess.member_id) 
-	// {
-	    pool.getConnection(function(err,connection)
-        {
-	        connection.query("SELECT * FROM `support`" ,function(err,rows)
-	        {
-	            //connection.release();
-	            if(!err) 
-	            {
-	                res.json(rows);
-	            }      
-	            else
-	            {
-	            	res.end('error');
-	            }     
-	        });
-  		});
-	// }
-	// else 
-	// {
-	//     res.render('login.html');
-	// }
-});
-
 app.get('/category',function(req,res)
 {
 	sess = req.session;
@@ -946,13 +1024,13 @@ app.post('/editprofile',function(req,res)
 		}
 		else
 		{
-			if(form.user == '' || form.fname == '' || form.lname == '' || form.bd == '' || form.sex == '' || form.cd == '' || form.phone == '')
-		    {
-		    	res.end('error : space');
-		    	console.log('error : space')
-		    }  		
-		    else
-		    {
+			// if(form.user == '' || form.fname == '' || form.lname == '' || form.bd == '' || form.sex == '' || form.cd == '' || form.phone == '')
+		 //    {
+		 //    	res.end('error : space');
+		 //    	console.log('error : space')
+		 //    }  		
+		    // else
+		    // {
 		    	var today = new Date();
 		    	var date = form.bd.split('T')[0] + "T17:00:00.420Z";
     			//var date_timestamp = new Date(date);
@@ -990,7 +1068,7 @@ app.post('/editprofile',function(req,res)
 						}           
 					});
 				}
-	    	}
+	    	// }
 		}
 		
     }); 

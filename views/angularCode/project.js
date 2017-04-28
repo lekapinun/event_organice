@@ -68,6 +68,16 @@ project.config(function ($routeProvider, $stateProvider, $urlRouterProvider, $sc
         url: '/managed-event',
         templateUrl: 'angularCode/templates/managedevent.html',
         controller: 'managedeventController'
+    },{
+        name: 'home.support',
+        url: '/supportlist/:type',
+        templateUrl: 'angularCode/templates/supportlist.html',
+        controller: 'supportlistController'
+    },{
+        name: 'home.supportdetail',
+        url: '/supportdetail/:id',
+        templateUrl: 'angularCode/templates/supportdetail.html',
+        controller: 'supportdetailController'
     }];
 
     // Loop over the state definitions and register them

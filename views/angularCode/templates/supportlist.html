@@ -1,0 +1,228 @@
+<div class="container-fluid"> <!-- fluid -->
+        <div class="row"> <!-- rowbig -->
+          <div class="col-sm-10 col-md-3 col-lg-3 offset-sm-2 offset-md-0 offset-lg-0 nunito"> <!-- left -->
+            <h6 class="text-center" style="margin-top: 3rem; font-size: 2rem; ">TYPE</h6>
+              <div class="btn-group-vertical">
+                <a href="#!/home/supportlist/APPLIANCE SHOP"  class="event_list-a-event_type">∙ APPLIANCE SHOP</a>
+                <a href="#!/home/supportlist/DECORATION SHOP"  class="event_list-a-event_type">∙ DECORATION SHOP</a>
+                <a href="#!/home/supportlist/ETC" class="event_list-a-event_type">∙ ETC</a>
+                <a href="#!/home/supportlist/" class="event_list-a-event_type">∙ ALL</a>
+              </div>
+          </div>
+
+          <div class="col-sm-12 col-md-8 col-lg-8" style="margin-top: 2rem"> <!-- right -->
+          <div class="row"> <!-- top -->
+            <div class="event_list-div-show col-sm-12 col-md-4 col-lg-4">
+              <!-- SHOWING 1-6 OF 6 PRODUCTS -->
+            </div>
+              <!-- filter -->
+              <!-- filter -->
+              
+              
+              <select class="custom-select col-sm-3 col-md-3 col-lg-3 nunito" style="border-color:#FC575E ;border-radius:10px; color: #FC575E; height: 2rem; ">
+                <option selected>Filter by</option>
+                <option value="1">A - Z</option>
+                <option value="2">Most Nearest</option>
+              </select>
+              
+              
+              
+
+
+            <div class="hidden-sm-down col-3 "> <!-- search -->
+              <input class=" mr-sm-2 event_list-input-txt" type="text" placeholder=" Search...">
+            </div> <!-- search -->
+            
+          </div> <!-- top -->
+
+          <br>
+
+          <div class="row col-12" style="margin-left: 0px;"> <!-- pic -->
+
+            <div class="picture col-sm-12 col-md-4 col-lg-4" ng-repeat="support in supports">
+              <a ng-href="#!/home/supportdetail/{{support.SUPPORT_ID}}" style="text-decoration: none;">
+                <div class="card " style=" margin-bottom: 1rem;">
+                  <div class="blockofimg" style="position: relative;min-height: 8.5rem;" >
+                      <img class=""  ng-src="{{support.PICTURE}}">
+                      <div class="event_list-div-redtype quicksand" style="padding-top:0.3rem; padding-left:0.3rem; padding-right: 0.3rem; position: absolute;bottom: 20px;right:0px;">{{support.TYPE}}</div>
+                    </div>
+                  <div class="card-block" style="" >
+                      <h4 class="event_list-h4-title " style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{support.NAME}}</h4>
+                      <h6 class="event_list-h6-describe ">{{support.DETAIL}}</h6>
+
+                      <div class="row">
+                        <div class="event_list-div-start_date quicksand col-5"> {{event.TIME_START_E | date:'medium'}} </div>
+                        <div class="event_list-div-dat quicksand col-1">-</div>
+                        <div class="event_list-div-end_date quicksand col-5"> {{event.TIME_END_E | date:'medium'}} </div>
+                      
+                      </div>
+                      <div class="row">
+                        <div class="event_list-div-price quicksand col-8"></div>
+                        <!-- <div class="event_profile-div-detail quicksand col-2">{{event.TYPE}}</div>  -->
+                      <div class="event_list-div-detail quicksand col-2">detail</div>                       
+                      </div>
+                    </div>
+                </div>
+              </a>
+            </div>
+
+           <!--  <div class="picture col-sm-12 col-md-4 col-lg-4">
+              <a style="text-decoration: none;" href="#">
+                <div class="card " style=" margin-bottom: 1rem;">
+                  <div style="position: relative; overflow: hidden;" >
+                      <img class="card-event-img" style="height: 15rem; width: 100% " src="pic/2.jpg">
+                      <div class="event_list-div-redtype quicksand" style="position: absolute;bottom: 0px;right:0px;">music</div>
+                    </div>
+                  <div class="card-block" style="" >
+                      <h4 class="event_list-h4-title quicksand">I LOVE PARK SHIN HYE</h4>
+                      <h6 class="event_list-h6-describe quicksand">I love pomeranian </h6>
+                      <div class="row">
+                        <div class="event_list-div-start_date quicksand col-5">23/04/2017</div>
+                        <div class="event_list-div-dat quicksand col-1">-</div>
+                        <div class="event_list-div-end_date quicksand col-5">24/04/2017</div>
+                      
+                      </div>
+                      <div class="row">
+                        <div class="event_list-div-price quicksand 
+                        col-8">$100</div>
+                      <div class="event_list-div-detail quicksand col-2">detail</div>                       
+                      </div>
+                    </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="picture col-sm-12 col-md-4 col-lg-4">
+              <a style="text-decoration: none;" href="#">
+                <div class="card " style=" margin-bottom: 1rem;">
+                  <div style="position: relative; overflow: hidden;" >
+                      <img class="card-event-img" style="height: 15rem; width: 100% " src="pic/2.jpg">
+                      <div class="event_list-div-redtype quicksand" style="position: absolute;bottom: 0px;right:0px;">music</div>
+                    </div>
+                  <div class="card-block" style="" >
+                      <h4 class="event_list-h4-title quicksand">I LOVE PARK SHIN HYE</h4>
+                      <h6 class="event_list-h6-describe quicksand">I love pomeranian </h6>
+                      <div class="row">
+                        <div class="event_list-div-start_date quicksand col-5">23/04/2017</div>
+                        <div class="event_list-div-dat quicksand col-1">-</div>
+                        <div class="event_list-div-end_date quicksand col-5">24/04/2017</div>
+                      
+                      </div>
+                      <div class="row">
+                        <div class="event_list-div-price quicksand 
+                        col-8">$100</div>
+                      <div class="event_list-div-detail quicksand col-2">detail</div>                       
+                      </div>
+                    </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="picture col-sm-12 col-md-4 col-lg-4">
+              <a style="text-decoration: none;" href="#">
+                <div class="card " style=" margin-bottom: 1rem;">
+                  <div style="position: relative; overflow: hidden;" >
+                      <img class="card-event-img" style="height: 15rem; width: 100% " src="pic/2.jpg">
+                      <div class="event_list-div-redtype quicksand" style="position: absolute;bottom: 0px;right:0px;">music</div>
+                    </div>
+                  <div class="card-block" style="" >
+                      <h4 class="event_list-h4-title quicksand">I LOVE PARK SHIN HYE</h4>
+                      <h6 class="event_list-h6-describe quicksand">I love pomeranian </h6>
+                      <div class="row">
+                        <div class="event_list-div-start_date quicksand col-5">23/04/2017</div>
+                        <div class="event_list-div-dat quicksand col-1">-</div>
+                        <div class="event_list-div-end_date quicksand col-5">24/04/2017</div>
+                      
+                      </div>
+                      <div class="row">
+                        <div class="event_list-div-price quicksand 
+                        col-8">$100</div>
+                      <div class="event_list-div-detail quicksand col-2">detail</div>                       
+                      </div>
+                    </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="picture col-sm-12 col-md-4 col-lg-4">
+              <a style="text-decoration: none;" href="#">
+                <div class="card " style=" margin-bottom: 1rem;">
+                  <div style="position: relative; overflow: hidden;" >
+                      <img class="card-event-img" style="height: 15rem; width: 100% " src="pic/2.jpg">
+                      <div class="event_list-div-redtype quicksand" style="position: absolute;bottom: 0px;right:0px;">music</div>
+                    </div>
+                  <div class="card-block" style="" >
+                      <h4 class="event_list-h4-title quicksand">I LOVE PARK SHIN HYE</h4>
+                      <h6 class="event_list-h6-describe quicksand">I love pomeranian </h6>
+                      <div class="row">
+                        <div class="event_list-div-start_date quicksand col-5">23/04/2017</div>
+                        <div class="event_list-div-dat quicksand col-1">-</div>
+                        <div class="event_list-div-end_date quicksand col-5">24/04/2017</div>
+                      
+                      </div>
+                      <div class="row">
+                        <div class="event_list-div-price quicksand 
+                        col-8">$100</div>
+                      <div class="event_list-div-detail quicksand col-2">detail</div>                       
+                      </div>
+                    </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="picture col-sm-12 col-md-4 col-lg-4">
+              <a style="text-decoration: none;" href="#">
+                <div class="card " style=" margin-bottom: 1rem;">
+                  <div style="position: relative; overflow: hidden;" >
+                      <img class="card-event-img" style="height: 15rem; width: 100% " src="pic/2.jpg">
+                      <div class="event_list-div-redtype quicksand" style="position: absolute;bottom: 0px;right:0px;">music</div>
+                    </div>
+                  <div class="card-block" style="" >
+                      <h4 class="event_list-h4-title quicksand">I LOVE PARK SHIN HYE</h4>
+                      <h6 class="event_list-h6-describe quicksand">I love pomeranian </h6>
+                      <div class="row">
+                        <div class="event_list-div-start_date quicksand col-5">23/04/2017</div>
+                        <div class="event_list-div-dat quicksand col-1">-</div>
+                        <div class="event_list-div-end_date quicksand col-5">24/04/2017</div>
+                      
+                      </div>
+                      <div class="row">
+                        <div class="event_list-div-price quicksand 
+                        col-8">$100</div>
+                      <div class="event_list-div-detail quicksand col-2">detail</div>                       
+                      </div>
+                    </div>
+                </div>
+              </a>
+            </div>                     
+
+          </div>  --><!-- pic -->
+          
+          <!-- <br>
+
+          <div class="row event_list-div-pag offset-md-9 offset-lg-9 offset-sm-9">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item" >
+                      <a class="page-link event_list-li-page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                  </li>
+                  <li class="page-item"><a class="page-link event_list-li-page-link" style="margin-left: 3px;" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link event_list-li-page-link" style="margin-left: 3px;" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link event_list-li-page-link" style="margin-left: 3px;" href="#">3</a></li>
+                  <li class="page-item">
+                      <a class="page-link event_list-li-page-link" style="margin-left: 3px;" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                  </li>
+                </ul>
+            </nav>
+          </div> -->
+
+          </div> <!-- right -->
+          
+        </div> <!-- rowbig -->
+    </div> <!-- fluid

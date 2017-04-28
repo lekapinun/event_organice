@@ -1,0 +1,209 @@
+<style>
+	#map {
+        height: 100%;
+    }
+</style>
+
+
+<div class="container-fluid">
+	<div class="col-sm-10 col-md-10 col-lg-10 offset-md-1 offset-lg-1">
+		<!-- <div class="col-sm-12 col-md-12 col-lg-12"> -->
+			<!--show type support (top)-->
+			<div class=" nunito event_detail-textlink">
+	  			<a style="color: #48515A" class="breadcrumb-item" href="#!/home/supportlist/">SUPPORT</a>
+	  			<a style="color: #48515A" class="breadcrumb-item" href="#!/home/supportlist/{{support.TYPE}}">{{support.TYPE}}</a>
+	  			<a style="color: #48515A" class="breadcrumb-item" >{{support.NAME}}</a>
+				<form class="form-inline col-md-3 offset-md-9 event_detail-search" >
+    				<input class="form-control mr-sm-2" type="text" placeholder="Search">
+  				</form>
+  			
+			</div>
+		
+		
+			<div class="col-sm-12 col-md-12 col-lg-12 event_detail-border">
+				<!--image of support's shop-->
+				<div class="col-sm-12 col-md-12 col-lg-12 ">
+  					<img ng-src="{{support.PICTURE}}" class="spport_detail-img-shop_img img-fluid">
+				</div>
+
+				<div class="col-md-12" style="border-bottom: 0.1rem solid #48515A;">
+					<!--Support's name-->
+					<div class="event_datail-text-eventname">
+						<span>{{support.NAME}}</span>
+					</div>
+					<!--support type-->
+					<div class="event_datail-text-createdby">
+						<span style="color:#7A8A99 ">TYPE: </span>
+						<a href="#!/home/supportlist/{{support.TYPE}}">
+							<span style="color: #47D2E9 " >{{support.TYPE}}</span>
+						</a>						
+					</div>
+				</div>	
+
+				<div class="row event_detail-detail mb-sm-1rem "   >
+					<!--support's map image-->
+					<div class="col-sm-12 col-md-6 col-lg-6 event_detail-detail" >
+						<!-- <img src="pic/map.jpg"> -->
+						<div id="map"></div>
+					</div>
+					<!--support's contact-->
+					<div class="col-sm-12 col-md-6 col-lg-6 mt-sm-0 mt-md-5" >
+						<div>
+							<div class="supoort_detail-text-topic">PHONE : </div>
+							<div class="support_detail-text-data_contact">&nbsp;{{support.PHONE}}</div>
+						</div>
+						<div>
+							<div class="supoort_detail-text-topic">WEB SITE : </div>
+							<div class="support_detail-text-data_contact">&nbsp;{{support.WEB}}</div>
+						</div>
+						<div>
+							<div class="supoort_detail-text-topic">FACEBOOK : </div>
+							<div class="support_detail-text-data_contact">&nbsp;{{support.FACEBOOK}}</div>
+						</div>
+						<div>
+							<div class="supoort_detail-text-topic">LINE : </div>
+							<div class="support_detail-text-data_contact">&nbsp;{{support.LINE}}</div>
+						</div>
+
+						<!--support's detail-->
+						<div class="supoort_detail-text-topic">DETAIL :</div>
+						<p class="support_detail-p-detail">{{support.DETAIL}}</p>
+					</div>
+				</div>
+				<br>
+				<!--location-->
+				<div style="border-bottom: 0.1rem solid #48515A;">
+					<span class="support_detail-text-location mt-md-3" >Products</span>
+				</div>
+				<!--map-->
+					<div class="support_detail-card-columns">
+						<!-- 1 -->
+						<div class="support_detail-card">
+							<div class="card support_detail-card">
+							  	<div class="card-img-top support_detail-img" >
+							  		<img id="sdImg" ng-src="{{support.CARD1}}">
+							  	</div>
+							    <div class="card-block">
+							      <p class="card-text quicksand " style="color:#828282; ">{{support.COMMENT1}}</p>
+							    </div>
+							</div>
+						</div>
+						<!-- The Modal -->
+						<div id="sdModal" class="support_detail-modal">
+						  <span class="support_detail-close">&times;</span>
+						  	<img class="support_detail-modal-content" id="sdImg1">
+						  <p id="support_detail-caption">{{support.COMMENT1}}</p>
+						</div>
+
+						<!-- 2 -->
+						<div class="support_detail-card">
+							<div class="card support_detail-card">
+							  	<div class="card-img-top support_detail-img" >
+							  		<img id="sdImg" ng-src="{{support.CARD2}}">
+							  	</div>
+							    <div class="card-block">
+							      <p class="card-text quicksand " style="color:#828282; ">{{support.COMMENT2}}</p>
+							    </div>
+							</div>
+						</div>
+						<!-- The Modal -->
+						<div id="sdModal" class="support_detail-modal">
+						  <span class="support_detail-close">&times;</span>
+						  	<img class="support_detail-modal-content" id="sdImg1">
+						  <p id="support_detail-caption">{{support.COMMENT2}}</p>
+						</div>
+
+						<!-- 2 -->
+						<div class="support_detail-card">
+							<div class="card support_detail-card">
+							  	<div class="card-img-top support_detail-img" >
+							  		<img id="sdImg" ng-src="{{support.CARD3}}">
+							  	</div>
+							    <div class="card-block">
+							      <p class="card-text quicksand " style="color:#828282; ">{{support.COMMENT3}}</p>
+							    </div>
+							</div>
+						</div>
+						<!-- The Modal -->
+						<div id="sdModal" class="support_detail-modal">
+						  <span class="support_detail-close">&times;</span>
+						  	<img class="support_detail-modal-content" id="sdImg3">
+						  <p id="support_detail-caption">{{support.COMMENT3}}</p>
+						</div>
+
+					</div>
+					
+
+		<!-- other support -->
+		<div class="row mt-md-5 hidden-sm-down" style="background-color: #48515A;">
+			<div class="col-md-12" >
+				<div class="event_datail-text-otherevent mt-md-5">
+					<span>OTHER SUPPORTS</span>
+				</div>
+				<div class="col-md-12 mt-md-5 mb-md-5 nunito" style="color: #48515A;">
+
+					<div class="card-deck event_detail-textlink-card">
+				
+						<div class="col-md-3" ng-repeat="supportOTHER in other | limitTo : 3">
+							<a ng-href="#!/home/supportdetail/{{supportOTHER.SUPPORT_ID}}" class="">
+								<div class="card " >
+							  	<div class="event_detail-blockofimg" style="height: 9.5rem;">
+							  		<img class="card-img-top img-fluid img-fluid-clip " ng-src="{{supportOTHER.PICTURE}}" >
+
+							  	</div>
+		
+							    <div class="card-block " >
+							      	<h4 class="card-title" style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{supportOTHER.NAME}}</h4>
+							      	<p class="card-text " style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{supportOTHER.DETAIL}}</p>
+							    </div>
+							   	<div class="card-footer">
+							      <a style="float: right;" class="quicksand-bold" href="#!/home/supportdetail/{{support.SUPPORT_ID}}"> detail</a>
+							    </div>
+
+							  </div>
+							</a> 
+						</div> 		 
+
+						<div  class="col-md-3">
+							<a ng-href="#!/home/supportlist/">
+								<div class="card event_detail-showmore"  >
+								    <div class="card-block text-center">
+								      	<div>
+								      		<p style="color: #fff">SHOW MORE +</p>
+								      		<!-- <a href="#" class="" style="color: #fff">SHOW MORE +</a> -->
+								    	</div>
+								    </div>
+							    </div>
+							</a>
+						</div>	  
+						  
+						  
+					</div>		
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('sdModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('sdImg');
+var modalImg = document.getElementById("sdImg1");
+var captionText = document.getElementById("support_detail-caption");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("support_detail-close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>

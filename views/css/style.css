@@ -2144,3 +2144,253 @@ body{
 	}
 }
  
+ /*================================Support Detail=================================*/
+.support_detail-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.support_detail-modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+/* Caption of Modal Image */
+#support_detail-caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.support_detail-modal-content, #support_detail-caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.support_detail-close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.support_detail-close:hover,
+.support_detail-close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .support_detail-modal-content {
+        width: 100%;
+    }
+}
+
+.support_detail-card{
+	cursor: pointer;
+    transition: 0.3s;
+}
+.support_detail-card:hover{
+	opacity: 0.8;
+}
+.support_detail-img{
+	max-width: 100%;
+	max-height:20rem;
+	overflow:hidden;
+}
+.support_detail-img img{
+	height:100%;
+	width:100%;
+}
+
+@media (min-width: 576px) {
+  .support_detail-card-columns {
+    -webkit-column-count: 3;
+       -moz-column-count: 3;
+            column-count: 3;
+    -webkit-column-gap: 1.25rem;
+       -moz-column-gap: 1.25rem;
+            column-gap: 1.25rem;
+
+  }
+  .support_detail-card-columns .card {
+
+    display: inline-flex;
+    width: 100%;
+    margin-bottom: 0.75rem;
+  }
+}
+.spport_detail-img-shop_img {
+	margin-top: 30px;
+}
+
+.supoort_detail-text-topic {
+	font-family: "Quicksand-bold";
+	color: #48515A;
+	display: inline-flex;
+}
+
+.support_detail-text-data_contact {
+	font-family: "Quicksand-Regular";
+	color: #48515A;
+	display: inline-flex;
+}
+
+.support_detail-p-detail {
+	font-family: "Quicksand-Regular";
+	color: #48515A
+}
+
+.support_detail-text-location {
+	font-family: "Quicksand-bold";
+	font-size: 20px;
+	margin-bottom: 1rem;
+	color: #48515A;
+}
+
+.support_detail-img-product {
+	margin-top: 0px;
+}
+
+@media (max-width:575px){
+	.support_detail-img-product {
+		margin-top: 15px;
+	}
+}	
+
+/*==========================supportlist=====================================================*/
+
+@import url('https://fonts.googleapis.com/css?family=Nunito|Quicksand');
+
+
+
+
+.support_list-h4-title{
+	color: #48515A;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.support_list-h6-describe{
+	color: #95989A;
+	font-size: 20px;
+	white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  	text-overflow: '.....?';
+}
+
+
+.support_list-a-event_type{
+	color: black;
+	font-family: "Nunito";
+	font-size: 1rem;
+	text-decoration: none;
+	margin-top: 1rem;
+	border-top-color: black;
+	border-bottom-color: black;
+}
+
+.support_list-a-event_type:hover{
+	text-decoration: none;
+	color: yellow;
+}
+
+
+
+.support_list-div-show{
+	font-family: 'Quicksand' ,sans-serif;
+	font-size: 1rem;
+	margin-top: 0rem;
+	margin-left: 1rem;
+
+}
+
+.support_list-li-page-link{
+	color: white;
+	font-family: 'Nunito';
+	background-color:#FFD700;
+	border-radius: 0px;
+}
+
+.support_list-li-page-link:hover{
+	color: white;
+	font-family: 'Nunito';
+	background-color:#FC575E;
+	border-radius: 0px;
+}
+
+
+
+.support_list-div-detail{
+	color: black;
+	font-size: 22px;
+}
+
+.support_list-div-price{
+	color: black;
+	font-size: 22px;
+}
+
+.support_list-div-redtype{
+	background-color: #FC575E;
+	height: 2rem;
+	font-size: 20px;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	margin-left: 150px;
+	margin-top: 194px;
+	border-top-left-radius: 15px; 
+
+}
+
+.support_list-input-txt{
+	width: 15rem;
+	border: 1.5px solid #000;
+	border-radius: 12px;
+	
+}
+
+
+
+@media (max-width:575px){
+	.support_list-div-pag{
+		margin-left: 5rem;
+	}
+}
